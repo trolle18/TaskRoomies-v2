@@ -9,7 +9,6 @@ export default function GroupPostCard({ grouptask }) {
         navigate(`/groupupdate/${grouptask.id}`);
     }
 
-
     
     return (
         <>

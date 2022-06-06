@@ -15,7 +15,7 @@ export default function GroupUpdatePage() {
     const [grouptask, setGroupTask] = useState({});
     const grouptaskId = params.id;
 
-    
+
     useEffect(() => {
         async function getGroupTask() {
             const docRef = doc(grouptaskRef, grouptaskId);
@@ -53,7 +53,7 @@ export default function GroupUpdatePage() {
             <GroupTaskForm saveGroupTask={handleSubmit} grouptask={grouptask} />
             
             <button onClick={handleDelete}>
-                {" "}  <FaRegTrashAlt size={20} />
+                <FaRegTrashAlt size={20} />
             </button>
         </section>
     );

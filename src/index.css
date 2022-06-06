@@ -24,10 +24,13 @@
   --font-header: "filson-soft", sans-serif;
 }
 
+
 /* ----- IMPORTS ----- */
 @import url("https://use.typekit.net/smz2raf.css");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap");
 
+
+/* ----- GENERAL ----- */
 body {
   color: var(--txt-clr-d);
   padding: 0;
@@ -37,29 +40,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-/*----- Scrollbar -----*/
-/* Width */
-::-webkit-scrollbar {
-	width: 6px;
-  border: 1px solid var(--background);
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-	background-color: var(--background);
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-	background-color: var(--nav);
-  border-radius: 5px;
 }
 
 h1 {
@@ -84,14 +64,6 @@ p {
 
 a {
   color: var(--orange);
-}
-
-.react-calendar__tile abbr:active {
-  background-color: #d31f5b;
-}
-
-.react-calendar__tile abbr::selection {
-  background-color: #d31f5b;
 }
 
 .App,.page {
@@ -140,6 +112,34 @@ a {
 .text-error:first-letter {
   text-transform: uppercase;
 }
+
+/*----- Scrollbar -----*/
+/* Width */
+::-webkit-scrollbar {
+	width: 6px;
+  border: 1px solid var(--background);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background-color: var(--background);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background-color: var(--nav);
+  border-radius: 5px;
+}
+
+/* Calender */
+.react-calendar__tile abbr:active {
+  background-color: #d31f5b;
+}
+
+.react-calendar__tile abbr::selection {
+  background-color: #d31f5b;
+}
+
 
 /* ---------- HEADER CNTR ---------- */
 .header-cntr {

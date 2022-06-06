@@ -13,6 +13,7 @@ export default function ProfilePage({ currentUser }) {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [image, setImage] = useState("");
+    const [user, setUser] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
     const auth = getAuth();
     const navigate = useNavigate();
@@ -24,9 +25,9 @@ export default function ProfilePage({ currentUser }) {
             setEmail(auth.currentUser.email);
             const docRef = doc(usersRef, auth.currentUser.uid);
             const userData = (await getDoc(docRef)).data();        
-            // const docSnap = await getDoc(docRef);
+            const docSnap = await getDoc(docRef);
             if (userData) {
-            // setUser((prevUser) => ({ ...prevUser, ...docSnap.data() }));
+            setUser((prevUser) => ({ ...prevUser, ...docSnap.data() }));
             setName(userData.name);
             setImage(userData.image || 'placeholder');
             }
@@ -103,15 +104,19 @@ export default function ProfilePage({ currentUser }) {
                             <img src={image} alt={image} onError={(event) => (event.target.src = placerholder)} />
                         </div>
                         <p className="text-error">{errorMessage}</p>
-                        <label for="useravatar" className="profile-avatar-label"> Profile picture </label>
+                        {/* <label for="useravatar" className="profile-avatar-label"> Profile picture </label> */}
+                        <span>Profile picture</span>
                         <input type="file" accept="image/*" value="" onChange={handleImageChange}  name="image" placeholder="pic" />
                     </div>
 
+                    <span>Name</span>
                     <input  type="text" value={name} onChange={e => setName(e.target.value)} name="name" placeholder="name"  />
+                    
+                    <span>Email</span>
                     <input type="email" value={email} onChange={e => setEmail(e.target.value)}  name="email" placeholder="user@mail.com"  />
 
                     <label className="notif-box">
-                        <div> {" "} <FaBell /> <p>Notifications</p>{" "}</div>
+                        <div> <FaBell /> <p>Notifications</p>{" "}</div>
                         <input className="notif_label" type="checkbox" name="bellcheckbox" />
                     </label>
 
@@ -121,7 +126,7 @@ export default function ProfilePage({ currentUser }) {
                         <button className="btn" onClick={handleSignOut} /*data-id={user.id}*/>
                             Sign out
                         </button>
-                        <button className="btn-outline" onClick={handleUserDelete} /* data-id={uid} */ >
+                        <button className="btn-outline" onClick={handleUserDelete} data-id={auth.currentUser.uid} >
                             Delete user
                         </button>
                     </div>
@@ -131,7 +136,7 @@ export default function ProfilePage({ currentUser }) {
 
             <div className="profile-page">
                 <form>
-                    <h3>My group</h3>
+                    <h3>Group</h3>
 
                     <div className="group-members-box">
                         <div className="user-img">
@@ -155,12 +160,12 @@ export default function ProfilePage({ currentUser }) {
                         <button className="remove-btn"> {" "}<HiMinusCircle />{" "}</button>
                     </div>
 
-                    <button className="invite-btn">
+                    {/* <button className="invite-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
                         <path d="M224 256c70.7 0 128-57.31 128-128S294.7 0 224 0C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3C0 496.5 15.52 512 34.66 512h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304zM616 200h-48v-48C568 138.8 557.3 128 544 128s-24 10.75-24 24v48h-48C458.8 200 448 210.8 448 224s10.75 24 24 24h48v48C520 309.3 530.8 320 544 320s24-10.75 24-24v-48h48C629.3 248 640 237.3 640 224S629.3 200 616 200z" />
                         </svg>
                         invite
-                    </button>
+                    </button> */}
 
                 </form>
             </div>
