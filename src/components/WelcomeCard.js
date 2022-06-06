@@ -2,7 +2,6 @@ import UserName from "./UserName";
 import UserImg from "./UserImg";
 
 
-
 export default function WelcomeCard({ post }) {
     return (
         <article className="welcome-card">

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 export default function GroupTaskForm({ saveGroupTask, grouptask }) {
     const [title, setTitle] = useState("");
     const [person, setPerson] = useState("");
@@ -12,6 +13,7 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
             setTitle(grouptask.title);
         }
     }, [grouptask]);
+
 
     function handleSubmit(event) {
         event.preventDefault(); 
@@ -25,6 +27,8 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
         navigate("/"); 
     }
 
+
+    
     return (
         <form onSubmit={handleSubmit}>
             <label>

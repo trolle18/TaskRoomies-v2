@@ -3,6 +3,7 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+
 export default function SignInPage() {
     const [errorMessage, setErrorMessage] = React.useState("");
     const navigate = useNavigate();
@@ -27,6 +28,9 @@ export default function SignInPage() {
             setErrorMessage(code);
         });
     }
+
+
+
     return (
         <section className="page">
             <div className="signin-cntr">

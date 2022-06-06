@@ -1,4 +1,3 @@
-//Louise
 import GroupTaskForm from "../components/GroupTaskForm";
 import { grouptaskRef } from "../firebase-config";
 import { onSnapshot, query, orderBy } from "@firebase/firestore"; //realtime updates. Snakker sammen med en constant -
@@ -10,15 +9,16 @@ import { useNavigate } from "react-router-dom";
 import { AiOutlineArrowLeft, AiOutlineCarryOut } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
+
 export default function CreatePage() {
     const [grouptask, setGroupTask] = useState([]); 
     const navigate = useNavigate();
     const auth = getAuth();
 
+
     useEffect(() => {
-        const q = query(grouptaskRef, orderBy("createdAt", "desc")); // order by: lastest post first
+        const q = query(grouptaskRef, orderBy("createdAt", "desc"));
         const unsubscribe = onSnapshot(q, (data) => {
-       
             const grouptaskData = data.docs.map((doc) => {
                 return { ...doc.data(), id: doc.id }; 
             });
@@ -27,6 +27,7 @@ export default function CreatePage() {
         return () => unsubscribe();
     }, []);
 
+
     async function handleSubmit(newGroupTask) {
         newGroupTask.createdAt = serverTimestamp(); // timestamp (now)
         newGroupTask.uid = auth.currentUser.uid; // user-id of auth user / signed in user
@@ -34,8 +35,11 @@ export default function CreatePage() {
         navigate("/");
     }
 
+
+
     return (
         <section className="page">
+            
             <section className="card">
                 <Link to="/">
                     <AiOutlineArrowLeft size={30} /> <br></br>

@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { doc, setDoc } from "@firebase/firestore";
 import { usersRef } from "../firebase-config";
 
+
 export default function SignUpPage() {
     const [errorMessage, setErrorMessage] = React.useState("");
     const [name, setName] = useState("");
@@ -37,6 +38,8 @@ export default function SignUpPage() {
         });
     }
 
+
+    
     return (
         <section className="page">
             <div className="signin-cntr">

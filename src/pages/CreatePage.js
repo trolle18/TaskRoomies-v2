@@ -18,14 +18,16 @@ export default function CreatePage() {
     useEffect(() => {
         const q = query(tasksRef, orderBy("createdAt", "desc")); // order by: lastest post first
         const unsubscribe = onSnapshot(q, (data) => {
-     
-        const tasksData = data.docs.map((doc) => {
-            return { ...doc.data(), id: doc.id };
+
+            const tasksData = data.docs.map((doc) => {
+                return { ...doc.data(), id: doc.id };
+            });
+            setTasks(tasksData);
         });
-        setTasks(tasksData);
-        });
+
         return () => unsubscribe();
     }, []);
+
 
     async function handleSubmit(newTask) {
         newTask.createdAt = serverTimestamp(); // timestamp (now)
@@ -34,13 +36,16 @@ export default function CreatePage() {
         navigate("/");
     }
 
+
+
     return (
         <section className="page">
+
             <section className="card">
-                
                 <Link to="/">
                     <AiOutlineArrowLeft size={30} /> <br></br>
                 </Link>
+
                 <div className="page-title">
                     <AiOutlineShoppingCart/>
                     <h2>Add item to shopping list</h2>
@@ -51,9 +56,10 @@ export default function CreatePage() {
 
             <section className="createtask-cntr">
                 {tasks.map( (task) => (
-                    <PostCard task={task} key={task.id} /> //
+                    <PostCard task={task} key={task.id} /> 
                 ) )}
             </section>
+
         </section>
     );
 }

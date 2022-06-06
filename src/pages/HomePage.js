@@ -1,38 +1,45 @@
 import { tasksRef } from "../firebase-config";
 import { grouptaskRef } from "../firebase-config";
-import { onSnapshot, query, orderBy } from "@firebase/firestore"; //realtime updates. Snakker sammen med en constant -
+import { onSnapshot, query, orderBy } from "@firebase/firestore";
 import GroupPostCard from "../components/GroupPostCard";
 import { useState, useEffect } from "react";
 import PostCard from "../components/PostCard";
 import WelcomeCard from "../components/WelcomeCard";
 
+
 export default function HomePage() {
-    const [tasks, setTasks] = useState([]); //gemmer alt data i et state
+    const [tasks, setTasks] = useState([]); 
+    const [grouptasks, setGroupTasks] = useState([]);
 
+    // Gets one list from firebase 
     useEffect(() => {
-        const q = query(tasksRef, orderBy("createdAt", "desc")); // order by: lastest post first
-        const unsubscribe = onSnapshot(q, (data) => {
-        //referer til quary i stedet for postsRef, fordi så kommer den med filterede resultater. unsub gør at man kan kigge på komponenterne, selvom man ikke er på samme side.
-        const tasksData = data.docs.map((doc) => {
-            return { ...doc.data(), id: doc.id }; //henter alt data fra firebase (...doc.data) og sammen med id: doc.id - skriver id'et fra brugeren.
+        const q = query(tasksRef, orderBy("createdAt", "desc"));    // Order by: lastest post first
+        const unsubscribe = onSnapshot(q, (data) => {   // Refers to quary instead of postRef, which returns filtered results - Unsub enables ability to watch components from a different page
+
+            const tasksData = data.docs.map((doc) => {
+                return { ...doc.data(), id: doc.id };   // Gets data from firebase (...doc.data) and with id: doc.id - gets the users id
+            });
+            setTasks(tasksData);
         });
-        setTasks(tasksData);
-        });
+
         return () => unsubscribe();
     }, []);
 
-    const [grouptasks, setGroupTasks] = useState([]); //gemmer alt data i et state
+    // Gets second list from firebase
     useEffect(() => {
-        const q = query(grouptaskRef, orderBy("createdAt", "desc")); // order by: lastest post first
-        const unsubscribe = onSnapshot(q, (data) => {
-        //referer til quary i stedet for postsRef, fordi så kommer den med filterede resultater. unsub gør at man kan kigge på komponenterne, selvom man ikke er på samme side.
-        const grouptaskData = data.docs.map((doc) => {
-            return { ...doc.data(), id: doc.id }; //henter alt data fra firebase (...doc.data) og sammen med id: doc.id - skriver id'et fra brugeren.
+        const q = query(grouptaskRef, orderBy("createdAt", "desc"));    // Order by: lastest post first
+        const unsubscribe = onSnapshot(q, (data) => {    // Refers to quary instead of postRef, which returns filtered results - Unsub enables ability to watch components from a different page
+        
+                const grouptaskData = data.docs.map((doc) => {
+                return { ...doc.data(), id: doc.id };   // Gets data from firebase (...doc.data) and with id: doc.id - gets the users id
+            });
+            setGroupTasks(grouptaskData);
         });
-        setGroupTasks(grouptaskData);
-        });
+
         return () => unsubscribe();
     }, []);
+
+
 
     return (
         <section className="page">

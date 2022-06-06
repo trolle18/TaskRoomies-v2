@@ -8,37 +8,40 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
+
 export default function UpdatePage() {
     const navigate = useNavigate();
     const params = useParams();
-    const [task, setTasks] = useState({}); //useState bruges til at tracke state i komponent. UseState lytter på om der ændres noget. Ses som en variable for en komponent. 
-    const taskId = params.id; //url parameter 
+    const [task, setTasks] = useState({}); 
+    const taskId = params.id; 
     console.log(taskId);
 
     useEffect(() => {
         async function getTask() {
-        const docRef = doc(tasksRef, taskId);
-        // laver en doc.reference, fra taskId fra url
-        const docData = await getDoc(docRef);//venter på funktionen returnere docref
-        setTasks(docData.data());
+            const docRef = doc(tasksRef, taskId);
+            const docData = await getDoc(docRef);
+            setTasks(docData.data());
         }
         getTask();
     }, [taskId]);
 
+
     async function handleSubmit(taskToUpdate) {
         const docRef = doc(tasksRef, taskId);
-        await updateDoc(docRef, taskToUpdate); //samme som ovenover-ish, funktion til når der gemmes ^^
+        await updateDoc(docRef, taskToUpdate); 
         navigate("/"); 
     }
 
     async function handleDelete() {
         const confirmDelete = window.confirm(`Delete, ${task.title}?`);  
         if (confirmDelete) {
-        const docRef = doc(tasksRef, taskId);
-        await deleteDoc(docRef);
-        navigate("/");
+            const docRef = doc(tasksRef, taskId);
+            await deleteDoc(docRef);
+            navigate("/");
         }
     }
+
+
 
     return (
         <section className="page">
@@ -47,7 +50,6 @@ export default function UpdatePage() {
             <Link to="/">
                 <AiOutlineArrowLeft size={30} /> <br></br>
             </Link>
-
             <br></br>
 
             <TodoForm saveTask={handleSubmit} task={task} />

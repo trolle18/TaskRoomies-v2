@@ -13,20 +13,23 @@ import Nav from "./components/Nav";
 import "./App.css";
 import "./index.css";
 
+
 function App() {
     const auth = getAuth();
     const [isAuth, setIsAuth] = React.useState(localStorage.getItem("isAuth"));
 
     onAuthStateChanged(auth, (user) => {
         if (user) {
-        setIsAuth(true);
-        localStorage.setItem("isAuth", true);
+            setIsAuth(true);
+            localStorage.setItem("isAuth", true);
         } else {
-        setIsAuth(false);
-        localStorage.removeItem("isAuth");
+            setIsAuth(false);
+            localStorage.removeItem("isAuth");
         }
     });
 
+
+    
     return (
         <>
            <div className="header-cntr">

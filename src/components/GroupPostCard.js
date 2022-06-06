@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { BsPencilSquare } from "react-icons/bs"
 
+
 export default function GroupPostCard({ grouptask }) {
     const navigate = useNavigate();
 
@@ -8,6 +9,8 @@ export default function GroupPostCard({ grouptask }) {
         navigate(`/groupupdate/${grouptask.id}`);
     }
 
+
+    
     return (
         <>
             <article>

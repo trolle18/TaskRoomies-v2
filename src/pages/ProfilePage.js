@@ -8,6 +8,7 @@ import placerholder from "../assets/profile-placeholder.jpg";
 import { HiMinusCircle } from "react-icons/hi";
 import { FaBell } from "react-icons/fa";
 
+
 export default function ProfilePage({ currentUser }) {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -89,6 +90,7 @@ export default function ProfilePage({ currentUser }) {
         });
     }
     
+
 
     return (
         <section className="page">

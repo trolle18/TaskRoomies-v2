@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 export default function TodoForm({ saveTask, task }) {
     const [title, setTitle] = useState("");
     const [date, setDate] = useState("");
@@ -8,8 +9,8 @@ export default function TodoForm({ saveTask, task }) {
 
     useEffect(() => {
         if (task) {
-        setTitle(task.title);
-        setDate(task.date);
+            setTitle(task.title);
+            setDate(task.date);
         }
     }, [task]);
 
@@ -17,8 +18,8 @@ export default function TodoForm({ saveTask, task }) {
         event.preventDefault();
 
         const taskData = {
-        title: title,
-        date: date,
+            title: title,
+            date: date,
         };
         saveTask(taskData);
         navigate("/");
