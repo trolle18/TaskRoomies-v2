@@ -29,6 +29,18 @@
 @import url("https://use.typekit.net/smz2raf.css");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap");
 
+@font-face {
+  font-family: "FontAwesome";
+  font-weight: normal;
+  font-style: normal;
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.eot");
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.eot") format("embedded-opentype"),
+       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2") format("woff2"),
+       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff") format("woff"),
+       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf") format("truetype"),
+       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.svg") format("svg");
+}
+
 
 /* ----- GENERAL ----- */
 body {
@@ -113,6 +125,7 @@ a {
   text-transform: uppercase;
 }
 
+
 /*----- Scrollbar -----*/
 /* Width */
 ::-webkit-scrollbar {
@@ -131,7 +144,8 @@ a {
   border-radius: 5px;
 }
 
-/* Calender */
+
+/* ----- Calender ----- */
 .react-calendar__tile abbr:active {
   background-color: #d31f5b;
 }
@@ -141,7 +155,7 @@ a {
 }
 
 
-/* ---------- HEADER CNTR ---------- */
+/* ----- HEADER CNTR ----- */
 .header-cntr {
   border: solid red 0px;
   width: 100%;
@@ -165,7 +179,7 @@ a {
 }
 
 
-/* ---------- LOGO ---------- */
+/* ----- LOGO ----- */
 .logo {
   font-family: var(--font-header);
   text-transform: uppercase;
@@ -185,7 +199,7 @@ a {
 }
 
 
-/* ---------- WELCOMECARD ---------- */
+/* ----- WELCOME-CARD ----- */
 .welcome-card {
   margin-bottom: 20px;
   padding-bottom: 10px;
@@ -228,7 +242,8 @@ a {
   margin: 0;
 }
 
-/* ---------- SIGNIN / SIGNUP ---------- */
+
+/* ---------- SIGNIN / SIGNUP PAGE ---------- */
 .signin-cntr {
   width: 100%;
   margin-left: auto;
@@ -240,7 +255,6 @@ a {
 
 .signin-form {
   margin: auto;
-  /* box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25); */
   text-align: center;
   padding: 1em 1em 2em;
   background-color: var(--white);
@@ -289,6 +303,7 @@ a {
   margin: 1em auto 0;
 }
 
+
 /* ---------- ANIMATIONS ---------- */
 /* fade in */
 @keyframes fadeIn {
@@ -310,6 +325,7 @@ a {
     transform: rotate(360deg);
   }
 }
+
 
 /* ---------- NAV ---------- */
 nav {
@@ -355,86 +371,52 @@ nav a.active {
 }
 
 
-
-
-/* ---------- Notifications box ---------- */
-.notif-box {
-  border: solid blue 0px;
-  height: 20px;
-  width: 90%;
-  margin-bottom: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.notif-box input {
-  height: 16px;
-  width: 16px;
-}
-.notif_label {
-  margin-top: 10%;
-}
-
-.notif-box div {
-  border: solid red 0px;
-  height: 100%;
-  margin: 2px 0px 0px 0px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.notif-box div p {
-  font-size: 12px;
-  margin: 0;
-  padding: 0px 0px 0px 5px;
-}
-
-.notif-box div svg {
-  height: 14px;
-  width: 14px;
-  color: var(--blue-d);
-}
-
 /* ---------- TASKS CNTR ---------- */
-.group-cntr {
+.task-cntr {
   width: 100%;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: var(--light-grey);
   border-radius: var(--border-r);
 }
 
-.group-cntr > article {
-  min-height: 55px;
+.task-cntr > article {
+  min-height: auto;
   margin: 0px;
   padding: 5px 10px;
   display: flex;
   flex-direction: row;
-  background-color: var(--white);
   transition: 0.5s;
   animation: fadeIn 0.5s;
-  background-color: var(--blue-l);
 }
 
-.group-cntr > article h2, p {
-  margin: 15px 0px 0px 0px;
+@media (min-width: 600px) {
+  /* .task-cntr {
+
+  } */
 }
 
-.group-cntr > article:first-child {
+@media (min-width: 992px) {
+  /* .task-cntr {
+
+  } */
+}
+
+/* .task-cntr > article h2, p {
+  margin: 15px 0px;
+} */
+
+/* .task-cntr > article:first-child {
   border-top-left-radius: var(--border-r);
   border-top-right-radius: var(--border-r);
 }
 
-.group-cntr > article:last-child {
+.task-cntr > article:last-child {
   border-bottom-left-radius: var(--border-r);
   border-bottom-right-radius: var(--border-r);
-}
+} */
 
 
 /* ---------- CREATE TASK PAGE ---------- */
@@ -447,7 +429,6 @@ nav a.active {
   transition: 0.5s;
   animation: fadeIn 0.5s;
   background-color: var(--blue-l);
-  /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
   border-radius: var(--border-r);
 }
 
@@ -461,11 +442,14 @@ nav a.active {
   font-weight: 400;
 }
 
+
 /* ---------- GRID CNTR ---------- */
-.grid-container {
-  padding-bottom: 80px;
+.grid-cntr {
+  border: solid red 0px;
   display: flex;
   flex-direction: column;
+  column-gap: 5em;
+  row-gap: 2em;
 }
 
 .outer-cntr {
@@ -473,41 +457,70 @@ nav a.active {
   flex-direction: column;
 }
 
-.cntr-title {
-  margin: 0;
-  font-size: 1em;
-  padding: 10px 0px 10px 20px;
-  text-transform: uppercase;
-  background-color: var(--blue-l);
-  border-top-left-radius: var(--border-r);
-  border-top-right-radius: var(--border-r);
-}
-
 @media (min-width: 600px) {
-  .grid-container {
+  .grid-cntr {
     flex-direction: column;
   }
 }
 
 @media (min-width: 992px) {
-  .grid-container {
+  .grid-cntr {
     flex-direction: row;
-    /* justify-content: space-between; */
+    justify-content: space-between;
   }
   .outer-cntr {
     width: 45%;
   }
 }
-/* ----- POST CARDS ----- */
-.postcard-cntr {
-  border: solid #4e27fd 0px;
+
+.cntr-title {
+  margin: 0;
+  font-size: 1em;
+  padding: 10px 20px;
+  text-transform: uppercase;
+}
+
+.title-box {
   width: 100%;
-  height: auto;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
 }
 
-/* ----- TODO ELEMENRS ----- */
+.task-cntr-link {
+  padding: 10px 20px;
+}
+
+.task-cntr-link svg {
+  height: 20px;
+  width: 20px;
+  color: rgba(0, 0, 0, 1);
+}
+
+
+
+/* ----- POST CARDS ----- */
+.postcard-cntr {
+  border: solid blue 0px;
+  width: 100%;
+  height: auto;
+  padding: .5em 2em;
+  display: flex;
+  justify-content: space-between;
+  /* background-color: rgba(0, 0, 0, 0.2); */
+  border-top: solid #acacac 2px;
+  transition: .2s ease-in;
+  border-radius: 0px;
+}
+
+.postcard-cntr:hover {
+  /* background-color: rgba(0, 0, 0, 0.2); */
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+
+
+/* ----- To-Do Elements ----- */
 .task_div {
   display: inline-block;
   z-index: 0;
@@ -516,119 +529,185 @@ nav a.active {
 .postcard-elem {
   height: auto;
   padding: 0px;
+  cursor: pointer;
 }
 
- .checkbox-elem {
-  width: 10%;
+/* Checkbox Element */
+.checkbox-elem {
   border: solid red 0px;
+  width: 1.5em;
+  padding: 0em 2.5em 0em 0em;
 }
 
-  .checkbox {
-    padding: 2px 0px 0px 0px;
-    height: auto;
+  .checkbox-box {
+    border: solid blue 0px;
+    height: 100%;
+    width: 1.5em;
+    padding: 0px 0px 0px 0px;
     position: relative;
     display: flex;
     justify-content: center;
   }
 
-  .checkbox>input {
-    width: 16px !important;
-    height: 16px !important;
-    top: 50%;
+  .checkbox-box > .checkbox-input {
+    width: 1.5em;
+    height: 1.5em;
     margin: 0px auto;
     padding: 0;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 50%);
     -webkit-appearance: none;
     position: absolute;
     vertical-align: sub;
     cursor: pointer;
     outline: none;
     border: 2px solid var(--black);
-    border-radius: 2px;
+    border-radius: 10px;
     background-color: var(--white);
   }
     
-    .checkbox>input:checked {
+    .checkbox-box > .checkbox-input:checked {
       background-color: var(--black);
       border-color: var(--black);
     }
       
-    .checkbox>input:checked label {
+    .checkbox-box > .checkbox-input:checked label {
       text-decoration: line-through;
       color: var(--white);
       font-style: italic;
       background-color: var(--white);
       border-radius: 5px;
     }
-    .checkbox>input:checked:hover {
-      background-color: rgba(0, 0, 0, 0.5);
+    .checkbox-box > .checkbox-input:checked:hover {
+      background-color: rgba(0, 0, 0, 1);
     }
     
-    .checkbox>input:hover {
+    .checkbox-box > .checkbox-input:hover {
       box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
       border-color: var(--black);
     }
 
-    .checkbox>input:after {
+    .checkbox-box > .checkbox-input::after {
       content: "";
       position: absolute;
       width: 100%;
       height: 100%;
-      left: 0;
-      top: 0;
-      background-size: 80%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-size: 70%;
       background-repeat: no-repeat;
       background-position: center;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23F9F9F9' d='M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z'/%3E%3C/svg%3E");
     }
 
-    .checkbox>input::after:hover {
+    .checkbox-box > .checkbox-input::after:hover {
       box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
       border-color: var(--black);
     }
   
+/* ToDo Text Element */
 .todo-elem {
-  width: 80%;
   border: solid orange 0px;
+  width: 90%;
+  cursor: pointer;
 }
 
 .todo-text {
-  height: auto;
-  width: auto;
+  border: solid green 0px;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
-  border: solid orange 0px;
+  justify-content: space-between;
+  flex-direction: row;
 }
 
-  .todo-text h3 {
+  /* ToDo Title */
+  .todo-text-title {
+    border: solid orange 0px;
+    width: 80%;
+    padding: 0em 2em 0em 0em;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+  }
+
+  .todo-text-title > .todo-img img {
+    border: solid green 0px;
+    height: 100%;
+    width: 2.5em;
+    margin: 0em 1em 0em 0em ;
+  }
+
+  .todo-text-title h3 {
     margin: 0;
-    font-size: 0.9em;
+    font-size: 16px;
     text-transform: capitalize;
+    font-weight: 600;
+    vertical-align: middle;
+    align-self: center;
   }
-  .todo-text p {
-    font-size: 0.7em;
+
+  /* ToDo Details */
+  .todo-text-details {
+    border: solid red 0px;
+    border-left: solid rgba(0, 0, 0, 0.2) 0px;
+    width: 20%;
+    padding: 0em 0em 0em 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: right;
+    cursor: pointer;
+  }
+
+  .todo-text-details p {
+    border: solid red 0px;
+    border-left: solid rgba(0, 0, 0, 0.5) 0px;
+    margin: 0em 0em 0em 0em;
+    /* padding: 0em 0em 0em 1em; */
+    font-size: 12px;
+    font-weight: 600;
     text-transform: capitalize;
+    /* vertical-align: middle;
+    align-self: center; */
   }
+
+  .todo-text-details :last-child {
+    font-size: 10px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
 
 .updt-elem {
-  width: 10%;
-  height: auto;
   border: solid green 0px;
+  width: 10%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-  .update>button {
+  .update > button {
+    border: solid green 0px;
     width: auto;
     height: auto;
     margin: 0 auto;
     padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: transparent;
   }
 
-  .update>button>svg {
+  .update > button > svg {
     height: 18px;
     width: 18px;
   }
 
-  .update>button>svg>path {
+  .update > button > svg > path {
     fill: var(--black);
     stroke: var(--black);
     stroke-width: .2px;
@@ -657,7 +736,7 @@ nav a.active {
   opacity: 0;
   padding-bottom: 5%;
 }
-.group-cntr article h3 {
+.task-cntr article h3 {
   text-align: left;
 }
 .todo__icon {
@@ -955,8 +1034,7 @@ nav a.active {
   }
 }
 
-/* --- CREATE GROUP TASK PAGE */
-
+/* ---------- CREATE GROUP TASK PAGE ---------- */
 select {
   -webkit-appearance: none;
   margin: 1em auto;
@@ -969,7 +1047,8 @@ select {
   border: solid 2px grey;
   border-radius: 5px;
 }
-/* ---------- FORM ---------- */
+
+/* ----- Form ----- */
 form {
   margin: auto;
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
@@ -1079,7 +1158,9 @@ article .avatar img {
   border-radius: 50%;
 }
 
-/* ---------- PROFILE ---------- */
+
+
+/* ---------- PROFILE PAGE ---------- */
 .profile-page {
   width: 100%;
   height: 100%;
@@ -1166,6 +1247,49 @@ article .avatar img {
   color: var(--blue-d);
 }
 
+/* ----- Notifications box ----- */
+/* .notif-box {
+  border: solid blue 0px;
+  height: 20px;
+  width: 90%;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notif-box input {
+  height: 16px;
+  width: 16px;
+}
+.notif_label {
+  margin-top: 10%;
+}
+
+.notif-box div {
+  border: solid red 0px;
+  height: 100%;
+  margin: 2px 0px 0px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.notif-box div p {
+  font-size: 12px;
+  margin: 0;
+  padding: 0px 0px 0px 5px;
+}
+
+.notif-box div svg {
+  height: 14px;
+  width: 14px;
+  color: var(--blue-d);
+} */
+
 
 .profile-avatar-label {
   border: solid blue 0px;
@@ -1207,6 +1331,7 @@ p {
   margin-bottom: 10px;
 }
 
+/* ----- Group box ----- */
 .group-members-box {
   border: solid red 0px;
   display: flex;
@@ -1282,6 +1407,35 @@ p {
 .invite-btn svg path {
   fill: var(--white);
 }
+
+
+/* ---------- TASKFORMS PAGE ---------- */
+
+.icon-select {
+  width: 50%;
+  /* font-weight: 900;
+  font-family: FontAwesome; */
+}
+
+.icon-option {
+  display: flex;
+  flex-direction: row;
+}
+
+.icon-select img {
+  float: left;
+}
+
+.icon-option svg {
+  height: 15px;
+  width: 15px;
+}
+
+.icon-option svg path {
+  fill: #000;
+}
+
+
 
 /*dark mode*/
 [data-theme="dark"] {

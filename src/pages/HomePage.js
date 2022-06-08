@@ -1,8 +1,9 @@
-import { tasksRef } from "../firebase-config";
-import { grouptaskRef } from "../firebase-config";
-import { onSnapshot, query, orderBy } from "@firebase/firestore";
-import GroupPostCard from "../components/GroupPostCard";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { tasksRef, grouptaskRef } from "../firebase-config";
+import { onSnapshot, query, orderBy } from "@firebase/firestore";
+import { MdAddCircle } from "react-icons/md"
+import GroupPostCard from "../components/GroupPostCard";
 import PostCard from "../components/PostCard";
 import WelcomeCard from "../components/WelcomeCard";
 
@@ -47,18 +48,28 @@ export default function HomePage() {
                 <WelcomeCard />
             </section>
 
-            <br></br>
-            <section className="grid-container">
-                <div className="group-cntr">
-                    <h2 className="cntr-title">Group tasks</h2>
+          
+            <section className="grid-cntr">
+                <div className="task-cntr">
+                    <div className="title-box">
+                        <h2 className="cntr-title">Group tasks</h2>  
+                        <Link to="/groupcreate" className="task-cntr-link">
+                            <MdAddCircle/>
+                        </Link>
+                    </div>
                     {grouptasks.map( ( grouptask ) => (
                         <GroupPostCard grouptask={grouptask} key={grouptask.id} /> //
                     ) )}
                 </div>
-                <br></br>
+               
 
-                <div className="group-cntr">
-                    <h2 className="cntr-title">Shopping list</h2>
+                <div className="task-cntr">
+                    <div className="title-box">
+                        <h2 className="cntr-title">Shopping list</h2>
+                        <Link to="/create" className="task-cntr-link">
+                            <MdAddCircle/>
+                        </Link>
+                    </div>
                     {tasks.map( ( task  ) => (
                     <PostCard task={task} key={task.id} /> //
                     ) )}

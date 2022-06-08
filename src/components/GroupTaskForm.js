@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { MdHandyman, MdLocalDining, MdCleanHands, MdWaterDrop, MdBed, MdChair, MdShower } from "react-icons/md";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCouch } from '@fortawesome/free-solid-svg-icons';
+import couchIcon from '../assets/icons/couch-solid.svg';
 
 
 export default function GroupTaskForm({ saveGroupTask, grouptask }) {
@@ -39,15 +42,15 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
             </label>
 
             <label>
-                <select placeholder="" value={icon} onChange={(e) => setIcon(e.target.value)}>
-                    <option value="">Icon</option>
-                    <option value="tools"> <MdHandyman /></option>
-                    <option value="cutlery"> <MdLocalDining /> </option>
-                    <option value="wash"> <MdCleanHands/> </option>
-                    <option value="water"> <MdWaterDrop/> </option>
-                    <option value="bed"> <MdBed/> </option>
-                    <option value="couch"> <MdChair/> </option>
-                    <option value="bath"> <MdShower/> </option>
+                <select className="icon-select" placeholder="" value={icon} onChange={(e) => setIcon(e.target.value)}>
+                    <option className="icon-option" value="">Icon</option>
+                    <option className="icon-option" value="tools" data-icon="./assets/icons/couch-solid.svg"> Tools <MdHandyman /></option>
+                    <option className="icon-option" value="cutlery" data-icon={couchIcon}> <FontAwesomeIcon icon={faCouch}/> Cutlery <MdLocalDining /> </option>
+                    <option className="icon-option" value="wash"> <FontAwesomeIcon icon={faCouch}/> Wash <MdCleanHands/> </option>
+                    <option className="icon-option" value="water"> <FontAwesomeIcon icon={faCouch}/> Water <MdWaterDrop/> </option>
+                    <option className="icon-option" value="bed"> <FontAwesomeIcon icon={faCouch}/> Bed <MdBed/> </option>
+                    <option className="icon-option" value="couch"> <FontAwesomeIcon icon={faCouch}/> Couch </option>
+                    <option className="icon-option" value="bath"> <FontAwesomeIcon icon={faCouch}/> Bath <MdShower/> </option>
                 </select>
             </label>
 
