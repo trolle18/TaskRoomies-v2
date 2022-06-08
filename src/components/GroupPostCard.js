@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BiCalendarEvent } from "react-icons/bi"
 import couchIcon from "../assets/icons/couch-solid.svg";
@@ -5,10 +6,32 @@ import couchIcon from "../assets/icons/couch-solid.svg";
 
 export default function GroupPostCard({ grouptask }) {
     const navigate = useNavigate();
+    const [checked, setChecked] = useState();
+
 
     function handleClick() {
         navigate(`/groupupdate/${grouptask.id}`);
     }
+    
+    // Checkbox 
+    const onChange = () => {
+        setChecked(!checked);
+    };
+
+    const Checkbox = ({checkboxId, value, onChange}) => {
+        return (
+            <input 
+                type='checkbox' 
+                name="checkbox" 
+                id={grouptask.checkboxId}
+                checked={value}
+                onChange={onChange}
+                className="checkbox-input"
+            />
+        )
+    };
+
+    console.log({onChange})
 
     
     return (
@@ -18,7 +41,13 @@ export default function GroupPostCard({ grouptask }) {
 
                     <div className="postcard-elem checkbox-elem">
                         <div className="checkbox-box">
-                            <input type='checkbox' name="checkbox" className="checkbox-input"/>
+                            <Checkbox 
+                            type='checkbox' 
+                            name="checkbox" 
+                            id="checkbox"
+                            checked={checked}
+                            // onChange={onChange}
+                            className="checkbox-input"/>
                         </div>
                     </div>
 
