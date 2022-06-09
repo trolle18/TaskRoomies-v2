@@ -49,11 +49,19 @@ export default function CreatePage() {
                 <GroupTaskForm saveGroupTask={handleSubmit} />
             </section>
             
-            <section className="createtask-cntr">
-                {grouptask.map( ( grouptask ) => (
-                    <GroupPostCard grouptask={grouptask} key={grouptask.id} /> //
-                ) )}
+            <section className="grid-cntr">
+                <div className="task-cntr">  
+                    <div className="title-box">
+                        <h2 className="cntr-title">Group Tasks</h2>  
+                    </div>              
+                    <article>
+                        {grouptask.map( ( grouptask ) => (
+                            <GroupPostCard grouptask={grouptask} key={grouptask.id} /> //
+                        ) )}
+                    </article>
+                </div>
             </section>
+
 
         </section>
     );

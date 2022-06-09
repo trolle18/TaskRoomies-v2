@@ -1,0 +1,79 @@
+/* ---------- ROOTS ---------- */
+:root {
+    --white: #f1f1f1;
+    --black: #232323;
+    --grey-l: #dddddd;
+    --grey-m: #aeaeae;
+    --grey-d: #454545;
+    
+    --blue-d: #2d1e2f;
+    --blue-m: #52b1e1;
+    --blue-l: #f6f8fa;
+    --yellow: #ffc662;
+    --yellow-l: #ffd895;
+    --orange: #f39e0a;
+
+    /* --background: #72617e; */
+    --background: #c5c8dc;
+    --nav: #161b3b;
+    
+    --border-r: 10px;
+
+    --font-main: "montserrat", sans-serif;
+    --font-header: "filson-soft", sans-serif;
+    --txt-clr-l: #f1f1f1;
+    --txt-clr-d: #232323;
+    --txt-clr-danger: rgb(152, 58, 58);
+}
+
+
+/* ----- DARK MODE ----- */
+[data-theme="dark"] {
+    --background: #232323;
+    --nav: #0a0d1e;
+
+    --text-primary: white;
+    --text-secondary: grey;
+    --txt-clr-l: #f1f1f1;
+    --txt-clr-d: #333;
+
+    --white: #232323;
+    --black: #f1f1f1;
+    --grey-l: #dddddd;
+    --grey-m: #454545;
+    --grey-d: #aeaeae;
+
+    --blue-d: #f1f1f1;
+    --blue-m: #52b1e1;
+    --blue-l: #2d1e2f;
+    --orange: #bb7907; 
+}
+
+
+/* ----- Dark Mode Button ----- */
+.darkmode-btn-box {
+    height: auto;
+    width: 30px;
+    height: 30px;
+    right: 0;
+    top: 0;
+    padding: 10px 14px 0px 0px;
+    z-index: 100;
+    position: absolute;
+}
+  
+#DarkModeButton {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--black);
+}
+  
+#DarkModeButton svg {
+    height: 25px;
+    width: 25px;
+    margin: 0;
+    padding: 2.5px 0px;
+    color: var(--white);
+}

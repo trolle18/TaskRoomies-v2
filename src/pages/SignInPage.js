@@ -37,9 +37,11 @@ export default function SignInPage() {
                 <form className="signin-form" onSubmit={signIn}>
                     <h1 className="logo"> Task<span>Roomies</span> </h1>
                     <p>Sign in</p>
+                    
                     <input type="email" name="mail" placeholder="Email" />
                     <input type="password" name="password" placeholder="Password" />
                     <p className="text-error">{errorMessage}</p>
+
                     <button className="signin-btn">Sign in</button>
                 
                     <p className="text-center">

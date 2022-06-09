@@ -54,7 +54,9 @@ export default function SignUpPage() {
                     <input type="email" name="mail" placeholder="Email" />
                     <input type="password" name="password" placeholder="Password" />
                     <p className="text-error">{errorMessage}</p>
+
                     <button className="signin-btn">Sign up</button>
+                    
                     <p className="text-center">
                         <strong>Already have a user? </strong>
                         <Link to="/signin">Sign in</Link>

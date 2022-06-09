@@ -1,25 +1,23 @@
 /* ---------- ROOTS ---------- */
 :root {
-  --white: #f1f1f1;
-  --black: #232323;
-  --light-grey: #f1f1f4;
+    --white: #f1f1f1;
+    --black: #232323;
+    --grey-l: #dddddd;
+    --grey-m: #aeaeae;
+    --grey-d: #454545;
+    
+    --blue-d: #2d1e2f;
+    --blue-m: #52b1e1;
+    --blue-l: #f6f8fa;
+    --yellow: #ffc662;
+    --yellow-l: #ffd895;
+    --orange: #f39e0a;
+
+    --txt-clr-l: #f1f1f1;
+    --txt-clr-d: #232323;
   
-  --txt-clr-l: #f1f1f1;
-  --txt-clr-d: #232323;
-
-  --background: #72617e;
-
-  --blue-d: #2d1e2f;
-  --blue-m: #52b1e1;
-  --blue-l: #f6f8fa;
-  --yellow: #ffc662;
-  --yellow-l: #ffd895;
-  --orange: #f39e0a;
-
-  --border-r: 10px;
+    --border-r: 10px;
 }
-
-
 
 /* ---------- PostCard Container ---------- */
 .postcard-cntr {
@@ -29,7 +27,6 @@
     padding: .5em 2em;
     display: flex;
     justify-content: space-between;
-    /* background-color: rgba(0, 0, 0, 0.2); */
     border-top: solid #acacac 2px;
     transition: .2s ease-in;
     border-radius: 0px;
@@ -37,9 +34,7 @@
 
 .postcard-cntr:hover {
     background-color: rgba(0, 0, 0, 0.12);
-    /* box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5); */
 }
-
 
 
 /* ----- PostCard Elements ----- */

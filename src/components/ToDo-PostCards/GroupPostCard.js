@@ -33,7 +33,7 @@ export default function GroupPostCard({ grouptask }) {
 
     
     return (
-        <>
+        <>          
             <div className="postcard-cntr">
 
                 <div className="postcard-elem checkbox-elem">
@@ -50,7 +50,7 @@ export default function GroupPostCard({ grouptask }) {
                 </div>
 
                 <div className="postcard-elem todo-elem" onClick={handleClick}>
-                    <label for="checkbox" className="todo-text">
+                    <label className="todo-text">
                         <div className="todo-text-title">
                             <div className="todo-img">
                                 <img src={couchIcon} alt="" />
@@ -70,6 +70,7 @@ export default function GroupPostCard({ grouptask }) {
                         <button onClick={handleClick}> <BsPencilSquare/> </button>
                     </div>
                 </div>  */}
+
             </div>
         </>
     );

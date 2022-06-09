@@ -1,0 +1,105 @@
+/* ---------- ROOTS ---------- */
+:root {
+    --white: #f1f1f1;
+    --black: #232323;
+    --grey-l: #dddddd;
+    --grey-m: #aeaeae;
+    --grey-d: #454545;
+    
+    --blue-d: #2d1e2f;
+    --blue-m: #52b1e1;
+    --blue-l: #f6f8fa;
+    --yellow: #ffc662;
+    --yellow-l: #ffd895;
+    --orange: #f39e0a;
+
+    --txt-clr-l: #f1f1f1;
+    --txt-clr-d: #232323;
+
+    --border-r: 10px;
+}
+
+
+/* ---------- ToDo Forms ---------- */
+form {
+    max-width: 380px;
+    margin: auto;
+    padding: 1em 1em 2em;
+    border-radius: var(--border-r);
+    background-color: var(--white);
+    text-align: center;
+    line-height: 30px;
+    animation: fadeIn 0.5s;
+}
+
+select {
+    -webkit-appearance: none;
+    margin: 1em auto;
+    width: 100%;
+    max-width: 350px;
+    padding: 1em;
+    box-sizing: border-box;
+    display: block;
+    border: solid 2px;
+    border-radius: 5px;
+}
+
+input {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 350px;
+    padding: 1em;
+    box-sizing: border-box;
+    display: block;
+    border: solid 2px;
+    border-radius: 5px;
+}
+
+form button {
+    width: 40%;
+    max-width: 10em;
+    padding: .5em 2em;
+    font-size: 1em; 
+}
+
+button {
+    margin: 1.4em auto 0;
+    padding: 0.4em 0.8em;
+    display: block;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: var(--orange);
+    text-align: center;
+    color: var(--txt-clr-l);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 0.8em;
+}
+
+
+
+/* ----- Icon selects ----- */
+.icon-select {
+    width: 50%;
+}
+
+.icon-option {
+    display: flex;
+    flex-direction: row;
+}
+
+.icon-select img {
+    float: left;
+}
+
+.icon-option svg {
+    height: 15px;
+    width: 15px;
+}
+
+.icon-option svg path {
+    fill: #000;
+}
+
