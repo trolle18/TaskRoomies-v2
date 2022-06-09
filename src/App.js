@@ -44,22 +44,23 @@ function App() {
                     <>
                         <Nav />
                         <Routes>
-                            <Route path="/" element={<HomePage />} />
-                            <Route path="/signin" element={<SignInPage />} />
-                            <Route path="/signup" element={<SignUpPage />} />
-                            <Route path="/profile" element={<ProfilePage />} />
-                            <Route path="/groupupdate/:id" element={<GroupUpdatePage />} />
-                            <Route path="/create" element={<CreatePage />} />
-                            <Route path="/update/:id" element={<UpdatePage />} />
-                            <Route path="/groupcreate" element={<GroupCreatePage />} />
-                            <Route path="*" element={<Navigate to="/" />} />
+                            <Route path="/" element={<HomePage/>} />
+                            <Route path="*" element={<Navigate to="/"/>} />
+                            <Route path="/signin" element={<SignInPage/>} />
+                            <Route path="/signup" element={<SignUpPage/>} />
+                            <Route path="/profile" element={<ProfilePage/>} />
+                            <Route path="/groupcreate" element={<GroupCreatePage/>} />
+                            <Route path="/groupupdate/:id" element={<GroupUpdatePage/>} />
+                            <Route path="/create" element={<CreatePage/>} />
+                            <Route path="/update/:id" element={<UpdatePage/>} />
                         </Routes>
                     </>
                 ) : (
                     <Routes>
-                        <Route path="signin" element={<SignInPage />} />
-                        <Route path="signup" element={<SignUpPage />} />
-                        <Route path="*" element={<Navigate to="signin" />} />
+                        <Route path="/" element={<Navigate to="signin"/>} />
+                        <Route path="*" element={<Navigate to="/"/>} />
+                        <Route path="signin" element={<SignInPage/>} />
+                        <Route path="signup" element={<SignUpPage/>} />
                     </Routes>
                 )}
             </main>

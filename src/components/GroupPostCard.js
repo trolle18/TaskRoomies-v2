@@ -8,30 +8,27 @@ export default function GroupPostCard({ grouptask }) {
     const navigate = useNavigate();
     const [checked, setChecked] = useState();
 
-
     function handleClick() {
         navigate(`/groupupdate/${grouptask.id}`);
     }
     
     // Checkbox 
-    const onChange = () => {
-        setChecked(!checked);
-    };
+        const onChange = () => {
+            setChecked(!checked);
+        };
 
-    const Checkbox = ({checkboxId, value, onChange}) => {
-        return (
-            <input 
-                type='checkbox' 
-                name="checkbox" 
-                id={grouptask.checkboxId}
-                checked={value}
-                onChange={onChange}
-                className="checkbox-input"
-            />
-        )
-    };
-
-    console.log({onChange})
+        const Checkbox = ({checkboxId, value, onChange}) => {
+            return (
+                <input 
+                    type='checkbox' 
+                    name="checkbox" 
+                    id={grouptask.checkboxId}
+                    checked={value}
+                    onChange={onChange}
+                    className="checkbox-input"
+                />
+            )
+        };  console.log({onChange})
 
     
     return (

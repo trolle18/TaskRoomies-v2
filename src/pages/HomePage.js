@@ -13,30 +13,29 @@ export default function HomePage() {
     const [grouptasks, setGroupTasks] = useState([]);
 
     // Gets first list from firebase 
-    useEffect(() => {
-        const q = query(tasksRef, orderBy("createdAt", "desc"));    // Order by: lastest post first
-        const unsubscribe = onSnapshot(q, (data) => {   // Refers to quary instead of postRef, which returns filtered results - Unsub enables ability to watch components from a different page
-            const tasksData = data.docs.map((doc) => {
-                return { ...doc.data(), id: doc.id };   // Gets data from firebase (...doc.data) and with id: doc.id - gets the users id
+        useEffect(() => {
+            const q = query(tasksRef, orderBy("createdAt", "desc"));    // Order by: lastest post first
+            const unsubscribe = onSnapshot(q, (data) => {   // Refers to quary instead of postRef, which returns filtered results - Unsub enables ability to watch components from a different page
+                const tasksData = data.docs.map((doc) => {
+                    return { ...doc.data(), id: doc.id };   // Gets data from firebase (...doc.data) and with id: doc.id - gets the users id
+                });
+                setTasks(tasksData);
             });
-            setTasks(tasksData);
-        });
-        return () => unsubscribe();
-    }, []);
+            return () => unsubscribe();
+        }, []);
 
 
     // Gets second list from firebase
-    useEffect(() => {
-        const q = query(grouptaskRef, orderBy("createdAt", "desc"));    // Order by: lastest post first
-        const unsubscribe = onSnapshot(q, (data) => {    // Refers to quary instead of postRef, which returns filtered results - Unsub enables ability to watch components from a different page
-                const grouptaskData = data.docs.map((doc) => {
-                return { ...doc.data(), id: doc.id };   // Gets data from firebase (...doc.data) and with id: doc.id - gets the users id
+        useEffect(() => {
+            const q = query(grouptaskRef, orderBy("createdAt", "desc"));    // Order by: lastest post first
+            const unsubscribe = onSnapshot(q, (data) => {    // Refers to quary instead of postRef, which returns filtered results - Unsub enables ability to watch components from a different page
+                    const grouptaskData = data.docs.map((doc) => {
+                    return { ...doc.data(), id: doc.id };   // Gets data from firebase (...doc.data) and with id: doc.id - gets the users id
+                });
+                setGroupTasks(grouptaskData);
             });
-            setGroupTasks(grouptaskData);
-        });
-        return () => unsubscribe();
-    }, []);
-
+            return () => unsubscribe();
+        }, []);
 
 
     return (

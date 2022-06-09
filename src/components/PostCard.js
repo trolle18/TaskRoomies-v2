@@ -2,13 +2,11 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function PostCard({ task }) {
-
     const navigate = useNavigate(); 
     
     function handleClick() {
         navigate(`/update/${task.id}`);
     } 
-
 
     
     return (
