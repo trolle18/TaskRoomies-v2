@@ -500,36 +500,26 @@ nav a.active {
 
 
 /* ----- POST CARDS ----- */
-.postcard-cntr {
+/* .postcard-cntr {
   border: solid blue 0px;
   width: 100%;
   height: auto;
   padding: .5em 2em;
   display: flex;
   justify-content: space-between;
-  /* background-color: rgba(0, 0, 0, 0.2); */
   border-top: solid #acacac 2px;
   transition: .2s ease-in;
   border-radius: 0px;
 }
 
-/* .task-cntr > article::before {
-  content: "";
-  height: 2px;
-  width: 100px;
-  top: 0;
-  background-color: #000;
-} */
-
 .postcard-cntr:hover {
   background-color: rgba(0, 0, 0, 0.12);
-  /* box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5); */
-}
+} */
 
 
 
 /* ----- To-Do Elements ----- */
-.task_div {
+/* .task_div {
   display: inline-block;
   z-index: 0;
 }
@@ -538,10 +528,10 @@ nav a.active {
   height: auto;
   padding: 0px;
   cursor: pointer;
-}
+} */
 
 /* Checkbox Element */
-.checkbox-elem {
+/* .checkbox-elem {
   border: solid red 0px;
   width: 1.5em;
   padding: 0em 2.5em 0em 0em;
@@ -614,9 +604,10 @@ nav a.active {
       box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
       border-color: var(--black);
     }
-  
+   */
+
 /* ToDo Text Element */
-.todo-elem {
+/* .todo-elem {
   border: solid orange 0px;
   width: 90%;
   cursor: pointer;
@@ -630,10 +621,10 @@ nav a.active {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-}
+} */
 
   /* ToDo Title */
-  .todo-text-title {
+  /* .todo-text-title {
     border: solid orange 0px;
     width: 80%;
     padding: 0em 2em 0em 0em;
@@ -656,10 +647,10 @@ nav a.active {
     font-weight: 600;
     vertical-align: middle;
     align-self: center;
-  }
+  } */
 
   /* ToDo Details */
-  .todo-text-details {
+  /* .todo-text-details {
     border: solid red 0px;
     border-left: solid rgba(0, 0, 0, 0.2) 0px;
     width: 20%;
@@ -675,12 +666,9 @@ nav a.active {
     border: solid red 0px;
     border-left: solid rgba(0, 0, 0, 0.5) 0px;
     margin: 0em 0em 0em 0em;
-    /* padding: 0em 0em 0em 1em; */
     font-size: 12px;
     font-weight: 600;
     text-transform: capitalize;
-    /* vertical-align: middle;
-    align-self: center; */
   }
 
   .todo-text-details :last-child {
@@ -688,8 +676,9 @@ nav a.active {
     font-weight: 600;
     color: rgba(0, 0, 0, 0.5);
   }
+ */
 
-
+/* 
 .updt-elem {
   border: solid green 0px;
   width: 10%;
@@ -719,9 +708,9 @@ nav a.active {
     fill: var(--black);
     stroke: var(--black);
     stroke-width: .2px;
-  }
+  } */
 
-
+/* 
 .todo {
   display: block;
   position: absolute;
@@ -839,21 +828,21 @@ nav a.active {
 .todo__state:checked ~ .todo__icon .todo__circle {
   -webkit-animation-name: explode;
   animation-name: explode;
-}
+} */
 
 /* UPDATE BUTTON STYLING */
-
+/* 
 .update {
   display: contents;
   padding: 5px 12px;
   font-size: 1em;
   width: 30%;
   max-width: 350px;
-}
+} */
 
 /* DELETE BUTTON STYLING */
 
-.checkbox_delete_container {
+/* .checkbox_delete_container {
   width: 30%;
   height: 30%;
   margin: 0 auto;
@@ -1040,7 +1029,7 @@ nav a.active {
   100% {
     transform: rotateZ(0);
   }
-}
+} */
 
 /* ---------- CREATE GROUP TASK PAGE ---------- */
 select {

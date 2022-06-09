@@ -53,9 +53,11 @@ export default function HomePage() {
                             <MdAddCircle/>
                         </Link>
                     </div>
-                    {grouptasks.map( ( grouptask ) => (
-                        <GroupPostCard grouptask={grouptask} key={grouptask.id} /> //
-                    ) )}
+                    <article>
+                        {grouptasks.map( ( grouptask ) => (
+                            <GroupPostCard grouptask={grouptask} key={grouptask.id} /> //
+                        ) )}
+                    </article>
                 </div>
                
 
@@ -66,9 +68,11 @@ export default function HomePage() {
                             <MdAddCircle/>
                         </Link>
                     </div>
-                    {tasks.map( ( task  ) => (
-                    <PostCard task={task} key={task.id} /> //
-                    ) )}
+                    <article>
+                        {tasks.map( ( task  ) => (
+                            <PostCard task={task} key={task.id} /> //
+                        ) )}
+                    </article>
                 </div>
             </section>
 
