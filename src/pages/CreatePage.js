@@ -1,13 +1,11 @@
-import TodoForm from "../components/TodoForm";
-import { tasksRef } from "../firebase-config";
-import { onSnapshot, query, orderBy } from "@firebase/firestore";
 import { useState, useEffect } from "react";
-import PostCard from "../components/PostCard";
+import { useNavigate, Link } from "react-router-dom";
 import { getAuth } from "firebase/auth";
-import { addDoc, serverTimestamp } from "@firebase/firestore";
-import { useNavigate } from "react-router-dom";
+import { onSnapshot, query, orderBy, addDoc, serverTimestamp } from "@firebase/firestore";
+import { tasksRef } from "../firebase-config";
 import { AiOutlineArrowLeft, AiOutlineShoppingCart } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import TodoForm from "../components/ToDo-Forms/TodoForm";
+import PostCard from "../components/ToDo-PostCards/PostCard";
 
 
 export default function CreatePage() {

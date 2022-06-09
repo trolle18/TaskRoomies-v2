@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { MdHandyman, MdLocalDining, MdCleanHands, MdWaterDrop, MdBed, MdChair, MdShower } from "react-icons/md";
+import { MdHandyman, MdLocalDining, MdCleanHands, MdWaterDrop, MdBed, MdShower } from "react-icons/md";
+// import { MdChair } from "react-icons/md";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCouch } from '@fortawesome/free-solid-svg-icons';
-import couchIcon from '../assets/icons/couch-solid.svg';
+import couchIcon from '../../assets/icons/couch-solid.svg';
 
 
 export default function GroupTaskForm({ saveGroupTask, grouptask }) {

@@ -1,13 +1,11 @@
-import GroupTaskForm from "../components/GroupTaskForm";
-import { grouptaskRef } from "../firebase-config";
-import { onSnapshot, query, orderBy } from "@firebase/firestore"; //realtime updates. Snakker sammen med en constant -
 import { useState, useEffect } from "react";
-import GroupPostCard from "../components/GroupPostCard";
+import { useNavigate, Link } from "react-router-dom";
 import { getAuth } from "firebase/auth";
-import { addDoc, serverTimestamp } from "@firebase/firestore";
-import { useNavigate } from "react-router-dom";
+import { onSnapshot, query, orderBy, addDoc, serverTimestamp } from "@firebase/firestore"; 
+import { grouptaskRef } from "../firebase-config";
 import { AiOutlineArrowLeft, AiOutlineCarryOut } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import GroupTaskForm from "../components/ToDo-Forms/GroupTaskForm";
+import GroupPostCard from "../components/ToDo-PostCards/GroupPostCard";
 
 
 export default function CreatePage() {
@@ -29,9 +27,9 @@ export default function CreatePage() {
 
 
     async function handleSubmit(newGroupTask) {
-        newGroupTask.createdAt = serverTimestamp(); // timestamp (now)
-        newGroupTask.uid = auth.currentUser.uid; // user-id of auth user / signed in user
-        await addDoc(grouptaskRef, newGroupTask); // adds new item
+        newGroupTask.createdAt = serverTimestamp(); // Timestamp (now)
+        newGroupTask.uid = auth.currentUser.uid; // User-id of auth user / signed in user
+        await addDoc(grouptaskRef, newGroupTask); // Adds new item
         navigate("/");
     }
 

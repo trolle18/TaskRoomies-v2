@@ -76,3 +76,4 @@ react-router-dom
 react-calendar
 react-icons
 use-local-storage
+@fortawesome/react-fontawesome

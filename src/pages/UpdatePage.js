@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import TodoForm from "../components/TodoForm";
-import { tasksRef } from "../firebase-config";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { doc, getDoc, updateDoc, deleteDoc } from "@firebase/firestore";
+import { tasksRef } from "../firebase-config";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import { Link } from "react-router-dom";
-
+import TodoForm from "../components/ToDo-Forms/TodoForm";
 
 export default function UpdatePage() {
     const navigate = useNavigate();

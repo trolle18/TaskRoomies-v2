@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import GroupTaskForm from "../components/GroupTaskForm";
-import { grouptaskRef } from "../firebase-config";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { doc, getDoc, updateDoc, deleteDoc } from "@firebase/firestore";
+import { grouptaskRef } from "../firebase-config";
 import { FaRegTrashAlt } from "react-icons/fa";
-import {  AiOutlineArrowLeft } from "react-icons/ai";
-import { Link } from "react-router-dom";
-
+import { AiOutlineArrowLeft } from "react-icons/ai";
+import GroupTaskForm from "../components/ToDo-Forms/GroupTaskForm";
 
 export default function GroupUpdatePage() {
     const navigate = useNavigate();

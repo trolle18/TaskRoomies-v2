@@ -1,6 +1,6 @@
 import React from "react";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { Routes, Route, Navigate } from "react-router-dom";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import HomePage from "./pages/HomePage";
 import CreatePage from "./pages/CreatePage";
 import UpdatePage from "./pages/UpdatePage";

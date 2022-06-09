@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
+import { getAuth } from "firebase/auth";
 import { doc, getDoc } from "@firebase/firestore";
 import { usersRef } from "../firebase-config";
-import { getAuth } from "firebase/auth";
 import placerholder from "../assets/profile-placeholder.jpg";
 
 

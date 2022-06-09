@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BiCalendarEvent } from "react-icons/bi"
-import couchIcon from "../assets/icons/couch-solid.svg";
+import couchIcon from "../../assets/icons/couch-solid.svg";
 
 
 export default function GroupPostCard({ grouptask }) {

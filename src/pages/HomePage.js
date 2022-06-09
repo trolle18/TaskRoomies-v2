@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { tasksRef, grouptaskRef } from "../firebase-config";
+import { Link } from "react-router-dom";
 import { onSnapshot, query, orderBy } from "@firebase/firestore";
+import { tasksRef, grouptaskRef } from "../firebase-config";
 import { MdAddCircle } from "react-icons/md"
-import GroupPostCard from "../components/GroupPostCard";
-import PostCard from "../components/PostCard";
+import GroupPostCard from "../components/ToDo-PostCards/GroupPostCard";
+import PostCard from "../components/ToDo-PostCards/PostCard";
 import WelcomeCard from "../components/WelcomeCard";
 
 
