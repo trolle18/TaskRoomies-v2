@@ -1,5 +1,5 @@
 /* ---------- ROOTS ---------- */
-:root {
+/* :root {
     --white: #f1f1f1;
     --black: #232323;
     --grey-l: #dddddd;
@@ -13,7 +13,6 @@
     --yellow-l: #ffd895;
     --orange: #f39e0a;
 
-    /* --background: #72617e; */
     --background: #c5c8dc;
     --nav: #161b3b;
     
@@ -24,11 +23,11 @@
     --txt-clr-l: #f1f1f1;
     --txt-clr-d: #232323;
     --txt-clr-danger: rgb(152, 58, 58);
-}
+} */
 
 
 /* ----- DARK MODE ----- */
-[data-theme="dark"] {
+/* [data-theme="dark"] {
     --background: #232323;
     --nav: #0a0d1e;
 
@@ -47,7 +46,7 @@
     --blue-m: #52b1e1;
     --blue-l: #2d1e2f;
     --orange: #bb7907; 
-}
+} */
 
 
 /* ----- Dark Mode Button ----- */

@@ -5,7 +5,7 @@ import { tasksRef, grouptaskRef } from "../firebase-config";
 import { MdAddCircle } from "react-icons/md"
 import GroupPostCard from "../components/ToDo-PostCards/GroupPostCard";
 import PostCard from "../components/ToDo-PostCards/PostCard";
-import WelcomeCard from "../components/WelcomeCard";
+import WelcomeCard from "../components/WelcomeCard/WelcomeCard";
 
 
 export default function HomePage() {

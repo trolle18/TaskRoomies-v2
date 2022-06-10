@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { AiOutlineUser, AiOutlineHome, AiOutlineShoppingCart, AiOutlineCarryOut } from "react-icons/ai";
+import "./Nav.css";
 
 
 export default function Nav() {
