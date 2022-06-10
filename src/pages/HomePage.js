@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { onSnapshot, query, orderBy } from "@firebase/firestore";
 import { tasksRef, grouptaskRef } from "../firebase-config";
 import { MdAddCircle } from "react-icons/md"
-import GroupPostCard from "../components/ToDo-PostCards/GroupPostCard";
-import PostCard from "../components/ToDo-PostCards/PostCard";
-import WelcomeCard from "../components/WelcomeCard/WelcomeCard";
+import GroupPostCard from "../components/task-posts/GroupPostCard";
+import PostCard from "../components/task-posts/PostCard";
+import WelcomeCard from "../components/welcome-card/WelcomeCard";
 
 
 export default function HomePage() {
@@ -43,7 +43,6 @@ export default function HomePage() {
             <section className="card">
                 <WelcomeCard />
             </section>
-
           
             <section className="grid-cntr">
                 <div className="task-cntr">
@@ -60,7 +59,6 @@ export default function HomePage() {
                     </article>
                 </div>
                
-
                 <div className="task-cntr">
                     <div className="title-box">
                         <h2 className="cntr-title">Shopping list</h2>

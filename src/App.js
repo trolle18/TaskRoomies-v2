@@ -9,7 +9,7 @@ import SignUpPage from "./pages/SignUpPage";
 import GroupCreatePage from "./pages/GroupCreatePage";
 import ProfilePage from "./pages/ProfilePage";
 import GroupUpdatePage from "./pages/GroupUpdatePage";
-import Nav from "./components/Nav/Nav";
+import Nav from "./components/nav/Nav";
 import "./App.css";
 import "./index.css";
 // import "./components/DarkMode/DarkMode.css"

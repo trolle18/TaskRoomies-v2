@@ -4,7 +4,7 @@ import { getAuth } from "firebase/auth";
 import { onSnapshot, query, orderBy, addDoc, serverTimestamp } from "@firebase/firestore";
 import { tasksRef } from "../firebase-config";
 import { AiOutlineArrowLeft, AiOutlineShoppingCart } from "react-icons/ai";
-import TodoForm from "../components/ToDo-Forms/TodoForm";
+import TaskForm from "../components/task-forms/TaskForm";
 import PostCard from "../components/ToDo-PostCards/PostCard";
 
 
@@ -49,7 +49,7 @@ export default function CreatePage() {
                     <h2>Add item to shopping list</h2>
                 </div>
                 
-                <TodoForm saveTask={handleSubmit} />
+                <TaskForm saveTask={handleSubmit} />
             </section>
 
             <section className="createtask-cntr">

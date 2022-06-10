@@ -4,7 +4,7 @@ import { doc, getDoc, updateDoc, deleteDoc } from "@firebase/firestore";
 import { tasksRef } from "../firebase-config";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import TodoForm from "../components/ToDo-Forms/TodoForm";
+import TaskForm from "../components/task-forms/TaskForm";
 
 export default function UpdatePage() {
     const navigate = useNavigate();
@@ -49,7 +49,7 @@ export default function UpdatePage() {
             </Link>
             <br></br>
 
-            <TodoForm saveTask={handleSubmit} task={task} />
+            <TaskForm saveTask={handleSubmit} task={task} />
 
             <div className="checkbox_delete_container">
                 <button onClick={handleDelete}>
