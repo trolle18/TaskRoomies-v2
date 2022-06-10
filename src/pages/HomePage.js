@@ -47,15 +47,21 @@ export default function HomePage() {
             <section className="grid-cntr">
                 <div className="task-cntr">
                     <div className="title-box">
-                        <h2 className="cntr-title">Group tasks</h2>  
+                        <h2>Group tasks</h2>  
                         <Link to="/groupcreate" className="task-cntr-link">
                             <MdAddCircle/>
                         </Link>
                     </div>
                     <article>
                         {grouptasks.map( ( grouptask ) => (
-                            <GroupPostCard grouptask={grouptask} key={grouptask.id} /> //
+                            <>
+                                <div className="vertical-seb"></div>
+                                <div className="task-post">
+                                    <GroupPostCard grouptask={grouptask} key={grouptask.id} />
+                                </div>
+                            </>
                         ) )}
+                           
                     </article>
                 </div>
                
@@ -68,7 +74,12 @@ export default function HomePage() {
                     </div>
                     <article>
                         {tasks.map( ( task  ) => (
-                            <PostCard task={task} key={task.id} /> //
+                            <>
+                                <div className="vertical-seb"></div>
+                                <div className="task-post">
+                                    <PostCard task={task} key={task.id} /> 
+                                </div>
+                            </>
                         ) )}
                     </article>
                 </div>

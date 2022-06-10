@@ -45,15 +45,15 @@ export default function UpdatePage() {
             
             <h1>Edit task</h1>
             <Link to="/">
-                <AiOutlineArrowLeft size={30} /> <br></br>
+                <AiOutlineArrowLeft size={30} /> 
             </Link>
-            <br></br>
-
-            <TaskForm saveTask={handleSubmit} task={task} />
+            
+            <section className="form-cntr">
+                <TaskForm saveTask={handleSubmit} task={task} />
+            </section>
 
             <div className="checkbox_delete_container">
                 <button onClick={handleDelete}>
-                {" "}
                 <FaRegTrashAlt size={20} />
                 </button>
             </div>

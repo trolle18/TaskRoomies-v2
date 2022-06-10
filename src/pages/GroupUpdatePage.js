@@ -44,14 +44,15 @@ export default function GroupUpdatePage() {
     return (
         <section className="page">
             <h1>Edit task</h1>
-            <Link to="/"><AiOutlineArrowLeft size={30} />  <br></br></Link> 
-                <br></br>
+            <Link to="/"> <AiOutlineArrowLeft size={30} /> </Link> 
 
-            <GroupTaskForm saveGroupTask={handleSubmit} grouptask={grouptask} />
-            
-            <button onClick={handleDelete}>
-                <FaRegTrashAlt size={20} />
-            </button>
+            <section className="form-cntr">
+                <GroupTaskForm saveGroupTask={handleSubmit} grouptask={grouptask} />
+                
+                <button className="trash-btn" onClick={handleDelete}>
+                    <FaRegTrashAlt/>
+                </button>
+            </section>
         </section>
     );
 }

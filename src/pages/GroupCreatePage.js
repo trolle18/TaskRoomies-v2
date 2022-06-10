@@ -46,7 +46,9 @@ export default function CreatePage() {
                     <AiOutlineCarryOut/>
                     <h2>Create new task</h2>
                 </div>
-                <GroupTaskForm saveGroupTask={handleSubmit} />
+                <section className="form-cntr">
+                    <GroupTaskForm saveGroupTask={handleSubmit} />
+                </section>
             </section>
             
             <section className="grid-cntr">
@@ -56,7 +58,12 @@ export default function CreatePage() {
                     </div>              
                     <article>
                         {grouptask.map( ( grouptask ) => (
-                            <GroupPostCard grouptask={grouptask} key={grouptask.id} /> //
+                            <>
+                                <div className="vertical-seb"></div>
+                                <div className="task-post">
+                                    <GroupPostCard grouptask={grouptask} key={grouptask.id} /> 
+                                </div>
+                            </>
                         ) )}
                     </article>
                 </div>

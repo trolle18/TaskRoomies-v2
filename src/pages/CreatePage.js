@@ -43,19 +43,31 @@ export default function CreatePage() {
                 <Link to="/">
                     <AiOutlineArrowLeft size={30} /> <br></br>
                 </Link>
-
                 <div className="page-title">
                     <AiOutlineShoppingCart/>
                     <h2>Add item to shopping list</h2>
                 </div>
-                
-                <TaskForm saveTask={handleSubmit} />
+                <section className="form-cntr">
+                    <TaskForm saveTask={handleSubmit} />
+                </section>
             </section>
 
-            <section className="createtask-cntr">
-                {tasks.map( (task) => (
-                    <PostCard task={task} key={task.id} /> 
-                ) )}
+            <section className="grid-cntr">
+                <div className="task-cntr">
+                <div className="title-box">
+                        <h2 className="cntr-title">Group Tasks</h2>  
+                    </div> 
+                    <article>
+                        {tasks.map( ( task ) => (
+                            <>
+                                <div className="vertical-seb"></div>
+                                <div className="task-post">
+                                    <PostCard task={task} key={task.id} /> 
+                                </div>
+                            </>
+                        ) )}
+                    </article>
+                </div>
             </section>
 
         </section>

@@ -70,7 +70,8 @@ export default function WelcomeCard({ post }) {
                 <UserImg /> 
             </div>
             <div className="welcome-msg">
-                <h2> Hej, <UserName />! </h2>
+                <h2>Hej <UserName />! </h2>
+                <p>Welcome back</p>
             </div>
         </article>
     );

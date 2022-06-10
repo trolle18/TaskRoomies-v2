@@ -121,6 +121,8 @@ a {
 ::-webkit-scrollbar-thumb {
     background-color: var(--black);
     border-radius: 5px;
+    z-index: 100;
+    position: absolute;
 }
 
 
@@ -175,16 +177,6 @@ a {
 .text-error:first-letter {
     text-transform: uppercase;
 }
-
-
-/* ----- Calender ----- */
-/* .react-calendar__tile abbr :active {
-    background-color: #d31f5b;
-}
-
-.react-calendar__tile abbr ::selection {
-    background-color: #d31f5b;
-} */
 
 
 /* ----- HEADER CNTR ----- */
@@ -269,9 +261,10 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
-.cntr-title {
+.title-box > h2 {
     margin: 0;
     font-size: 1em;
     padding: 10px 20px;
@@ -280,7 +273,9 @@ a {
 
 .task-cntr-link {
     padding: 10px 20px;
-    }
+    display: flex;
+    align-items: center;
+}
 
 .task-cntr-link svg {
     height: 20px;
@@ -302,11 +297,32 @@ a {
 .task-cntr > article {
     min-height: auto;
     margin: 0px;
-    padding: 5px 10px;
+    padding: 0px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
     transition: 0.5s;
     animation: fadeIn 0.5s;
+}
+
+.task-cntr > article::before {
+    content: "";
+    height: 2px;
+    width: 98%;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: var(--black);
+}
+
+.task-cntr > article > .task-post {
+    min-height: auto;
+    width: 98%;
+    margin: 0px auto;
+    padding: 0px 0px 5px 0px;
+    display: flex;
+    flex-direction: row;
+    /* transition: 0.5s;
+    animation: fadeIn 0.5s; */
 }
 
 @media (min-width: 600px) {
@@ -321,6 +337,13 @@ a {
     } */
 }
 
+.form-cntr {
+    max-width: 380px;
+    margin: 0 auto;
+    padding: 0em 0em 1.5em 0em;
+    border-radius: var(--border-r);
+    background-color: var(--white);
+}
 
 
 /* ---------- SIGNIN / SIGNUP PAGE ---------- */
