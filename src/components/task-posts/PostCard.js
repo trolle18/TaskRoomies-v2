@@ -7,29 +7,17 @@ import "./ToDoPostCards.css";
 
 export default function PostCard({ task }) {
     const navigate = useNavigate(); 
-    const [checked, setChecked] = useState();
+    const [isChecked, setIsChecked] = useState(false);
     
     function handleClick() {
         navigate(`/update/${task.id}`);
     } 
 
-    // Checkbox 
-        const onChange = () => {
-            setChecked(!checked);
-        };
+    const handleOnChange = () => {
+        setIsChecked(!isChecked);
+        console.log(!isChecked, task.id)
+    };
 
-        const Checkbox = ({checkboxId, value, onChange}) => {
-            return (
-                <input 
-                    type='checkbox' 
-                    name="checkbox" 
-                    id={task.checkboxId}
-                    checked={value}
-                    onChange={onChange}
-                    className="checkbox-input"
-                />
-            )
-        };  console.log({onChange})
 
     
     return (
@@ -38,12 +26,11 @@ export default function PostCard({ task }) {
 
                <div className="postcard-elem checkbox-elem">
                     <div className="checkbox-box">
-                        <Checkbox 
-                            type='checkbox' 
+                        <input 
+                            type="checkbox" 
                             name="checkbox" 
-                            id="checkbox"
-                            checked={checked}
-                            // onChange={onChange}
+                            checked={isChecked}
+                            onChange={handleOnChange}
                             className="checkbox-input"
                         />
                     </div>
@@ -64,12 +51,6 @@ export default function PostCard({ task }) {
                         
                     </label>
                 </div>
-
-                {/* <div className="postcard-elem updt-elem">
-                    <div className="update">
-                        <button onClick={handleClick}> <BsPencilSquare/> </button>
-                    </div>
-                </div>  */}
 
             </div>
         </>

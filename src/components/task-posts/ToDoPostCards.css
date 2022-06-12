@@ -144,7 +144,7 @@
     .todo-text-details {
         border: solid red 0px;
         border-left: solid rgba(0, 0, 0, 0.2) 0px;
-        width: 20%;
+        width: 30%;
         padding: 0em 0em 0em 2em;
         display: flex;
         flex-direction: column;

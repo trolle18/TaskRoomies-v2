@@ -12,7 +12,6 @@ import GroupUpdatePage from "./pages/GroupUpdatePage";
 import Nav from "./components/nav/Nav";
 import "./App.css";
 import "./index.css";
-// import "./components/DarkMode/DarkMode.css"
 
 
 function App() {
@@ -39,7 +38,6 @@ function App() {
                             Task<span>Roomies</span>
                         </h1>
                     </div>
-                    {/* <DarkMode/> */}
                 </div>
                 <main>
                     {isAuth ? (

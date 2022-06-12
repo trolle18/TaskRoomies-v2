@@ -7,43 +7,37 @@ import "./ToDoPostCards.css";
 
 export default function GroupPostCard({ grouptask }) {
     const navigate = useNavigate();
-    const [checked, setChecked] = useState();
+    const [isChecked, setIsChecked] = useState(false);
 
+    // When task is clicked, navigate to update page
     function handleClick() {
         navigate(`/groupupdate/${grouptask.id}`);
     }
     
-    // Checkbox 
-        const onChange = () => {
-            setChecked(!checked);
-        };
-
-        const Checkbox = ({checkboxId, value, onChange}) => {
-            return (
-                <input 
-                    type='checkbox' 
-                    name="checkbox" 
-                    id={grouptask.checkboxId}
-                    checked={value}
-                    onChange={onChange}
-                    className="checkbox-input"
-                />
-            )
-        };  console.log({onChange})
+    // Sets checkbox state 
+    const handleOnChange = () => {
+        setIsChecked(!isChecked);
+        console.log(!isChecked, grouptask.id)
+    };
+    
+    // async function handleSubmit(taskToUpdate) {
+    //     const docRef = doc(grouptaskRef, grouptaskId);
+    //     await updateDoc(docRef, taskToUpdate);
+    //     navigate("/");
+    // } 
 
     
     return (
         <>          
-            <div className="postcard-cntr">
+            <div className="postcard-cntr" key={grouptask.id}>
 
                 <div className="postcard-elem checkbox-elem">
                     <div className="checkbox-box">
-                        <Checkbox 
-                            type='checkbox' 
+                        <input 
+                            type="checkbox" 
                             name="checkbox" 
-                            id="checkbox"
-                            checked={checked}
-                            // onChange={onChange}
+                            checked={isChecked}
+                            onChange={handleOnChange}
                             className="checkbox-input"
                         />
                     </div>
@@ -56,6 +50,7 @@ export default function GroupPostCard({ grouptask }) {
                                 <img src={couchIcon} alt="" />
                             </div>
                             <h3>{grouptask.title}</h3>
+                            <p> {isChecked ? "completed" : "pending..."}</p>
                         </div>
                         <div className="todo-text-details">
                             <p>{grouptask.person}</p>
@@ -64,12 +59,6 @@ export default function GroupPostCard({ grouptask }) {
                         
                     </label>
                 </div>
-
-                {/* <div className="postcard-elem updt-elem">
-                    <div className="update">
-                        <button onClick={handleClick}> <BsPencilSquare/> </button>
-                    </div>
-                </div>  */}
 
             </div>
         </>
