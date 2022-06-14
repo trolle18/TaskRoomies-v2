@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth, signOut, deleteUser, EmailAuthProvider } from "firebase/auth";
-import { doc, getDoc, setDoc } from "@firebase/firestore";
+import { doc, getDoc, setDoc,  onSnapshot, query, orderBy } from "@firebase/firestore";
 import { usersRef } from "../firebase-config";
 import 'firebase/database';
 import { HiMinusCircle } from "react-icons/hi";
 import { FaBell } from "react-icons/fa";
 import placerholder from "../assets/profile-placeholder.jpg";
+import AllUsers from "../components/AllUsers";
 
 
 export default function ProfilePage({ currentUser }) {
@@ -14,11 +15,13 @@ export default function ProfilePage({ currentUser }) {
     const [email, setEmail] = useState("");
     const [image, setImage] = useState("");
     const [user, setUser] = useState("");
+    const [allUsers, setAllUsers] = useState([]);
     const [errorMessage, setErrorMessage] = useState("");
     const auth = getAuth();
     const navigate = useNavigate();
     
 
+    // Get current user data 
     useEffect(() => {
         async function getUser() {
         if (auth.currentUser) {
@@ -36,33 +39,30 @@ export default function ProfilePage({ currentUser }) {
     }, [auth.currentUser]);
 
 
+    // Change user image
     function handleImageChange(event) {
         const file = event.target.files[0];
-        if (file.size < 500000) {
-        // image file size must be below 0,5MB
-        const reader = new FileReader();
-        reader.onload = (event) => {
-            setImage(event.target.result);
-        };
-        reader.readAsDataURL(file);
-        setErrorMessage(""); // reset errorMessage state
-        } else {
-        // if not below 0.5MB display an error message using the errorMessage state
-        setErrorMessage("The image file is too big!");
+        if (file.size < 500000) { // image file size must be below 0,5MB
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                setImage(event.target.result);
+            };
+            reader.readAsDataURL(file);
+            setErrorMessage(""); // reset errorMessage state
+        } else { // if image >0.5MB, display an error message using the errorMessage state
+            setErrorMessage("The image file is too big! The image file size must be below 0,5MB");
         }
     }
 
 
+    // Submit updated user details
     async function submitEvent(event) {
         event.preventDefault();
-
         const userToUpdate = { name: name, image: image };
-        console.log(userToUpdate)
         const docRef = doc(usersRef, auth.currentUser.uid);
-        
+
         await setDoc(docRef, userToUpdate);
         navigate("/");
-        console.log(userToUpdate);
     }
 
 
@@ -85,11 +85,28 @@ export default function ProfilePage({ currentUser }) {
         user.reauthenticateWithCredential(credentials);
 
         deleteUser(user)
-        .then(() => {})
+        .then(( ) => {
+
+        })
         .catch((error) => {
             // ...
+            error("An error occurred, try again later");
         });
     }
+    
+
+    // Gets users from firebase
+    useEffect(() => {
+        const q = query(usersRef, orderBy("createdAt", "desc"));    // Order by: lastest
+        const unsubscribe = onSnapshot(q, (data) => {    // Refers to quary instead of postRef, which returns filtered results - Unsub enables ability to watch components from a different page
+                const allUsersData = data.docs.map((doc) => {
+                return { ...doc.data(), id: doc.id };   // Gets data from firebase (...doc.data) and with id: doc.id - gets the users id
+            });
+            setAllUsers(allUsersData);
+            console.log(allUsersData)
+        });
+        return () => unsubscribe();
+    }, []);
     
 
 
@@ -104,9 +121,10 @@ export default function ProfilePage({ currentUser }) {
                             <img src={image} alt={image} onError={(event) => (event.target.src = placerholder)} />
                         </div>
                         <p className="text-error">{errorMessage}</p>
-                        {/* <label for="useravatar" className="profile-avatar-label"> Profile picture </label> */}
-                        <span>Profile picture</span>
-                        <input type="file" accept="image/*" value="" onChange={handleImageChange}  name="image" placeholder="pic" />
+                        <div className="img-input-cntr">
+                            {/* <label for="imgfile" className="profile-avatar-label"> Update profile picture </label> */}
+                            <input type="file" accept="image/*" value="" onChange={handleImageChange}  name="image" title="" className="img-input"/>
+                        </div>
                     </div>
 
                     <span>Name</span>
@@ -120,10 +138,10 @@ export default function ProfilePage({ currentUser }) {
                         <input className="notif_label" type="checkbox" name="bellcheckbox" />
                     </label>
 
-                    <button className="btn">Save</button>
+                    <button className="btn">Save changes</button>
 
                     <div className="profile-btn-cntr">
-                        <button className="btn" onClick={handleSignOut} /*data-id={user.id}*/>
+                        <button className="btn" onClick={handleSignOut}>
                             Sign out
                         </button>
                         <button className="btn-outline" onClick={handleUserDelete} data-id={auth.currentUser.uid} >
@@ -138,16 +156,9 @@ export default function ProfilePage({ currentUser }) {
                 <form>
                     <h3>Group</h3>
 
-                    <div className="group-members-box">
-                        <div className="user-img">
-                            <img src={image} alt=""/>
-                        </div>
-                        <div className="group-members-details">
-                            <input  type="text" className="group-member"  value={name} name="name" placeholder={`${name}`}/>
-                            <input type="email"  className="group-member" value={email} name="email" placeholder={`${email}`} />
-                        </div>
-                        <button  className="remove-btn"> <HiMinusCircle /> </button>
-                    </div>
+                    {allUsers.map( (allUsers) => (          
+                        <AllUsers allUsers={allUsers} key={allUsers.id}/>          
+                    ))}
 
                     <div className="group-members-box">
                         <div className="user-img">

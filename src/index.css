@@ -459,11 +459,18 @@ form {
 }
 
 form button {
-    padding: 6px 1px;
-    font-size: 1em;
     width: 40%;
     max-width: 350px;
+    padding: 6px 1px;
+    font-size: 1em;   
 }
+
+/* form.btn {
+    width: 40%;
+    max-width: 350px;
+    padding: 6px 1px;
+    font-size: 1em;   
+} */
 
 button {
     margin: 1.4em auto 0;
@@ -482,9 +489,8 @@ button {
 }
 
 button.btn-outline {
-    width: 40%;
+    width: 100%;
     background-color: var(--white);
-    font-size: 0.4em;
     color: black;
 }
 
@@ -560,6 +566,19 @@ article .avatar img {
     padding: 10px 0px;
 }
 
+.profile-page h3 {
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.profile-page h3, p {
+    margin: 0;
+}
+
+.profile-page p {
+    margin-bottom: 10px;
+}
+
 .profile-page form {
     height: 100%;
     border-radius: var(--border-r);
@@ -596,8 +615,68 @@ article .avatar img {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
 }
+
+.profile-avatar .img-input-cntr {
+    border: solid blue 0px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile-avatar-label {
+    border: solid blue 0px;
+    margin: 0px;
+    font-size: 12px;
+    color: grey;
+}
+
+.profile-avatar .img-input {
+    width: 138px;
+    margin: 0 auto;
+    padding: 6px 0px;
+    border: none;
+    font-size: 12px;
+    align-self: left;
+}
+
+.img-input::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.img-input::before {
+    padding: .6em .8em;
+    margin: 0 auto;
+    content: 'Update profile picture';
+    display: inline-block;
+    border: solid #000 2px;
+    border-radius: 3px;
+    outline: none;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.profile-avatar .user-img {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-btn-cntr {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-btn-cntr button {
+    width: 100%;
+    padding: 1em 1em;
+    font-size: 10px;
+}
+
 
 .notif-box {
     border: solid blue 0px;
@@ -639,44 +718,6 @@ article .avatar img {
     color: var(--blue-d);
 }
 
-.profile-avatar-label {
-    border: solid blue 0px;
-    width: 100%;
-    margin-bottom: 30px;
-    text-align: center;
-    font-size: 12px;
-    color: grey;
-}
-
-.profile-avatar .user-img {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.profile-btn-cntr {
-    padding-top: 10px;
-    display: flex;
-    flex-direction: column;
-}
-
-.profile-btn-cntr button {
-    width: 30%;
-    padding: 8px 5px;
-    font-size: 10px;
-}
-
-.profile-page h3 {
-    text-transform: uppercase;
-    font-size: 16px;
-}
-
-.profile-page h3, p {
-    margin: 0;
-}
-
-.profile-page p {
-    margin-bottom: 10px;
-}
 
 
 /* ----- Group box ----- */
