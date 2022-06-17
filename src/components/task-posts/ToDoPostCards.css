@@ -1,0 +1,215 @@
+/* ---------- PostCard Container ---------- */
+.postcard-cntr {
+    border: solid blue 0px;
+    width: 100%;
+    height: auto;
+    padding: .5em 2em;
+    display: flex;
+    justify-content: space-between;
+    transition: .2s ease-in;
+    border-radius: 0px;
+}
+
+.postcard-cntr:hover {
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+
+/* ----- PostCard Elements ----- */
+.postcard-elem {
+    height: auto;
+    padding: 0px;
+    cursor: pointer;
+}
+
+/* Checkbox Element */
+.checkbox-elem {
+    border: solid red 0px;
+    width: 1.5em;
+    padding: 0em 2.5em 0em 0em;
+}
+
+    .checkbox-box {
+        border: solid blue 0px;
+        height: 100%;
+        width: 1.5em;
+        padding: 0px 0px 0px 0px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+
+    .checkbox-box > .checkbox-input {
+        width: 1.5em;
+        height: 1.5em;
+        margin: 0px auto;
+        padding: 0;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        -webkit-appearance: none;
+        position: absolute;
+        vertical-align: sub;
+        cursor: pointer;
+        outline: none;
+        border: 2px solid var(--black);
+        border-radius: 10px;
+        background-color: var(--white);
+    }
+        
+        .checkbox-box > .checkbox-input:checked {
+        background-color: var(--black);
+        border-color: var(--black);
+        }
+        
+        .checkbox-box > .checkbox-input:checked label {
+        text-decoration: line-through;
+        color: var(--white);
+        font-style: italic;
+        background-color: var(--white);
+        border-radius: 5px;
+        }
+        .checkbox-box > .checkbox-input:checked:hover {
+        background-color: rgba(0, 0, 0, 1);
+        }
+        
+        .checkbox-box > .checkbox-input:hover {
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+        border-color: var(--black);
+        }
+
+        .checkbox-box > .checkbox-input::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-size: 70%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23F9F9F9' d='M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z'/%3E%3C/svg%3E");
+        }
+
+        .checkbox-box > .checkbox-input::after:hover {
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+        border-color: var(--black);
+        }
+  
+/* Text Element */
+.todo-elem {
+    border: solid orange 0px;
+    width: 90%;
+    cursor: pointer;
+}
+
+.todo-text {
+    border: solid green 0px;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+  /* Text Element Title */
+    .todo-text-title {
+        border: solid orange 0px;
+        width: 80%;
+        padding: 0em 2em 0em 0em;
+        display: flex;
+        flex-direction: row;
+        cursor: pointer;
+    }
+
+    .todo-text-title > .todo-img img {
+        border: solid green 0px;
+        height: 100%;
+        width: 2.5em;
+        margin: 0em 1em 0em 0em ;
+    }
+
+    .todo-text-title h3 {
+        margin: 0;
+        font-size: 16px;
+        text-transform: capitalize;
+        font-weight: 600;
+        vertical-align: middle;
+        align-self: center;
+    }
+
+    /* Text Element Details */
+    .todo-text-details {
+        border: solid red 0px;
+        border-left: solid rgba(0, 0, 0, 0.2) 0px;
+        width: 30%;
+        padding: 0em 0em 0em 2em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        text-align: right;
+        cursor: pointer;
+    }
+
+    .todo-text-details p {
+        border: solid red 0px;
+        border-left: solid rgba(0, 0, 0, 0.5) 0px;
+        margin: 0em 0em 0em 0em;
+        /* padding: 0em 0em 0em 1em; */
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: capitalize;
+        /* vertical-align: middle;
+        align-self: center; */
+    }
+
+    .todo-text-details :last-child {
+        font-size: 10px;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.5);
+    }
+
+    
+
+/* Update Button Element */
+.updt-elem {
+    border: solid green 0px;
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.update {
+    display: contents;
+    padding: 5px 12px;
+    font-size: 1em;
+    width: 30%;
+    max-width: 350px;
+}
+
+    .update > button {
+        border: solid green 0px;
+        width: auto;
+        height: auto;
+        margin: 0 auto;
+        padding: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+    }
+
+    .update > button > svg {
+        height: 18px;
+        width: 18px;
+    }
+
+    .update > button > svg > path {
+        fill: var(--black);
+        stroke: var(--black);
+        stroke-width: .2px;
+    }
+
