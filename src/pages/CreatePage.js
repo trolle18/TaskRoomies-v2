@@ -59,12 +59,12 @@ export default function CreatePage() {
                     </div> 
                     <article>
                         {tasks.map( ( task ) => (
-                            <>
-                                <div className="vertical-seb"></div>
-                                <div className="task-post">
+                            // <>
+                            //     <div className="vertical-seb"></div>
+                                <div className="task-post" key={task.id}>
                                     <PostCard task={task} key={task.id} /> 
                                 </div>
-                            </>
+                            // </>
                         ) )}
                     </article>
                 </div>

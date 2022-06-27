@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BiCalendarEvent } from "react-icons/bi"
-import couchIcon from "../../assets/icons/couch-solid.svg";
+// import couchIcon from "../../assets/icons/couch-solid.svg";
 import "./ToDoPostCards.css";
 
 
@@ -20,11 +20,6 @@ export default function GroupPostCard({ grouptask }) {
         console.log(!isChecked, grouptask.id)
     };
     
-    // async function handleSubmit(taskToUpdate) {
-    //     const docRef = doc(grouptaskRef, grouptaskId);
-    //     await updateDoc(docRef, taskToUpdate);
-    //     navigate("/");
-    // } 
 
     
     return (
@@ -46,9 +41,9 @@ export default function GroupPostCard({ grouptask }) {
                 <div className="postcard-elem todo-elem" onClick={handleClick}>
                     <label className="todo-text">
                         <div className="todo-text-title">
-                            <div className="todo-img">
-                                <img src={couchIcon} alt="" />
-                            </div>
+                            {/*<div className="todo-img">
+                                 <img src={couchIcon} alt="" /> 
+                            </div>*/}
                             <h3>{grouptask.title}</h3>
                             <p> {isChecked ? "completed" : "pending..."}</p>
                         </div>

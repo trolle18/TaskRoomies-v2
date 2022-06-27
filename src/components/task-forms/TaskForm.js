@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { MdHandyman, MdLocalDining, MdCleanHands, MdWaterDrop, MdBed, MdShower } from "react-icons/md";
+// import { MdHandyman, MdLocalDining, MdCleanHands, MdWaterDrop, MdBed, MdShower } from "react-icons/md";
 // import { MdChair } from "react-icons/md";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCouch } from '@fortawesome/free-solid-svg-icons';
-import couchIcon from '../../assets/icons/couch-solid.svg';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faCouch } from '@fortawesome/free-solid-svg-icons';
+// import couchIcon from '../../assets/icons/couch-solid.svg';
 import "./TaskForms.css";
 
 
 export default function TaskForm({ saveTask, task }) {
     const [title, setTitle] = useState("");
-    const [icon, setIcon] = useState("");
+    // const [icon, setIcon] = useState("");
     const [date, setDate] = useState("");
     const navigate = useNavigate();
 
@@ -26,7 +26,7 @@ export default function TaskForm({ saveTask, task }) {
 
         const taskData = {
             title: title,
-            icon: icon,
+            // icon: icon,
             date: date,
         };
         saveTask(taskData);
@@ -41,7 +41,7 @@ export default function TaskForm({ saveTask, task }) {
                 <input placeholder="Type..." type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
             </label>
 
-            <label>
+            {/* <label>
                 <select className="icon-select" placeholder="" value={icon} onChange={(e) => setIcon(e.target.value)}>
                     <option className="icon-option" value="">Icon</option>
                     <option className="icon-option" value="tools" data-icon="./assets/icons/couch-solid.svg"> Tools <MdHandyman/> </option>
@@ -52,11 +52,11 @@ export default function TaskForm({ saveTask, task }) {
                     <option className="icon-option" value="couch"> <FontAwesomeIcon icon={faCouch}/> Couch </option>
                     <option className="icon-option" value="bath"> <FontAwesomeIcon icon={faCouch}/> Bath <MdShower/> </option>
                 </select>
-            </label>
+            </label> */}
 
             <label>
                 When?
-                <input placeholder="" type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+                <input type="date" pattern="\d{4}-\d{2}-\d{2}" value={date} onChange={(e) => setDate(e.target.value)} />
             </label>
 
             <button type="submit">Save</button>

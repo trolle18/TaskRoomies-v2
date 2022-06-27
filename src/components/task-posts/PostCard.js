@@ -37,12 +37,13 @@ export default function PostCard({ task }) {
                 </div>
 
                 <div className="postcard-elem todo-elem" onClick={handleClick}>
-                    <label for="checkbox" className="todo-text">
+                    <label className="todo-text">
                         <div className="todo-text-title">
-                            <div className="todo-img">
-                                <img src={couchIcon} alt="" />
-                            </div>
+                            {/* <div className="todo-img">
+                                 <img src={couchIcon} alt="" /> 
+                            </div> */}
                             <h3>{task.title}</h3>
+                            <p> {isChecked ? "completed" : "pending..."}</p>
                         </div>
                         <div className="todo-text-details">
                             <p>{task.person}</p>
