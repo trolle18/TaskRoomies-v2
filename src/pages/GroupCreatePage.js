@@ -14,6 +14,7 @@ export default function CreatePage() {
     const auth = getAuth();
 
 
+    // Gets grouptasks from firebase, to display under the form
     useEffect(() => {
         const q = query(grouptaskRef, orderBy("createdAt", "desc"));
         const unsubscribe = onSnapshot(q, (data) => {
@@ -26,6 +27,7 @@ export default function CreatePage() {
     }, []);
 
 
+    // Create and submit new task
     async function handleSubmit(newGroupTask) {
         newGroupTask.createdAt = serverTimestamp(); // Timestamp (now)
         newGroupTask.uid = auth.currentUser.uid; // User-id of auth user / signed in user

@@ -8,12 +8,12 @@ import couchIcon from '../../assets/icons/couch-solid.svg';
 import "./TaskForms.css";
 
 
-
 export default function GroupTaskForm({ saveGroupTask, grouptask }) {
     const [title, setTitle] = useState("");
     const [icon, setIcon] = useState("");
     const [person, setPerson] = useState({});
     const [date, setDate] = useState(false);
+    // const [complete, setComplete] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -22,18 +22,20 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
             setIcon(grouptask.icon);
             setPerson(grouptask.person);
             setDate(grouptask.date);
+            // setComplete(grouptask.complete);
         }
     }, [grouptask]);
 
 
     function handleSubmit(event) {
         event.preventDefault(); 
-
         const grouptaskData = { 
             title: title,
             icon: icon,
             person: person,
             date: date,
+            complete: false,
+            // complete: complete,
         };
         saveGroupTask(grouptaskData); 
         navigate("/"); 

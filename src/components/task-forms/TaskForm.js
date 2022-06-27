@@ -12,22 +12,24 @@ export default function TaskForm({ saveTask, task }) {
     const [title, setTitle] = useState("");
     const [icon, setIcon] = useState("");
     const [date, setDate] = useState("");
+    const [complete, setComplete] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
         if (task) {
             setTitle(task.title);
             setDate(task.date);
+            setComplete(task.complete);
         }
     }, [task]);
 
     function handleSubmit(event) {
         event.preventDefault();
-
         const taskData = {
             title: title,
             icon: icon,
             date: date,
+            complete: complete,
         };
         saveTask(taskData);
         navigate("/");

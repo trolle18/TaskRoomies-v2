@@ -7,17 +7,20 @@ import "./ToDoPostCards.css";
 
 export default function PostCard({ task }) {
     const navigate = useNavigate(); 
-    const [isChecked, setIsChecked] = useState(false);
+    const [complete, setComplete] = useState(false);
     
     function handleClick() {
         navigate(`/update/${task.id}`);
     } 
 
     const handleOnChange = () => {
-        setIsChecked(!isChecked);
-        console.log(!isChecked, task.id)
+        setComplete(!complete);
+        console.log(!complete, task.id)
     };
 
+    // const complete = () => {
+
+    // }
 
     
     return (
@@ -29,7 +32,7 @@ export default function PostCard({ task }) {
                         <input 
                             type="checkbox" 
                             name="checkbox" 
-                            checked={isChecked}
+                            checked={complete}
                             onChange={handleOnChange}
                             className="checkbox-input"
                         />
@@ -37,13 +40,16 @@ export default function PostCard({ task }) {
                 </div>
 
                 <div className="postcard-elem todo-elem" onClick={handleClick}>
-                    <label for="checkbox" className="todo-text">
+                     <label className="todo-text">
+
                         <div className="todo-text-title">
                             <div className="todo-img">
                                 <img src={couchIcon} alt="" />
                             </div>
                             <h3>{task.title}</h3>
+                            <p> {complete ? "completed" : "pending..."}</p>
                         </div>
+
                         <div className="todo-text-details">
                             <p>{task.person}</p>
                             <p><BiCalendarEvent/> {task.date}</p>
