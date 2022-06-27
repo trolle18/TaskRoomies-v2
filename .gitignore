@@ -24,3 +24,4 @@ yarn-error.log*
 /src/firebase-config.js
 /src/reportWebVitals.js
 /desc
+/src/components/copys
