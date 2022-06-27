@@ -54,12 +54,12 @@ export default function HomePage() {
                     </div>
                     <article>
                         {grouptasks.map( ( grouptask ) => (
-                            <>
+                            <div key={grouptask.id}>
                                 <div className="vertical-seb"></div>
                                 <div className="task-post">
                                     <GroupPostCard grouptask={grouptask} key={grouptask.id} />
                                 </div>
-                            </>
+                            </div>
                         ) )}
                            
                     </article>
@@ -74,12 +74,12 @@ export default function HomePage() {
                     </div>
                     <article>
                         {tasks.map( ( task  ) => (
-                            <>
+                            <div key={task.id}>
                                 <div className="vertical-seb"></div>
                                 <div className="task-post">
                                     <PostCard task={task} key={task.id} /> 
                                 </div>
-                            </>
+                            </div>
                         ) )}
                     </article>
                 </div>
