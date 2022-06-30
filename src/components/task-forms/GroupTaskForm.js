@@ -11,17 +11,19 @@ import "./TaskForms.css";
 
 export default function GroupTaskForm({ saveGroupTask, grouptask }) {
     const [title, setTitle] = useState("");
-    // const [icon, setIcon] = useState("");
+    const [icon, setIcon] = useState("");
     const [person, setPerson] = useState("");
     const [date, setDate] = useState("");
+    const [completed, setCompleted] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
         if (grouptask) {   
             setTitle(grouptask.title);
-            // setIcon(grouptask.icon);
+            setIcon(grouptask.icon);
             setPerson(grouptask.person);
             setDate(grouptask.date);
+            setCompleted(grouptask.completed);
         }
     }, [grouptask]);
 
@@ -31,9 +33,10 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
 
         const grouptaskData = { 
             title: title,
-            // icon: icon,
+            icon: icon,
             person: person,
             date: date,
+            completed: completed,
         };
         saveGroupTask(grouptaskData); 
         navigate("/"); 

@@ -11,7 +11,7 @@ export default function UpdatePage() {
     const params = useParams();
     const [task, setTasks] = useState({}); 
     const taskId = params.id; 
-    console.log(taskId);
+    // console.log(taskId);
 
     useEffect(() => {
         async function getTask() {

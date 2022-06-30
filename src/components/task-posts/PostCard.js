@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { BiCalendarEvent } from "react-icons/bi"
+import { BiCalendarEvent, BiPencil } from "react-icons/bi"
 import couchIcon from "../../assets/icons/couch-solid.svg";
 import "./ToDoPostCards.css";
 
@@ -36,7 +36,7 @@ export default function PostCard({ task }) {
                     </div>
                 </div>
 
-                <div className="postcard-elem todo-elem" onClick={handleClick}>
+                <div className="postcard-elem todo-elem">
                     <label className="todo-text">
                         <div className="todo-text-title">
                             {/* <div className="todo-img">
@@ -51,6 +51,12 @@ export default function PostCard({ task }) {
                         </div>
                         
                     </label>
+                </div>
+
+                <div className="updt-elem">
+                    <button onClick={handleClick}>
+                        <BiPencil />
+                    </button>
                 </div>
 
             </div>
