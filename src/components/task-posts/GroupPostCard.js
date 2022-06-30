@@ -19,10 +19,14 @@ export default function GroupPostCard({ grouptask }) {
 
     
     // Sets checkbox state 
-    // const handleCheckbox = () => {
-    //     setIsChecked(!isChecked);
-    //     console.log(!isChecked, grouptask.id, grouptask.completed)
-    // };
+    async function handleCheckbox() {
+        const docRef = doc(grouptaskRef, grouptask.id);
+
+        setIsChecked(!isChecked, grouptask.completed); 
+        await updateDoc(docRef, !isChecked, grouptask.completed);
+ 
+        console.log(!isChecked, grouptask.id, grouptask.completed)
+    };
 
     // async function handleCheckbox(completed) {
     //     setIsChecked(!isChecked);
@@ -31,16 +35,6 @@ export default function GroupPostCard({ grouptask }) {
     //     const docRef = doc(grouptaskRef, grouptask.id);
     //     await updateDoc(docRef, completed); 
     // }
-
-
-    // async function handleCheckbox(taskToCheck) {
-    //     const docRef = doc(grouptaskRef, grouptask.id);
-    //     setIsChecked(!isChecked);
-        
-    //     updateDoc(docRef, taskToCheck); 
-    //     console.log(!isChecked, grouptask.id, grouptask.completed)
-    // }
-    
 
     // useEffect(() => {
     //     async function getTask() {
@@ -52,12 +46,12 @@ export default function GroupPostCard({ grouptask }) {
     // }, [grouptask.id]);
 
 
-    async function handleCheckbox(taskToUpdate) {
-        setIsChecked(!isChecked);
-        const docRef = doc(grouptaskRef, grouptask.id);
-        await updateDoc(docRef, taskToUpdate); 
-        console.log(!isChecked, grouptask.id, grouptask.completed)
-    }
+    // async function handleCheckbox(taskToUpdate) {
+    //     setIsChecked(!isChecked);
+    //     const docRef = doc(grouptaskRef, grouptask.id);
+    //     await updateDoc(docRef, taskToUpdate); 
+    //     console.log(!isChecked, grouptask.id, grouptask.completed)
+    // }
 
     
 
