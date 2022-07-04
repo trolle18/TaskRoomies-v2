@@ -163,7 +163,7 @@ a {
 
 .text-center {
     text-align: center;
-    padding-top: 10%;
+    /* padding-top: 10%; */
 }
 
 .text-center a {
@@ -357,53 +357,111 @@ a {
 }
 
 .signin-form {
+    width: 350px;
+    max-width: 90%;
     margin: auto;
-    text-align: center;
     padding: 1em 1em 2em;
     background-color: var(--white);
-    max-width: 350px;
+    text-align: center;
     animation: fadeIn 0.5s;
 }
 
-.signin-form input {
-    border-radius: 5px;
-    background-color: var(--white);
-    color: var(--blue-d);
-    margin-top: 10%;
-    margin-bottom: 10%;
+@media (min-width: 600px) {
+    .signin-form {
+        width: 550px;
+        max-width: 90%;
+    }
+}
+  
+@media (min-width: 992px) {
+    .signin-form {
+        width: 600px;
+    }
 }
 
+.signin-form input {
+    margin: 2em auto;
+    border-radius: 5px;
+    background-color: var(--white);
+    color:  var(--black);
+    border: solid var(--black) 2px;
+}
+
+.signin-form input::placeholder {
+    color:  var(--black);
+}
+
+.signin-form input::-ms-input-placeholder {
+    color:  var(--black);
+}
+
+
+/* Image input field */
+.signin-form > .img-input-cntr {
+    width: 100%;
+    margin: 0em auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.signin-form .img-input {
+    width: 138px;
+    margin:1em auto 2em auto;
+    padding: 6px 0px;
+    border: none;
+    font-size: 12px;
+    align-self: left;
+}
+
+.img-input::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.signin-form > .img-input::before {
+    padding: .6em .8em;
+    margin: 0 auto;
+    content: 'Upload profile picture';
+    display: inline-block;
+    border: solid var(--black) 2px;
+    border-radius: 3px;
+    outline: none;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+
+/* Sign in/up button + link */
 .signin-form .text-center {
-    padding-top: 10px;
-    color: var(--yellow);
+    /* padding-top: 10px; */
+    color: var(--black);
 }
 
 .signin-form a {
-color: var(--yellow);
-font-weight: 600;
+    color: var(--orange);
+    font-size: 14px;
+    font-weight: 600; 
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
 .signin-form .signin-btn {
-    padding: 12px 15px;
-    font-size: 14px;
     width: 50%;
     max-width: 350px;
-    margin-top: 20%;
-}
-
-.signin-btn {
-    font-weight: 300;
-    text-align: center;
+    margin: 4em auto 1em auto;
+    padding: 0.8em 1em;
+    display: block;
     cursor: pointer;
     border: none;
+    background-color: var(--orange);
     color: var(--txt-clr-l);
-    background-color: var(--yellow);
-    letter-spacing: 0.05em;
+    font-size: 14px;
+    font-weight: 600; 
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    padding: 0.5em 1em;
-    font-size: 10px;
-    display: block;
-    margin: 1em auto 0;
+    text-align: center;  
 }
 
 
@@ -516,14 +574,17 @@ input {
 }
 
 .image-preview {
-    width: 100%;
-    max-width: 350px;
+    width: 200px;
+    /* max-width: 200px; */
     height: 200px;
     margin: auto;
+    border-radius: 50%;
     object-fit: cover;
     display: block;
     cursor: pointer;
 }
+
+
 
 form .file-input {
     display: none;
@@ -617,7 +678,7 @@ article .avatar img {
     justify-content: center;
 }
 
-.profile-avatar .img-input-cntr {
+.profile-avatar > .img-input-cntr {
     border: solid blue 0px;
     width: 100%;
     margin: 0 auto;
@@ -633,7 +694,7 @@ article .avatar img {
     color: grey;
 }
 
-.profile-avatar .img-input {
+.profile-avatar > .img-input {
     width: 138px;
     margin: 0 auto;
     padding: 6px 0px;
@@ -642,11 +703,11 @@ article .avatar img {
     align-self: left;
 }
 
-.img-input::-webkit-file-upload-button {
+.profile-avatar > .img-input::-webkit-file-upload-button {
     visibility: hidden;
 }
 
-.img-input::before {
+.profile-avatar > .img-input::before {
     padding: .6em .8em;
     margin: 0 auto;
     content: 'Update profile picture';
