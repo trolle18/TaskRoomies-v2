@@ -11,6 +11,7 @@ import ProfilePage from "./pages/ProfilePage";
 import GroupUpdatePage from "./pages/GroupUpdatePage";
 import Nav from "./components/Nav";
 import Header from "./components/Header";
+import DarkMode from "./components/DarkMode";
 
 
 function App() {
@@ -27,12 +28,12 @@ function App() {
         }
     });
 
-
     
     return (
         <>
+         <div className="App">
             <Header/>
-        {/* <main> */}
+            <DarkMode/>
             {isAuth ? (
                 <>
                     <Nav />
@@ -56,7 +57,7 @@ function App() {
                     <Route path="signup" element={<SignUpPage/>} />
                 </Routes>
             )}
-        {/* </main> */}
+         </div>
         </>
     );
 }
