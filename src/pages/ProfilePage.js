@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth, signOut, deleteUser, EmailAuthProvider } from "firebase/auth";
-import { doc, getDoc, setDoc,  onSnapshot, query, orderBy } from "@firebase/firestore";
+import { doc, getDoc, setDoc, getDocs,  onSnapshot, query, orderBy } from "@firebase/firestore";
 import { usersRef } from "../firebase-config";
 import 'firebase/database';
-import { HiMinusCircle } from "react-icons/hi";
+// import { HiMinusCircle } from "react-icons/hi";
 import { FaBell } from "react-icons/fa";
 import placerholder from "../assets/profile-placeholder.jpg";
-import AllUsers from "../components/AllUsers";
+import GroupMembers from "../components/GroupMembers";
 
 
 export default function ProfilePage({ currentUser }) {
@@ -15,10 +15,10 @@ export default function ProfilePage({ currentUser }) {
     const [email, setEmail] = useState("");
     const [image, setImage] = useState("");
     const [user, setUser] = useState("");
-    const [allUsers, setAllUsers] = useState([]);
     const [errorMessage, setErrorMessage] = useState("");
     const auth = getAuth();
     const navigate = useNavigate();
+    const [groupMembers, setGroupMembers] = useState([]);
     
 
     // Get current user data 
@@ -85,28 +85,34 @@ export default function ProfilePage({ currentUser }) {
         user.reauthenticateWithCredential(credentials);
 
         deleteUser(user)
-        .then(( ) => {
-
-        })
-        .catch((error) => {
-            // ...
-            error("An error occurred, try again later");
-        });
+            .then(() => {
+                const confirmDelete = window.confirm(`Are you sure, you want to delete your profile ${user.name}?`);  
+                if (confirmDelete) {                    
+                    const docRef = doc(user);
+                    deleteUser(docRef);
+                    navigate("/signup");                
+                }
+            })
+            .catch((error) => {
+                // ...
+                error("An error occurred, try again later");
+            });
     }
     
 
-    // Gets users from firebase
-    useEffect(() => {
-        const q = query(usersRef, orderBy("createdAt", "desc"));    // Order by: lastest
-        const unsubscribe = onSnapshot(q, (data) => {    // Refers to quary instead of postRef, which returns filtered results - Unsub enables ability to watch components from a different page
-                const allUsersData = data.docs.map((doc) => {
-                return { ...doc.data(), id: doc.id };   // Gets data from firebase (...doc.data) and with id: doc.id - gets the users id
-            });
-            setAllUsers(allUsersData);
-            console.log(allUsersData)
-        });
-        return () => unsubscribe();
-    }, []);
+    // Get Group 
+    // useEffect(() => {
+    //     async function getGroupMembers() {
+    //         const q = query(usersRef, orderBy("name"));
+    //         const data = await getDocs(q);
+    //         const groupMembersData = data.docs.map(doc => {
+    //             return { ...doc.data(), id: doc.id }; // changing the data structure so it's all gathered in one object
+    //         });
+    //         setGroupMembers(groupMembersData);
+    //         // console.log(groupMembersData);
+    //     }
+    //     getGroupMembers();
+    // }, []);
     
 
 
@@ -155,12 +161,27 @@ export default function ProfilePage({ currentUser }) {
             <div className="profile-page">
                 <form>
                     <h3>Group</h3>
+                    <GroupMembers groupMembers={groupMembers} />
 
-                    {allUsers.map( (allUsers) => (          
-                        <AllUsers allUsers={allUsers} key={allUsers.id}/>          
-                    ))}
+                    {/* {groupMembers.map( groupMember => (          
+                    
+                        <div className="group-members-box" key={groupMember.id}>
+                            <div className="user-img">
+                                <img src={groupMember.image} alt=""/>
+                            </div>
+                            <div className="group-members-details">
+                                <p>{groupMember.name}</p>
+                                <p>{groupMember.email}</p>
+                                <input  type="text" className="group-member"  value={groupMember.name} name="name" placeholder="name"/>
+                                <input type="email"  className="group-member" value={groupMember.email} name="email" placeholder="email"/>
+                            </div>
+                            <button  className="remove-btn"> <HiMinusCircle /> </button>
+                        </div>
+                        
+                    ))} */}
 
-                    <div className="group-members-box">
+
+                    {/* <div className="group-members-box">
                         <div className="user-img">
                             <img src={image} alt="" />
                         </div>
@@ -169,7 +190,7 @@ export default function ProfilePage({ currentUser }) {
                             <input type="email" className="group-member" value={email} name="email" placeholder="member@email.dk" />
                         </div>
                         <button className="remove-btn"> {" "}<HiMinusCircle />{" "}</button>
-                    </div>
+                    </div> */}
 
                     {/* <button className="invite-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">

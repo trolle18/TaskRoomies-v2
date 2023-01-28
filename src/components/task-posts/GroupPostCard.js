@@ -1,30 +1,48 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { BiCalendarEvent } from "react-icons/bi"
-import couchIcon from "../../assets/icons/couch-solid.svg";
+import { doc, updateDoc } from "@firebase/firestore";
+import { BiCalendarEvent, BiPencil } from "react-icons/bi"
 import "./ToDoPostCards.css";
+import { grouptaskRef } from "../../firebase-config";
 
 
 export default function GroupPostCard({ grouptask }) {
     const navigate = useNavigate();
-    const [isChecked, setIsChecked] = useState(false);
+    const [completed, setCompleted] = useState(false);
+    const taskCompleted = grouptask.completed;
+    const grouptaskId = grouptask.id;
+
 
     // When task is clicked, navigate to update page
     function handleClick() {
         navigate(`/groupupdate/${grouptask.id}`);
     }
+
+    // useEffect(() => {
+    //         if (grouptask) {   
+    //             setCompleted(grouptask.completed);
+    //         }
+    // }, [grouptask]);
+
+
+    const handleCheckbox = () => {
+        
+        const docRef = doc(grouptaskRef, grouptaskId);
+        setCompleted(completed => !completed)
+        updateDoc(docRef, taskCompleted);
+        
+    }
+    console.log(completed, taskCompleted, grouptaskId);
+   
     
     // Sets checkbox state 
-    const handleOnChange = () => {
-        setIsChecked(!isChecked);
-        console.log(!isChecked, grouptask.id)
-    };
+        // async function handleCheckbox() {
+        //     const docRef = doc(grouptaskRef, grouptask.id);
+        //     updateDoc(docRef, !isChecked, grouptask.completed);
+        //     console.log(!isChecked, grouptask.id, grouptask.completed)
+        // }; 
     
-    // async function handleSubmit(taskToUpdate) {
-    //     const docRef = doc(grouptaskRef, grouptaskId);
-    //     await updateDoc(docRef, taskToUpdate);
-    //     navigate("/");
-    // } 
+        
 
     
     return (
@@ -36,28 +54,30 @@ export default function GroupPostCard({ grouptask }) {
                         <input 
                             type="checkbox" 
                             name="checkbox" 
-                            checked={isChecked}
-                            onChange={handleOnChange}
+                            checked={completed}
+                            onChange={handleCheckbox}
                             className="checkbox-input"
                         />
                     </div>
                 </div>
 
-                <div className="postcard-elem todo-elem" onClick={handleClick}>
+                <div className="postcard-elem todo-elem">
                     <label className="todo-text">
                         <div className="todo-text-title">
-                            <div className="todo-img">
-                                <img src={couchIcon} alt="" />
-                            </div>
                             <h3>{grouptask.title}</h3>
-                            <p> {isChecked ? "completed" : "pending..."}</p>
+                            <p> {completed ? "completed" : "pending..."}</p>
                         </div>
                         <div className="todo-text-details">
                             <p>{grouptask.person}</p>
                             <p><BiCalendarEvent/> {grouptask.date}</p>
-                        </div>
-                        
+                        </div>                        
                     </label>
+                </div>
+                
+                <div className="updt-elem">
+                    <button onClick={handleClick}>
+                        <BiPencil />
+                    </button>
                 </div>
 
             </div>

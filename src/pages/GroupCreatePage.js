@@ -58,12 +58,12 @@ export default function CreatePage() {
                     </div>              
                     <article>
                         {grouptask.map( ( grouptask ) => (
-                            <>
-                                <div className="vertical-seb"></div>
-                                <div className="task-post">
+                            // <>
+                            //     <div className="vertical-seb"></div>
+                                <div className="task-post" key={grouptask.id}>
                                     <GroupPostCard grouptask={grouptask} key={grouptask.id} /> 
                                 </div>
-                            </>
+                            // </>
                         ) )}
                     </article>
                 </div>

@@ -1,27 +1,24 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { MdHandyman, MdLocalDining } from "react-icons/md";
-// import { MdCleanHands, MdWaterDrop, MdBed, MdShower, MdChair } from "react-icons/md";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCouch } from '@fortawesome/free-solid-svg-icons';
-import couchIcon from '../../assets/icons/couch-solid.svg';
+import { getDocs, query, orderBy } from "@firebase/firestore";
+import { usersRef } from "../../firebase-config";
 import "./TaskForms.css";
 
 
-
 export default function GroupTaskForm({ saveGroupTask, grouptask }) {
+    const [group, setGroup] = useState([]);
     const [title, setTitle] = useState("");
-    const [icon, setIcon] = useState("");
-    const [person, setPerson] = useState({});
-    const [date, setDate] = useState(false);
+    const [person, setPerson] = useState("");
+    const [date, setDate] = useState("");
+    const [completed, setCompleted] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
         if (grouptask) {   
             setTitle(grouptask.title);
-            setIcon(grouptask.icon);
             setPerson(grouptask.person);
             setDate(grouptask.date);
+            setCompleted(grouptask.completed);
         }
     }, [grouptask]);
 
@@ -31,13 +28,28 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
 
         const grouptaskData = { 
             title: title,
-            icon: icon,
             person: person,
             date: date,
+            completed: completed,
         };
         saveGroupTask(grouptaskData); 
         navigate("/"); 
     }
+
+
+    useEffect(() => {
+        async function getGroup() {
+            const q = query(usersRef, orderBy("name"));
+            const data = await getDocs(q);
+            const groupData = data.docs.map(doc => {
+                return { ...doc.data(), id: doc.id }; // changing the data structure so it's all gathered in one object
+            });
+            setGroup(groupData);
+            // console.log(groupData);
+        }
+
+        getGroup();
+    }, []);
 
 
 
@@ -50,25 +62,20 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
                 </label>
 
                 <label>
-                    <select className="icon-select" placeholder="" value={icon} onChange={(e) => setIcon(e.target.value)}>
-                        <option className="icon-option" value="">Icon</option>
-                        <option className="icon-option" value="tools" data-icon="./assets/icons/couch-solid.svg"> Tools <MdHandyman /></option>
-                        <option className="icon-option" value="cutlery" data-icon={couchIcon}> <FontAwesomeIcon icon={faCouch}/> Cutlery <MdLocalDining /> </option>
-                    </select>
-                </label>
-
-                <label>
                     <span>Who is doing the task?</span>
                     <select value={person} onChange={(e) => setPerson(e.target.value)} >
+                        <option>Choose</option>
                         <option value="fælles">Fælles</option>
-                        <option value="mikkel">Mikkel</option>
-                        <option value="sofie">Sofie</option>
+                        {group.map(person => (
+                            <option value={person.uid} key={person.uid}>{person.name}</option>
+                        ))}
+                        
                     </select>
                 </label>
                 
                 <label>
                     <span>When?</span>
-                    <input placeholder="" type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+                    <input type="date" pattern="\d{4}-\d{2}-\d{2}" value={date} onChange={(e) => setDate(e.target.value)} />
                 </label>
 
                 <button type="submit">Save</button>

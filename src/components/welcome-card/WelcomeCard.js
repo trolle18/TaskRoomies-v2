@@ -62,8 +62,11 @@ function UserImg({ uid }) {
 }
 
 
-
 export default function WelcomeCard({ post }) {
+
+    let today = new Date().toLocaleDateString()
+
+
     return (
         <article className="welcome-card">
             <div className="welcome-userimg">
@@ -72,6 +75,7 @@ export default function WelcomeCard({ post }) {
             <div className="welcome-msg">
                 <h2>Hej <UserName />! </h2>
                 <p>Welcome back</p>
+                <p>date: {today}</p>
             </div>
         </article>
     );
