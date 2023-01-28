@@ -1,44 +1,50 @@
 nav {
-    background-color: $clr_nav;
-    position: fixed;
+    // width: 100vw;
     bottom: 0;
     left: 0;
     right: 0;
+    position: fixed;
+    background-color: $clr_nav;
     text-align: center;
     z-index: 100;
-}
 
-.nav-links {
-    width: 100%;
-    height: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-}
 
-nav a {
-    width: 100px;
-    height: auto;
-    margin: 0 auto;
-    padding: 16px 0px;
-    color: $txt_clr_l;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 10px;
-}
+    .nav-links {
+        width: 100%;
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
 
-nav a svg {
-    height: 22px;
-    width: auto;
-}
 
-nav a:hover {
-    background-color: transparent;
-    color: $clr_orange;
-}
+        a {
+            width: 100px;
+            height: auto;
+            margin: 0 auto;
+            padding: 16px 0px;
+            color: $txt_clr_l;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 10px;
 
-nav a.active {
-    color: $clr_orange;
+            svg {
+                height: 22px;
+                width: auto;
+                }
+
+            &:hover {
+                background-color: transparent;
+                color: $clr_orange;
+            }
+
+            &.active {
+                color: $clr_orange;
+            }
+
+        }
+
+    }
+
 }

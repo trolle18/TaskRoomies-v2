@@ -10,6 +10,7 @@ import GroupCreatePage from "./pages/GroupCreatePage";
 import ProfilePage from "./pages/ProfilePage";
 import GroupUpdatePage from "./pages/GroupUpdatePage";
 import Nav from "./components/Nav";
+import Header from "./components/Header";
 
 
 function App() {
@@ -30,38 +31,32 @@ function App() {
     
     return (
         <>
-                <div className="header-cntr">
-                    <div className="header-logo-box">
-                        <h1 className="header_logo">
-                            Task<span>Roomies</span>
-                        </h1>
-                    </div>
-                </div>
-                <main>
-                    {isAuth ? (
-                        <>
-                            <Nav />
-                            <Routes>
-                                <Route path="/" element={<HomePage/>} />
-                                <Route path="*" element={<Navigate to="/"/>} />
-                                <Route path="/signin" element={<SignInPage/>} />
-                                <Route path="/signup" element={<SignUpPage/>} />
-                                <Route path="/profile" element={<ProfilePage/>} />
-                                <Route path="/groupcreate" element={<GroupCreatePage/>} />
-                                <Route path="/groupupdate/:id" element={<GroupUpdatePage/>} />
-                                <Route path="/create" element={<CreatePage/>} />
-                                <Route path="/update/:id" element={<UpdatePage/>} />
-                            </Routes>
-                        </>
-                    ) : (
-                        <Routes>
-                            <Route path="/" element={<Navigate to="signin"/>} />
-                            <Route path="*" element={<Navigate to="/"/>} />
-                            <Route path="signin" element={<SignInPage/>} />
-                            <Route path="signup" element={<SignUpPage/>} />
-                        </Routes>
-                    )}
-                </main>
+            <Header/>
+        {/* <main> */}
+            {isAuth ? (
+                <>
+                    <Nav />
+                    <Routes>
+                        <Route path="/" element={<HomePage/>} />
+                        <Route path="*" element={<Navigate to="/"/>} />
+                        <Route path="/signin" element={<SignInPage/>} />
+                        <Route path="/signup" element={<SignUpPage/>} />
+                        <Route path="/profile" element={<ProfilePage/>} />
+                        <Route path="/groupcreate" element={<GroupCreatePage/>} />
+                        <Route path="/groupupdate/:id" element={<GroupUpdatePage/>} />
+                        <Route path="/create" element={<CreatePage/>} />
+                        <Route path="/update/:id" element={<UpdatePage/>} />
+                    </Routes>
+                </>
+            ) : (
+                <Routes>
+                    <Route path="/" element={<Navigate to="signin"/>} />
+                    <Route path="*" element={<Navigate to="/"/>} />
+                    <Route path="signin" element={<SignInPage/>} />
+                    <Route path="signup" element={<SignUpPage/>} />
+                </Routes>
+            )}
+        {/* </main> */}
         </>
     );
 }

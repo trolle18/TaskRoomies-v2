@@ -1,32 +1,31 @@
 .header-cntr {
-    border: solid red 0px;
     width: 100%;
-    height: 50px;
-    margin-bottom: 5px;
+    // height: 50px;
+    margin-bottom: .5em;
+    padding: .5em 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     text-align: center;
     position: relative;
-}
 
-.header-logo-box {
-    border: solid blue 0px;
-    width: 100%;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    position: absolute;
-}
+    &__inner-cntr {
+        width: 100%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        position: absolute;
+   
+        .logo {
+            font-family: $ff_brand;
+            text-transform: uppercase;
+            font-size: 1.5em;
+            font-weight: lighter;
 
-.header_logo {
-    font-family: $ff_brand;
-    text-transform: uppercase;
-    font-size: 20px;
-    font-weight: lighter;
-}
-
-.header_logo span {
-    font-weight: bold;
+            span {
+                font-weight: bold;
+            }
+        }
+    }
 }
