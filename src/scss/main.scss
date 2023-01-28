@@ -1,0 +1,25 @@
+
+// ABSTRACTS
+@import './abstracts/animations';
+@import './abstracts/fonts';
+@import './abstracts/themes';
+@import './abstracts/variables';
+
+// BASE
+@import './base/resets';
+@import './base/scrollbar';
+@import './base/typography';
+
+// // COMPONENTS
+// @import './components';
+@import './components/header';
+@import './components/logo';
+
+// LAYOUTS
+@import './layouts/grid';
+
+
+// PAGES
+@import './pages/page';
+@import './pages/profilePage';
+@import './pages/signInUpPage'
