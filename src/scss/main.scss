@@ -11,9 +11,13 @@
 @import './base/typography';
 
 // // COMPONENTS
-// @import './components';
+@import './components/darkModeBtn';
+@import './components/groupMembersBox';
 @import './components/header';
 @import './components/logo';
+@import './components/nav';
+@import './components/taskCard';
+@import './components/taskForm';
 
 // LAYOUTS
 @import './layouts/grid';
