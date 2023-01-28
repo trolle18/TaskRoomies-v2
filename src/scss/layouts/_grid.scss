@@ -1,0 +1,28 @@
+.grid-cntr {
+    border: solid red 0px;
+    display: flex;
+    flex-direction: column;
+    column-gap: 5em;
+    row-gap: 2em;
+}
+
+.outer-cntr {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 600px) {
+    .grid-cntr {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 992px) {
+    .grid-cntr {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .outer-cntr {
+        width: 45%;
+    }
+}
