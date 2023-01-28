@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import HomePage from "./pages/HomePage";
@@ -11,7 +11,9 @@ import ProfilePage from "./pages/ProfilePage";
 import GroupUpdatePage from "./pages/GroupUpdatePage";
 import Nav from "./components/Nav";
 import Header from "./components/Header";
-import DarkMode from "./components/DarkMode";
+// import DarkMode from "./components/DarkMode";
+import { WiSolarEclipse } from "react-icons/wi";
+
 
 
 function App() {
@@ -28,12 +30,44 @@ function App() {
         }
     });
 
+
+
+    var [theme, setTheme] = useState( localStorage.getItem('theme') || 'light');
+    var button = document.getElementById("darkModeBtn")
+
+    const toggleTheme = () => {        
+        if (theme !== 'dark') {
+            setTheme('dark');
+        }
+        if (theme !== 'light') {
+            setTheme('light');
+        }
+
+        console.log(theme)
+        button.classList.add(theme)
+        localStorage.setItem('theme', theme);
+    }
+
+    // // 
+    // useEffect(() => {
+       
+    // }, [theme])
+
     
     return (
         <>
-         <div className="App">
+         <div className="App" id="app">
             <Header/>
-            <DarkMode/>
+            <div>
+                <div className="darkmode-btn-box" id="darkModeBtn">
+                    <button id="DarkModeButton" onClick={toggleTheme}>
+                        <WiSolarEclipse />
+                    </button>
+                </div>
+            </div>
+
+
+            {/* <DarkMode/> */}
             {isAuth ? (
                 <>
                     <Nav />
