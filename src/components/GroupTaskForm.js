@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getDocs, query, orderBy } from "@firebase/firestore";
-import { usersRef } from "../../firebase-config";
+import { usersRef } from "../firebase-config";
 // import "./TaskForms.css";
 
 

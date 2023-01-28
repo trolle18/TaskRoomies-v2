@@ -4,7 +4,7 @@ import { doc, getDoc, updateDoc, deleteDoc } from "@firebase/firestore";
 import { tasksRef } from "../firebase-config";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import TaskForm from "../components/task-forms/TaskForm";
+import TaskForm from "../components/TaskForm";
 
 export default function UpdatePage() {
     const navigate = useNavigate();
