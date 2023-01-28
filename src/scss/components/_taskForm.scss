@@ -7,17 +7,33 @@ select {
     box-sizing: border-box;
     display: block;
     background: #f1f1f1;
-    border: solid 2px grey;
+    border: solid 2px ;
     border-radius: 5px;
     -webkit-appearance: none;
     appearance: none;
 }
 
 /* ----- Forms ----- */
+
+.card {
+    margin: 0em 0em 2em 0em;
+}
+
+
+.form-cntr {
+    max-width: 380px;
+    margin: 0 auto;
+    padding: 0em 0em 1.5em 0em;
+    border-radius: $border_r;
+    background-color: $clr_white;
+}
+
+
 form {
     max-width: 380px;
     margin: auto;
-    padding: 1em 1em 2em;
+    // padding: 1em 1em 2em;
+    padding: 1em 1em 0em 1em;
     text-align: center;
     line-height: 30px;
     background-color: $clr_white;
@@ -28,8 +44,8 @@ form {
 form button {
     width: 40%;
     max-width: 350px;
-    padding: 6px 1px;
-    font-size: 1em;   
+    padding: .5em 2em;
+    font-size: 1em; 
 }
 
 /* form.btn {
@@ -76,7 +92,7 @@ input {
     margin: 0 auto;
     padding: 1em;
     box-sizing: border-box;
-    border: solid 2px /*grey*/;
+    border: solid 2px grey;
     border-radius: 5px;
     display: block;
     background: $clr_white;

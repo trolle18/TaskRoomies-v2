@@ -140,9 +140,9 @@ p {
     color: var(--blue-d);
 } */
 
-.card {
+/* .card {
     margin: 0em 0em 2em 0em;
-}
+} */
 
 /* .page-title {
     border: solid blue 0px;
@@ -286,14 +286,14 @@ p {
 
 
 /* ----- Tasks Container ----- */
-.task-cntr {
+/* .task-cntr {
     width: 100%;
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     background-color: var(--white);
     border-radius: var(--border-r);
-}
+} */
 
 .task-cntr > article {
     min-height: auto;
@@ -338,13 +338,13 @@ p {
     } */
 }
 
-.form-cntr {
+/* .form-cntr {
     max-width: 380px;
     margin: 0 auto;
     padding: 0em 0em 1.5em 0em;
     border-radius: var(--border-r);
     background-color: var(--white);
-}
+} */
 
 
 /* ---------- SIGNIN / SIGNUP PAGE ---------- */
