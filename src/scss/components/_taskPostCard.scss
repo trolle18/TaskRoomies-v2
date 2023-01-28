@@ -53,21 +53,21 @@
         vertical-align: sub;
         cursor: pointer;
         outline: none;
-        border: 2px solid var(--black);
+        border: 2px solid $clr_black;
         border-radius: 10px;
-        background-color: var(--white);
+        background-color: $clr_white;
     }
         
         .checkbox-box > .checkbox-input:checked {
-            background-color: var(--black);
-            border-color: var(--black);
+            background-color: $clr_black;
+            border-color: $clr_black;
         }
         
         .checkbox-box > .checkbox-input:checked label {
             text-decoration: line-through;
-            color: var(--white);
+            color: $clr_white;
             font-style: italic;
-            background-color: var(--white);
+            background-color: $clr_white;
             border-radius: 5px;
         }
         .checkbox-box > .checkbox-input:checked:hover {
@@ -76,7 +76,7 @@
         
         .checkbox-box > .checkbox-input:hover {
             box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
-            border-color: var(--black);
+            border-color: $clr_black;
         }
 
         .checkbox-box > .checkbox-input::after {
@@ -95,7 +95,7 @@
 
         .checkbox-box > .checkbox-input::after:hover {
             box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
-            border-color: var(--black);
+            border-color: $clr_black;
         }
   
 /* Text Element */
@@ -208,7 +208,7 @@
     }
 
     .updt-elem > button:hover {
-        background-color: var(--orange);
+        background-color: $clr_orange;
     }
 
     .updt-elem > button > svg {
@@ -217,8 +217,8 @@
     }
 
     .updt-elem > button > svg > path {
-        fill: var(--black);
-        stroke: var(--black);
+        fill: $clr_black;
+        stroke: $clr_black;
         stroke-width: .2px;
     }
 

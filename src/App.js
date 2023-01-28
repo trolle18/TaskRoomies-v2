@@ -10,8 +10,6 @@ import GroupCreatePage from "./pages/GroupCreatePage";
 import ProfilePage from "./pages/ProfilePage";
 import GroupUpdatePage from "./pages/GroupUpdatePage";
 import Nav from "./components/Nav";
-import "./App.css";
-import "./index.css";
 
 
 function App() {
