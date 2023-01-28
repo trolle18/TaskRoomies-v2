@@ -1,0 +1,77 @@
+
+/* ----- Group box ----- */
+.group-members-box {
+    border: solid red 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.group-members-box .user-img {
+    width: 20px;
+    height: 20px;
+    margin-right: 2px;
+}
+
+.group-members-box .user-img img {
+    border: solid $clr_blue_m 2px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.group-members-details {
+    border: solid green 0px;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.group-members-details input {
+    width: 50%;
+    max-width: 350px;
+    margin: 5px;
+    padding: 1em;
+    box-sizing: border-box;
+    display: block;
+    background: $clr_white;
+    color: $clr_blue_m;
+    border: solid 2px grey;
+    border-radius: 5px;
+}
+
+.remove-btn {
+    height: 13px;
+    width: 13px;
+    padding: 0px;
+    margin: 0px;
+    color: $clr_yellow;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.invite-btn {
+    width: auto;
+    margin: 0px 20px;
+    padding: 5px 10px;
+    float: right;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    color: $clr_white;
+    background-color: $clr_yellow;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.invite-btn svg {
+    width: auto;
+    height: 12px;
+    margin-right: 5px;
+}
+
+.invite-btn svg path {
+    fill: $clr_white;
+}

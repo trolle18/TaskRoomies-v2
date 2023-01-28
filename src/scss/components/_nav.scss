@@ -1,6 +1,5 @@
-/* ---------- NAV ---------- */
 nav {
-    background-color: var(--nav);
+    background-color: $clr_nav;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -21,7 +20,7 @@ nav a {
     height: auto;
     margin: 0 auto;
     padding: 16px 0px;
-    color: var(--txt-clr-l);
+    color: $txt_clr_l;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,9 +36,9 @@ nav a svg {
 
 nav a:hover {
     background-color: transparent;
-    color: var(--orange);
+    color: $clr_orange;
 }
 
 nav a.active {
-    color: var(--orange);
+    color: $clr_orange;
 }

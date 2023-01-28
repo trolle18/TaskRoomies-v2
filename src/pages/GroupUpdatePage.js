@@ -4,7 +4,7 @@ import { doc, getDoc, updateDoc, deleteDoc } from "@firebase/firestore";
 import { grouptaskRef } from "../firebase-config";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import GroupTaskForm from "../components/task-forms/GroupTaskForm";
+import GroupTaskForm from "../components/GroupTaskForm";
 
 export default function GroupUpdatePage() {
     const navigate = useNavigate();

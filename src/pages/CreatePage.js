@@ -4,8 +4,8 @@ import { getAuth } from "firebase/auth";
 import { onSnapshot, query, orderBy, addDoc, serverTimestamp } from "@firebase/firestore";
 import { tasksRef } from "../firebase-config";
 import { AiOutlineArrowLeft, AiOutlineShoppingCart } from "react-icons/ai";
-import TaskForm from "../components/task-forms/TaskForm";
-import PostCard from "../components/task-posts/PostCard";
+import TaskForm from "../components/TaskForm";
+import PostCard from "../components/PostCard";
 
 
 export default function CreatePage() {

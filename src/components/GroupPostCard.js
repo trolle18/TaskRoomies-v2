@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { doc, updateDoc } from "@firebase/firestore";
 import { BiCalendarEvent, BiPencil } from "react-icons/bi"
-import "./ToDoPostCards.css";
-import { grouptaskRef } from "../../firebase-config";
+import { grouptaskRef } from "../firebase-config";
 
 
 export default function GroupPostCard({ grouptask }) {
@@ -83,4 +82,5 @@ export default function GroupPostCard({ grouptask }) {
             </div>
         </>
     );
-}
+};
+

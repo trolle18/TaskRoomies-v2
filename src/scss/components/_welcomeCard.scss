@@ -6,8 +6,8 @@
     transition: 0.5s;
     display: flex;
     flex-direction: row;
-    background-color: var(--blue-l);
-    border-radius: var(--border-r);
+    background-color: $clr_blue_l;
+    border-radius: $border_r;
 }
 
 .welcome-userimg {

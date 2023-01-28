@@ -1,11 +1,8 @@
-// import { UserName, UserImg } from "../User/User";
-// import UserImg from "../User/UserImg";
 import { useState, useEffect } from "react";
 import { getAuth } from "firebase/auth";
 import { doc, getDoc } from "@firebase/firestore";
-import { usersRef } from "../../firebase-config";
-import placerholder from "../../assets/profile-placeholder.jpg";
-import "./WelcomeCard.css";
+import { usersRef } from "../firebase-config";
+import placerholder from "../assets/profile-placeholder.jpg";
 
 
 // User Name

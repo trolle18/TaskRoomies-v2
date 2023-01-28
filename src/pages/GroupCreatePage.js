@@ -4,8 +4,8 @@ import { getAuth } from "firebase/auth";
 import { onSnapshot, query, orderBy, addDoc, serverTimestamp } from "@firebase/firestore"; 
 import { grouptaskRef } from "../firebase-config";
 import { AiOutlineArrowLeft, AiOutlineCarryOut } from "react-icons/ai";
-import GroupTaskForm from "../components/task-forms/GroupTaskForm";
-import GroupPostCard from "../components/task-posts/GroupPostCard";
+import GroupTaskForm from "../components/GroupTaskForm";
+import GroupPostCard from "../components/GroupPostCard";
 
 
 export default function CreatePage() {
