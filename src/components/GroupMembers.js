@@ -5,7 +5,6 @@ import { HiMinusCircle } from "react-icons/hi";
 import { usersRef } from '../firebase-config';
 
 
-
 export default function GroupMembers() {
     const [group, setGroup] = useState([]);
 
