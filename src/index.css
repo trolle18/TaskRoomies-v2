@@ -28,7 +28,7 @@
   
 
 /* ----- IMPORTS ----- */
-@import url("https://use.typekit.net/smz2raf.css");
+/* @import url("https://use.typekit.net/smz2raf.css");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap");
 
 @font-face {
@@ -41,7 +41,7 @@
          url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff") format("woff"),
          url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf") format("truetype"),
          url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.svg") format("svg");
-}
+} */
   
 /* ----- DARK MODE ----- */
 [data-theme="dark"] {
@@ -67,7 +67,7 @@
 
 
 /* ----- GENERAL ----- */
-body {
+/* body {
     width: 100%;
     padding: 0;
     margin: 0;
@@ -77,8 +77,8 @@ body {
     -moz-osx-font-smoothing: grayscale;
     color: var(--txt-clr-d);
     background-color: var(--background);
-}
-
+} */
+/* 
 h1 {
     font-size: 2em;
     font-weight: 500;
@@ -98,36 +98,36 @@ h3 {
 
 p {
     font-size: 16px;
-}
+} */
 
-a {
+/* a {
     color: var(--orange);
-}
+} */
 
 
 /*----- Scrollbar -----*/
 /* Width */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
     width: 6px;
     border: 1px solid transparent;
-}
+} */
 
 /* Track */
-::-webkit-scrollbar-track {
+/* ::-webkit-scrollbar-track {
     background-color: transparent;
-}
+} */
 
 /* Handle */
-::-webkit-scrollbar-thumb {
+/* ::-webkit-scrollbar-thumb {
     background-color: var(--black);
     border-radius: 5px;
     z-index: 100;
     position: absolute;
-}
+} */
 
 
 /* ----- Page Styling ----- */
-.App,.page {
+/* .App,.page {
     color: var(--text-primary);
     background-color: var(--background);
 }
@@ -137,14 +137,14 @@ a {
     padding: 1em;
     padding-bottom: 100px;
     transition: all 0.5s;    
-    /* color: var(--blue-d); */
-}
+    color: var(--blue-d);
+} */
 
 .card {
     margin: 0em 0em 2em 0em;
 }
 
-.page-title {
+/* .page-title {
     border: solid blue 0px;
     max-width: 400px;
     margin: 0 auto;
@@ -159,11 +159,11 @@ a {
 .page-title > svg {
     height: 26px;
     width: 26px;
-}
+} */
 
-.text-center {
+/* .text-center {
     text-align: center;
-    /* padding-top: 10%; */
+    padding-top: 10%;
 }
 
 .text-center a {
@@ -176,7 +176,7 @@ a {
 
 .text-error:first-letter {
     text-transform: uppercase;
-}
+} */
 
 
 /* ----- HEADER CNTR ----- */
@@ -347,7 +347,7 @@ a {
 
 
 /* ---------- SIGNIN / SIGNUP PAGE ---------- */
-.signin-cntr {
+/* .signin-cntr {
     width: 100%;
     margin: 0 auto;
     display: flex;
@@ -461,7 +461,7 @@ a {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     text-align: center;  
-}
+} */
 
 
 /* ---------- CREATE TASK PAGE ---------- */
@@ -619,7 +619,7 @@ article .avatar img {
 
 
 
-/* ---------- PROFILE PAGE ---------- */
+/* ---------- PROFILE PAGE ----------
 .profile-page {
     width: 100%;
     height: 100%;
@@ -776,7 +776,7 @@ article .avatar img {
     height: 14px;
     width: 14px;
     color: var(--blue-d);
-}
+} */
 
 
 
@@ -861,7 +861,7 @@ article .avatar img {
 
 /* ---------- ANIMATIONS ---------- */
 /* fade in */
-@keyframes fadeIn {
+/* @keyframes fadeIn {
     from {
         opacity: 0;
     }
@@ -879,4 +879,4 @@ article .avatar img {
     100% {
         transform: rotate(360deg);
     }
-}
+} */
