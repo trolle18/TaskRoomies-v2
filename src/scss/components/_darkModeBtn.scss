@@ -1,0 +1,26 @@
+.darkmode-btn-box {
+    height: auto;
+    width: 30px;
+    height: 30px;
+    right: 0;
+    top: 0;
+    padding: 10px 14px 0px 0px;
+    z-index: 100;
+    position: absolute;
+}
+  
+#DarkModeButton {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: $clr_black;
+}
+  
+#DarkModeButton svg {
+    height: 25px;
+    width: 25px;
+    margin: 0;
+    padding: 2.5px 0px;
+    color: $clr_white;
+}
