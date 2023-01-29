@@ -14,7 +14,7 @@ export default function GroupPostCard({ grouptask }) {
 
     // When task is clicked, navigate to update page
     function handleClick() {
-        navigate(`/groupupdate/${grouptask.id}`);
+        navigate(`/update-grouptask/${grouptask.id}`);
     }
 
     // useEffect(() => {
