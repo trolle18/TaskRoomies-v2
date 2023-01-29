@@ -1,7 +1,6 @@
 .welcome-card {
     margin: 1.25em 0;
     padding: .5em;
-    // transition: 0.5s;
     display: flex;
     flex-direction: row;
     gap: .5em;
@@ -49,6 +48,9 @@
             height: max-content;
             padding: 0 0 .75em 0;
             grid-area: 2 / 1 / 4 / 2;
+            display: flex;
+            flex-direction: column;
+            gap: .5em;
 
             h2 {
                 font-size: 1.25em;
