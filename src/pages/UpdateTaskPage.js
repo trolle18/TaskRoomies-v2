@@ -6,12 +6,12 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import TaskForm from "../components/TaskForm";
 
-export default function UpdatePage() {
+
+export default function UpdateTaskPage() {
     const navigate = useNavigate();
     const params = useParams();
     const [task, setTasks] = useState({}); 
     const taskId = params.id; 
-    // console.log(taskId);
 
     useEffect(() => {
         async function getTask() {
@@ -39,7 +39,6 @@ export default function UpdatePage() {
     }
 
 
-
     return (
         <section className="page">
             
@@ -59,5 +58,5 @@ export default function UpdatePage() {
             </div>
 
         </section>
-    );
-}
+    )
+};

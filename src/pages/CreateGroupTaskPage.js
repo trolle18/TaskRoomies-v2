@@ -8,7 +8,7 @@ import GroupTaskForm from "../components/GroupTaskForm";
 import GroupPostCard from "../components/GroupPostCard";
 
 
-export default function CreatePage() {
+export default function CreateGroupTaskPage() {
     const [grouptask, setGroupTask] = useState([]); 
     const navigate = useNavigate();
     const auth = getAuth();
@@ -44,7 +44,7 @@ export default function CreatePage() {
                 </Link>
                 <div className="page-title">
                     <AiOutlineCarryOut/>
-                    <h2>Create new task</h2>
+                    <h2>Create new group-task</h2>
                 </div>
                 <section className="form-cntr">
                     <GroupTaskForm saveGroupTask={handleSubmit} />
@@ -58,12 +58,9 @@ export default function CreatePage() {
                     </div>              
                     <article>
                         {grouptask.map( ( grouptask ) => (
-                            // <>
-                            //     <div className="vertical-seb"></div>
-                                <div className="task-post" key={grouptask.id}>
-                                    <GroupPostCard grouptask={grouptask} key={grouptask.id} /> 
-                                </div>
-                            // </>
+                            <div className="task-post" key={grouptask.id}>
+                                <GroupPostCard grouptask={grouptask} key={grouptask.id} /> 
+                            </div>
                         ) )}
                     </article>
                 </div>
