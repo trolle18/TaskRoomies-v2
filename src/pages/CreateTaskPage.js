@@ -8,7 +8,7 @@ import TaskForm from "../components/TaskForm";
 import PostCard from "../components/PostCard";
 
 
-export default function CreatePage() {
+export default function CreateTaskPage() {
     const [tasks, setTasks] = useState([]);
     const navigate = useNavigate();
     const auth = getAuth();

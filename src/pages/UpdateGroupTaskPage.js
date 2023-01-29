@@ -6,12 +6,12 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import GroupTaskForm from "../components/GroupTaskForm";
 
-export default function GroupUpdatePage() {
+
+export default function UpdateGroupTaskPage() {
     const navigate = useNavigate();
     const params = useParams();
     const [grouptask, setGroupTask] = useState({});
     const grouptaskId = params.id;
-
 
     useEffect(() => {
         async function getGroupTask() {
@@ -40,7 +40,6 @@ export default function GroupUpdatePage() {
     }
 
 
-
     return (
         <section className="page">
             <h1>Edit task</h1>
@@ -54,5 +53,5 @@ export default function GroupUpdatePage() {
                 </button>
             </section>
         </section>
-    );
-}
+    )
+};

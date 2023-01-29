@@ -83,5 +83,5 @@ export default function SignUpPage() {
                 </form>
             </div>
         </section>
-    );
-}
+    )
+};

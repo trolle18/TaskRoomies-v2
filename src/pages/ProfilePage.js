@@ -4,7 +4,6 @@ import { getAuth, signOut, deleteUser, EmailAuthProvider } from "firebase/auth";
 import { doc, getDoc, setDoc, getDocs,  onSnapshot, query, orderBy } from "@firebase/firestore";
 import { usersRef } from "../firebase-config";
 import 'firebase/database';
-// import { HiMinusCircle } from "react-icons/hi";
 import { FaBell } from "react-icons/fa";
 import placerholder from "../assets/profile-placeholder.jpg";
 import GroupMembers from "../components/GroupMembers";
@@ -202,5 +201,5 @@ export default function ProfilePage({ currentUser }) {
                 </form>
             </div>
         </section>
-    );
-}
+    )
+};

@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 
-
 export default function SignInPage() {
     const [errorMessage, setErrorMessage] = React.useState("");
     const navigate = useNavigate();
@@ -51,5 +50,5 @@ export default function SignInPage() {
                 </form>
             </div>
         </section>
-    );
-}
+    )
+};

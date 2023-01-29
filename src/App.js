@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import HomePage from "./pages/HomePage";
-import CreatePage from "./pages/CreatePage";
-import UpdatePage from "./pages/UpdatePage";
 import SignInPage from "./pages/SignInPage";
 import SignUpPage from "./pages/SignUpPage";
-import GroupCreatePage from "./pages/GroupCreatePage";
+import HomePage from "./pages/HomePage";
+import CreateTaskPage from "./pages/CreateTaskPage";
+import CreateGroupTaskPage from "./pages/CreateGroupTaskPage";
+import UpdateGroupTaskPage from "./pages/UpdateGroupTaskPage";
+import UpdateTaskPage from "./pages/UpdateTaskPage";
 import ProfilePage from "./pages/ProfilePage";
-import GroupUpdatePage from "./pages/GroupUpdatePage";
 import Nav from "./components/Nav";
 import Header from "./components/Header";
 // import DarkMode from "./components/DarkMode";
 import { WiSolarEclipse } from "react-icons/wi";
+import CreateGroupPage from "./pages/CreateGroupPage";
 
 
 
@@ -31,27 +32,15 @@ function App() {
     });
 
 
-
     var [theme, setTheme] = useState( localStorage.getItem('theme') || 'light');
     var button = document.getElementById("darkModeBtn")
 
     const toggleTheme = () => {        
-        if (theme !== 'dark') {
-            setTheme('dark');
-        }
-        if (theme !== 'light') {
-            setTheme('light');
-        }
-
-        console.log(theme)
+        if (theme !== 'dark') { setTheme('dark') }
+        if (theme !== 'light') { setTheme('light') }
         button.classList.add(theme)
         localStorage.setItem('theme', theme);
     }
-
-    // // 
-    // useEffect(() => {
-       
-    // }, [theme])
 
     
     return (
@@ -76,11 +65,12 @@ function App() {
                         <Route path="*" element={<Navigate to="/"/>} />
                         <Route path="/signin" element={<SignInPage/>} />
                         <Route path="/signup" element={<SignUpPage/>} />
+                        <Route path="/create-group" element={<CreateGroupPage/>} />
                         <Route path="/profile" element={<ProfilePage/>} />
-                        <Route path="/groupcreate" element={<GroupCreatePage/>} />
-                        <Route path="/groupupdate/:id" element={<GroupUpdatePage/>} />
-                        <Route path="/create" element={<CreatePage/>} />
-                        <Route path="/update/:id" element={<UpdatePage/>} />
+                        <Route path="/create-grouptask" element={<CreateGroupTaskPage/>} />
+                        <Route path="/update-grouptask/:id" element={<UpdateGroupTaskPage/>} />
+                        <Route path="/create-task" element={<CreateTaskPage/>} />
+                        <Route path="/update-task/:id" element={<UpdateTaskPage/>} />
                     </Routes>
                 </>
             ) : (
@@ -93,7 +83,7 @@ function App() {
             )}
          </div>
         </>
-    );
-}
+    )
+};
 
 export default App;
