@@ -12,13 +12,13 @@ export default function Nav() {
                     <span className="nav-link"> Home </span>
                 </NavLink>
 
-                <NavLink to="/groupcreate">
+                <NavLink to="/create-grouptask">
                     <AiOutlineTeam/>
                     {/* <AiOutlineCarryOut /> */}
                     <span className="nav-link"> Group tasks </span>
                 </NavLink>
 
-                <NavLink to="/create">
+                <NavLink to="/create-task">
                     <AiOutlineCarryOut />
                     <span className="nav-link"> Tasks </span>
                 </NavLink>
