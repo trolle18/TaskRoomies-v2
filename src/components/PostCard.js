@@ -8,7 +8,7 @@ export default function PostCard({ task }) {
     const [isChecked, setIsChecked] = useState(false);
     
     function handleClick() {
-        navigate(`/update/${task.id}`);
+        navigate(`/update-task/${task.id}`);
     } 
 
     const handleOnChange = () => {

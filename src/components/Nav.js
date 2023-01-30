@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { AiOutlineUser, AiOutlineHome, AiOutlineShoppingCart, AiOutlineCarryOut } from "react-icons/ai";
+import { AiOutlineUser, AiOutlineHome, AiOutlineTeam, AiOutlineCarryOut } from "react-icons/ai";
 
 
 export default function Nav() {
@@ -12,19 +12,20 @@ export default function Nav() {
                     <span className="nav-link"> Home </span>
                 </NavLink>
 
-                <NavLink to="/groupcreate">
+                <NavLink to="/create-grouptask">
+                    <AiOutlineTeam/>
+                    {/* <AiOutlineCarryOut /> */}
+                    <span className="nav-link"> Group tasks </span>
+                </NavLink>
+
+                <NavLink to="/create-task">
                     <AiOutlineCarryOut />
                     <span className="nav-link"> Tasks </span>
                 </NavLink>
 
-                <NavLink to="/create">
-                    <AiOutlineShoppingCart />
-                    <span className="nav-link"> Shopping list </span>
-                </NavLink>
-
                 <NavLink to="/profile"> 
                     <AiOutlineUser />
-                    <span className="nav-link">Profile</span>
+                    <span className="nav-link"> Profile </span>
                 </NavLink>
             </div>
         </nav>

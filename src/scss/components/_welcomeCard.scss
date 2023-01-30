@@ -1,41 +1,90 @@
-/* ---------- WELCOMECARD ---------- */
 .welcome-card {
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    padding: 10px;
-    transition: 0.5s;
+    margin: 1.25em 0;
+    padding: .5em;
     display: flex;
     flex-direction: row;
+    gap: .5em;
     background-color: $clr_blue_l;
     border-radius: $border_r;
+
+    .userimg-cntr {
+       display: flex;
+       align-items: center;
+       vertical-align: middle;
+
+        .user-img {
+            height: 100%;
+            max-height: 4em;
+            max-width: 4em;
+            object-fit: cover;
+            border-radius: 50%;
+            overflow: hidden;
+
+            img {
+                width: auto;
+                height: 100%;
+            }
+        }
+    }
+
+    .msg-cntr {
+        height: max-content;
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: repeat(auto, 1fr);
+
+        &__top {
+            height: max-content;           
+            text-align: right;
+            font-weight: 600;
+            font-size: .75em;
+            color: #5d5d5d;
+            letter-spacing: .5px;
+            grid-area: 1 / 1 / 2 / 2;
+        }
+
+        &__left {
+            height: max-content;
+            padding: 0 0 .75em 0;
+            grid-area: 2 / 1 / 4 / 2;
+            display: flex;
+            flex-direction: column;
+            gap: .5em;
+
+            h2 {
+                font-size: 1.25em;
+            }
+        }
+    }
 }
 
-.welcome-userimg {
-    height: auto;
-    padding: 22px 10px 0px 15px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+@media (min-width: 600px) {
+    .welcome-card {
+        padding: .5em;
+        gap: 1em;
+    
+        .userimg-cntr {    
+            .user-img {
+                height: 100%;
+                max-height: 4em;
+                max-width: 4em;
+    
+                img {
+                    width: auto;
+                    height: 100%;
+                }
+            }
+        }
+    
+        .msg-cntr {
+            &__left {    
+                h2 {
+                    font-size: 1.5em;
+                }
+            }
+        }
+    }
 }
 
-.welcome-userimg .user-img img {
-    max-width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 50%;
-}
 
-.welcome-msg {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 20px 10px 5px 10px;
-}
-
-.welcome-msg h2 {
-    margin: 0px 0px 10px 0px;
-}
-
-.welcome-msg p {
-    padding-bottom: 0px;
-    margin: 0;
-}

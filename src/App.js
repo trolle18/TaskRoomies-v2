@@ -11,9 +11,7 @@ import UpdateTaskPage from "./pages/UpdateTaskPage";
 import ProfilePage from "./pages/ProfilePage";
 import Nav from "./components/Nav";
 import Header from "./components/Header";
-// import DarkMode from "./components/DarkMode";
 import { WiSolarEclipse } from "react-icons/wi";
-import CreateGroupPage from "./pages/CreateGroupPage";
 
 
 
@@ -65,7 +63,6 @@ function App() {
                         <Route path="*" element={<Navigate to="/"/>} />
                         <Route path="/signin" element={<SignInPage/>} />
                         <Route path="/signup" element={<SignUpPage/>} />
-                        <Route path="/create-group" element={<CreateGroupPage/>} />
                         <Route path="/profile" element={<ProfilePage/>} />
                         <Route path="/create-grouptask" element={<CreateGroupTaskPage/>} />
                         <Route path="/update-grouptask/:id" element={<UpdateGroupTaskPage/>} />

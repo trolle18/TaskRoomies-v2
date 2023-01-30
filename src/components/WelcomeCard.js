@@ -59,21 +59,24 @@ function UserImg({ uid }) {
 }
 
 
-export default function WelcomeCard({ post }) {
-
-    let today = new Date().toLocaleDateString()
-
+export default function WelcomeCard() {
+    const today = new Date().toLocaleDateString()
 
     return (
-        <article className="welcome-card">
-            <div className="welcome-userimg">
+        <div className="welcome-card">
+            <div className="userimg-cntr">
                 <UserImg /> 
             </div>
-            <div className="welcome-msg">
-                <h2>Hej <UserName />! </h2>
-                <p>Welcome back</p>
-                <p>date: {today}</p>
+            <div className="msg-cntr">
+                <div className="msg-cntr__left">
+                    <h2>Hi, <UserName />!</h2>
+                    <p>Welcome back</p>
+                </div>
+                
+                <p className="msg-cntr__top">
+                    {today}
+                </p>
             </div>
-        </article>
+        </div>
     );
 }

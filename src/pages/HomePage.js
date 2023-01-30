@@ -64,7 +64,7 @@ export default function HomePage() {
                
                 <div className="task-cntr">
                     <div className="title-box">
-                        <h2 className="cntr-title">Shopping list</h2>
+                        <h2 className="cntr-title">Tasks</h2>
                         <Link to="/create" className="task-cntr-link">
                             <MdAddCircle/>
                         </Link>
