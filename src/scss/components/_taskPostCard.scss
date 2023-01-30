@@ -149,10 +149,9 @@
 
         /* Text Element Details */
         .todo-text-details {
-            border: solid red 0px;
-            border-left: solid rgba(0, 0, 0, 0.2) 0px;
+            // border: solid red 0px;
+            // border-left: solid rgba(0, 0, 0, 0.2) 0px;
             width: 30%;
-            // padding: 0em 0em 0em 2em;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
@@ -160,14 +159,13 @@
 
 
             p {
-                // margin: 0em 0em 0em 0em;
-                font-size: 12px;
+                font-size: .75em;
                 font-weight: 600;
                 text-transform: capitalize;
             }
 
             &:last-child {
-                font-size: 12px;
+                font-size: .75em;
                 font-weight: 600;
                 color: rgba(0, 0, 0, 0.5);
             }
@@ -179,7 +177,7 @@
 
 /* Update Button Element */
 .updt-elem {
-    border: solid green 0px;
+    // border: solid green 0px;
     width: auto;
     height: 100%;
     display: flex;
@@ -187,7 +185,7 @@
 }
 
 .updt-elem > button {
-    border: solid green 0px;
+    // border: solid green 0px;
     width: auto;
     height: auto;
     margin: 0em 0em 0em 1.5em;
