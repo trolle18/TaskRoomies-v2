@@ -45,7 +45,7 @@ export default function CreateTaskPage() {
                 </Link>
                 <div className="page-title">
                     <AiOutlineShoppingCart/>
-                    <h2>Add item to shopping list</h2>
+                    <h2>Create new task</h2>
                 </div>
                 <section className="form-cntr">
                     <TaskForm saveTask={handleSubmit} />
@@ -55,7 +55,7 @@ export default function CreateTaskPage() {
             <section className="grid-cntr">
                 <div className="task-cntr">
                 <div className="title-box">
-                        <h2 className="cntr-title">Group Tasks</h2>  
+                        <h2 className="cntr-title">Tasks</h2>  
                     </div> 
                     <article>
                         {tasks.map( ( task ) => (
