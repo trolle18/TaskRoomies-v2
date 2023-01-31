@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { BiCalendarEvent, BiPencil } from "react-icons/bi"
+import { BiPencil } from "react-icons/bi"
 
 
 export default function PostCard({ task }) {
@@ -36,7 +36,7 @@ export default function PostCard({ task }) {
         <>
             <div className="postcard-cntr">
 
-               <div className="postcard-elem checkbox-elem">
+               <div className="checkbox-elem border-blue">
                     <div className="checkbox-box">
                         <input 
                             type="checkbox" 
@@ -48,7 +48,7 @@ export default function PostCard({ task }) {
                     </div>
                 </div>
 
-                <div className="postcard-elem todo-elem">
+                <div className="todo-text-cntr border-blue">
                     <label className="todo-text">
                         <div className="todo-text__title">
                             <h3>{task.title}</h3>
@@ -59,7 +59,7 @@ export default function PostCard({ task }) {
                             <div className="todo-text__details__date">
                                 {/* <BiCalendarEvent/>  */}
                                 <p className="">{getDate(task)}</p>
-                                <p className="weekday">{getWeekday(task)}</p>
+                                {/* <p className="weekday">{getWeekday(task)}</p> */}
                             </div>
                            
                         </div>
@@ -67,7 +67,7 @@ export default function PostCard({ task }) {
                     </label>
                 </div>
 
-                <div className="updt-elem">
+                <div className="updt-elem border-blue">
                     <button onClick={handleClick}>
                         <BiPencil />
                     </button>

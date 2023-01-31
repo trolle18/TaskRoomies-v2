@@ -1,28 +1,21 @@
 .postcard-cntr {
-    // border: solid blue 1px;
     width: 100%;
     height: auto;
     padding: .5em 0em;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: .5em;
     transition: .2s ease-in;
 
-    .postcard-elem {
-        cursor: pointer;
-    }
-
     /* Checkbox Element */
     .checkbox-elem {
-        // border: solid red 1px;
+        height: 1em;
+        width: 1.2em;
         margin: 0;
 
         .checkbox-box {
-            // border: solid blue 1px;
-            height: 100%;
-            width: 1em;
             position: relative;
-
 
             .checkbox-input {
                 width: 1.2em;
@@ -76,8 +69,7 @@
 
 
     /* Text Element */
-    .todo-elem {
-        // border: solid blue 1px;
+    .todo-text-cntr {
         width: 100%;
 
         .todo-text {
@@ -87,9 +79,9 @@
             display: flex;
             justify-content: space-between;
             flex-direction: row;
+            align-items: baseline;
 
             &__title {
-                // border: solid red 1px;
                 display: flex;
                 flex-direction: row;
                 gap: .25em;
@@ -103,9 +95,7 @@
             }
 
             &__details {
-                // border: solid red 1px;
                 width: max-content;
-                // max-width: 50%;
                 display: flex;
                 flex-direction: row;
                 justify-content: space-around;
@@ -127,21 +117,12 @@
                         text-transform: uppercase;
                     }
                 }
-
-                // &:last-child {
-                //     font-size: .75em;
-                //     font-weight: 600;
-                //     color: rgba(0, 0, 0, 0.5);
-                // }
             }
-
         }
     }
 
-
     /* Update Button */
     .updt-elem {
-        border: solid red 1px;
         display: flex;
         justify-content: right;
 
@@ -151,8 +132,6 @@
             margin: 0;
             padding: 0;
             display: flex;
-            // justify-content: center;
-            // align-items: center;
             background-color: transparent;
 
             &:hover {
@@ -161,13 +140,12 @@
                         box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
                         border-color: $clr_black;
                     }
-
                 }
             }
 
             svg {
                 height: 1em;
-                width: auto;
+                // width: auto;
 
                 path {
                     fill: $clr_black;
