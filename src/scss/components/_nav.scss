@@ -1,5 +1,4 @@
 nav {
-    // width: 100vw;
     bottom: 0;
     left: 0;
     right: 0;
@@ -10,29 +9,29 @@ nav {
 
 
     .nav-links {
+        border: solid red 1px;
         width: 100%;
         height: auto;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
 
-
         a {
             width: 100px;
             height: auto;
             margin: 0 auto;
-            padding: 16px 0px;
+            padding: .75em 0;
             color: $txt_clr_l;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-decoration: none;
             text-transform: uppercase;
-            font-size: 10px;
+            font-size: .5em;
 
             svg {
-                height: 22px;
+                height: 1.5em;
                 width: auto;
-                }
+            }
 
             &:hover {
                 background-color: transparent;
