@@ -24,11 +24,7 @@ export function UserName({ currentUser }) {
         getUser();
     }, [auth.currentUser]);
 
-    return (
-        <>
-            <span className="user-name">{user.name}</span>
-        </>
-    );
+    return (<>{user.name}</>);
 };
 
 

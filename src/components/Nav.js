@@ -9,23 +9,22 @@ export default function Nav() {
             <div className="nav-links">
                 <NavLink to="/">
                     <AiOutlineHome />
-                    <span className="nav-link"> Home </span>
+                    <span>Home</span>
                 </NavLink>
 
                 <NavLink to="/create-grouptask">
                     <AiOutlineTeam/>
-                    {/* <AiOutlineCarryOut /> */}
-                    <span className="nav-link"> Group tasks </span>
+                    <span>Group tasks</span>
                 </NavLink>
 
                 <NavLink to="/create-task">
                     <AiOutlineCarryOut />
-                    <span className="nav-link"> Tasks </span>
+                    <span>Tasks</span>
                 </NavLink>
 
                 <NavLink to="/profile"> 
                     <AiOutlineUser />
-                    <span className="nav-link"> Profile </span>
+                    <span>Profile</span>
                 </NavLink>
             </div>
         </nav>

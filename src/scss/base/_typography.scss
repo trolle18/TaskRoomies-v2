@@ -1,26 +1,28 @@
 h1 {
-    font-size: 2em;
-    font-weight: 500;
-    letter-spacing: 0.1px;
+    font-size: $fs_x_lg;
+    font-weight: 600;
+    letter-spacing: 0.02em;
     text-align: center;
 }
 
 h2 {
+    font-size: $fs_lg;
     font-weight: 600;
-    letter-spacing: 0.1px;
-}
+    letter-spacing: 0.02em;
+} 
 
 h3 {
-    font-weight: 500;
-    letter-spacing: 0.1px;
+    font-size: $fs_lg;
+    letter-spacing: 0.02em;
 }
 
 p {
-    font-size: 16px;
+    font-size: $fs_sm;
 }
 
 a {
-    // color: var(--orange);
+    color: $clr_orange;
+    text-decoration: none;
 }
 
 
@@ -29,9 +31,9 @@ a {
     /* padding-top: 10%; */
 }
 
-.text-center a {
-    padding-left: 2%;
-}
+// .text-center a {
+//     padding-left: 2%;
+// }
 
 .text-error {
     color: $txt_clr_danger;
@@ -39,4 +41,30 @@ a {
 
 .text-error:first-letter {
     text-transform: uppercase;
+}
+
+.fs-2x-sm {
+    font-size: $fs_x_sm;
+}
+.fs-x-sm {
+    font-size: $fs_2x_sm;
+}
+.fs-sm {
+    font-size: $fs_sm;
+}
+.fs-md {
+    font-size: $fs_md;
+}
+.fs-lg {
+    font-size: $fs_lg;
+}
+.fs-x-lg {
+    font-size: $fs_x_lg;
+}
+.fs-2x-lg {
+    font-size: $fs_2x_lg;
+}
+
+.text-letspace {
+    letter-spacing: 0.02em;
 }

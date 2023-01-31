@@ -32,7 +32,7 @@ export default function TaskForm({ saveTask, task }) {
     return (
         <form onSubmit={handleSubmit}>
             <label>
-                <input placeholder="Type..." type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+                <input placeholder="Task..." type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
             </label>
 
             {/* <label>
@@ -48,10 +48,10 @@ export default function TaskForm({ saveTask, task }) {
                 </select>
             </label> */}
 
-            <label>
-                When?
+            <div>
+                <p>When?</p>
                 <input type="date" pattern="\d{4}-\d{2}-\d{2}" value={date} onChange={(e) => setDate(e.target.value)} />
-            </label>
+            </div>
 
             <button type="submit">Save</button>
         </form>

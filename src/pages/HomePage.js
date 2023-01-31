@@ -53,9 +53,9 @@ export default function HomePage() {
                         </Link>
                     </div>
                     <article>
-                        {grouptasks.map( ( grouptask ) => (
-                            <div className="task-post" key={grouptask.id} >
-                                <GroupPostCard grouptask={grouptask} key={grouptask.id} />
+                        {grouptasks.map( ( task ) => (
+                            <div className="task-post" key={task.id} >
+                                <PostCard task={task} key={task.id} />
                             </div>
                         ) )}
                            
