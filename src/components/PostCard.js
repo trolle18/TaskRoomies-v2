@@ -16,6 +16,21 @@ export default function PostCard({ task }) {
         console.log(!isChecked, task.id)
     };
 
+    function getDate(task) {
+        const options = {month: 'long', day: '2-digit' }
+        const date = task.date;
+        const setDate = new Date(date).toLocaleDateString('en-GB', options)
+        return setDate
+    }
+
+    function getWeekday(task) {
+        const options = { weekday: 'long' }
+        const date = task.date;
+        const setDate = new Date(date).toLocaleDateString('en-GB', options)
+        return setDate
+    }
+
+
 
     return (
         <>
@@ -35,13 +50,18 @@ export default function PostCard({ task }) {
 
                 <div className="postcard-elem todo-elem">
                     <label className="todo-text">
-                        <div className="todo-text-title">
+                        <div className="todo-text__title">
                             <h3>{task.title}</h3>
-                            <p> {isChecked ? "completed" : "pending..."}</p>
+                            {/* <p> {isChecked ? "completed" : "pending..."}</p> */}
                         </div>
-                        <div className="todo-text-details">
-                            <p>{task.person}</p>
-                            <p><BiCalendarEvent/> {task.date}</p>
+                        <div className="todo-text__details">
+                           <p>{task.person}</p>
+                            <div className="todo-text__details__date">
+                                {/* <BiCalendarEvent/>  */}
+                                <p className="">{getDate(task)}</p>
+                                <p className="weekday">{getWeekday(task)}</p>
+                            </div>
+                           
                         </div>
                         
                     </label>
