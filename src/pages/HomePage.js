@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { onSnapshot, query, orderBy } from "@firebase/firestore";
 import { tasksRef, grouptaskRef } from "../firebase-config";
 import { MdAddCircle } from "react-icons/md"
-import GroupPostCard from "../components/GroupPostCard";
+// import GroupPostCard from "../components/GroupPostCard";
 import PostCard from "../components/PostCard";
 import WelcomeCard from "../components/WelcomeCard";
 
