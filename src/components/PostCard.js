@@ -36,7 +36,7 @@ export default function PostCard({ task }) {
         <>
             <div className="postcard-cntr">
 
-               <div className="checkbox-elem border-blue">
+               <div className="checkbox-elem">
                     <div className="checkbox-box">
                         <input 
                             type="checkbox" 
@@ -48,7 +48,7 @@ export default function PostCard({ task }) {
                     </div>
                 </div>
 
-                <div className="todo-text-cntr border-blue">
+                <div className="todo-text-cntr">
                     <label className="todo-text">
                         <div className="todo-text__title">
                             <h3>{task.title}</h3>
@@ -67,7 +67,7 @@ export default function PostCard({ task }) {
                     </label>
                 </div>
 
-                <div className="updt-elem border-blue">
+                <div className="updt-btn">
                     <button onClick={handleClick}>
                         <BiPencil />
                     </button>

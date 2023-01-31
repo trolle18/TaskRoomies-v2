@@ -122,7 +122,7 @@
     }
 
     /* Update Button */
-    .updt-elem {
+    .updt-btn {
         display: flex;
         justify-content: right;
 
@@ -145,7 +145,6 @@
 
             svg {
                 height: 1em;
-                // width: auto;
 
                 path {
                     fill: $clr_black;
