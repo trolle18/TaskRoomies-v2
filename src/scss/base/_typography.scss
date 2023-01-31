@@ -1,12 +1,12 @@
 h1 {
-    font-size: $fs_2x_lg;
+    font-size: $fs_x_lg;
     font-weight: 600;
     letter-spacing: 0.02em;
     text-align: center;
 }
 
 h2 {
-    font-size: $fs_x_lg;
+    font-size: $fs_lg;
     font-weight: 600;
     letter-spacing: 0.02em;
 } 
@@ -63,4 +63,8 @@ a {
 }
 .fs-2x-lg {
     font-size: $fs_2x_lg;
+}
+
+.text-letspace {
+    letter-spacing: 0.02em;
 }
