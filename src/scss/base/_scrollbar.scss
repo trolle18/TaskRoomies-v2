@@ -1,7 +1,7 @@
 /* Width */
 ::-webkit-scrollbar {
-    width: 6px;
-    border: 1px solid transparent;
+    width: .5em;
+    // border: 1px solid transparent;
 }
 
 /* Track */
@@ -12,7 +12,7 @@
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background-color: $clr_black;
-    border-radius: 5px;
+    border-radius: 1em;
     z-index: 100;
     position: absolute;
 }

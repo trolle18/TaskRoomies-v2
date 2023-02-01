@@ -46,34 +46,29 @@ export default function HomePage() {
           
             <section className="grid-cntr">
                 <div className="task-cntr">
-                    <div className="title-box">
+                    <div className="task-cntr__title">
                         <h2>Group tasks</h2>  
-                        <Link to="/groupcreate" className="task-cntr-link">
+                        <Link to="/create-grouptask" className="add-btn">
                             <MdAddCircle/>
                         </Link>
                     </div>
                     <article>
-                        {grouptasks.map( ( task ) => (
-                            <div className="task-post" key={task.id} >
-                                <TaskPost task={task} key={task.id} />
-                            </div>
-                        ) )}
-                           
+                        {grouptasks.map(( task ) => (
+                            <TaskPost task={task} key={task.id} />
+                        ) )}                           
                     </article>
                 </div>
                
                 <div className="task-cntr">
-                    <div className="title-box">
-                        <h2 className="cntr-title">Tasks</h2>
-                        <Link to="/create" className="task-cntr-link">
+                    <div className="task-cntr__title">
+                        <h2>Tasks</h2>
+                        <Link to="/create-task" className="add-btn">
                             <MdAddCircle/>
                         </Link>
                     </div>
-                    <article>
-                        {tasks.map( ( task  ) => (
-                            <div className="task-post" key={task.id} >
-                                <TaskPost task={task} key={task.id} /> 
-                            </div>
+                    <article className="task-posts-cntr">
+                        {tasks.map(( task  ) => (
+                            <TaskPost task={task} key={task.id} /> 
                         ) )}
                     </article>
                 </div>
