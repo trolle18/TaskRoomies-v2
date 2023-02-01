@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { onSnapshot, query, orderBy } from "@firebase/firestore";
 import { tasksRef, grouptaskRef } from "../firebase-config";
 import { MdAddCircle } from "react-icons/md"
-import GroupPostCard from "../components/GroupPostCard";
-import PostCard from "../components/PostCard";
+import TaskPost from "../components/TaskPost";
 import WelcomeCard from "../components/WelcomeCard";
+// import TaskPost from "../components/TaskPost";
 
 
 export default function HomePage() {
@@ -55,7 +55,7 @@ export default function HomePage() {
                     <article>
                         {grouptasks.map( ( task ) => (
                             <div className="task-post" key={task.id} >
-                                <PostCard task={task} key={task.id} />
+                                <TaskPost task={task} key={task.id} />
                             </div>
                         ) )}
                            
@@ -72,7 +72,7 @@ export default function HomePage() {
                     <article>
                         {tasks.map( ( task  ) => (
                             <div className="task-post" key={task.id} >
-                                <PostCard task={task} key={task.id} /> 
+                                <TaskPost task={task} key={task.id} /> 
                             </div>
                         ) )}
                     </article>

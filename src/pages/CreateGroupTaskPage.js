@@ -5,7 +5,7 @@ import { onSnapshot, query, orderBy, addDoc, serverTimestamp } from "@firebase/f
 import { grouptaskRef } from "../firebase-config";
 import { AiOutlineArrowLeft, AiOutlineCarryOut } from "react-icons/ai";
 import GroupTaskForm from "../components/GroupTaskForm";
-import GroupPostCard from "../components/GroupPostCard";
+import TaskPost from "../components/TaskPost";
 
 
 export default function CreateGroupTaskPage() {
@@ -57,9 +57,9 @@ export default function CreateGroupTaskPage() {
                         <h2 className="cntr-title">Group Tasks</h2>  
                     </div>              
                     <article>
-                        {grouptask.map( ( grouptask ) => (
-                            <div className="task-post" key={grouptask.id}>
-                                <GroupPostCard grouptask={grouptask} key={grouptask.id} /> 
+                        {grouptask.map(( task ) => (
+                            <div className="task-post" key={task.id}>
+                                <TaskPost task={task} key={task.id} /> 
                             </div>
                         ) )}
                     </article>

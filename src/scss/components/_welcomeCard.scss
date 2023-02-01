@@ -30,30 +30,30 @@
     .msg-cntr {
         height: max-content;
         width: 100%;
-        display: grid;
-        grid-template-columns: auto;
-        grid-template-rows: repeat(auto, 1fr);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
-        &__top {
+        &__right {
             height: max-content;           
             text-align: right;
-            font-weight: 600;
-            font-size: .75em;
-            color: #5d5d5d;
-            letter-spacing: .5px;
-            grid-area: 1 / 1 / 2 / 2;
+
+            // p {
+            //     font-weight: 500;
+            //     font-size: $fs_x_sm;
+            // }
         }
 
         &__left {
             height: max-content;
-            padding: 0 0 .75em 0;
-            grid-area: 2 / 1 / 4 / 2;
             display: flex;
             flex-direction: column;
-            gap: .5em;
+            gap: .25em;
 
-            h2 {
-                font-size: 1.25em;
+            p {
+                &:first-child {
+                    font-size: $fs_md;
+                }
             }
         }
     }

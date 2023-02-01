@@ -16,7 +16,7 @@ h3 {
     letter-spacing: 0.02em;
 }
 
-p {
+span, p {
     font-size: $fs_sm;
 }
 
@@ -67,4 +67,14 @@ a {
 
 .text-letspace {
     letter-spacing: 0.02em;
+}
+
+.ucase {
+    text-transform: uppercase;
+}
+
+.xs-caps {
+    font-weight: 500;
+    font-size: $fs_x_sm;
+    text-transform: uppercase;
 }

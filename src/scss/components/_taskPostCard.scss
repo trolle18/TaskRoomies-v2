@@ -86,11 +86,10 @@
                 flex-direction: row;
                 gap: .25em;
                 align-items: baseline;
-                text-transform: capitalize;
 
-                h3 {
-                    font-size: $fs_md;
-                    font-weight: 600;
+                span::first-letter {
+                    display: inline-block;
+                    text-transform: uppercase;
                 }
             }
 
@@ -101,28 +100,12 @@
                 justify-content: space-around;
                 gap: 1em;
                 text-align: right;
-
-                p {
-                    font-size: $fs_sm;
-                }
-
-                &__date {
-                    display: flex;
-                    flex-direction: column;
-                    flex-wrap: wrap;
-                    gap: .1em;
-
-                    .weekday {
-                        font-size: $fs_x_sm;
-                        text-transform: uppercase;
-                    }
-                }
             }
         }
     }
 
     /* Update Button */
-    .updt-btn {
+    .edit-btn {
         display: flex;
         justify-content: right;
 
