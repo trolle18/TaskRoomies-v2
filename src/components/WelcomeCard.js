@@ -46,9 +46,9 @@ export default function WelcomeCard() {
             </div>
             <div className="msg-cntr">
                 <div className="msg-cntr__right">
-                   <p className="ucase">
-                    {/* {getTodaysWeekday},  */}
-                   {getTodaysDate}</p>                     
+                    <p className="xs-caps">
+                        {getTodaysDate}
+                    </p>                     
                 </div>
 
                 <div className="msg-cntr__left">
