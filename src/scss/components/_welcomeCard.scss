@@ -37,11 +37,6 @@
         &__right {
             height: max-content;           
             text-align: right;
-
-            // p {
-            //     font-weight: 500;
-            //     font-size: $fs_x_sm;
-            // }
         }
 
         &__left {
@@ -58,6 +53,7 @@
         }
     }
 }
+
 
 @media (min-width: 600px) {
     .welcome-card {

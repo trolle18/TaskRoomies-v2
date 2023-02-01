@@ -45,33 +45,39 @@ export default function HomePage() {
             </section>
           
             <section className="grid-cntr">
-                <div className="task-cntr">
-                    <div className="task-cntr__title">
-                        <h2>Group tasks</h2>  
-                        <Link to="/create-grouptask" className="add-btn">
-                            <MdAddCircle/>
-                        </Link>
-                    </div>
-                    <article>
-                        {grouptasks.map(( task ) => (
-                            <TaskPost task={task} key={task.id} />
-                        ) )}                           
-                    </article>
+
+                <div className="tasks-cntr">
+                    <div className="tasks-inner-cntr">
+                        <div className="tasks-inner-cntr__title">
+                            <h2>Group tasks</h2>  
+                            <Link to="/create-grouptask" className="add-btn">
+                                <MdAddCircle/>
+                            </Link>
+                        </div>
+                        <article className="task-posts-cntr">
+                            {grouptasks.map(( task ) => (
+                                <TaskPost task={task} key={task.id} />
+                            ) )}                           
+                        </article>
+                    </div>                    
                 </div>
                
-                <div className="task-cntr">
-                    <div className="task-cntr__title">
-                        <h2>Tasks</h2>
-                        <Link to="/create-task" className="add-btn">
-                            <MdAddCircle/>
-                        </Link>
+                <div className="tasks-cntr">
+                    <div className="tasks-inner-cntr">
+                        <div className="tasks-inner-cntr__title">
+                            <h2>Tasks</h2>
+                            <Link to="/create-task" className="add-btn">
+                                <MdAddCircle/>
+                            </Link>
+                        </div>
+                        <article className="task-posts-cntr">
+                            {tasks.map(( task  ) => (
+                                <TaskPost task={task} key={task.id} /> 
+                            ) )}
+                        </article>
                     </div>
-                    <article className="task-posts-cntr">
-                        {tasks.map(( task  ) => (
-                            <TaskPost task={task} key={task.id} /> 
-                        ) )}
-                    </article>
                 </div>
+
             </section>
 
         </section>
