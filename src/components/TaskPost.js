@@ -1,16 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BiPencil } from "react-icons/bi"
 import { getTaskDate, getTaskYear } from "../utils/GetDates";
+// import { doc, updateDoc } from "firebase/firestore";
+// import { tasksRef } from "../firebase-config";
 
 
-export default function TaskPost({ task }) {
-    const navigate = useNavigate(); 
+export default function TaskPost({ saveTask, task }) {
+    const navigate = useNavigate();
     const [isChecked, setIsChecked] = useState(false);
-    
+    // const [checked, setChecked] = useState();
+
     function handleClick() {
         navigate(`/update-task/${task.id}`);
-    } 
+    }
 
     const handleCheck = () => {
         const todoText = document.getElementById(task.id);
@@ -39,32 +42,86 @@ export default function TaskPost({ task }) {
             todoText.classList.remove("checked")
         }
     }
-    
-    
-    const handleOnChange = () => {
-        setIsChecked(!isChecked)
-        handleCheck()
-    }
 
     function checkPers(task) {
-        const pers = task.person 
+        const pers = task.person
         if(pers) return ( <span className="xs-caps">{task.person}</span> );
+    }
+
+    
+
+
+
+
+
+    // const [check, setCheck] = useState(false);
+
+    // useEffect(() => {
+    //     if (task) { setCheck(task.check) }
+    // }, [task]);
+
+    // const taskData = {
+    //     check: check,
+    // }
+    
+
+    //     // const params = useParams();
+    //     const taskId = task.id;
+    //     // function saveTask() {
+    //         async function saveTask(taskData) {
+    //             const docRef = doc(tasksRef, taskId);
+    //             await updateDoc(docRef, taskId); 
+    //             // navigate("/"); 
+    //         }
+    //     // }
+
+    // function handleOnChange(event) {
+    //     event.preventDefault()
+
+    //     // saveTask(taskData);
+    //     setIsChecked(!isChecked)
+    //     handleCheck()
+    // }
+
+    // ---------------------
+
+
+    const [check, setCheck] = useState(false);
+    useEffect(() => {
+        if (task) {
+            setCheck(task.check)
+        }
+    }, [task]);
+
+    const taskData = {
+        // id: id,
+        check: check,
+    };
+
+    
+    function handleSave(event) {
+        event.preventDefault()
+
+        saveTask(taskData);
+        setIsChecked(!isChecked)
+        console.log(!isChecked)
+        handleCheck()
     }
 
 
 
     return (
         <>
-            <div className="task-post" id="">
+            <div className="task-post">
 
                <div className="checkbox-elem">
                     <div className="checkbox-box">
-                        <input 
-                            type="checkbox" 
-                            name="checkbox" 
+                        <input
+                            type="checkbox"
+                            name="checkbox"
                             id="checkbox"
-                            checked={isChecked}
-                            onChange={handleOnChange}
+                            checked={task.check}
+                            onChange={handleSave}
                             className="checkbox-input unchecked"
                         />
                     </div>
@@ -77,9 +134,6 @@ export default function TaskPost({ task }) {
                         </div>
                         <div className="todo-text__details">
                             {checkPers(task)}
-                           {/* <span className="xs-caps">
-                                {task?.person}
-                            </span> */}
                             <span className="xs-caps">
                                 {getTaskDate(task)} {getTaskYear(task)}
                             </span>
