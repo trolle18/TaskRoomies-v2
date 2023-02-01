@@ -30,20 +30,18 @@ export default function WelcomeCard() {
 
         if (img) return img
         else return (placeholder)
-        
-        // else return (placeholder)
     }
-
-    console.log(getTodaysDate)
+    
 
     return (
         <div className="welcome-card">
+
             <div className="userimg-cntr">
-                {/* <UserImg />  */}
                 <div className="user-img">
                     <img src={getImg(user)} alt={user.name} />
                 </div>
             </div>
+
             <div className="msg-cntr">
                 <div className="msg-cntr__right">
                     <p className="xs-caps">
@@ -54,10 +52,9 @@ export default function WelcomeCard() {
                 <div className="msg-cntr__left">
                     <p>Hi, {user.name}!</p>
                     <p>Welcome back</p>
-                </div>
-                
-                
+                </div>                
             </div>
+
         </div>
     );
 }

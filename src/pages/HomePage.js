@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { onSnapshot, query, orderBy } from "@firebase/firestore";
+import { onSnapshot, query, orderBy, doc, updateDoc } from "@firebase/firestore";
 import { tasksRef, grouptaskRef } from "../firebase-config";
 import { MdAddCircle } from "react-icons/md"
 import TaskPost from "../components/TaskPost";
 import WelcomeCard from "../components/WelcomeCard";
-// import TaskPost from "../components/TaskPost";
 
 
 export default function HomePage() {
@@ -26,16 +25,25 @@ export default function HomePage() {
 
 
     // Gets second list from firebase
-        useEffect(() => {
-            const q = query(grouptaskRef, orderBy("createdAt", "desc"));    // Order by: lastest post first
-            const unsubscribe = onSnapshot(q, (data) => {    // Refers to quary instead of postRef, which returns filtered results - Unsub enables ability to watch components from a different page
-                    const grouptaskData = data.docs.map((doc) => {
-                    return { ...doc.data(), id: doc.id };   // Gets data from firebase (...doc.data) and with id: doc.id - gets the users id
-                });
-                setGroupTasks(grouptaskData);
+    useEffect(() => {
+        const q = query(grouptaskRef, orderBy("createdAt", "desc"));    // Order by: lastest post first
+        const unsubscribe = onSnapshot(q, (data) => {    // Refers to quary instead of postRef, which returns filtered results - Unsub enables ability to watch components from a different page
+                const grouptaskData = data.docs.map((doc) => {
+                return { ...doc.data(), id: doc.id };   // Gets data from firebase (...doc.data) and with id: doc.id - gets the users id
             });
-            return () => unsubscribe();
-        }, []);
+            setGroupTasks(grouptaskData);
+        });
+        return () => unsubscribe();
+    }, []);
+    
+
+    
+    async function handleSave(taskToUpdate, task) {
+        const taskId = task.id;
+        const docRef = doc(tasksRef, taskId);
+        await updateDoc(docRef, taskToUpdate); 
+        console.log(task.id)
+    }
 
 
     return (
@@ -45,38 +53,39 @@ export default function HomePage() {
             </section>
           
             <section className="grid-cntr">
-                <div className="task-cntr">
-                    <div className="title-box">
-                        <h2>Group tasks</h2>  
-                        <Link to="/groupcreate" className="task-cntr-link">
-                            <MdAddCircle/>
-                        </Link>
-                    </div>
-                    <article>
-                        {grouptasks.map( ( task ) => (
-                            <div className="task-post" key={task.id} >
-                                <TaskPost task={task} key={task.id} />
-                            </div>
-                        ) )}
-                           
-                    </article>
+
+                <div className="tasks-cntr">
+                    <div className="tasks-inner-cntr">
+                        <div className="tasks-inner-cntr__title">
+                            <h2>Group tasks</h2>  
+                            <Link to="/create-grouptask" className="add-btn">
+                                <MdAddCircle/>
+                            </Link>
+                        </div>
+                        <article className="task-posts-cntr">
+                            {grouptasks.map(( task ) => (
+                                <TaskPost saveTask={handleSave(task)} task={task} key={task.id} />
+                            ) )}                           
+                        </article>
+                    </div>                    
                 </div>
                
-                <div className="task-cntr">
-                    <div className="title-box">
-                        <h2 className="cntr-title">Tasks</h2>
-                        <Link to="/create" className="task-cntr-link">
-                            <MdAddCircle/>
-                        </Link>
+                <div className="tasks-cntr">
+                    <div className="tasks-inner-cntr">
+                        <div className="tasks-inner-cntr__title">
+                            <h2>Tasks</h2>
+                            <Link to="/create-task" className="add-btn">
+                                <MdAddCircle/>
+                            </Link>
+                        </div>
+                        <article className="task-posts-cntr">
+                            {tasks.map(( task  ) => (
+                                <TaskPost saveTask={handleSave(task)} task={task} key={task.id} /> 
+                            ) )}
+                        </article>
                     </div>
-                    <article>
-                        {tasks.map( ( task  ) => (
-                            <div className="task-post" key={task.id} >
-                                <TaskPost task={task} key={task.id} /> 
-                            </div>
-                        ) )}
-                    </article>
                 </div>
+
             </section>
 
         </section>

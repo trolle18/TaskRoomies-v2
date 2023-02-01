@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function TaskForm({ saveTask, task }) {
     const [title, setTitle] = useState("");
-    // const [icon, setIcon] = useState("");
+    const [check, setCheck] = useState(false);
     const [date, setDate] = useState("");
     const navigate = useNavigate();
 
@@ -12,6 +12,7 @@ export default function TaskForm({ saveTask, task }) {
         if (task) {
             setTitle(task.title);
             setDate(task.date);
+            setCheck(task.check)
         }
     }, [task]);
 
@@ -20,7 +21,7 @@ export default function TaskForm({ saveTask, task }) {
 
         const taskData = {
             title: title,
-            // icon: icon,
+            check: check,
             date: date,
         };
         saveTask(taskData);
@@ -31,26 +32,25 @@ export default function TaskForm({ saveTask, task }) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <label>
-                <input placeholder="Task..." type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
-            </label>
+            <input type="hidden" value={check}/>
 
-            {/* <label>
-                <select className="icon-select" placeholder="" value={icon} onChange={(e) => setIcon(e.target.value)}>
-                    <option className="icon-option" value="">Icon</option>
-                    <option className="icon-option" value="tools" data-icon="./assets/icons/couch-solid.svg"> Tools <MdHandyman/> </option>
-                    <option className="icon-option" value="cutlery" data-icon={couchIcon}> <FontAwesomeIcon icon={faCouch}/> Cutlery <MdLocalDining/> </option>
-                    <option className="icon-option" value="wash"> <FontAwesomeIcon icon={faCouch}/> Wash <MdCleanHands/> </option>
-                    <option className="icon-option" value="water"> <FontAwesomeIcon icon={faCouch}/> Water <MdWaterDrop/> </option>
-                    <option className="icon-option" value="bed"> <FontAwesomeIcon icon={faCouch}/> Bed <MdBed/> </option>
-                    <option className="icon-option" value="couch"> <FontAwesomeIcon icon={faCouch}/> Couch </option>
-                    <option className="icon-option" value="bath"> <FontAwesomeIcon icon={faCouch}/> Bath <MdShower/> </option>
-                </select>
-            </label> */}
+            <div>
+                <input
+                placeholder="Task..."
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                />
+            </div>
 
             <div>
                 <p>When?</p>
-                <input type="date" pattern="\d{4}-\d{2}-\d{2}" value={date} onChange={(e) => setDate(e.target.value)} />
+                <input
+                type="date"
+                pattern="\d{4}-\d{2}-\d{2}"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                />
             </div>
 
             <button type="submit">Save</button>

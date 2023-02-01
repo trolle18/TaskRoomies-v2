@@ -1,12 +1,10 @@
-.postcard-cntr {
-    width: 100%;
+.task-post {
     height: auto;
-    padding: .5em 0em;
+    margin: .5em 0em;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: .5em;
-    transition: .2s ease-in;
 
     /* Checkbox Element */
     .checkbox-elem {
@@ -34,7 +32,6 @@
                     box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
                     border-color: $clr_black;
                 }
-
                 &:checked {
                     background-color: $clr_black;
                     border-color: $clr_black;
@@ -43,7 +40,6 @@
                         background-color: rgba(0, 0, 0, 1);
                     }
                 }
-
                 &::after {
                     content: "";
                     position: absolute;
@@ -62,7 +58,6 @@
                         border-color: $clr_black;
                     }
                 }
-
             }
         }
     }
@@ -80,16 +75,35 @@
             justify-content: space-between;
             flex-direction: row;
             align-items: baseline;
+            vertical-align:bottom;
+            position: relative;
 
             &__title {
                 display: flex;
-                flex-direction: row;
                 gap: .25em;
                 align-items: baseline;
 
                 span::first-letter {
                     display: inline-block;
                     text-transform: uppercase;
+                }                
+            }
+
+            &.checked {
+                color: $clr_grey_md;
+                &::before {
+                    display: block;
+                    content: "";
+                    height: .08em;
+                    width: calc(100% + .5em);
+                    margin: auto;
+                    top: 55%;
+                    left: -.2em;
+                    align-self: middle;
+                    position: absolute;
+                    background-color: $clr_grey_m;
+                    mix-blend-mode: darken;
+                    opacity: .8;
                 }
             }
 
@@ -100,6 +114,10 @@
                 justify-content: space-around;
                 gap: 1em;
                 text-align: right;
+            }
+
+            &.checked {
+                font-style: italic;
             }
         }
     }
