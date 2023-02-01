@@ -12,39 +12,73 @@ export default function TaskPost({ task }) {
         navigate(`/update-task/${task.id}`);
     } 
 
+    const handleCheck = () => {
+        const todoText = document.getElementById("todo-text");
+        const title = document.getElementById("title");
+        const checkbox = document.getElementById("checkbox");
+
+        checkbox.classList.toggle("true");
+        if(isChecked !== true) {
+            checkbox.classList.add("checked")
+            checkbox.classList.remove("unchecked")
+
+            title.classList.add("checked")
+            title.classList.remove("unchecked")
+
+            todoText.classList.add("checked")
+            todoText.classList.remove("unchecked")
+        }
+        else {
+            checkbox.classList.add("unchecked")
+            checkbox.classList.remove("checked")
+
+            title.classList.add("unchecked")
+            title.classList.remove("checked")
+
+            todoText.classList.add("unchecked")
+            todoText.classList.remove("checked")
+        }
+    }
+    
+    
     const handleOnChange = () => {
-        setIsChecked(!isChecked);
-    };
+        setIsChecked(!isChecked)
+        handleCheck()
+    }
+
+    
+
 
 
     return (
         <>
-            <div className="postcard-cntr">
+            <div className="task-post" id="task">
 
                <div className="checkbox-elem">
                     <div className="checkbox-box">
                         <input 
                             type="checkbox" 
                             name="checkbox" 
+                            id="checkbox"
                             checked={isChecked}
                             onChange={handleOnChange}
-                            className="checkbox-input"
+                            className="checkbox-input unchecked"
                         />
                     </div>
                 </div>
 
                 <div className="todo-text-cntr">
-                    <div className="todo-text">
-                        <div className="todo-text__title">
+                    <div className="todo-text unchecked" id="todo-text">
+                        <div className="todo-text__title unchecked" id="title" >
                             <span>{task.title}</span>
                         </div>
                         <div className="todo-text__details">
-                           <p className="xs-caps">
+                           <span className="xs-caps">
                                 {task.person}
-                            </p>
-                            <p className="xs-caps">
+                            </span>
+                            <span className="xs-caps">
                                 {getTaskDate(task)} {getTaskYear(task)}
-                            </p>
+                            </span>
                         </div>
                     </div>
                 </div>

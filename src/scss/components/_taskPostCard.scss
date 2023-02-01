@@ -1,4 +1,5 @@
-.postcard-cntr {
+.task-post {
+    border: 1px solid red;
     width: 100%;
     height: auto;
     padding: .5em 0em;
@@ -34,7 +35,6 @@
                     box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
                     border-color: $clr_black;
                 }
-
                 &:checked {
                     background-color: $clr_black;
                     border-color: $clr_black;
@@ -43,7 +43,6 @@
                         background-color: rgba(0, 0, 0, 1);
                     }
                 }
-
                 &::after {
                     content: "";
                     position: absolute;
@@ -62,7 +61,6 @@
                         border-color: $clr_black;
                     }
                 }
-
             }
         }
     }
@@ -80,16 +78,46 @@
             justify-content: space-between;
             flex-direction: row;
             align-items: baseline;
+            position: relative;
 
             &__title {
                 display: flex;
-                flex-direction: row;
                 gap: .25em;
                 align-items: baseline;
 
                 span::first-letter {
                     display: inline-block;
                     text-transform: uppercase;
+                }
+
+                // &.checked {
+                //     &::before {
+                //         display: block;
+                //         content: "";
+                //         height: 2px;
+                //         width: 100%;
+                //         background-color: red;
+                //     }
+                // }
+
+                
+            }
+
+            &.checked {
+                color: $clr_grey_md;
+                &::before {
+                    display: block;
+                    content: "";
+                    height: .05em;
+                    width: calc(100% + .5em);
+                    margin: auto;
+                    top: 55%;
+                    left: -.2em;
+                    align-self: middle;
+                    position: absolute;
+                    background-color: $clr_grey_m;
+                    // opacity: .25;
+                    mix-blend-mode:darken;
                 }
             }
 
@@ -100,6 +128,10 @@
                 justify-content: space-around;
                 gap: 1em;
                 text-align: right;
+            }
+
+            &.checked {
+                font-style: italic;
             }
         }
     }
