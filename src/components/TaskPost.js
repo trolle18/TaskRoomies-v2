@@ -13,7 +13,7 @@ export default function TaskPost({ task }) {
     } 
 
     const handleCheck = () => {
-        const todoText = document.getElementById("todo-text");
+        const todoText = document.getElementById(task.id);
         const title = document.getElementById("title");
         const checkbox = document.getElementById("checkbox");
 
@@ -46,13 +46,16 @@ export default function TaskPost({ task }) {
         handleCheck()
     }
 
-    
+    function checkPers(task) {
+        const pers = task.person 
+        if(pers) return ( <span className="xs-caps">{task.person}</span> );
+    }
 
 
 
     return (
         <>
-            <div className="task-post" id="task">
+            <div className="task-post" id="">
 
                <div className="checkbox-elem">
                     <div className="checkbox-box">
@@ -68,14 +71,15 @@ export default function TaskPost({ task }) {
                 </div>
 
                 <div className="todo-text-cntr">
-                    <div className="todo-text unchecked" id="todo-text">
+                    <div className="todo-text unchecked" id={task.id}>
                         <div className="todo-text__title unchecked" id="title" >
                             <span>{task.title}</span>
                         </div>
                         <div className="todo-text__details">
-                           <span className="xs-caps">
-                                {task.person}
-                            </span>
+                            {checkPers(task)}
+                           {/* <span className="xs-caps">
+                                {task?.person}
+                            </span> */}
                             <span className="xs-caps">
                                 {getTaskDate(task)} {getTaskYear(task)}
                             </span>

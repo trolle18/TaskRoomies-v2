@@ -75,6 +75,7 @@
             justify-content: space-between;
             flex-direction: row;
             align-items: baseline;
+            vertical-align:bottom;
             position: relative;
 
             &__title {
@@ -85,19 +86,7 @@
                 span::first-letter {
                     display: inline-block;
                     text-transform: uppercase;
-                }
-
-                // &.checked {
-                //     &::before {
-                //         display: block;
-                //         content: "";
-                //         height: 2px;
-                //         width: 100%;
-                //         background-color: red;
-                //     }
-                // }
-
-                
+                }                
             }
 
             &.checked {
@@ -105,7 +94,7 @@
                 &::before {
                     display: block;
                     content: "";
-                    height: .05em;
+                    height: .08em;
                     width: calc(100% + .5em);
                     margin: auto;
                     top: 55%;
@@ -113,8 +102,8 @@
                     align-self: middle;
                     position: absolute;
                     background-color: $clr_grey_m;
-                    // opacity: .25;
-                    mix-blend-mode:darken;
+                    mix-blend-mode: darken;
+                    opacity: .8;
                 }
             }
 
