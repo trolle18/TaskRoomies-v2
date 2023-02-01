@@ -23,12 +23,12 @@ export default function TaskPost({ task }) {
         return setDate
     }
 
-    function getWeekday(task) {
-        const options = { weekday: 'long' }
-        const date = task.date;
-        const setDate = new Date(date).toLocaleDateString('en-GB', options)
-        return setDate
-    }
+    // function getWeekday(task) {
+    //     const options = { weekday: 'long' }
+    //     const date = task.date;
+    //     const setDate = new Date(date).toLocaleDateString('en-GB', options)
+    //     return setDate
+    // }
 
 
 
@@ -75,5 +75,5 @@ export default function TaskPost({ task }) {
 
             </div>
         </>
-    );
+    )
 };
