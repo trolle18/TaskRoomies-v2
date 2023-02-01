@@ -5,7 +5,7 @@ import { onSnapshot, query, orderBy, addDoc, serverTimestamp } from "@firebase/f
 import { tasksRef } from "../firebase-config";
 import { AiOutlineArrowLeft, AiOutlineShoppingCart } from "react-icons/ai";
 import TaskForm from "../components/TaskForm";
-import PostCard from "../components/PostCard";
+import TaskPost from "../components/TaskPost";
 
 
 export default function CreateTaskPage() {
@@ -54,17 +54,14 @@ export default function CreateTaskPage() {
 
             <section className="grid-cntr">
                 <div className="task-cntr">
-                <div className="title-box">
+                    <div className="title-box">
                         <h2 className="cntr-title">Tasks</h2>  
                     </div> 
                     <article>
-                        {tasks.map( ( task ) => (
-                            // <>
-                            //     <div className="vertical-seb"></div>
-                                <div className="task-post" key={task.id}>
-                                    <PostCard task={task} key={task.id} /> 
-                                </div>
-                            // </>
+                        {tasks.map(( task ) => (
+                            <div className="task-post" key={task.id}>
+                                <TaskPost task={task} key={task.id} /> 
+                            </div>
                         ) )}
                     </article>
                 </div>

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { BiPencil } from "react-icons/bi"
 
 
-export default function PostCard({ task }) {
+export default function TaskPost({ task }) {
     const navigate = useNavigate(); 
     const [isChecked, setIsChecked] = useState(false);
     
@@ -13,7 +13,7 @@ export default function PostCard({ task }) {
 
     const handleOnChange = () => {
         setIsChecked(!isChecked);
-        console.log(!isChecked, task.id)
+        // console.log(!isChecked, task.id)
     };
 
     function getDate(task) {
@@ -67,7 +67,7 @@ export default function PostCard({ task }) {
                     </label>
                 </div>
 
-                <div className="updt-btn">
+                <div className="edit-btn">
                     <button onClick={handleClick}>
                         <BiPencil />
                     </button>
