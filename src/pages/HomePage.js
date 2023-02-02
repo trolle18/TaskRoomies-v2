@@ -38,12 +38,12 @@ export default function HomePage() {
     
 
     
-    async function handleSave(taskToUpdate, task) {
-        const taskId = task.id;
-        const docRef = doc(tasksRef, taskId);
-        await updateDoc(docRef, taskToUpdate); 
-        console.log(task.id)
-    }
+    // async function handleSave(taskToUpdate, task) {
+    //     const taskId = task.id;
+    //     const docRef = doc(tasksRef, taskId);
+    //     await updateDoc(docRef, taskToUpdate); 
+    //     console.log(task.id)
+    // }
 
 
     return (
@@ -64,7 +64,9 @@ export default function HomePage() {
                         </div>
                         <article className="task-posts-cntr">
                             {grouptasks.map(( task ) => (
-                                <TaskPost saveTask={handleSave(task)} task={task} key={task.id} />
+                                <TaskPost 
+                                // saveTask={handleSave(task)} 
+                                task={task} key={task.id} />
                             ) )}                           
                         </article>
                     </div>                    
@@ -80,7 +82,9 @@ export default function HomePage() {
                         </div>
                         <article className="task-posts-cntr">
                             {tasks.map(( task  ) => (
-                                <TaskPost saveTask={handleSave(task)} task={task} key={task.id} /> 
+                                <TaskPost
+                                // saveTask={handleSave(task)}
+                                task={task} key={task.id} /> 
                             ) )}
                         </article>
                     </div>
