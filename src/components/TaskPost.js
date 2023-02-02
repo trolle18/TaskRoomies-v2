@@ -10,7 +10,7 @@ import Checkbox from "./Checkbox";
 export default function TaskPost({ task }) {
     const navigate = useNavigate();
     const [check, setCheck] = useState(false);
-    // const [isChecked, setIsChecked] = useState(false);
+    const [isChecked, setIsChecked] = useState(false);
 
 
     function handleClick() {
@@ -54,7 +54,7 @@ export default function TaskPost({ task }) {
 
     const taskId = task.id;
     async function handleSave(taskToUpdate) {
-        // setIsChecked(!isChecked)
+        setIsChecked(!isChecked)
         const docRef = doc(tasksRef, taskId);
         await updateDoc(docRef, taskToUpdate); 
         setCheck(check)
