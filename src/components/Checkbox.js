@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-export default function Checkbox({ saveTask, task }) {
+export default function Checkbox({ handleCheckmark, task }) {
     const [check, setCheck] = useState(false);
     const navigate = useNavigate();
     // const taskId = task.id;
@@ -32,7 +32,7 @@ export default function Checkbox({ saveTask, task }) {
         const taskData = { 
             check: check 
         }
-        saveTask(taskData)
+        handleCheckmark(taskData)
         navigate("/")
     }
 
