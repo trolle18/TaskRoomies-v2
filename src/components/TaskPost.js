@@ -53,7 +53,7 @@ export default function TaskPost({ task }) {
     
 
     const taskId = task.id;
-    async function handleSave(taskToUpdate) {
+    async function handleCheckmark(taskToUpdate) {
         setIsChecked(!isChecked)
         const docRef = doc(tasksRef, taskId);
         await updateDoc(docRef, taskToUpdate); 
@@ -68,7 +68,7 @@ export default function TaskPost({ task }) {
             <div className="task-post">
 
                 <div className="checkbox-elem">
-                    <Checkbox task={task} saveTask={handleSave}/>
+                    <Checkbox task={task} handleCheckmark={handleCheckmark}/>
                 </div>
 
                 <div className="todo-text-cntr">
