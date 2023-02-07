@@ -7,16 +7,16 @@ export default function Checkbox({ handleCheckmark, task }) {
     const navigate = useNavigate();
     // const taskId = task.id;
 
-    const handleCheck = () => {
-        const checkbox = document.getElementById(`check${task.id}`);
+    // const handleCheck = () => {
+    //     const checkbox = document.getElementById(`check${task.id}`);
 
-        if(checkbox === true) {
-            return task.check = false
-        }
-        else if (checkbox === false) {
-            return task.check = true
-        }
-    }
+    //     if(checkbox === true) {
+    //         return task.check = false
+    //     }
+    //     else if (checkbox === false) {
+    //         return task.check = true
+    //     }
+    // }
 
 
     useEffect(() => {
@@ -28,7 +28,7 @@ export default function Checkbox({ handleCheckmark, task }) {
     
     function handleSave(event) {
         event.preventDefault()
-        handleCheck()
+        // handleCheck()
         const taskData = { 
             check: check 
         }
@@ -41,15 +41,18 @@ export default function Checkbox({ handleCheckmark, task }) {
     return (
         <>
             <div className="checkbox-box">
-                <input
+                <form className="checkbox-form">
+                    <input
                     type="checkbox"
                     name="checkbox"
                     id="checkbox"
-                    checked={check}
+                    // checked={check}
                     onChange={handleSave}
                     value={check}
-                    className={`check${task.id}`}
+                    className={`check${task.id} ${check}`}
                 />
+                </form>
+                
             </div>
         </>
     )

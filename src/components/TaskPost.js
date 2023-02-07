@@ -11,30 +11,32 @@ export default function TaskPost({ task }) {
     const navigate = useNavigate();
     const [check, setCheck] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
+    const taskId = task.id
 
 
     function handleClick() {
         navigate(`/update-task/${task.id}`);
     }
 
-    const handleCheck = () => {
-        const todoText = document.getElementById(`todotext${task.id}`);
-        const title = document.getElementById("title");
-        const taskCheck = task.check
+    // const handleCheck = () => {
+    //     const todoText = document.getElementById(`todotext${task.id}`);
+    //     const title = document.getElementById("title");
+    //     // const taskCheckbox = document.getElementById(`check${task.id}`);
+    //     const taskCheck = task.check
 
-        if(taskCheck === true) {
-            title.classList.add("checked")
-            title.classList.remove("unchecked")
-            todoText.classList.add("checked")
-            todoText.classList.remove("unchecked")
-        }
-        else if (taskCheck === false) {
-            title.classList.add("unchecked")
-            title.classList.remove("checked")
-            todoText.classList.add("unchecked")
-            todoText.classList.remove("checked")
-        }
-    }
+    //     if(taskCheck === true) {
+    //         title.classList.add("checked")
+    //         title.classList.remove("unchecked")
+    //         todoText.classList.add("checked")
+    //         todoText.classList.remove("unchecked")
+    //     }
+    //     else if (taskCheck === false) {
+    //         title.classList.add("unchecked")
+    //         title.classList.remove("checked")
+    //         todoText.classList.add("unchecked")
+    //         todoText.classList.remove("checked")
+    //     }
+    // }
 
     function checkPers(task) {
         const pers = task.person
@@ -45,14 +47,13 @@ export default function TaskPost({ task }) {
     
     useEffect(() => {
         if (task) {
-            handleCheck()
+            // handleCheck()
             setCheck(task.check)           
         }
     }, [task]);
 
     
 
-    const taskId = task.id;
     async function handleCheckmark(taskToUpdate) {
         setIsChecked(!isChecked)
         const docRef = doc(tasksRef, taskId);
@@ -68,7 +69,10 @@ export default function TaskPost({ task }) {
             <div className="task-post">
 
                 <div className="checkbox-elem">
-                    <Checkbox task={task} handleCheckmark={handleCheckmark}/>
+                    <Checkbox 
+                    task={task} 
+                    handleCheckmark={handleCheckmark}
+                    />
                 </div>
 
                 <div className="todo-text-cntr">
