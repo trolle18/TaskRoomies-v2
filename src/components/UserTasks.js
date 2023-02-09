@@ -26,7 +26,7 @@ export default function UserTasks({ currentUser }) {
                 .map((doc) => {
                     return { ...doc.data(), id: doc.id, uid: doc.uid }  // Gets data from firebase (...doc.data) and with id: doc.id - gets the users id
                 })
-                console.log(taskData)
+                // console.log(taskData)
                 setTasks(taskData)
             })
             return () => unsubscribe()
