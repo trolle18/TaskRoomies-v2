@@ -5,6 +5,7 @@ import { tasksRef, grouptaskRef } from "../firebase-config";
 import { MdAddCircle } from "react-icons/md"
 import TaskPost from "../components/TaskPost";
 import WelcomeCard from "../components/WelcomeCard";
+import UserTasks from "../components/UserTasks";
 
 
 export default function HomePage() {
@@ -12,16 +13,16 @@ export default function HomePage() {
     const [grouptasks, setGroupTasks] = useState([]);
 
     // Gets first list from firebase 
-        useEffect(() => {
-            const q = query(tasksRef, orderBy("createdAt", "desc"));    // Order by: lastest post first
-            const unsubscribe = onSnapshot(q, (data) => {   // Refers to quary instead of postRef, which returns filtered results - Unsub enables ability to watch components from a different page
-                const tasksData = data.docs.map((doc) => {
-                    return { ...doc.data(), id: doc.id };   // Gets data from firebase (...doc.data) and with id: doc.id - gets the users id
-                });
-                setTasks(tasksData);
+    useEffect(() => {
+        const q = query(tasksRef, orderBy("createdAt", "desc"));    // Order by: lastest post first
+        const unsubscribe = onSnapshot(q, (data) => {   // Refers to quary instead of postRef, which returns filtered results - Unsub enables ability to watch components from a different page
+            const tasksData = data.docs.map((doc) => {
+                return { ...doc.data(), id: doc.id };   // Gets data from firebase (...doc.data) and with id: doc.id - gets the users id
             });
-            return () => unsubscribe();
-        }, []);
+            setTasks(tasksData);
+        });
+        return () => unsubscribe();
+    }, []);
 
 
     // Gets second list from firebase
@@ -35,15 +36,21 @@ export default function HomePage() {
         });
         return () => unsubscribe();
     }, []);
-    
+
+
 
     return (
         <section className="page">
+
             <section className="card">
                 <WelcomeCard />
             </section>
           
             <section className="grid-cntr">
+
+                <UserTasks/>
+
+               
 
                 <div className="tasks-cntr">
                     <div className="tasks-inner-cntr">
@@ -62,6 +69,7 @@ export default function HomePage() {
                         </article>
                     </div>                    
                 </div>
+
                
                 <div className="tasks-cntr">
                     <div className="tasks-inner-cntr">
@@ -82,7 +90,6 @@ export default function HomePage() {
                 </div>
 
             </section>
-
         </section>
     )
 };
