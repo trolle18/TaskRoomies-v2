@@ -105,17 +105,32 @@ export default function UserTasks({ currentUser }) {
     //     getUserTasks();
     // }, [auth.currentUser]);
 
-        // Get current user data 
-        useEffect(() => {
-            async function getUserTasks() {
-                const museums = query(collectionGroup(db, 'userTasks'));
-                const querySnapshot = await getDocs(museums);
-                querySnapshot.forEach((doc) => {
-                    console.log(doc.id, ' => ', doc.data());
-                });
-            }
-            getUserTasks();
+        // // Get current user data 
+        // useEffect(() => {
+        //     async function getUserTasks() {
+        //         const tasksData = query(collectionGroup(db, 'userTasks'));
+        //         const querySnapshot = await getDocs(tasksData);
+        //         querySnapshot.forEach((doc) => {
+        //             console.log(doc.id, ' => ', doc.data());
+        //         });
+        //         // setTasks(tasks)
+        //     }
+        //     getUserTasks()
+        //     setTasks(tasks)
             
+        // }, [tasks]);
+
+
+        // Gets second list from firebase
+        useEffect(() => {
+            const q = query(collectionGroup(db, 'userTasks'));
+            const unsubscribe = onSnapshot(q, (data) => {    // Refers to quary instead of postRef, which returns filtered results - Unsub enables ability to watch components from a different page
+                const taskData = data.docs.map((doc) => {
+                    return { ...doc.data(), id: doc.id };   // Gets data from firebase (...doc.data) and with id: doc.id - gets the users id
+                });
+                setTasks(taskData);
+            });
+            return () => unsubscribe();
         }, []);
 
 
