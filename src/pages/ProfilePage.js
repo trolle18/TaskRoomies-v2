@@ -25,16 +25,16 @@ export default function ProfilePage({ currentUser }) {
         async function getUser() {
         if (auth.currentUser) {
             setEmail(auth.currentUser.email);
-            const docRef = doc(usersRef, auth.currentUser.uid);
-            const userData = (await getDoc(docRef)).data();        
-            const docSnap = await getDoc(docRef);
+            const docRef = doc(usersRef, auth.currentUser.uid)
+            const userData = (await getDoc(docRef)).data()      
+            const docSnap = await getDoc(docRef)
             if (userData) {
-            setUser((prevUser) => ({ ...prevUser, ...docSnap.data() }));
-            setName(userData.name);
-            setImage(userData.image || 'placeholder');
+                setUser((prevUser) => ({ ...prevUser, ...docSnap.data() }))
+                setName(userData.name)
+                setImage(userData.image || 'placeholder')
             }
         }}
-        getUser();
+        getUser()
     }, [auth.currentUser]);
 
 

@@ -77,34 +77,47 @@ export default function UserTasks({ currentUser }) {
 
 
 
-    // Get current user data 
-    useEffect(() => {
-        async function getUser() {
-            if (auth.currentUser) {
-                const docRef = doc(usersRef, auth.currentUser.uid)
-                const userData = (await getDoc(docRef)).data()  
-                const docSnap = await getDoc(docRef)
+    // // Get current user data 
+    // useEffect(() => {
+    //     async function getUserTasks() {
+    //         const docRef = doc(usersRef, auth.currentUser.uid)
+    //         const userData = (await getDoc(docRef)).data()  
+    //         // const docSnap = await getDoc(docRef)
 
-                const userTasks = query(collectionGroup(db, 'userTasks'))
-                const querySnapshot = await getDocs(userTasks);
-               
+    //         const userTasks = collectionGroup(db, 'userTasks')
+    //         const querySnapshot = await getDocs(userTasks);
 
-                if (userData) {
-                    setUser((prevUser) => ({ ...prevUser, ...docSnap.data() }))
+    //         if (auth.currentUser) {           
+    //             if (userData) {
+    //                 // setUser((prevUser) => ( { 
+    //                 //     ...prevUser,
+    //                 //     ...docSnap.data() 
+    //                 // }))
                     
-                    querySnapshot.forEach((doc) => {
-                        console.log(doc.id, ' => ', doc.data())
-                    });
-                    const tasks = doc.data
+    //                 // querySnapshot.forEach((doc) => { console.log(doc.id, ' => ', doc.data()) })
+    //                 const tasks = userData.userTasks
+    //                 querySnapshot.forEach((doc) => { console.log( doc.data()) })
+    //                 console.log(tasks)
+    //                 setTasks(tasks)
+    //             }
+    //         } 
+    //     }
+    //     getUserTasks();
+    // }, [auth.currentUser]);
 
-                    setTasks(tasks)
-                }
+        // Get current user data 
+        useEffect(() => {
+            async function getUserTasks() {
+                const museums = query(collectionGroup(db, 'userTasks'));
+                const querySnapshot = await getDocs(museums);
+                querySnapshot.forEach((doc) => {
+                    console.log(doc.id, ' => ', doc.data());
+                });
             }
-        }
+            getUserTasks();
+            
+        }, []);
 
-        
-        getUser();
-    }, [auth.currentUser]);
 
 
 
