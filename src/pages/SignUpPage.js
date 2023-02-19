@@ -46,9 +46,9 @@ export default function SignUpPage() {
             const reader = new FileReader();
             reader.onload = (event) => {
                 setImage(event.target.result);
-            };
+            }
             reader.readAsDataURL(file);
-            setErrorMessage(""); // reset errorMessage state
+            // setErrorMessage("") // reset errorMessage state
         } else { // if image >0.5MB, display an error message using the errorMessage state
             setErrorMessage("The image file is too big! The image file size must be below 0,5MB");
         }
