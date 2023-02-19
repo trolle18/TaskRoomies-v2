@@ -14,22 +14,22 @@ export default function CreateGroupPage() {
     const auth = getAuth();
 
     useEffect(() => {
-        const q = query(groupRef, orderBy("createdAt", "desc"));
+        const q = query(groupRef, orderBy("createdAt", "desc"))
         const unsubscribe = onSnapshot(q, (data) => {
             const groupData = data.docs.map((doc) => {
-                return { ...doc.data(), id: doc.id }; 
-            });
+                return { ...doc.data(), id: doc.id }
+            })
             setGroup(groupData);
-        });
-        return () => unsubscribe();
-    }, []);
+        })
+        return () => unsubscribe()
+    }, [])
 
 
     async function handleSubmit(createGroup) {
         createGroup.createdAt = serverTimestamp(); // Timestamp (now)
         createGroup.uid = auth.currentUser.uid; // User-id of auth user / signed in user
-        await addDoc(groupRef, createGroup); // Adds new item
-        navigate("/");
+        await addDoc(groupRef, createGroup) // Adds new item
+        navigate("/")
     }
 
     return (
@@ -47,15 +47,7 @@ export default function CreateGroupPage() {
                     <GroupForm saveGroup={handleSubmit} group={group} />
                 </section>
             </section>
-            
-            {/* <section className="grid-cntr">
-                <div className="task-cntr">  
-                    <div className="title-box">
-                        <h2 className="cntr-title">Group Tasks</h2>  
-                    </div>              
-                </div>
-            </section> */}
-
         </section>
     )
 };
+
