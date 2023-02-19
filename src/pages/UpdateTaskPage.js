@@ -22,12 +22,6 @@ export default function UpdateTaskPage() {
         getTask()
     }, [taskId]);
 
-    // useEffect(() => {
-    //     async function getTask() {
-    //         const docRef = doc(db, 'userTasks', taskId)
-    //         const docData = await getDoc(docRef)
-            
-
 
 
     async function handleSubmit(taskToUpdate) {
