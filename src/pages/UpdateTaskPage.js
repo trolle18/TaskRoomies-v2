@@ -20,15 +20,15 @@ export default function UpdateTaskPage() {
             setTasks(docData.data())
         }
         getTask()
-    }, [taskId]);
+    }, [taskId])
 
 
     async function handleSubmit(taskToUpdate) {
         const docRef = doc(tasksRef, taskId)
         await updateDoc(docRef, taskToUpdate)
         navigate("/")
-    };
-    
+    }
+
 
     async function handleDelete() {
         const confirmDelete = window.confirm(`Delete, ${task.title}?`)
@@ -37,7 +37,7 @@ export default function UpdateTaskPage() {
             await deleteDoc(docRef)
             navigate("/")
         }
-    };
+    }
 
 
     return (
