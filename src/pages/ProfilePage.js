@@ -95,22 +95,6 @@ export default function ProfilePage({ currentUser }) {
     }
     
 
-    // Get Group 
-    // useEffect(() => {
-    //     async function getGroupMembers() {
-    //         const q = query(usersRef, orderBy("name"));
-    //         const data = await getDocs(q);
-    //         const groupMembersData = data.docs.map(doc => {
-    //             return { ...doc.data(), id: doc.id }; // changing the data structure so it's all gathered in one object
-    //         });
-    //         setGroupMembers(groupMembersData);
-    //         // console.log(groupMembersData);
-    //     }
-    //     getGroupMembers();
-    // }, []);
-    
-
-
     return (
         <section className="page">
             <div className="profile-page">
