@@ -70,17 +70,13 @@ export default function ProfilePage({ currentUser }) {
         signOut(auth);
     }
 
-
     // Delete user handler
     function handleUserDelete() {
         const auth = getAuth();
         const user = auth.currentUser.uid;
 
         // If session expired, reauthenticate user credentials
-        const credentials = EmailAuthProvider.credential(
-            user.email,
-            "yourpassword"
-        );
+        const credentials = EmailAuthProvider.credential( user.email, "yourpassword" )
         user.reauthenticateWithCredential(credentials);
 
         deleteUser(user)
