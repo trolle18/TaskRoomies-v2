@@ -39,7 +39,6 @@ export default function SignUpPage() {
         });
     }
 
-    // Handle user image
     function handleImageChange(event) {
         const file = event.target.files[0];
         if (file.size < 500000) { // image file size must be below 0,5MB
@@ -53,7 +52,6 @@ export default function SignUpPage() {
             setErrorMessage("The image file is too big! The image file size must be below 0,5MB");
         }
     }
-
 
     
     return (
