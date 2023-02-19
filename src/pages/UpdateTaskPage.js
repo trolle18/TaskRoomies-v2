@@ -28,22 +28,6 @@ export default function UpdateTaskPage() {
     //         const docData = await getDoc(docRef)
             
 
-    //         const q = query(collectionGroup(db, 'userTasks', taskId))
-    //         const unsubscribe = onSnapshot(q, (data) => {
-    //             const taskData = data.docs
-    //             .filter((doc) => doc.id.includes(taskId) )
-    //             .map((doc) => {
-    //                 return { ...doc.data(), id: doc.id, uid: doc.uid }
-    //             })
-    //             console.log(taskData, taskId)
-    //             // setTasks(taskData)
-    //         })
-    //         // return () => unsubscribe()
-            
-    //         setTasks(docData.data())
-    //     }
-    //     getTask()
-    // }, [taskId]);
 
 
     async function handleSubmit(taskToUpdate) {
