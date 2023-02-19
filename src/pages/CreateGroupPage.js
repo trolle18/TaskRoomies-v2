@@ -25,9 +25,9 @@ export default function CreateGroupPage() {
 
 
     async function handleSubmit(createGroup) {
-        createGroup.createdAt = serverTimestamp(); // Timestamp (now)
-        createGroup.uid = auth.currentUser.uid; // User-id of auth user / signed in user
-        await addDoc(groupRef, createGroup) // Adds new item
+        createGroup.createdAt = serverTimestamp()
+        createGroup.uid = auth.currentUser.uid
+        await addDoc(groupRef, createGroup)
         navigate("/")
     }
 
