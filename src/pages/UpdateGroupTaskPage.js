@@ -22,13 +22,11 @@ export default function UpdateGroupTaskPage() {
         getGroupTask();
     }, [grouptaskId]);
 
-
     async function handleSubmit(taskToUpdate) {
         const docRef = doc(grouptaskRef, grouptaskId);
         await updateDoc(docRef, taskToUpdate);
         navigate("/");
     } 
-
 
     async function handleDelete() {
         const confirmDelete = window.confirm(`Delete, ${grouptask.title}?`);
@@ -55,3 +53,4 @@ export default function UpdateGroupTaskPage() {
         </section>
     )
 };
+

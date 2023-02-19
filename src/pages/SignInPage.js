@@ -16,7 +16,6 @@ export default function SignInPage() {
         .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
-            // ...
             navigate("/");
             console.log(user);
         })
@@ -25,10 +24,8 @@ export default function SignInPage() {
             code = code.replaceAll("-", " ");
             code = code.replaceAll("auth/", "");
             setErrorMessage(code);
-        });
+        })
     }
-
-
 
     return (
         <section className="page">

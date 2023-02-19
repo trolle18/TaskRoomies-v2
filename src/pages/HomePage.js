@@ -22,7 +22,7 @@ export default function HomePage() {
             setTasks(tasksData);
         });
         return () => unsubscribe();
-    }, []);
+    }, [])
 
 
     // Gets second list from firebase
@@ -35,8 +35,7 @@ export default function HomePage() {
             setGroupTasks(grouptaskData);
         });
         return () => unsubscribe();
-    }, []);
-
+    }, [])
 
 
     return (

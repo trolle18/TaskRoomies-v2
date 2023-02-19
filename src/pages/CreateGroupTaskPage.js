@@ -15,25 +15,23 @@ export default function CreateGroupTaskPage() {
 
 
     useEffect(() => {
-        const q = query(grouptaskRef, orderBy("createdAt", "desc"));
+        const q = query(grouptaskRef, orderBy("createdAt", "desc"))
         const unsubscribe = onSnapshot(q, (data) => {
             const grouptaskData = data.docs.map((doc) => {
                 return { ...doc.data(), id: doc.id }; 
-            });
+            })
             setGroupTask(grouptaskData);
-        });
-        return () => unsubscribe();
-    }, []);
+        })
+        return () => unsubscribe()
+    }, [])
 
 
     async function handleSubmit(newGroupTask) {
-        newGroupTask.createdAt = serverTimestamp(); // Timestamp (now)
-        newGroupTask.uid = auth.currentUser.uid; // User-id of auth user / signed in user
-        await addDoc(grouptaskRef, newGroupTask); // Adds new item
-        navigate("/");
+        newGroupTask.createdAt = serverTimestamp() // Timestamp (now)
+        newGroupTask.uid = auth.currentUser.uid // User-id of auth user / signed in user
+        await addDoc(grouptaskRef, newGroupTask) // Adds new item
+        navigate("/")
     }
-
-
 
     return (
         <section className="page">
@@ -65,8 +63,6 @@ export default function CreateGroupTaskPage() {
                     </article>
                 </div>
             </section>
-
-
         </section>
-    );
-}
+    )
+};

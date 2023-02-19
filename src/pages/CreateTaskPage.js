@@ -21,10 +21,10 @@ export default function CreateTaskPage() {
                 return { ...doc.data(), id: doc.id };
             });
             setTasks(tasksData);
-        });
+        })
 
         return () => unsubscribe();
-    }, []);
+    }, [])
 
 
     async function handleSubmit(newTask) {
@@ -35,10 +35,8 @@ export default function CreateTaskPage() {
     }
 
 
-
     return (
         <section className="page">
-
             <section className="card">
                 <Link to="/">
                     <AiOutlineArrowLeft size={30} /> <br></br>
@@ -66,7 +64,6 @@ export default function CreateTaskPage() {
                     </article>
                 </div>
             </section>
-
         </section>
-    );
-}
+    )
+};
