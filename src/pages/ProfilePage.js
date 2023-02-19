@@ -17,7 +17,6 @@ export default function ProfilePage({ currentUser }) {
     const [errorMessage, setErrorMessage] = useState("");
     const auth = getAuth();
     const navigate = useNavigate();
-    // const [groupMembers, setGroupMembers] = useState([]);
     
 
     // Get current user data 
@@ -80,18 +79,17 @@ export default function ProfilePage({ currentUser }) {
         user.reauthenticateWithCredential(credentials);
 
         deleteUser(user)
-            .then(() => {
-                const confirmDelete = window.confirm(`Are you sure, you want to delete your profile ${user.name}?`);  
-                if (confirmDelete) {                    
-                    const docRef = doc(user);
-                    deleteUser(docRef);
-                    navigate("/signup");                
-                }
-            })
-            .catch((error) => {
-                // ...
-                error("An error occurred, try again later");
-            });
+        .then(() => {
+            const confirmDelete = window.confirm(`Are you sure, you want to delete your profile ${user.name}?`);  
+            if (confirmDelete) {                    
+                const docRef = doc(user);
+                deleteUser(docRef);
+                navigate("/signup");                
+            }
+        })
+        .catch((error) => {
+            error("An error occurred, try again later");
+        })
     }
     
 
