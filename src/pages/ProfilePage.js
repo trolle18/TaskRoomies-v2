@@ -131,9 +131,7 @@ export default function ProfilePage({ currentUser }) {
                     </div>
 
                 </form>
-            </div>
-
-           
+            </div>           
         </section>
     )
-};
+}
