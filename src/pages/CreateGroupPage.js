@@ -36,7 +36,7 @@ export default function CreateGroupPage() {
 
             <section className="card">
                 <Link to="/">
-                    <AiOutlineArrowLeft size={30} /> <br></br>
+                    <AiOutlineArrowLeft size={30}/>
                 </Link>
                 <div className="page-title">
                     <AiOutlineUsergroupAdd/>
