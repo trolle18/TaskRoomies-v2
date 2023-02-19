@@ -21,10 +21,10 @@ export default function CreateTaskPage() {
                 return { ...doc.data(), id: doc.id };
             });
             setTasks(tasksData);
-        });
+        })
 
         return () => unsubscribe();
-    }, []);
+    }, [])
 
 
     async function handleSubmit(newTask) {
@@ -33,7 +33,6 @@ export default function CreateTaskPage() {
         await addDoc(tasksRef, newTask); // Posts input to homepage
         navigate("/");
     }
-
 
 
     return (
