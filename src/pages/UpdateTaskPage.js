@@ -23,12 +23,12 @@ export default function UpdateTaskPage() {
     }, [taskId]);
 
 
-
     async function handleSubmit(taskToUpdate) {
         const docRef = doc(tasksRef, taskId)
         await updateDoc(docRef, taskToUpdate)
         navigate("/")
     };
+    
 
     async function handleDelete() {
         const confirmDelete = window.confirm(`Delete, ${task.title}?`)
