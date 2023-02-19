@@ -5,7 +5,6 @@ import { onSnapshot, query, orderBy, addDoc, serverTimestamp } from "@firebase/f
 import { groupRef } from "../firebase-config";
 import { AiOutlineArrowLeft, AiOutlineUsergroupAdd } from "react-icons/ai";
 import GroupForm from "../components/GroupForm";
-// import GroupPostCard from "../components/GroupPostCard";
 
 
 export default function CreateGroupPage() {
