@@ -6,23 +6,23 @@ import Placerholder from "../assets/profile-placeholder.jpg";
 import { getTodaysDate } from "../utils/GetDates";
 
 
-export default function WelcomeCard() {
-    const [user, setUser] = useState("");
-    const auth = getAuth();
+export default function WelcomeCard({user}) {
+    // const [user, setUser] = useState("");
+    // const auth = getAuth();
 
-    useEffect(() => {
-        async function getUser() {
-            if (auth.currentUser) {
-                setUser(auth.currentUser);
-                const docRef = doc(usersRef, auth.currentUser.uid);
-                const docSnap = await getDoc(docRef);
-                if (docSnap.data()) {
-                    setUser((prevUser) => ({ ...prevUser, ...docSnap.data() }));
-                }
-            }
-        }
-        getUser();
-    }, [auth.currentUser]);
+    // useEffect(() => {
+    //     async function getUser() {
+    //         if (auth.currentUser) {
+    //             setUser(auth.currentUser);
+    //             const docRef = doc(usersRef, auth.currentUser.uid);
+    //             const docSnap = await getDoc(docRef);
+    //             if (docSnap.data()) {
+    //                 setUser((prevUser) => ({ ...prevUser, ...docSnap.data() }));
+    //             }
+    //         }
+    //     }
+    //     getUser();
+    // }, [auth.currentUser]);
 
     function getImg(user) {
         const img = user.image
