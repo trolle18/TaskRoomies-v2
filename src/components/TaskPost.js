@@ -7,7 +7,7 @@ import { tasksRef } from "../firebase-config";
 import Checkbox from "./Checkbox";
 
 
-export default function TaskPost({ task }) {
+export default function TaskPost({ task, updateUrl }) {
     const navigate = useNavigate();
     const [check, setCheck] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
@@ -15,7 +15,7 @@ export default function TaskPost({ task }) {
 
 
     function handleClick() {
-        navigate(`/update-task/${task.id}`);
+        navigate(`${updateUrl}${task.id}`);
     }
 
     // const handleCheck = () => {
@@ -62,6 +62,8 @@ export default function TaskPost({ task }) {
 
         console.log(taskId, taskToUpdate)
     }
+
+    // console.log( task.title, task.check)
 
 
     return (
