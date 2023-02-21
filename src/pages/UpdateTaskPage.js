@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { doc, getDoc, updateDoc, deleteDoc} from "@firebase/firestore";
-import { tasksRef } from "../firebase-config";
+import { doc, getDoc, updateDoc, deleteDoc, collection} from "@firebase/firestore";
+import { db, tasksRef } from "../firebase-config";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import TaskForm from "../components/TaskForm";
+import { getAuth } from "firebase/auth";
 
 
 export default function UpdateTaskPage() {
+    const auth = getAuth();
     const navigate = useNavigate();
     const params = useParams();
     const [task, setTasks] = useState({}); 
@@ -15,16 +17,23 @@ export default function UpdateTaskPage() {
 
     useEffect(() => {
         async function getTask() {
-            const docRef = doc(tasksRef, taskId)
+            // const docRef = doc(tasksRef, taskId)
+            const uid = await(auth?.currentUser?.uid)
+            const tasksInUserRef = collection(db, `users/${uid}/userTasks/`) 
+            const docRef = doc(tasksInUserRef, taskId) 
+
             const docData = await getDoc(docRef)
             setTasks(docData.data())
         }
         getTask()
-    }, [taskId])
+    }, [auth?.currentUser?.uid, taskId])
 
 
     async function handleSubmit(taskToUpdate) {
-        const docRef = doc(tasksRef, taskId)
+        // const docRef = doc(tasksRef, taskId)
+        const uid = await(auth?.currentUser?.uid)
+        const tasksInUserRef = collection(db, `users/${uid}/userTasks/`) 
+        const docRef = doc(tasksInUserRef, taskId) 
         await updateDoc(docRef, taskToUpdate)
         navigate("/")
     }
@@ -33,7 +42,10 @@ export default function UpdateTaskPage() {
     async function handleDelete() {
         const confirmDelete = window.confirm(`Delete, ${task.title}?`)
         if (confirmDelete) {
-            const docRef = doc(tasksRef, taskId)
+            // const docRef = doc(tasksRef, taskId)
+            const uid = await(auth?.currentUser?.uid)
+            const tasksInUserRef = collection(db, `users/${uid}/userTasks/`) 
+            const docRef = doc(tasksInUserRef, taskId) 
             await deleteDoc(docRef)
             navigate("/")
         }
@@ -54,7 +66,7 @@ export default function UpdateTaskPage() {
 
             <div className="checkbox_delete_container">
                 <button onClick={handleDelete}>
-                <FaRegTrashAlt size={20} />
+                    <FaRegTrashAlt size={20} />
                 </button>
             </div>
 
