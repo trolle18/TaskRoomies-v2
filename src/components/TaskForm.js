@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function TaskForm({ saveTask, task }) {
     const [title, setTitle] = useState("");
-    const [check, setCheck] = useState(false);
+    const [check, setCheck] = useState();
     const [date, setDate] = useState("");
     const navigate = useNavigate();
 
@@ -32,7 +32,12 @@ export default function TaskForm({ saveTask, task }) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type="hidden" value={check}/>
+            <input 
+            type="checkbox" 
+            value={check}
+            checked={check}
+            onChange={(e) => setCheck(e.target.check)}
+            />
 
             <div>
                 <input
