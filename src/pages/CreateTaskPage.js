@@ -27,7 +27,7 @@ export default function CreateTaskPage() {
     }, [])
 
 
-    async function handleSubmit(newTask) {
+    async function saveTask(newTask) {
         newTask.createdAt = serverTimestamp(); // timestamp (now)
         newTask.uid = auth.currentUser.uid; // user-id of auth user / signed in user
         await addDoc(tasksRef, newTask); // Posts input to homepage
@@ -46,7 +46,7 @@ export default function CreateTaskPage() {
                     <h2>Create new task</h2>
                 </div>
                 <section className="form-cntr">
-                    <TaskForm saveTask={handleSubmit} />
+                    <TaskForm saveTask={saveTask} />
                 </section>
             </section>
 
