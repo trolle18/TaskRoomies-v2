@@ -44,7 +44,7 @@ export default function Checkbox({ task }) {
         saveTask(taskData);
     }
     
-    console.log("checkBool:", task.checkBool, "", "task:", task.title)
+    // console.log("checkBool:", task.checkBool, "", "task:", task.title)
    
 
     return (
