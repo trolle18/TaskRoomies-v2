@@ -38,14 +38,15 @@ export default function TaskForm({ saveTask, task }) {
     return (
         <form onSubmit={handleSubmit}>
 
-            <input 
+            {/* <input 
             type="checkbox" 
             value={checkBool}
             checked={checkBool}
             onChange={(e) => setCheckBool(e.target.checkBool)}
-            />
+            /> */}
 
             <div>
+                <span>Task Title</span>
                 <input
                 placeholder="Task..."
                 type="text"
@@ -55,7 +56,7 @@ export default function TaskForm({ saveTask, task }) {
             </div>
 
             <div>
-                <p>When?</p>
+                <span>Due date</span>
                 <input
                 type="date"
                 pattern="\d{4}-\d{2}-\d{2}"
