@@ -27,7 +27,7 @@ export default function UpdateTaskPage() {
   }, [auth?.currentUser?.uid, taskId])
 
 
-  async function handleSubmit(taskToUpdate) {
+  async function saveTask(taskToUpdate) {
     const uid = await(auth?.currentUser?.uid)
     const tasksInUserRef = collection(db, `users/${uid}/userTasks/`) 
     const docRef = doc(tasksInUserRef, taskId) 
@@ -56,7 +56,7 @@ export default function UpdateTaskPage() {
       </Link>
       
       <section className="form-cntr">
-          <TaskForm saveTask={handleSubmit} task={task} />
+          <TaskForm saveTask={saveTask} task={task} />
       </section>
 
       <div className="checkbox_delete_container">
