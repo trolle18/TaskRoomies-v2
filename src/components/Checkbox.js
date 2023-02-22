@@ -1,75 +1,75 @@
 import { getAuth } from "firebase/auth";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
-import { useState } from "react";
+import { collection, doc, getDoc, updateDoc } from "firebase/firestore";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { db } from "../firebase-config";
 
 
 export default function Checkbox({ task }) {
-    const [check, setCheck] = useState();
+    // const [task, setTask] = useState([]);
+    const [checkBool, setCheckBool] = useState(Boolean);
+    const taskId = task.id; 
     const navigate = useNavigate();
     const auth = getAuth();
 
 
-    // function isCheck(task) {
-    //     if (task.check) {                
-    //         if (task.checked === true) return "checked"
-    //         if (task.checked === undefined) return false
-    //         if (task.checked === false) return "unchecked"
-    //         else return "unchecked"
-    //     }
-    //     setCheck(task.check)
+    // async function saveCheckmark(taskToUpdate) {
+    //     const uid = await(auth?.currentUser?.uid)
+    //     const tasksInUserRef = collection(db, `users/${uid}/userTasks/`) 
+    //     await updateDoc(tasksInUserRef, taskToUpdate)
+    //     navigate("/");
     // }
 
 
-    async function saveCheckmark(newTask) {
+    async function saveTask(taskToUpdate) {
         const uid = await(auth?.currentUser?.uid)
         const tasksInUserRef = collection(db, `users/${uid}/userTasks/`) 
-        newTask.createdAt = serverTimestamp(); // timestamp (now)
-        newTask.uid = auth.currentUser.uid; // user-id of auth user / signed in user
-        await addDoc(tasksInUserRef, newTask); // Posts input to homepage
-        navigate("/");
+        const docRef = doc(tasksInUserRef, taskId) 
+        await updateDoc(docRef, taskToUpdate)
+        navigate("/")
     }
 
 
-    function Set(e) {
-        if(task.check) {
-            if(task.check === "undefined") return false
-            setCheck(check)
-        }
-        // return (e) => setCheck(e.target.check)
+
+    const taskData = {
+        checkBool: checkBool,
     }
 
-    function handleSubmit() {
-        Set()
-        // event.preventDefault();
 
-        const taskData = {
-            check: check,
-        };
-        saveCheckmark(taskData);
-        // navigate("/");
+
+    function handleSubmit( e) {
+        setCheckBool(e.target.checkBool)
+
+        e.preventDefault();        
+        saveTask(taskData);
     }
     
-    console.log(task.check)
+    console.log("checkBool:", task.checkBool, "", "task:", task.title)
    
 
     return (
         <>
             <div className="checkbox-box">
-                <form className="checkbox-form">
+                {/* <form className="checkbox-form"> */}
+
                     <input
                     type="checkbox"
                     name="checkbox"
                     id="checkbox"
-                    checked={check}
-                    // checked={isCheck(task)}
-                    // onChange={handleSave}
-                    onChange={ handleSubmit }
-                    value={check}
                     className={`check${task.id}`}
-                />
-                </form>
+                    // value={checkBool}
+                    checked={checkBool}
+                    onChange={(e) => handleSubmit(e)}
+                    />
+{/* 
+                     <input 
+                    type="checkbox" 
+                    value={checkBool}
+                    checked={checkBool}
+                    onChange={(e) => setCheckBool(e.target.checkBool)}
+                    />
+                     */}
+                {/* </form> */}
                 
             </div>
         </>

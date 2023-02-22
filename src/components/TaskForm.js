@@ -4,39 +4,45 @@ import { useNavigate } from "react-router-dom";
 
 export default function TaskForm({ saveTask, task }) {
     const [title, setTitle] = useState("");
-    const [check, setCheck] = useState();
     const [date, setDate] = useState("");
+    const [checkBool, setCheckBool] = useState(Boolean);
+    const [type, setType] = useState("");
     const navigate = useNavigate();
 
     useEffect(() => {
         if (task) {
-            setTitle(task.title);
-            setDate(task.date);
-            setCheck(task.check)
+            setTitle(task.title)
+            setDate(task.date)
+            setCheckBool(task.checkBool)
+            setType(task.type)
         }
     }, [task]);
 
+    const taskData = {
+        title: title,
+        date: date,
+        checkBool: checkBool,
+        type: "usertask",
+    }
+
+
     function handleSubmit(event) {
+        setType(type)
         event.preventDefault();
 
-        const taskData = {
-            title: title,
-            check: check,
-            date: date,
-        };
         saveTask(taskData);
         navigate("/");
     }
-
     
 
     return (
         <form onSubmit={handleSubmit}>
+
             <input 
             type="checkbox" 
-            value={check}
-            checked={check}
-            onChange={(e) => setCheck(e.target.check)}
+            value={checkBool}
+            checked={checkBool}
+            onChange={(e) => setCheckBool(e.target.checkBool)}
             />
 
             <div>
