@@ -1,4 +1,59 @@
-/* ---------- CREATE GROUP TASK PAGE ---------- */
+
+.card {
+    margin: 0em 0em 2em 0em;
+}
+
+
+.form-cntr {
+    max-width: 380px;
+    margin: 0 auto;
+    padding: 0em 0em 1.5em 0em;
+    border-radius: $border_r;
+    background-color: $clr_white;
+
+    form {
+        max-width: 380px;
+        margin: auto;
+        padding: 1em 1em 0em 1em;
+        text-align: center;
+        line-height: 30px;
+        background-color: $clr_white;
+        animation: fadeIn 0.5s;
+        border-radius: $border_r;
+        
+        button {
+            width: 40%;
+            max-width: 200px;
+            padding: .5em 2em;
+            font-size: $fs_md;
+
+            &.submit-btn {
+                // background-color: transparent;
+                // border: solid $clr_orange .2em;
+                // color: $clr_orange;
+                font-size: $fs_md;
+            }
+            
+        }
+        
+        input {
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+            padding: 1em;
+            box-sizing: border-box;
+            border: solid 2px grey;
+            border-radius: 5px;
+            display: block;
+            background: $clr_white;
+        }
+
+        .file-input {
+            display: none;
+        }
+    }
+}
+
 select {
     width: 100%;
     max-width: 350px;
@@ -13,94 +68,44 @@ select {
     appearance: none;
 }
 
-/* ----- Forms ----- */
 
-.card {
-    margin: 0em 0em 2em 0em;
-}
-
-
-.form-cntr {
-    max-width: 380px;
-    margin: 0 auto;
-    padding: 0em 0em 1.5em 0em;
-    border-radius: $border_r;
-    background-color: $clr_white;
-}
-
-
-form {
-    max-width: 380px;
-    margin: auto;
-    // padding: 1em 1em 2em;
-    padding: 1em 1em 0em 1em;
-    text-align: center;
-    line-height: 30px;
-    background-color: $clr_white;
-    animation: fadeIn 0.5s;
-    border-radius: $border_r;
-}
-
-form button {
-    width: 40%;
-    max-width: 350px;
-    padding: .5em 2em;
-    font-size: 1em; 
-}
-
-/* form.btn {
-    width: 40%;
-    max-width: 350px;
-    padding: 6px 1px;
-    font-size: 1em;   
-} */
 
 button {
-    margin: 1.4em auto 0;
-    padding: 0.4em 0.8em;
+    margin: 1em auto 0;
+    // padding: 0.4em 0.8em;
     display: block;
     cursor: pointer;
     border: none;
-    border-radius: 12px;
+    border-radius: $border_r;
     background-color: $clr_orange;
     color: $txt_clr_l;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    font-size: 0.8em;
+    font-size: $fs_md;
     font-weight: 300;
     text-align: center;
+    
+    &.btn-outline {
+        width: 100%;
+        background-color: $clr_white;
+        color: $clr_black;
+    }
+
+    &.btn-sign-out {
+        padding: 2.032em 1em;
+        right: 0;
+        top: 0;
+        position: absolute;
+        // cursor: pointer;
+        font-size: $fs_sm;
+    }
 }
 
-button.btn-outline {
-    width: 100%;
-    background-color: $clr_white;
-    color: black;
-}
 
-.btn-sign-out {
-    padding: 2.032em 1em;
-    right: 0;
-    top: 0;
-    position: absolute;
-    cursor: pointer;
-    font-size: 0.3em;
-}
 
-input {
-    width: 100%;
-    max-width: 350px;
-    margin: 0 auto;
-    padding: 1em;
-    box-sizing: border-box;
-    border: solid 2px grey;
-    border-radius: 5px;
-    display: block;
-    background: $clr_white;
-}
 
 .image-preview {
     width: 200px;
-    /* max-width: 200px; */
     height: 200px;
     margin: auto;
     border-radius: 50%;
@@ -110,10 +115,6 @@ input {
 }
 
 
-
-form .file-input {
-    display: none;
-}
 
 .hide {
     visibility: hidden;
@@ -126,19 +127,16 @@ form .file-input {
     display: flex;
     align-items: center;
     text-align: left;
+
+    span {
+        margin: 0 0 0 1em;
+    }
+
+    img {
+        max-width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
 }
 
-.avatar span {
-    margin: 0 0 0 1em;
-}
-
-.avatar h3, .avatar p {
-    margin: 0;
-}
-
-article .avatar img {
-    max-width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 50%;
-}
