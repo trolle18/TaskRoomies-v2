@@ -7,12 +7,13 @@
 /* Track */
 ::-webkit-scrollbar-track {
     background-color: transparent;
+    // background-color: $clr_nav;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background-color: $clr_black;
-    border-radius: 1em;
-    z-index: 100;
-    position: absolute;
+    background-color: $clr_nav;
+    border-radius: .2em;
+    // z-index: 100;
+    // position: absolute;
 }

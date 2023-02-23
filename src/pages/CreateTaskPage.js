@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { getAuth } from "firebase/auth";
-import { onSnapshot, query, orderBy, addDoc, serverTimestamp, collection, doc } from "@firebase/firestore";
+import { onSnapshot, query, orderBy, addDoc, serverTimestamp, collection } from "@firebase/firestore";
 import { db } from "../firebase-config";
-import { AiOutlineArrowLeft, AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 import TaskForm from "../components/TaskForm";
 import TaskPost from "../components/TaskPost";
 

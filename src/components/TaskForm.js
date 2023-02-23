@@ -65,7 +65,7 @@ export default function TaskForm({ saveTask, task }) {
                 />
             </div>
 
-            <button type="submit">Save</button>
+            <button type="submit" className="submit-btn">Save</button>
         </form>
     );
 }
