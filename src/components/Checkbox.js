@@ -6,7 +6,6 @@ import { db } from "../firebase-config";
 
 
 export default function Checkbox({ task }) {
-    // const [task, setTask] = useState([]);
     const [checkBool, setCheckBool] = useState(Boolean);
     const taskId = task.id; 
     const navigate = useNavigate();
