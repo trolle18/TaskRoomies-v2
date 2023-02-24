@@ -1,6 +1,6 @@
 import { getAuth } from "firebase/auth";
-import { collection, doc, getDoc, updateDoc } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { collection, doc, updateDoc } from "firebase/firestore";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { db } from "../firebase-config";
 
@@ -63,14 +63,7 @@ export default function Checkbox({ task }) {
                     // onChange={(e) => setCheckBool(e.target.value)}
 
                     />
-{/* 
-                     <input 
-                    type="checkbox" 
-                    value={checkBool}
-                    checked={checkBool}
-                    onChange={(e) => setCheckBool(e.target.checkBool)}
-                    />
-                     */}
+
            
                 
             </div>
