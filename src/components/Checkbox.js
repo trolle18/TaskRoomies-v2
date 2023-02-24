@@ -51,7 +51,7 @@ export default function Checkbox({ task }) {
     return (
         <>
             <div className="checkbox-box">
-                {/* <form className="checkbox-form"> */}
+      
 
                     <input
                     type="checkbox"
@@ -72,7 +72,7 @@ export default function Checkbox({ task }) {
                     onChange={(e) => setCheckBool(e.target.checkBool)}
                     />
                      */}
-                {/* </form> */}
+           
                 
             </div>
         </>
