@@ -1,12 +1,11 @@
 import { getAuth } from "firebase/auth";
-import { collection, doc, getDoc, updateDoc } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { collection, doc, updateDoc } from "firebase/firestore";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { db } from "../firebase-config";
 
 
 export default function Checkbox({ task }) {
-    // const [task, setTask] = useState([]);
     const [checkBool, setCheckBool] = useState(Boolean);
     const taskId = task.id; 
     const navigate = useNavigate();
@@ -38,39 +37,29 @@ export default function Checkbox({ task }) {
 
 
     function handleSubmit( e) {
-        setCheckBool(e.target.checkBool)
+        setCheckBool(e.target.value)
 
         e.preventDefault();        
         saveTask(taskData);
     }
-    
-    // console.log("checkBool:", task.checkBool, "", "task:", task.title)
-   
 
+    const inputCheck = document.getElementById("checkbox")
+    
+    console.log("checkBool:", task.checkBool, "", "task:", task.title, "value:", inputCheck.value)
+   
     return (
         <>
             <div className="checkbox-box">
-                {/* <form className="checkbox-form"> */}
-
-                    <input
-                    type="checkbox"
-                    name="checkbox"
-                    id="checkbox"
-                    className={`check${task.id}`}
-                    // value={checkBool}
-                    checked={checkBool}
-                    onChange={(e) => handleSubmit(e)}
-                    />
-{/* 
-                     <input 
-                    type="checkbox" 
-                    value={checkBool}
-                    checked={checkBool}
-                    onChange={(e) => setCheckBool(e.target.checkBool)}
-                    />
-                     */}
-                {/* </form> */}
-                
+                <input
+                type="checkbox"
+                name="checkbox"
+                id="checkbox"
+                className={`check${task.id}`}
+                value={task.checkBool}
+                checked={task.checkBool}
+                onChange={(e) => handleSubmit(e)}
+                // onChange={(e) => setCheckBool(e.target.value)}
+                />          
             </div>
         </>
     )
