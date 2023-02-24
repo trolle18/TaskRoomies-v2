@@ -38,15 +38,16 @@ export default function Checkbox({ task }) {
 
 
     function handleSubmit( e) {
-        setCheckBool(e.target.checkBool)
+        setCheckBool(e.target.value)
 
         e.preventDefault();        
         saveTask(taskData);
     }
-    
-    // console.log("checkBool:", task.checkBool, "", "task:", task.title)
-   
 
+    const inputCheck = document.getElementById("checkbox")
+    
+    console.log("checkBool:", task.checkBool, "", "task:", task.title, "value:", inputCheck.value)
+   
     return (
         <>
             <div className="checkbox-box">
@@ -57,9 +58,11 @@ export default function Checkbox({ task }) {
                     name="checkbox"
                     id="checkbox"
                     className={`check${task.id}`}
-                    // value={checkBool}
-                    checked={checkBool}
+                    value={task.checkBool}
+                    checked={task.checkBool}
                     onChange={(e) => handleSubmit(e)}
+                    // onChange={(e) => setCheckBool(e.target.value)}
+
                     />
 {/* 
                      <input 
