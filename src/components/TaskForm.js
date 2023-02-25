@@ -38,12 +38,6 @@ export default function TaskForm({ saveTask, task }) {
     return (
         <form onSubmit={handleSubmit}>
 
-            {/* <input 
-            type="checkbox" 
-            value={checkBool}
-            checked={checkBool}
-            onChange={(e) => setCheckBool(e.target.checkBool)}
-            /> */}
 
             <div>
                 <span>Task Title</span>
