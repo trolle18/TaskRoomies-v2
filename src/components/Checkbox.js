@@ -11,7 +11,6 @@ export default function Checkbox({ task }) {
     const navigate = useNavigate();
     const auth = getAuth();
 
-
     async function saveTask(taskToUpdate) {
         const uid = await(auth?.currentUser?.uid)
         const tasksInUserRef = collection(db, `users/${uid}/userTasks/`) 
@@ -20,9 +19,7 @@ export default function Checkbox({ task }) {
         navigate("/")
     }
 
-    const taskData = {
-        checkBool: checkBool,
-    }
+    const taskData = { checkBool: checkBool }
 
     function handleSubmit( e) {
         setCheckBool(e.target.value)
