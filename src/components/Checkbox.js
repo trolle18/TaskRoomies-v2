@@ -55,7 +55,7 @@ export default function Checkbox({ task }) {
                 name="checkbox"
                 id="checkbox"
                 className={`check${task.id}`}
-                value={task.checkBool}
+                // value={task.checkBool}
                 checked={task.checkBool}
                 onChange={(e) => handleSubmit(e)}
                 // onChange={(e) => setCheckBool(e.target.value)}
