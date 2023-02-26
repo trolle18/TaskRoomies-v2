@@ -9,6 +9,7 @@ export default function TaskForm({ saveTask, task }) {
     const [type, setType] = useState("");
     const navigate = useNavigate();
 
+
     useEffect(() => {
         if (task) {
             setTitle(task.title)
@@ -18,21 +19,21 @@ export default function TaskForm({ saveTask, task }) {
         }
     }, [task]);
 
+
     const taskData = {
         title: title,
         date: date,
         checkBool: checkBool,
         type: "usertask",
-    }
+    };
 
 
     function handleSubmit(event) {
+        event.preventDefault()
         setType(type)
-        event.preventDefault();
-
-        saveTask(taskData);
-        navigate("/");
-    }
+        saveTask(taskData)
+        navigate("/")
+    };
     
 
     return (
@@ -66,5 +67,6 @@ export default function TaskForm({ saveTask, task }) {
                 Save
             </button>
         </form>
-    );
-}
+    )
+};
+
