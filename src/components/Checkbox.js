@@ -20,22 +20,16 @@ export default function Checkbox({ task }) {
         navigate("/")
     }
 
-
-    const taskData = {
-        checkBool: checkBool,
-    }
-
+    const taskData = { checkBool: checkBool }
 
     function handleSubmit( e) {
         setCheckBool(e.target.value)
-
         e.preventDefault();        
         saveTask(taskData);
     }
 
-    const inputCheck = document.getElementById("checkbox")
-    
-    console.log("checkBool:", task.checkBool, "", "task:", task.title, "value:", inputCheck.value)
+    // const inputCheck = document.getElementById("checkbox")
+    // console.log("checkBool:", task.checkBool, "", "task:", task.title, "value:", inputCheck.value)
    
     return (
         <>
