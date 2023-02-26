@@ -20,7 +20,9 @@ export default function Checkbox({ task }) {
         navigate("/")
     }
 
-    const taskData = { checkBool: checkBool }
+    const taskData = {
+        checkBool: checkBool,
+    }
 
     function handleSubmit( e) {
         setCheckBool(e.target.value)
