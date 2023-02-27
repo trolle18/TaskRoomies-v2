@@ -28,7 +28,7 @@ export default function CreateTaskPage() {
           return () => unsubscribe()
         }
         getUserTasks()
-      }, [auth?.currentUser?.uid])
+      }, [auth?.currentUser?.uid]);
     
 
     async function saveTask(newTask) {
@@ -39,7 +39,7 @@ export default function CreateTaskPage() {
         const docRef = tasksInUserRef 
         await addDoc(docRef, newTask)
         navigate("/")
-    }
+    };
 
 
     return (
@@ -49,7 +49,6 @@ export default function CreateTaskPage() {
                     <AiOutlineArrowLeft size={30} /> 
                 </Link>
                 <div className="page-title">
-                    {/* <AiOutlineShoppingCart/> */}
                     <h2>Create new task</h2>
                 </div>
                 <section className="form-cntr">
