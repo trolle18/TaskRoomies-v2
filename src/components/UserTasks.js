@@ -8,7 +8,7 @@ import TaskPost from "../components/TaskPost";
 import 'firebase/database';
 
 
-export default function UserTasks( ) {
+export default function UserTasks() {
     const auth = getAuth();
     const [tasks, setTasks] = useState([]); 
    
@@ -18,7 +18,6 @@ export default function UserTasks( ) {
             const uid = await(auth?.currentUser?.uid)
             const tasksInUserRef = collection(db, `users/${uid}/userTasks`) // ref to nested collection in the user:
             const q = query(tasksInUserRef, orderBy("createdAt")) // order / limit etc them
-            
             const unsubscribe = onSnapshot(q, (data) => {    // Refers to query instead of db-Ref, which returns filtered results - Unsub enables ability to watch components from a different page
                 const taskData = data.docs.map((doc) => {
                     return { ...doc.data(), id: doc.id, uid: doc.uid  }  // Gets data from firebase (...doc.data) and with id: doc.id Z

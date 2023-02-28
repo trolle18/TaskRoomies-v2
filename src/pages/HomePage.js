@@ -6,7 +6,7 @@ import { getAuth } from "firebase/auth";
 import TasksCntr from "../components/TasksCntr";
 
 
-export default function HomePage( {user} ) {
+export default function HomePage({ user }) {
   const auth = getAuth();
   const [grouptasks, setGroupTasks] = useState([]);
   const [tasks, setTasks] = useState([]);
@@ -22,7 +22,7 @@ export default function HomePage( {user} ) {
       setGroupTasks(grouptaskData)
     })
     return () => unsubscribe()
-  }, [])
+  }, []);
 
 
   // Gets user-task-list from firebase
@@ -40,7 +40,7 @@ export default function HomePage( {user} ) {
       return () => unsubscribe()
     }
     getUserTasks()
-  }, [auth?.currentUser?.uid])
+  }, [auth?.currentUser?.uid]);
 
 
   return (
@@ -65,24 +65,6 @@ export default function HomePage( {user} ) {
           createUrl={"/create-grouptask"}
           updateUrl={"/update-grouptask/"}
           />
-
-            {/* <div className="tasks-cntr">
-                <div className="tasks-inner-cntr">
-                    <div className="tasks-inner-cntr__title">
-                        <h2>Group tasks</h2>
-                        <Link to="/create-grouptask" className="add-btn">
-                            <MdAddCircle/>
-                        </Link>
-                    </div>
-                    <article className="task-posts-cntr">
-                        {grouptasks.map(( task ) => (
-                            <TaskPost
-                            // saveTask={handleSave(task)}
-                            task={task} key={task.id} />
-                        ) )}
-                    </article>
-                </div>
-            </div> */}
         </section>
 
     </section>
