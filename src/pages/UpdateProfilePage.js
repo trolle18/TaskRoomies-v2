@@ -6,6 +6,7 @@ import { usersRef } from "../firebase-config";
 import 'firebase/database';
 import { FaBell } from "react-icons/fa";
 import placerholder from "../assets/profile-placeholder.jpg";
+import UpdateUserForm from "../components/UpdateUserForm";
 
 
 export default function UpdateProfilePage({ currentUser }) {
@@ -94,32 +95,9 @@ export default function UpdateProfilePage({ currentUser }) {
     return (
         <section className="page">
             <div className="profile-page">
+            <h3>Profile</h3>
 
-                <form onSubmit={submitEvent}>
-                    <h3>Profile</h3>
-                    <div className="profile-avatar">
-                        <div className="user-img">
-                            <img src={image} alt={image} onError={(event) => (event.target.src = placerholder)} />
-                        </div>
-                        <p className="text-error">{errorMessage}</p>
-                        <div className="img-input-cntr">
-                            {/* <label for="imgfile" className="profile-avatar-label"> Update profile picture </label> */}
-                            <input type="file" accept="image/*" value="" onChange={handleImageChange}  name="image" title="" className="img-input"/>
-                        </div>
-                    </div>
-
-                    <span>Name</span>
-                    <input  type="text" value={name} onChange={e => setName(e.target.value)} name="name" placeholder="name"  />
-                    
-                    <span>Email</span>
-                    <input type="email" value={email} onChange={e => setEmail(e.target.value)}  name="email" placeholder="user@mail.com"  />
-
-                    <label className="notif-box">
-                        <div> <FaBell /> <p>Notifications</p>{" "}</div>
-                        <input className="notif_label" type="checkbox" name="bellcheckbox" />
-                    </label>
-
-                    <button className="btn">Save changes</button>
+                <UpdateUserForm/>                 
 
                     <div className="profile-btn-cntr">
                         <button className="btn" onClick={handleSignOut}>
@@ -130,7 +108,6 @@ export default function UpdateProfilePage({ currentUser }) {
                         </button>
                     </div>
 
-                </form>
             </div>           
         </section>
     )
