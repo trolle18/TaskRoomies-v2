@@ -21,6 +21,9 @@ function App() {
     const auth = getAuth();
     const [isAuth, setIsAuth] = React.useState(localStorage.getItem("isAuth"));
     const [user, setUser] = useState("");
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [image, setImage] = useState("");
 
 
 
@@ -51,9 +54,12 @@ function App() {
             if (auth.currentUser) {
                 setUser(auth.currentUser)
                 const docRef = doc(usersRef, auth.currentUser.uid)
+                const userData = (await getDoc(docRef)).data()      
                 const docSnap = await getDoc(docRef)
                 if (docSnap.data()) {
                     setUser((prevUser) => ({ ...prevUser, ...docSnap.data() }))
+                    setName(userData.name)
+                    setImage(userData.image || 'placeholder')
                 }
             }
         }
@@ -86,7 +92,7 @@ function App() {
                         {/* <Route path="/signin" element={<SignInPage/>} />
                         <Route path="/signup" element={<SignUpPage/>} /> */}
                         <Route path="/profile/" element={<ProfilePage user={user} />} />
-                        <Route path="/profile/update" element={<UpdateProfilePage user={user} />} />
+                        <Route path="/profile-update" element={<UpdateProfilePage user={user} />} />
                         <Route path="/create-grouptask" element={<CreateGroupTaskPage user={user} />} />
                         <Route path="/update-grouptask/:id" element={<UpdateGroupTaskPage user={user} />} />
                         <Route path="/create-task" element={<CreateTaskPage user={user} />} />
