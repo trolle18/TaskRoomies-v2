@@ -14,6 +14,7 @@ import Header from "./components/Header";
 import { WiSolarEclipse } from "react-icons/wi";
 import { doc, getDoc } from "firebase/firestore";
 import { usersRef } from "./firebase-config";
+import UpdateProfilePage from "./pages/UpdateProfilePage";
 
 
 function App() {
@@ -78,13 +79,14 @@ function App() {
             {/* <DarkMode/> */}
             {isAuth ? (
                 <>
-                    <Nav />
+                    <Nav user={user} />
                     <Routes>
                         <Route path="/" element={<HomePage user={user} />} />
                         <Route path="*" element={<Navigate to="/"/>} />
-                        <Route path="/signin" element={<SignInPage/>} />
-                        <Route path="/signup" element={<SignUpPage/>} />
-                        <Route path="/profile" element={<ProfilePage user={user} />} />
+                        {/* <Route path="/signin" element={<SignInPage/>} />
+                        <Route path="/signup" element={<SignUpPage/>} /> */}
+                        <Route path="/profile/" element={<ProfilePage user={user} />} />
+                        <Route path="/profile/update" element={<UpdateProfilePage user={user} />} />
                         <Route path="/create-grouptask" element={<CreateGroupTaskPage user={user} />} />
                         <Route path="/update-grouptask/:id" element={<UpdateGroupTaskPage user={user} />} />
                         <Route path="/create-task" element={<CreateTaskPage user={user} />} />
