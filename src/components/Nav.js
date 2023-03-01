@@ -28,5 +28,6 @@ export default function Nav() {
                 </NavLink>
             </div>
         </nav>
-    );
-}
+    )
+};
+
