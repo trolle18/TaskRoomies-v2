@@ -1,26 +1,51 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth, signOut, deleteUser, EmailAuthProvider } from "firebase/auth";
-import { doc } from "@firebase/firestore";
+import { doc, getDoc } from "@firebase/firestore";
 import 'firebase/database';
 import { BiPencil } from "react-icons/bi"
 import placerholder from "../assets/profile-placeholder.jpg";
+import { usersRef } from "../firebase-config";
 
 
-export default function ProfilePage({ user }) {
+export default function ProfilePage() {
     const auth = getAuth();
     const navigate = useNavigate();
+    const [user, setUser] = useState("");
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [image, setImage] = useState("");
+
+
+    useEffect(() => {
+        async function getUser() {
+            if (auth.currentUser) {
+                setUser(auth.currentUser)
+                const docRef = doc(usersRef, auth.currentUser.uid)
+                const userData = (await getDoc(docRef)).data()      
+                const docSnap = await getDoc(docRef)
+                if (docSnap.data()) {
+                    setUser((prevUser) => ({ ...prevUser, ...docSnap.data() }))
+                    setName(userData.name)
+                    setImage(userData.image || 'placeholder')
+                }
+            }
+        }
+        getUser()
+    }, [auth.currentUser]);
+
 
 
     // Navigate to profile-update page
     function handleClick() {
-        navigate(`/profile-update`);
-    }
+        navigate(`/profile-update`)
+    };
 
 
     // Sign out
     function handleSignOut() {
         signOut(auth)
-    }
+    };
 
 
     // Delete user handler
@@ -39,8 +64,19 @@ export default function ProfilePage({ user }) {
             }
         })
         .catch((error) => {
-            error("An error occurred, try again later")
+            error("An error occurred, please try again later")
         })
+    }
+
+
+    function getCreatedAtDate(user) {
+        const date = user.createdAt
+        const setDate = new Date(date).toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: '2-digit' } )
+        if(date) { 
+            return (
+                <span>User created: { setDate }</span>              
+            )
+        }       
     }
 
 
@@ -69,6 +105,10 @@ export default function ProfilePage({ user }) {
                     <div>
                         <span>Email: </span>
                         <span>{user.email}</span>
+                    </div>
+
+                    <div>
+                        {getCreatedAtDate(user)}
                     </div>
                 </div>
 
