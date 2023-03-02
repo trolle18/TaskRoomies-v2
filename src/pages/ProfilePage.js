@@ -1,8 +1,6 @@
-import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth, signOut, deleteUser, EmailAuthProvider } from "firebase/auth";
-import { doc, getDoc, setDoc } from "@firebase/firestore";
-import { usersRef } from "../firebase-config";
+import { doc } from "@firebase/firestore";
 import 'firebase/database';
 import { BiPencil } from "react-icons/bi"
 import placerholder from "../assets/profile-placeholder.jpg";
@@ -13,15 +11,15 @@ export default function ProfilePage({ user }) {
     const navigate = useNavigate();
 
 
+    // Navigate to profile-update page
+    function handleClick() {
+        navigate(`/profile-update`);
+    }
+
 
     // Sign out
     function handleSignOut() {
         signOut(auth)
-    }
-
-
-    function handleClick() {
-        navigate(`/profile-update`);
     }
 
 
@@ -45,7 +43,6 @@ export default function ProfilePage({ user }) {
         })
     }
 
-    
 
     return (
         <section className="page">
@@ -88,4 +85,5 @@ export default function ProfilePage({ user }) {
             </div>           
         </section>
     )
-}
+};
+
