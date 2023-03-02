@@ -22,7 +22,7 @@ export default function ProfilePage() {
       if (auth.currentUser) {
         setUser(auth.currentUser)
         const docRef = doc(usersRef, auth.currentUser.uid)
-        const userData = (await getDoc(docRef)).data()      
+        const userData = (await getDoc(docRef)).data()
         const docSnap = await getDoc(docRef)
         if (docSnap.data()) {
           setUser((prevUser) => ({ ...prevUser, ...docSnap.data() }))
@@ -57,10 +57,10 @@ export default function ProfilePage() {
     deleteUser(user)
     .then(() => {
       const confirmDelete = window.confirm(`Are you sure, you want to delete your profile ${user.name}?`)
-      if (confirmDelete) {                    
+      if (confirmDelete) {
         const docRef = doc(user)
         deleteUser(docRef)
-        navigate("/signup")                
+        navigate("/signup")
       }
     })
     .catch((error) => {
@@ -72,11 +72,11 @@ export default function ProfilePage() {
   function getCreatedAtDate(user) {
     const date = user.createdAt
     const setDate = new Date(date).toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: '2-digit' } )
-    if(date) { 
+    if(date) {
       return (
-        <span>User created: {setDate}</span>              
+        <span>User created: {setDate}</span>
       )
-    }       
+    }
   };
 
 
@@ -84,34 +84,30 @@ export default function ProfilePage() {
     <section className="page">
         <div className="profile-page">
           <h3>Profile</h3>
+
           <div className="edit-btn">
             <button onClick={handleClick}>
               <BiPencil />
             </button>
           </div>
-            
+
           <div className="profile-avatar">
             <div className="user-img">
               <img src={user.image} alt={user.name} onError={(event) => (event.target.src = placerholder)} />
             </div>
           </div>
-          
+
           <div>
             <div>
-              <span>Name: </span>
-              <span>{user.name}</span>
+              <span>Name: {user.name}</span>
             </div>
 
             <div>
-              <span>Email: </span>
-              <span>{user.email}</span>
+              <span>Email: {user.email}</span>
             </div>
 
-            <div>
-              {getCreatedAtDate(user)}
-            </div>
+            <div>{getCreatedAtDate(user)}</div>
           </div>
-
 
           <div className="profile-btn-cntr">
             <button className="btn" onClick={handleSignOut}>
@@ -122,7 +118,7 @@ export default function ProfilePage() {
             </button>
           </div>
 
-        </div>           
+        </div>
     </section>
   )
 };
