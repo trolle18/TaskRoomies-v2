@@ -18,36 +18,15 @@ export default function TaskPost({ task, updateUrl }) {
         navigate(`${updateUrl}${task.id}`);
     }
 
-    // const handleCheck = () => {
-    //     const todoText = document.getElementById(`todotext${task.id}`);
-    //     const title = document.getElementById("title");
-    //     // const taskCheckbox = document.getElementById(`check${task.id}`);
-    //     const taskCheck = task.check
-
-    //     if(taskCheck === true) {
-    //         title.classList.add("checked")
-    //         title.classList.remove("unchecked")
-    //         todoText.classList.add("checked")
-    //         todoText.classList.remove("unchecked")
-    //     }
-    //     else if (taskCheck === false) {
-    //         title.classList.add("unchecked")
-    //         title.classList.remove("checked")
-    //         todoText.classList.add("unchecked")
-    //         todoText.classList.remove("checked")
-    //     }
-    // }
 
     function checkPers(task) {
         const pers = task.person
         if(pers) return ( <span className="xs-caps">{task.person}</span> );
     }
 
-
     
     useEffect(() => {
         if (task) {
-            // handleCheck()
             setCheck(task.check)           
         }
     }, [task]);
@@ -59,8 +38,6 @@ export default function TaskPost({ task, updateUrl }) {
         const docRef = doc(tasksRef, taskId);
         await updateDoc(docRef, taskToUpdate); 
         setCheck(check)
-
-        console.log(taskId, taskToUpdate)
     }
 
     // console.log( task.title, task.check)
