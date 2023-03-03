@@ -91,7 +91,7 @@ function App() {
                         <Route path="*" element={<Navigate to="/"/>} />
                         {/* <Route path="/signin" element={<SignInPage/>} />
                         <Route path="/signup" element={<SignUpPage/>} /> */}
-                        <Route path="/profile/" element={<ProfilePage user={user} />} />
+                        <Route path="/profile/" element={<ProfilePage />} />
                         <Route path="/profile-update" element={<UpdateProfilePage user={user} />} />
                         <Route path="/create-grouptask" element={<CreateGroupTaskPage user={user} />} />
                         <Route path="/update-grouptask/:id" element={<UpdateGroupTaskPage user={user} />} />
