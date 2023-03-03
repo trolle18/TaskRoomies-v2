@@ -8,6 +8,15 @@
     padding: 1em;
     padding-bottom: 100px;
     transition: all 0.5s;    
+
+    &__header-cntr {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+        // text-align: center;
+    }
     /* color: var(--blue-d); */
 }
 

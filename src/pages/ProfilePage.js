@@ -83,19 +83,27 @@ export default function ProfilePage() {
   return (
     <section className="page">
         <div className="profile-page">
-          <h3>Profile</h3>
 
-          <div className="edit-btn">
-            <button onClick={handleClick}>
-              <BiPencil />
-            </button>
+          <div className="page__header-cntr">
+            <h3>Profile</h3>
+          
+            <div className="edit-btn">
+              <button onClick={handleClick}>
+                <BiPencil />
+              </button>
+            </div>
           </div>
+         
+
+          
 
           <div className="profile-avatar">
             <div className="user-img">
               <img src={user.image} alt={user.name} onError={(event) => (event.target.src = placerholder)} />
             </div>
           </div>
+          
+         
 
           <div>
             <div>
