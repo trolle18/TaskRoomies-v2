@@ -72,61 +72,60 @@ export default function ProfilePage() {
   function getCreatedAtDate(user) {
     const date = user.createdAt
     const setDate = new Date(date).toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: '2-digit' } )
-    if(date) {
-      return (
-        <span>User created: {setDate}</span>
-      )
-    }
+    if(date) { return setDate }
   };
 
 
   return (
     <section className="page">
-        <div className="profile-page">
 
           <div className="page__header-cntr">
             <h3>Profile</h3>
-          
             <div className="edit-btn">
               <button onClick={handleClick}>
                 <BiPencil />
               </button>
             </div>
-          </div>
-         
+          </div>     
 
+          <div className="flex-wrap">
+              
+
+            <div className="profile-avatar">
+              <div className="user-img">
+                <img src={user.image} alt={user.name} onError={(event) => (event.target.src = placerholder)} />
+              </div>
+            </div>
+
+            <div className="flex-cols">
+              <div className="flex-rows">
+                <span>Name:</span>
+                <span>{user.name}</span>
+              </div>
+
+              <div className="flex-rows">
+                <span>Email:</span>
+                <span>{user.email}</span>
+              </div>
+
+              <div className="flex-rows">
+                <span>User created:</span> 
+                <span>{getCreatedAtDate(user)}</span>
+              </div>
+
+            </div>
+
+            <div className="profile-btn-cntr">
+              <button className="btn" onClick={handleSignOut}>
+                Sign out
+              </button>
+              <button className="btn-outline" onClick={handleUserDelete} data-id={auth.currentUser.uid} >
+                Delete user
+              </button>
+            </div>
           
+          </div>  
 
-          <div className="profile-avatar">
-            <div className="user-img">
-              <img src={user.image} alt={user.name} onError={(event) => (event.target.src = placerholder)} />
-            </div>
-          </div>
-          
-         
-
-          <div>
-            <div>
-              <span>Name: {user.name}</span>
-            </div>
-
-            <div>
-              <span>Email: {user.email}</span>
-            </div>
-
-            <div>{getCreatedAtDate(user)}</div>
-          </div>
-
-          <div className="profile-btn-cntr">
-            <button className="btn" onClick={handleSignOut}>
-              Sign out
-            </button>
-            <button className="btn-outline" onClick={handleUserDelete} data-id={auth.currentUser.uid} >
-              Delete user
-            </button>
-          </div>
-
-        </div>
     </section>
   )
 };
