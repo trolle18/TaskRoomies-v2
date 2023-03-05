@@ -88,7 +88,7 @@ export default function ProfilePage() {
             </div>
           </div>     
 
-          <div className="flex-wrap">
+          <div className="flex-outer-wrapper">
               
 
             <div className="profile-avatar">
@@ -97,32 +97,37 @@ export default function ProfilePage() {
               </div>
             </div>
 
-            <div className="flex-cols">
-              <div className="flex-rows">
-                <span>Name:</span>
-                <span>{user.name}</span>
+            <div className="flex-inner-wrapper">
+
+              <div className="flex-cols">
+                <div className="flex-rows user-details">
+                  <span>Name:</span>
+                  <span>{user.name}</span>
+                </div>
+                <div className="flex-rows user-details">
+                  <span>Email:</span>
+                  <span>{user.email}</span>
+                </div>
+                <div className="flex-rows user-details">
+                  <span>User created:</span> 
+                  <span>{getCreatedAtDate(user)}</span>
+                </div>
               </div>
 
-              <div className="flex-rows">
-                <span>Email:</span>
-                <span>{user.email}</span>
-              </div>
-
-              <div className="flex-rows">
-                <span>User created:</span> 
-                <span>{getCreatedAtDate(user)}</span>
+              <div 
+              className="profile-btn-cntr flex-cols"
+              >
+                <button className="btn" onClick={handleSignOut}>
+                  Sign out
+                </button>
+                <button className="btn-outline" onClick={handleUserDelete} data-id={auth.currentUser.uid} >
+                  Delete user
+                </button>
               </div>
 
             </div>
 
-            <div className="profile-btn-cntr">
-              <button className="btn" onClick={handleSignOut}>
-                Sign out
-              </button>
-              <button className="btn-outline" onClick={handleUserDelete} data-id={auth.currentUser.uid} >
-                Delete user
-              </button>
-            </div>
+           
           
           </div>  
 
