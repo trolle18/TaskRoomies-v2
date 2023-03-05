@@ -108,14 +108,25 @@
 
 
 .profile-btn-cntr {
-    // padding-top: 10px;
-    // display: flex;
-    // flex-direction: column;
+    width: 100%;
+    margin: 2em 0 0 0;
+    display: flex;
+    align-items: center;
 
     button {
         width: 100%;
-        padding: 1em 1em;
-        font-size: 10px;
+        padding: .5em 1em;
+        font-size: $fs_x_sm;
+    }
+}
+
+@media (min-width: 600px) {
+    .profile-btn-cntr {
+        bottom: 0;
+    
+        button {
+            max-width: 40%;
+        }
     }
 }
 
