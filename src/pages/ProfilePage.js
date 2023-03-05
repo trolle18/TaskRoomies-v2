@@ -72,64 +72,64 @@ export default function ProfilePage() {
   function getCreatedAtDate(user) {
     const date = user.createdAt
     const setDate = new Date(date).toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: '2-digit' } )
-    if(date) { return setDate }
+    if(date) { return (
+      // setDate
+      <div className="flex-rows user-details">
+      <span className="bold">User created:</span> 
+      <span>{setDate}</span>
+    </div>
+      ) }
   };
 
 
   return (
     <section className="page">
 
-          <div className="page__header-cntr">
-            <h3>Profile</h3>
+      <div className="page__header-cntr">
+        <h3>Profile</h3>
+      </div>     
+
+      <div className="flex-outer-wrapper">
+
+        <div className="profile-avatar">
+          <div className="user-img">
+            <img src={user.image} alt={user.name} onError={(event) => (event.target.src = placerholder)} />
+          </div>
+        </div>
+
+        <div className="flex-inner-wrapper">
+          <div className="flex-rows space-between">
+
+            <div className="flex-cols">
+              <div className="flex-rows user-details">
+                <span className="bold">Name:</span>
+                <span>{user.name}</span>
+              </div>
+              <div className="flex-rows user-details">
+                <span className="bold">Email:</span>
+                <span>{user.email}</span>
+              </div>
+              {getCreatedAtDate(user)}
+            </div>
+
             <div className="edit-btn">
-              <button onClick={handleClick}>
+              <button onClick={handleClick} label="Edit user">
                 <BiPencil />
               </button>
             </div>
-          </div>     
+          </div>
 
-          <div className="flex-outer-wrapper">
-              
+        </div> 
+      </div>  
 
-            <div className="profile-avatar">
-              <div className="user-img">
-                <img src={user.image} alt={user.name} onError={(event) => (event.target.src = placerholder)} />
-              </div>
-            </div>
-
-            <div className="flex-inner-wrapper">
-
-              <div className="flex-cols">
-                <div className="flex-rows user-details">
-                  <span>Name:</span>
-                  <span>{user.name}</span>
-                </div>
-                <div className="flex-rows user-details">
-                  <span>Email:</span>
-                  <span>{user.email}</span>
-                </div>
-                <div className="flex-rows user-details">
-                  <span>User created:</span> 
-                  <span>{getCreatedAtDate(user)}</span>
-                </div>
-              </div>
-
-              <div 
-              className="profile-btn-cntr flex-cols"
-              >
-                <button className="btn" onClick={handleSignOut}>
-                  Sign out
-                </button>
-                <button className="btn-outline" onClick={handleUserDelete} data-id={auth.currentUser.uid} >
-                  Delete user
-                </button>
-              </div>
-
-            </div>
-
-           
-          
-          </div>  
+      <div className="flex-cols profile-btn-cntr">
+        <button className="btn" onClick={handleSignOut} label="Sign out">
+          Sign out
+        </button>
+        <button className="btn-outline" onClick={handleUserDelete} label="Delete user" data-id={auth.currentUser.uid}>
+          Delete user
+        </button>
+      </div>
 
     </section>
   )
