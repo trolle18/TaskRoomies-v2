@@ -70,36 +70,36 @@ select {
 
 
 
-button {
-    margin: 1em auto 0;
-    // padding: 0.4em 0.8em;
-    display: block;
-    cursor: pointer;
-    border: none;
-    border-radius: $border_r;
-    background-color: $clr_orange;
-    color: $txt_clr_l;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    font-size: $fs_md;
-    font-weight: 300;
-    text-align: center;
+// button {
+//     // margin: 1em auto 0;
+//     // padding: 0.4em 0.8em;
+//     display: block;
+//     cursor: pointer;
+//     border: none;
+//     border-radius: $border_r;
+//     background-color: $clr_orange;
+//     color: $txt_clr_l;
+//     letter-spacing: 0.05em;
+//     text-transform: uppercase;
+//     font-size: $fs_md;
+//     font-weight: 300;
+//     text-align: center;
     
-    &.btn-outline {
-        width: 100%;
-        background-color: $clr_white;
-        color: $clr_black;
-    }
+//     &.btn-outline {
+//         width: 100%;
+//         background-color: $clr_white;
+//         color: $clr_black;
+//     }
 
-    &.btn-sign-out {
-        padding: 2.032em 1em;
-        right: 0;
-        top: 0;
-        position: absolute;
-        // cursor: pointer;
-        font-size: $fs_sm;
-    }
-}
+//     &.btn-sign-out {
+//         padding: 2.032em 1em;
+//         right: 0;
+//         top: 0;
+//         position: absolute;
+//         // cursor: pointer;
+//         font-size: $fs_sm;
+//     }
+// }
 
 
 
