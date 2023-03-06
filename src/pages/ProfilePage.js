@@ -89,7 +89,7 @@ export default function ProfilePage() {
           </div>
         </div>
 
-        <div className="flex-inner-wrapper">
+        <div className="flex-inner-wrapper max-w">
           <div className="flex-rows space-between">
 
             <div className="flex-rows">
