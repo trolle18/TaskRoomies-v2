@@ -132,8 +132,12 @@ export default function ProfilePage() {
               {getCreatedAtDate(user)}
             </div> */}
 
-            <div className="edit-btn">
+            <div className="btn-cntr">
+              <div className="btn-label">
+                <span>Edit user</span>
+              </div>
               <button 
+              className="edit-btn circle-icon-btn"
               label="Edit user"
               onClick={handleClick} 
               >
