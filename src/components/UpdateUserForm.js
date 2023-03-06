@@ -63,41 +63,19 @@ export default function UpdateUserForm() {
   }
 
 
-  // Sign out
-  function handleSignOut() {
-    signOut(auth)
-  }
-
-
-  // Delete user handler
-  function handleUserDelete() {
-    const auth = getAuth()
-    const user = auth.currentUser.uid
-    const credentials = EmailAuthProvider.credential( user.email, "yourpassword" ) // If session expired, reauthenticate user credentials
-    user.reauthenticateWithCredential(credentials);
-    deleteUser(user)
-    .then(() => {
-        const confirmDelete = window.confirm(`Are you sure, you want to delete your profile ${user.name}?`)
-        if (confirmDelete) {                    
-            const docRef = doc(user)
-            deleteUser(docRef)
-            navigate("/signup")                
-        }
-    })
-    .catch((error) => {
-        error("An error occurred, try again later")
-    })
-  }
 
   
 
   return (
       <form onSubmit={submitEvent}>
-          <h3>Profile</h3>
-          <div className="profile-avatar">
+
+          <div className="flex-cols">
+            <div className="profile-avatar">
               <div className="user-img">
-                  <img src={image} alt={image} onError={(event) => (event.target.src = placerholder)} />
+                <img src={user.image} alt={user.name} onError={(event) => (event.target.src = placerholder)} />
               </div>
+            </div>
+
               <p className="text-error">{errorMessage}</p>
               <div className="img-input-cntr">
                   {/* <label for="imgfile" className="profile-avatar-label"> Update profile picture </label> */}
@@ -105,26 +83,51 @@ export default function UpdateUserForm() {
               </div>
           </div>
 
-          <span>Name</span>
+          {/* <span>Name</span>
           <input  type="text" value={name} onChange={e => setName(e.target.value)} name="name" placeholder="name"  />
           
           <span>Email</span>
-          <input type="email" value={email} onChange={e => setEmail(e.target.value)}  name="email" placeholder="user@mail.com"  />
+          <input type="email" value={email} onChange={e => setEmail(e.target.value)}  name="email" placeholder="user@mail.com"  /> */}
 
-          <label className="notif-box">
+
+        <div className="flex-inner-wrapper max-w">
+          <div className="flex-rows space-between">
+
+            <div className="flex-rows">
+              <div className="flex-cols user-details">
+                <span className="bold">Name</span>
+                <span className="bold">Email</span>
+              </div>
+
+              <div className="flex-cols user-details">                
+                <input  type="text" value={name} onChange={e => setName(e.target.value)} name="name" placeholder="name"  />
+                <input type="email" value={email} onChange={e => setEmail(e.target.value)}  name="email" placeholder="user@mail.com"  />
+              </div>
+            </div>
+        </div> 
+      </div>  
+
+          {/* <label className="notif-box">
               <div> <FaBell /> <p>Notifications</p>{" "}</div>
               <input className="notif_label" type="checkbox" name="bellcheckbox" />
-          </label>
+          </label> */}
 
-          <button className="btn">Save changes</button>
 
-          <div className="profile-btn-cntr">
-              <button className="btn" onClick={handleSignOut}>
-                  Sign out
-              </button>
-              <button className="btn-outline" onClick={handleUserDelete} data-id={auth.currentUser.uid} >
-                  Delete user
-              </button>
+          <div className="flex-cols profile-btn-cntr">
+            <button 
+            type="submit"
+            className="btn" 
+            label="Save Changes"
+            >
+              Save Changes
+            </button>     
+
+            <button className="btn-outline"
+            label="Delete user"
+            // onClick={navigate("/profile")}
+            >
+              Annuller
+            </button>    
           </div>
           
       </form>
