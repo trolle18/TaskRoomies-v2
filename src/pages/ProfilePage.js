@@ -11,9 +11,10 @@ import { usersRef } from "../firebase-config";
 export default function ProfilePage() {
   const auth = getAuth();
   const navigate = useNavigate();
+  const [uid, setUid] = useState("");
   const [user, setUser] = useState("");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
   const [image, setImage] = useState("");
 
 
@@ -26,14 +27,14 @@ export default function ProfilePage() {
         const docSnap = await getDoc(docRef)
         if (docSnap.data()) {
           setUser((prevUser) => ({ ...prevUser, ...docSnap.data() }))
-          setName(userData.name)
+          setUid(auth.currentUser.uid)
+          // setName(userData.name)
           setImage(userData.image || 'placeholder')
         }
       }
     }
     getUser()
   }, [auth.currentUser]);
-
 
 
   // Navigate to profile-update page
@@ -49,35 +50,39 @@ export default function ProfilePage() {
 
 
   // Delete user handler
-  function handleUserDelete() {
-    const auth = getAuth()
-    const user = auth.currentUser.uid
-    const credentials = EmailAuthProvider.credential( user.email, "yourpassword" ) // If session expired, reauthenticate user credentials
-    user.reauthenticateWithCredential(credentials);
-    deleteUser(user)
-    .then(() => {
-      const confirmDelete = window.confirm(`Are you sure, you want to delete your profile ${user.name}?`)
-      if (confirmDelete) {
-        const docRef = doc(user)
-        deleteUser(docRef)
-        navigate("/signup")
-      }
-    })
-    .catch((error) => {
-      error("An error occurred, please try again later")
-    })
-  };
+  // useEffect(() => {
+    function handleUserDelete() {
+      const auth = getAuth()
+      const user = auth.currentUser.uid
+      const credentials = EmailAuthProvider.credential( user.email, "yourpassword" ) // If session expired, reauthenticate user credentials
+      user.reauthenticateWithCredential(credentials);
+      deleteUser(user)
+      .then(() => {
+        const confirmDelete = window.confirm(`Are you sure, you want to delete your profile ${user.name}?`)
+        if (confirmDelete) {
+          const docRef = doc(user)
+          deleteUser(docRef)
+          navigate("/signup")
+        }
+      })
+      .catch((error) => {
+        error("An error occurred, please try again later")
+      })
+    }
+  //   handleUserDelete()
+  // }, [navigate]);
+  
 
 
   function getCreatedAtDate(user) {
     const date = user.createdAt
     const setDate = new Date(date).toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: '2-digit' } )
     if(date) { return (
-      // setDate
-      <div className="flex-rows user-details">
-      <span className="bold">User created:</span> 
-      <span>{setDate}</span>
-    </div>
+      setDate
+    //   <div className="flex-rows user-details">
+    //   <span className="bold">User created:</span> 
+    //   <span>{setDate}</span>
+    // </div>
       ) }
   };
 
@@ -100,7 +105,22 @@ export default function ProfilePage() {
         <div className="flex-inner-wrapper">
           <div className="flex-rows space-between">
 
-            <div className="flex-cols">
+            <div className="flex-rows">
+              <div className="flex-cols user-details">
+                <span className="bold">Name:</span>
+                <span className="bold">Email:</span>
+                <span className="bold">Created:</span>
+              </div>
+              <div className="flex-cols user-details">
+                
+                <span>{user.name}</span>
+                <span>{user.email}</span>
+                <span>{getCreatedAtDate(user)}</span>
+              </div>
+              {/* {getCreatedAtDate(user)} */}
+            </div>
+
+            {/* <div className="flex-cols">
               <div className="flex-rows user-details">
                 <span className="bold">Name:</span>
                 <span>{user.name}</span>
@@ -110,7 +130,7 @@ export default function ProfilePage() {
                 <span>{user.email}</span>
               </div>
               {getCreatedAtDate(user)}
-            </div>
+            </div> */}
 
             <div className="edit-btn">
               <button onClick={handleClick} label="Edit user">
@@ -123,10 +143,17 @@ export default function ProfilePage() {
       </div>  
 
       <div className="flex-cols profile-btn-cntr">
-        <button className="btn" onClick={handleSignOut} label="Sign out">
+        <button className="btn" 
+        label="Sign out"
+        onClick={handleSignOut}
+        >
           Sign out
         </button>
-        <button className="btn-outline" onClick={handleUserDelete} label="Delete user" data-id={auth.currentUser.uid}>
+        <button className="btn-outline"
+        label="Delete user"
+        onClick={handleUserDelete}
+        data-id={uid}
+        >
           Delete user
         </button>
       </div>
