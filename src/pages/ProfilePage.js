@@ -81,7 +81,7 @@ export default function ProfilePage() {
         <h3>Profile</h3>
       </div>     
 
-      <div className="flex-outer-wrapper">
+      <div className="flex-outer-wrapper card-wrapper">
 
         <div className="profile-avatar">
           <div className="user-img">
@@ -98,7 +98,7 @@ export default function ProfilePage() {
                 <span className="bold">Email</span>
                 <span className="bold">Created</span>
               </div>
-              
+
               <div className="flex-cols user-details">                
                 <span>{user.name}</span>
                 <span>{user.email}</span>
@@ -106,7 +106,7 @@ export default function ProfilePage() {
               </div>
             </div>
 
-            <div className="btn-cntr">
+            <div className="btn-cntr  circle-btn-cntr">
               <div className="btn-label">
                 <span className="btn-label__text xs-caps">
                   Edit user
@@ -114,7 +114,7 @@ export default function ProfilePage() {
               </div>
               <button
               
-              className="edit-btn circle-icon-btn button"
+              className="edit-btn circle-icon-btn button btn-grey"
               label="Edit user"
               onClick={handleClick} 
               >
