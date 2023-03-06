@@ -107,20 +107,7 @@ export default function ProfilePage() {
                 <span>{user.email}</span>
                 <span>{getCreatedAtDate(user)}</span>
               </div>
-              {/* {getCreatedAtDate(user)} */}
             </div>
-
-            {/* <div className="flex-cols">
-              <div className="flex-rows user-details">
-                <span className="bold">Name:</span>
-                <span>{user.name}</span>
-              </div>
-              <div className="flex-rows user-details">
-                <span className="bold">Email:</span>
-                <span>{user.email}</span>
-              </div>
-              {getCreatedAtDate(user)}
-            </div> */}
 
             <div className="btn-cntr">
               <div className="btn-label">
