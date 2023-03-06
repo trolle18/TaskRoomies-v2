@@ -1,7 +1,5 @@
 
 button {
-    // margin: 1em auto 0;
-    // padding: 0.4em 0.8em;
     display: block;
     cursor: pointer;
     border: none;
@@ -11,23 +9,30 @@ button {
     letter-spacing: 0.05em;
     text-transform: uppercase;
     font-size: $fs_md;
-    // font-weight: 300;
     text-align: center;
+    transition: ease-in .05s;
     
     &.btn-outline {
         width: 100%;
         background-color: $clr_white;
         color: $clr_black;
     }
-
     &.btn-sign-out {
-        padding: 2.032em 1em;
-        // right: 0;
-        // top: 0;
-        // position: absolute;
-        // cursor: pointer;
         font-size: $fs_sm;
     }
+}
+
+.btn-grey {
+    background-color: $clr_grey_m;
+    color: $clr_white;
+
+    &:hover {
+        background-color: $clr_grey_md;
+    }
+}
+
+.circle-btn-cntr  {
+    border-radius: 10em;
 }
 
 .circle-icon-btn {
