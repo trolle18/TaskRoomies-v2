@@ -108,10 +108,13 @@ export default function ProfilePage() {
 
             <div className="btn-cntr">
               <div className="btn-label">
-                <span>Edit user</span>
+                <span className="btn-label__text xs-caps">
+                  Edit user
+                </span>
               </div>
-              <button 
-              className="edit-btn circle-icon-btn"
+              <button
+              
+              className="edit-btn circle-icon-btn button"
               label="Edit user"
               onClick={handleClick} 
               >
