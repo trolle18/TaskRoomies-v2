@@ -13,8 +13,6 @@ export default function ProfilePage() {
   const navigate = useNavigate();
   const [uid, setUid] = useState("");
   const [user, setUser] = useState("");
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
   const [image, setImage] = useState("");
 
 
@@ -28,7 +26,6 @@ export default function ProfilePage() {
         if (docSnap.data()) {
           setUser((prevUser) => ({ ...prevUser, ...docSnap.data() }))
           setUid(auth.currentUser.uid)
-          // setName(userData.name)
           setImage(userData.image || 'placeholder')
         }
       }
@@ -50,7 +47,6 @@ export default function ProfilePage() {
 
 
   // Delete user handler
-  // useEffect(() => {
     function handleUserDelete() {
       const auth = getAuth()
       const user = auth.currentUser.uid
@@ -69,8 +65,6 @@ export default function ProfilePage() {
         error("An error occurred, please try again later")
       })
     }
-  //   handleUserDelete()
-  // }, [navigate]);
   
 
 
@@ -79,10 +73,6 @@ export default function ProfilePage() {
     const setDate = new Date(date).toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: '2-digit' } )
     if(date) { return (
       setDate
-    //   <div className="flex-rows user-details">
-    //   <span className="bold">User created:</span> 
-    //   <span>{setDate}</span>
-    // </div>
       ) }
   };
 
