@@ -133,7 +133,10 @@ export default function ProfilePage() {
             </div> */}
 
             <div className="edit-btn">
-              <button onClick={handleClick} label="Edit user">
+              <button 
+              label="Edit user"
+              onClick={handleClick} 
+              >
                 <BiPencil />
               </button>
             </div>
