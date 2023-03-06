@@ -47,33 +47,30 @@ export default function ProfilePage() {
 
 
   // Delete user handler
-    function handleUserDelete() {
-      const auth = getAuth()
-      const user = auth.currentUser.uid
-      const credentials = EmailAuthProvider.credential( user.email, "yourpassword" ) // If session expired, reauthenticate user credentials
-      user.reauthenticateWithCredential(credentials);
-      deleteUser(user)
-      .then(() => {
-        const confirmDelete = window.confirm(`Are you sure, you want to delete your profile ${user.name}?`)
-        if (confirmDelete) {
-          const docRef = doc(user)
-          deleteUser(docRef)
-          navigate("/signup")
-        }
-      })
-      .catch((error) => {
-        error("An error occurred, please try again later")
-      })
-    }
-  
+  function handleUserDelete() {
+    const auth = getAuth()
+    const user = auth.currentUser.uid
+    const credentials = EmailAuthProvider.credential( user.email, "yourpassword" ) // If session expired, reauthenticate user credentials
+    user.reauthenticateWithCredential(credentials);
+    deleteUser(user)
+    .then(() => {
+      const confirmDelete = window.confirm(`Are you sure, you want to delete your profile ${user.name}?`)
+      if (confirmDelete) {
+        const docRef = doc(user)
+        deleteUser(docRef)
+        navigate("/signup")
+      }
+    })
+    .catch((error) => {
+      error("An error occurred, please try again later")
+    })
+  };
 
 
   function getCreatedAtDate(user) {
     const date = user.createdAt
     const setDate = new Date(date).toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: '2-digit' } )
-    if(date) { return (
-      setDate
-      ) }
+    if(date) { return setDate }
   };
 
 
