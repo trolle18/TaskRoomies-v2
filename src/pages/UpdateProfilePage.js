@@ -60,55 +60,20 @@ export default function UpdateProfilePage({ currentUser }) {
         const userToUpdate = { name: name, image: image }
         const docRef = doc(usersRef, auth.currentUser.uid)
         await setDoc(docRef, userToUpdate)
-        navigate("/")
-    }
-
-
-    // Sign out
-    function handleSignOut() {
-        signOut(auth)
-    }
-
-
-    // Delete user handler
-    function handleUserDelete() {
-        const auth = getAuth()
-        const user = auth.currentUser.uid
-        const credentials = EmailAuthProvider.credential( user.email, "yourpassword" ) // If session expired, reauthenticate user credentials
-        user.reauthenticateWithCredential(credentials);
-        deleteUser(user)
-        .then(() => {
-            const confirmDelete = window.confirm(`Are you sure, you want to delete your profile ${user.name}?`)
-            if (confirmDelete) {                    
-                const docRef = doc(user)
-                deleteUser(docRef)
-                navigate("/signup")                
-            }
-        })
-        .catch((error) => {
-            error("An error occurred, try again later")
-        })
+        navigate("/profile")
     }
 
     
 
     return (
         <section className="page">
-            <div className="profile-page">
-            <h3>Profile</h3>
+            <div className="page__header-cntr">
+                <h3>Edit User</h3>
+            </div>     
+
 
                 <UpdateUserForm/>                 
 
-                    <div className="profile-btn-cntr">
-                        <button className="btn" onClick={handleSignOut}>
-                            Sign out
-                        </button>
-                        <button className="btn-outline" onClick={handleUserDelete} data-id={auth.currentUser.uid} >
-                            Delete user
-                        </button>
-                    </div>
-
-            </div>           
         </section>
     )
 }
