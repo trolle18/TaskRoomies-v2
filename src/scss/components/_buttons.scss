@@ -44,24 +44,40 @@ button {
 }
 
 .btn-cntr {
-    border: solid red 1px;
+    // border: solid red 1px;
+    height: max-content;
     position: relative;
 
+    &:hover {
+        .btn-label {
+            opacity: 1;
+        }
+    }
     .btn-label {
-        background-color: rgba(255, 255, 255, .5);
+        opacity: 0;
+        height: max-content;
         width: max-content;
         position: absolute;
-        padding: 0 .25em;
         top: -1.55em;
         right: 0;
-        align-self:flex-start;
+        background: linear-gradient(
+            rgba(255, 255, 255, .4), 
+            rgba(255, 255, 255, .5));
+        align-self: flex-start;
         border-radius: .15em;
+        transition: ease-in .05s;
+
+        &__text {
+            margin: auto 0;
+            padding: .25em;
+        }
 
         &::after {
             display: block;
             content: "";
             width: 0; 
             height: 0;
+            margin: auto 0;
             position: absolute;
             border-left: .25em solid transparent;
             border-right: .25em solid transparent;
