@@ -1,5 +1,4 @@
 .flex-cols {
-    // border: solid red 0px;
     display: flex;
     flex-direction: column;
     gap: .5em;
@@ -22,7 +21,6 @@
 
 
 .flex-outer-wrapper {
-    border: solid green 1px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -30,30 +28,15 @@
 
 .flex-inner-wrapper {
     width: 100%;
-    border: solid red 1px;
     display: flex;
     flex-direction: column;
-    // gap: 2em;
     justify-content: space-between;
 }
-
-
 
 @media (min-width: 600px) {
     .flex-outer-wrapper {
         flex-direction: row;
     }
-    // .flex-inner-wrapper {
-    //     flex-direction: row;
-    // }
 }
 
-// @media (min-width: 992) {
-//     .flex-inner-wrapper {
-//         flex-direction: row;
-//     }
-// }
-
-// @media (min-width: 992px) {
-// }
 

@@ -27,18 +27,16 @@
 }
 
 .profile-avatar {
-    border: solid blue 1px;
-    // margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
     .user-img {
-        width: 12em;
-        height: 12em;
+        width: 10em;
+        height: 10em;
         margin: 0 auto;
         object-fit: cover;
-        border-radius: 50%;
+        border-radius: 50em;
         overflow: hidden;
 
         img {
@@ -46,6 +44,18 @@
             height: auto;
         }
     }
+}
+
+.user-details {
+    span {
+        min-height: 1em;
+    }
+}
+
+.card-wrapper {
+    padding: .75em .2em;
+    background-color:  rgba(255, 255, 255, .4);
+    border-radius: .2em;
 }
 
 // .profile-page input {
@@ -108,14 +118,25 @@
 
 
 .profile-btn-cntr {
-    // padding-top: 10px;
-    // display: flex;
-    // flex-direction: column;
+    width: 100%;
+    margin: 2em 0 0 0;
+    display: flex;
+    align-items: center;
 
     button {
         width: 100%;
-        padding: 1em 1em;
-        font-size: 10px;
+        padding: .5em 1em;
+        font-size: $fs_x_sm;
+    }
+}
+
+@media (min-width: 600px) {
+    .profile-btn-cntr {
+        bottom: 0;
+    
+        button {
+            max-width: 40%;
+        }
     }
 }
 
@@ -132,9 +153,9 @@
 
 
 .notif-box {
-    height: 20px;
+    height: 1.25em;
     width: 90%;
-    margin-bottom: 40px;
+    // margin-bottom: 40px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -143,28 +164,28 @@
     align-items: center;
     
     input {
-        height: 16px;
-        width: 16px;
+        height: 1em;
+        width: 1em;
         margin: 0;
     }
 
     div {
-        border: solid red 0px;
+        // border: solid red 0px;
         height: 100%;
-        margin: 2px 0px 0px 0px;
+        // margin: 2px 0px 0px 0px;
         display: flex;
         flex-direction: row;
         align-items: center;
 
         svg {
-            height: 14px;
-            width: 14px;
+            height: .75em;
+            width: .75em;
             color: $clr_blue_d;
         }
         p {
             margin: 0;
-            padding: 0px 0px 0px 5px;
-            font-size: 12px;
+            // padding: 0 0 0 0;
+            font-size: $fs_x_sm;
         }
     }
 }

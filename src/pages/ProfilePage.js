@@ -11,9 +11,8 @@ import { usersRef } from "../firebase-config";
 export default function ProfilePage() {
   const auth = getAuth();
   const navigate = useNavigate();
+  const [uid, setUid] = useState("");
   const [user, setUser] = useState("");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
   const [image, setImage] = useState("");
 
 
@@ -26,14 +25,13 @@ export default function ProfilePage() {
         const docSnap = await getDoc(docRef)
         if (docSnap.data()) {
           setUser((prevUser) => ({ ...prevUser, ...docSnap.data() }))
-          setName(userData.name)
+          setUid(auth.currentUser.uid)
           setImage(userData.image || 'placeholder')
         }
       }
     }
     getUser()
   }, [auth.currentUser]);
-
 
 
   // Navigate to profile-update page
@@ -72,13 +70,7 @@ export default function ProfilePage() {
   function getCreatedAtDate(user) {
     const date = user.createdAt
     const setDate = new Date(date).toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: '2-digit' } )
-    if(date) { return (
-      // setDate
-      <div className="flex-rows user-details">
-      <span className="bold">User created:</span> 
-      <span>{setDate}</span>
-    </div>
-      ) }
+    if(date) { return setDate }
   };
 
 
@@ -89,7 +81,7 @@ export default function ProfilePage() {
         <h3>Profile</h3>
       </div>     
 
-      <div className="flex-outer-wrapper">
+      <div className="flex-outer-wrapper card-wrapper">
 
         <div className="profile-avatar">
           <div className="user-img">
@@ -100,20 +92,32 @@ export default function ProfilePage() {
         <div className="flex-inner-wrapper">
           <div className="flex-rows space-between">
 
-            <div className="flex-cols">
-              <div className="flex-rows user-details">
-                <span className="bold">Name:</span>
+            <div className="flex-rows">
+              <div className="flex-cols user-details">
+                <span className="bold">Name</span>
+                <span className="bold">Email</span>
+                <span className="bold">Created</span>
+              </div>
+
+              <div className="flex-cols user-details">                
                 <span>{user.name}</span>
-              </div>
-              <div className="flex-rows user-details">
-                <span className="bold">Email:</span>
                 <span>{user.email}</span>
+                <span>{getCreatedAtDate(user)}</span>
               </div>
-              {getCreatedAtDate(user)}
             </div>
 
-            <div className="edit-btn">
-              <button onClick={handleClick} label="Edit user">
+            <div className="btn-cntr  circle-btn-cntr">
+              <div className="btn-label">
+                <span className="btn-label__text xs-caps">
+                  Edit user
+                </span>
+              </div>
+              <button
+              
+              className="edit-btn circle-icon-btn button btn-grey"
+              label="Edit user"
+              onClick={handleClick} 
+              >
                 <BiPencil />
               </button>
             </div>
@@ -123,10 +127,17 @@ export default function ProfilePage() {
       </div>  
 
       <div className="flex-cols profile-btn-cntr">
-        <button className="btn" onClick={handleSignOut} label="Sign out">
+        <button className="btn" 
+        label="Sign out"
+        onClick={handleSignOut}
+        >
           Sign out
         </button>
-        <button className="btn-outline" onClick={handleUserDelete} label="Delete user" data-id={auth.currentUser.uid}>
+        <button className="btn-outline"
+        label="Delete user"
+        onClick={handleUserDelete}
+        data-id={uid}
+        >
           Delete user
         </button>
       </div>
