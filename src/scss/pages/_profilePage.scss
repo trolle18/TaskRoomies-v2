@@ -27,8 +27,6 @@
 }
 
 .profile-avatar {
-    // border: solid blue 1px;
-    // margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,7 +36,7 @@
         height: 10em;
         margin: 0 auto;
         object-fit: cover;
-        border-radius: 50%;
+        border-radius: 50em;
         overflow: hidden;
 
         img {
