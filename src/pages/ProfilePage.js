@@ -81,7 +81,7 @@ export default function ProfilePage() {
         <h3>Profile</h3>
       </div>     
 
-      <div className="flex-outer-wrapper card-wrapper">
+      <div className="flex-outer-wrapper card-wrapper flex-center-items">
 
         <div className="profile-avatar">
           <div className="user-img">
