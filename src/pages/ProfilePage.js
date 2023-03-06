@@ -98,8 +98,8 @@ export default function ProfilePage() {
                 <span className="bold">Email</span>
                 <span className="bold">Created</span>
               </div>
-              <div className="flex-cols user-details">
-                
+              
+              <div className="flex-cols user-details">                
                 <span>{user.name}</span>
                 <span>{user.email}</span>
                 <span>{getCreatedAtDate(user)}</span>
