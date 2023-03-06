@@ -11,7 +11,7 @@ button {
     letter-spacing: 0.05em;
     text-transform: uppercase;
     font-size: $fs_md;
-    font-weight: 300;
+    // font-weight: 300;
     text-align: center;
     
     &.btn-outline {
@@ -22,11 +22,24 @@ button {
 
     &.btn-sign-out {
         padding: 2.032em 1em;
-        right: 0;
-        top: 0;
-        position: absolute;
+        // right: 0;
+        // top: 0;
+        // position: absolute;
         // cursor: pointer;
         font-size: $fs_sm;
+    }
+}
+
+.circle-icon-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10em;
+
+    svg {
+        height: 1em;
+        width: 1em;
+        margin: .2em;
     }
 }
 
