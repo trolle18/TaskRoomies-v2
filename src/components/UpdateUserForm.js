@@ -61,9 +61,6 @@ export default function UpdateUserForm() {
     await setDoc(docRef, userToUpdate)
     navigate("/")
   }
-
-
-
   
 
   return (
