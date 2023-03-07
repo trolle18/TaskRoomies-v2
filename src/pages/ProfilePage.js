@@ -81,7 +81,7 @@ export default function ProfilePage() {
         <h3>Profile</h3>
       </div>     
 
-      <div className="flex-outer-wrapper card-wrapper">
+      <div className="flex-outer-wrapper card-wrapper flex-center-items">
 
         <div className="profile-avatar">
           <div className="user-img">
@@ -89,7 +89,7 @@ export default function ProfilePage() {
           </div>
         </div>
 
-        <div className="flex-inner-wrapper">
+        <div className="flex-inner-wrapper max-w">
           <div className="flex-rows space-between">
 
             <div className="flex-rows">

@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { getAuth, signOut, deleteUser, EmailAuthProvider } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { doc, getDoc, setDoc } from "@firebase/firestore";
 import { usersRef } from "../firebase-config";
 import 'firebase/database';
-import { FaBell } from "react-icons/fa";
 import placerholder from "../assets/profile-placeholder.jpg";
 
 
@@ -36,7 +35,6 @@ export default function UpdateUserForm() {
   }, [auth.currentUser])
 
 
-
   // Change user image
   function handleImageChange(event) {
     const file = event.target.files[0]
@@ -61,72 +59,68 @@ export default function UpdateUserForm() {
     await setDoc(docRef, userToUpdate)
     navigate("/")
   }
-
-
-  // Sign out
-  function handleSignOut() {
-    signOut(auth)
-  }
-
-
-  // Delete user handler
-  function handleUserDelete() {
-    const auth = getAuth()
-    const user = auth.currentUser.uid
-    const credentials = EmailAuthProvider.credential( user.email, "yourpassword" ) // If session expired, reauthenticate user credentials
-    user.reauthenticateWithCredential(credentials);
-    deleteUser(user)
-    .then(() => {
-        const confirmDelete = window.confirm(`Are you sure, you want to delete your profile ${user.name}?`)
-        if (confirmDelete) {                    
-            const docRef = doc(user)
-            deleteUser(docRef)
-            navigate("/signup")                
-        }
-    })
-    .catch((error) => {
-        error("An error occurred, try again later")
-    })
-  }
-
   
 
   return (
       <form onSubmit={submitEvent}>
-          <h3>Profile</h3>
+
+        <div className="flex-cols">
           <div className="profile-avatar">
-              <div className="user-img">
-                  <img src={image} alt={image} onError={(event) => (event.target.src = placerholder)} />
-              </div>
-              <p className="text-error">{errorMessage}</p>
-              <div className="img-input-cntr">
-                  {/* <label for="imgfile" className="profile-avatar-label"> Update profile picture </label> */}
-                  <input type="file" accept="image/*" value="" onChange={handleImageChange}  name="image" title="" className="img-input"/>
-              </div>
+            <div className="user-img">
+              <img src={user.image} alt={user.name} onError={(event) => (event.target.src = placerholder)} />
+            </div>
           </div>
 
-          <span>Name</span>
-          <input  type="text" value={name} onChange={e => setName(e.target.value)} name="name" placeholder="name"  />
-          
-          <span>Email</span>
-          <input type="email" value={email} onChange={e => setEmail(e.target.value)}  name="email" placeholder="user@mail.com"  />
+          <div className="flex-rows">
+            <span className="bold">Profile picture</span>
+            <span className="text-error">{errorMessage}</span>
+            {/* <div className="img-input-cntr"> */}
+                <input 
+                type="file" 
+                accept="image/*" 
+                value="" 
+                label="profile picture input" 
+                onChange={handleImageChange}
+                // className="img-input"
+                />
+            {/* </div> */}
+            </div>
+        </div>
 
-          <label className="notif-box">
-              <div> <FaBell /> <p>Notifications</p>{" "}</div>
-              <input className="notif_label" type="checkbox" name="bellcheckbox" />
-          </label>
+        <div className="flex-inner-wrapper max-w">
+          <div className="flex-rows space-between">
 
-          <button className="btn">Save changes</button>
+            <div className="flex-rows">
+              <div className="flex-cols user-details">
+                <span className="bold">Name</span>
+                <span className="bold">Email</span>
+              </div>
 
-          <div className="profile-btn-cntr">
-              <button className="btn" onClick={handleSignOut}>
-                  Sign out
-              </button>
-              <button className="btn-outline" onClick={handleUserDelete} data-id={auth.currentUser.uid} >
-                  Delete user
-              </button>
-          </div>
+              <div className="flex-cols user-details">                
+                <input  type="text" value={name} onChange={e => setName(e.target.value)} name="name" placeholder="name"  />
+                <input type="email" value={email} onChange={e => setEmail(e.target.value)}  name="email" placeholder="user@mail.com"  />
+              </div>
+            </div>
+          </div> 
+        </div>  
+
+        <div className="flex-cols profile-btn-cntr">
+          <button 
+          type="submit"
+          className="btn" 
+          label="Save Changes"
+          >
+            Save
+          </button>     
+
+          <button className="btn-outline"
+          label="Discard changes"
+          // onClick={navigate("/profile")}
+          >
+            Discard changes
+          </button>    
+        </div>
           
       </form>
   )
-}
+};
