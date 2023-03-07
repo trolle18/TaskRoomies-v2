@@ -37,7 +37,6 @@ export default function UpdateProfilePage({ currentUser }) {
   }, [auth.currentUser])
 
 
-
   // Change user image
   function handleImageChange(event) {
     const file = event.target.files[0]
@@ -64,7 +63,6 @@ export default function UpdateProfilePage({ currentUser }) {
   }
 
   
-
   return (
     <section className="page">
       <div className="page__header-cntr">
