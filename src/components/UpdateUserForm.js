@@ -80,9 +80,13 @@ export default function UpdateUserForm() {
             <span className="bold">Profile picture</span>
             <span className="text-error">{errorMessage}</span>
             {/* <div className="img-input-cntr"> */}
-                {/* <label for="imgfile" className="profile-avatar-label"> Update profile picture </label> */}
-                <input type="file" accept="image/*" value="" onChange={handleImageChange}  name="image" title="" 
-                className="img-input"
+                <input 
+                type="file" 
+                accept="image/*" 
+                value="" 
+                label="profile picture input" 
+                onChange={handleImageChange}
+                // className="img-input"
                 />
             {/* </div> */}
             </div>
