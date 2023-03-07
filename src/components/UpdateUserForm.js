@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { getAuth, signOut, deleteUser, EmailAuthProvider } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { doc, getDoc, setDoc } from "@firebase/firestore";
 import { usersRef } from "../firebase-config";
 import 'firebase/database';
-import { FaBell } from "react-icons/fa";
 import placerholder from "../assets/profile-placeholder.jpg";
 
 
