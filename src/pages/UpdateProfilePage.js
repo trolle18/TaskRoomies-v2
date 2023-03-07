@@ -61,6 +61,7 @@ export default function UpdateProfilePage({ currentUser }) {
   // };
 
   
+  
   return (
     <section className="page">
       <div className="page__header-cntr">
