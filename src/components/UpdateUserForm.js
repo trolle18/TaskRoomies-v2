@@ -36,7 +36,6 @@ export default function UpdateUserForm() {
   }, [auth.currentUser])
 
 
-
   // Change user image
   function handleImageChange(event) {
     const file = event.target.files[0]
