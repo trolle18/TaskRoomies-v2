@@ -104,7 +104,6 @@ export default function UpdateUserForm() {
           </div> 
         </div>  
 
-
         <div className="flex-cols profile-btn-cntr">
           <button 
           type="submit"
