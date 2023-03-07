@@ -69,26 +69,24 @@ export default function UpdateUserForm() {
   return (
       <form onSubmit={submitEvent}>
 
-          <div className="flex-cols">
-            <div className="profile-avatar">
-              <div className="user-img">
-                <img src={user.image} alt={user.name} onError={(event) => (event.target.src = placerholder)} />
-              </div>
+        <div className="flex-cols">
+          <div className="profile-avatar">
+            <div className="user-img">
+              <img src={user.image} alt={user.name} onError={(event) => (event.target.src = placerholder)} />
             </div>
-
-              <p className="text-error">{errorMessage}</p>
-              <div className="img-input-cntr">
-                  {/* <label for="imgfile" className="profile-avatar-label"> Update profile picture </label> */}
-                  <input type="file" accept="image/*" value="" onChange={handleImageChange}  name="image" title="" className="img-input"/>
-              </div>
           </div>
 
-          {/* <span>Name</span>
-          <input  type="text" value={name} onChange={e => setName(e.target.value)} name="name" placeholder="name"  />
-          
-          <span>Email</span>
-          <input type="email" value={email} onChange={e => setEmail(e.target.value)}  name="email" placeholder="user@mail.com"  /> */}
-
+          <div className="flex-rows">
+            <span className="bold">Profile picture</span>
+            <span className="text-error">{errorMessage}</span>
+            {/* <div className="img-input-cntr"> */}
+                {/* <label for="imgfile" className="profile-avatar-label"> Update profile picture </label> */}
+                <input type="file" accept="image/*" value="" onChange={handleImageChange}  name="image" title="" 
+                className="img-input"
+                />
+            {/* </div> */}
+            </div>
+        </div>
 
         <div className="flex-inner-wrapper max-w">
           <div className="flex-rows space-between">
@@ -104,31 +102,26 @@ export default function UpdateUserForm() {
                 <input type="email" value={email} onChange={e => setEmail(e.target.value)}  name="email" placeholder="user@mail.com"  />
               </div>
             </div>
-        </div> 
-      </div>  
-
-          {/* <label className="notif-box">
-              <div> <FaBell /> <p>Notifications</p>{" "}</div>
-              <input className="notif_label" type="checkbox" name="bellcheckbox" />
-          </label> */}
+          </div> 
+        </div>  
 
 
-          <div className="flex-cols profile-btn-cntr">
-            <button 
-            type="submit"
-            className="btn" 
-            label="Save Changes"
-            >
-              Save Changes
-            </button>     
+        <div className="flex-cols profile-btn-cntr">
+          <button 
+          type="submit"
+          className="btn" 
+          label="Save Changes"
+          >
+            Save
+          </button>     
 
-            <button className="btn-outline"
-            label="Delete user"
-            // onClick={navigate("/profile")}
-            >
-              Annuller
-            </button>    
-          </div>
+          <button className="btn-outline"
+          label="Discard changes"
+          // onClick={navigate("/profile")}
+          >
+            Discard changes
+          </button>    
+        </div>
           
       </form>
   )
