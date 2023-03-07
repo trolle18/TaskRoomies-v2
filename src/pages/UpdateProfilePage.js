@@ -34,7 +34,7 @@ export default function UpdateProfilePage({ currentUser }) {
         }
     }}
     getUser()
-  }, [auth.currentUser])
+  }, [auth.currentUser]);
 
 
   // Change user image
@@ -50,7 +50,7 @@ export default function UpdateProfilePage({ currentUser }) {
     } else { // if image >0.5MB, display an error message using the errorMessage state
       setErrorMessage("The image file is too big! The image file size must be below 0,5MB")
     }
-  }
+  };
 
 
   // Submit updated user details
@@ -60,7 +60,7 @@ export default function UpdateProfilePage({ currentUser }) {
     const docRef = doc(usersRef, auth.currentUser.uid)
     await setDoc(docRef, userToUpdate)
     navigate("/profile")
-  }
+  };
 
   
   return (
