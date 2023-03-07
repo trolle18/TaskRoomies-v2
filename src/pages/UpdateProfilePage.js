@@ -7,26 +7,32 @@ import 'firebase/database';
 import UpdateUserForm from "../components/UpdateUserForm";
 
 
-export default function UpdateProfilePage() {
+export default function UpdateProfilePage({ currentUser }) {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [image, setImage] = useState("");
+  const [user, setUser] = useState("");
+  // const [errorMessage, setErrorMessage] = useState("");
   const auth = getAuth();
+  const navigate = useNavigate();
 
   
-  // // Get current user data 
-  // useEffect(() => {
-  //   async function getUser() {
-  //     if (auth.currentUser) {
-  //       setEmail(auth.currentUser.email)
-  //       const docRef = doc(usersRef, auth.currentUser.uid)
-  //       const userData = (await getDoc(docRef)).data()      
-  //       const docSnap = await getDoc(docRef)
-  //       if (userData) {
-  //         setUser((prevUser) => ({ ...prevUser, ...docSnap.data() }))
-  //         setName(userData.name)
-  //         setImage(userData.image || 'placeholder')
-  //       }
-  //   }}
-  //   getUser()
-  // }, [auth.currentUser]);
+  // Get current user data 
+  useEffect(() => {
+    async function getUser() {
+      if (auth.currentUser) {
+        setEmail(auth.currentUser.email)
+        const docRef = doc(usersRef, auth.currentUser.uid)
+        const userData = (await getDoc(docRef)).data()      
+        const docSnap = await getDoc(docRef)
+        if (userData) {
+          setUser((prevUser) => ({ ...prevUser, ...docSnap.data() }))
+          setName(userData.name)
+          setImage(userData.image || 'placeholder')
+        }
+    }}
+    getUser()
+  }, [auth.currentUser]);
 
 
   // // Change user image
