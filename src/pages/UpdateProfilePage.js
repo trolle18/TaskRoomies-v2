@@ -59,22 +59,22 @@ export default function UpdateProfilePage() {
   //   navigate("/profile")
   // };
 
-  // Get current user data 
-  useEffect(() => {
-    async function getUser() {
-    if (auth.currentUser) {
-      setEmail(auth.currentUser.email)
-      const docRef = doc(usersRef, auth.currentUser.uid)
-      const userData = (await getDoc(docRef)).data()      
-      const docSnap = await getDoc(docRef)
-      if (userData) {
-        setUser((prevUser) => ({ ...prevUser, ...docSnap.data() }))
-        setName(userData.name)
-        setImage(userData.image || 'placeholder')
-      }
-    }}
-    getUser()
-  }, [auth.currentUser])
+  // // Get current user data 
+  // useEffect(() => {
+  //   async function getUser() {
+  //   if (auth.currentUser) {
+  //     setEmail(auth.currentUser.email)
+  //     const docRef = doc(usersRef, auth.currentUser.uid)
+  //     const userData = (await getDoc(docRef)).data()      
+  //     const docSnap = await getDoc(docRef)
+  //     if (userData) {
+  //       setUser((prevUser) => ({ ...prevUser, ...docSnap.data() }))
+  //       setName(userData.name)
+  //       setImage(userData.image || 'placeholder')
+  //     }
+  //   }}
+  //   getUser()
+  // }, [auth.currentUser])
 
 
   // // Change user image
@@ -93,14 +93,14 @@ export default function UpdateProfilePage() {
   // }
 
 
-  // Submit updated user details
-  async function submitEvent(event) {
-    event.preventDefault()
-    const userToUpdate = { name: name, image: image }
-    const docRef = doc(usersRef, auth.currentUser.uid)
-    await setDoc(docRef, userToUpdate)
-    navigate("/")
-  }
+  // // Submit updated user details
+  // async function submitEvent(event) {
+  //   event.preventDefault()
+  //   const userToUpdate = { name: name, image: image }
+  //   const docRef = doc(usersRef, auth.currentUser.uid)
+  //   await setDoc(docRef, userToUpdate)
+  //   navigate("/")
+  // }
 
   
   
@@ -111,8 +111,8 @@ export default function UpdateProfilePage() {
       </div>    
       <div className="card-wrapper" >
       <UpdateUserForm 
-      user={user}
-      submitEvent={submitEvent}
+      // user={user}
+      // submitEvent={submitEvent}
       />                 
       </div>
     </section>
