@@ -7,32 +7,32 @@ import 'firebase/database';
 import placerholder from "../assets/profile-placeholder.jpg";
 
 
-export default function UpdateUserForm() {
+export default function UpdateUserForm({user, submitEvent }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [image, setImage] = useState("");
-  const [user, setUser] = useState("");
+  // const [user, setUser] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const auth = getAuth();
   const navigate = useNavigate();
 
   
-  // Get current user data 
-  useEffect(() => {
-    async function getUser() {
-    if (auth.currentUser) {
-      setEmail(auth.currentUser.email)
-      const docRef = doc(usersRef, auth.currentUser.uid)
-      const userData = (await getDoc(docRef)).data()      
-      const docSnap = await getDoc(docRef)
-      if (userData) {
-        setUser((prevUser) => ({ ...prevUser, ...docSnap.data() }))
-        setName(userData.name)
-        setImage(userData.image || 'placeholder')
-      }
-    }}
-    getUser()
-  }, [auth.currentUser])
+  // // Get current user data 
+  // useEffect(() => {
+  //   async function getUser() {
+  //   if (auth.currentUser) {
+  //     setEmail(auth.currentUser.email)
+  //     const docRef = doc(usersRef, auth.currentUser.uid)
+  //     const userData = (await getDoc(docRef)).data()      
+  //     const docSnap = await getDoc(docRef)
+  //     if (userData) {
+  //       setUser((prevUser) => ({ ...prevUser, ...docSnap.data() }))
+  //       setName(userData.name)
+  //       setImage(userData.image || 'placeholder')
+  //     }
+  //   }}
+  //   getUser()
+  // }, [auth.currentUser])
 
 
   // Change user image
@@ -51,14 +51,14 @@ export default function UpdateUserForm() {
   }
 
 
-  // Submit updated user details
-  async function submitEvent(event) {
-    event.preventDefault()
-    const userToUpdate = { name: name, image: image }
-    const docRef = doc(usersRef, auth.currentUser.uid)
-    await setDoc(docRef, userToUpdate)
-    navigate("/")
-  }
+  // // Submit updated user details
+  // async function submitEvent(event) {
+  //   event.preventDefault()
+  //   const userToUpdate = { name: name, image: image }
+  //   const docRef = doc(usersRef, auth.currentUser.uid)
+  //   await setDoc(docRef, userToUpdate)
+  //   navigate("/")
+  // }
   
 
   return (
