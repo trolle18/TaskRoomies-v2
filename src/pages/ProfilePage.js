@@ -70,7 +70,11 @@ export default function ProfilePage() {
   function getCreatedAtDate(user) {
     const date = user.createdAt
     const setDate = new Date(date).toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: '2-digit' } )
-    if(date) { return setDate }
+    if(date) { return <span>{setDate}</span> }
+  };
+  function ifCreatedDate(user) {
+    const date = user.createdAt
+    if(date) { return <span className="bold">Created</span> }
   };
 
 
@@ -96,13 +100,14 @@ export default function ProfilePage() {
               <div className="flex-cols user-details">
                 <span className="bold">Name</span>
                 <span className="bold">Email</span>
-                <span className="bold">Created</span>
+                {/* <span className="bold">Created</span> */}
+                {ifCreatedDate(user)}
               </div>
 
               <div className="flex-cols user-details">                
                 <span>{user.name}</span>
                 <span>{user.email}</span>
-                <span>{getCreatedAtDate(user)}</span>
+                {getCreatedAtDate(user)}
               </div>
             </div>
 
