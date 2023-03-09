@@ -7,7 +7,7 @@ import 'firebase/database';
 import placerholder from "../assets/profile-placeholder.jpg";
 
 
-export default function UpdateUserForm({submitEvent}) {
+export default function UpdateUserForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [image, setImage] = useState("");
@@ -95,14 +95,14 @@ export default function UpdateUserForm({submitEvent}) {
   }
 
 
-  // // Submit updated user details
-  // async function submitEvent(event) {
-  //   event.preventDefault()
-  //   const userToUpdate = { name: name, image: image }
-  //   const docRef = doc(usersRef, auth.currentUser.uid)
-  //   await setDoc(docRef, userToUpdate)
-  //   navigate("/profile")
-  // }
+  // Submit updated user details
+  async function submitEvent(event) {
+    event.preventDefault()
+    const userToUpdate = { name: name, image: image }
+    const docRef = doc(usersRef, auth.currentUser.uid)
+    await setDoc(docRef, userToUpdate)
+    navigate("/profile")
+  }
 
   
   
