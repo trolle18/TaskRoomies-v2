@@ -1,10 +1,7 @@
 import UpdateUserForm from "../components/UpdateUserForm";
 
 
-export default function UpdateProfilePage() {
-
-
-  
+export default function UpdateProfilePage() { 
 
   
   return (
@@ -13,11 +10,7 @@ export default function UpdateProfilePage() {
           <h3>Edit User</h3>
       </div>    
       <div className="card-wrapper" >
-      <UpdateUserForm
-
-
-      />                 
-
+      <UpdateUserForm/>                 
       </div>
     </section>
   )
