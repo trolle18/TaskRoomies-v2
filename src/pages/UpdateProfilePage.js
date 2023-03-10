@@ -22,8 +22,8 @@ export default function UpdateProfilePage() {
       </div>    
       <div className="card-wrapper" >
       <UpdateUserForm
-      // submitEvent={submitEvent} 
-      // user={user}
+
+
       />                 
 
       </div>
