@@ -10,7 +10,7 @@ export default function UpdateProfilePage() {
           <h3>Edit User</h3>
       </div>    
       <div className="card-wrapper" >
-      <UpdateUserForm/>                 
+        <UpdateUserForm/>                 
       </div>
     </section>
   )
