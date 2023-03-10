@@ -100,7 +100,6 @@ export default function ProfilePage() {
               <div className="flex-cols user-details">
                 <span className="bold">Name</span>
                 <span className="bold">Email</span>
-                {/* <span className="bold">Created</span> */}
                 {ifCreatedDate(user)}
               </div>
 
