@@ -104,6 +104,10 @@ export default function UpdateUserForm() {
     navigate("/profile")
   }
 
+  function navigateToProfile() {
+    navigate("/profile")
+  }
+
   
   
 
@@ -175,7 +179,7 @@ export default function UpdateUserForm() {
 
       <button className="btn-outline"
       label="Discard changes"
-      // onClick={navigate("/profile")}
+      onClick={navigateToProfile}
       >
         Discard changes
       </button>    
