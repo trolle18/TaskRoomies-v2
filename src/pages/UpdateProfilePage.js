@@ -10,14 +10,7 @@ import UpdateUserForm from "../components/UpdateUserForm";
 
 
 export default function UpdateProfilePage() {
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [image, setImage] = useState("");
-  // const [createdAt, setCreatedAt] = useState("");
-  // const [user, setUser] = useState("");
-  // const [errorMessage, setErrorMessage] = useState("");
-  // const auth = getAuth();
-  // const navigate = useNavigate();
+
 
   
 
