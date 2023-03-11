@@ -5,6 +5,7 @@ import { doc, getDoc, setDoc } from "@firebase/firestore";
 import { usersRef } from "../firebase-config";
 import 'firebase/database';
 import placerholder from "../assets/profile-placeholder.jpg";
+import Button from "./Button";
 
 
 export default function UpdateUserForm() {
@@ -177,6 +178,11 @@ export default function UpdateUserForm() {
         Save
       </button>     
 
+      <Button
+      children="Discard Changes"
+      // color="primary"
+      disabled={false}
+      />
       <button className="btn-outline"
       label="Discard changes"
       onClick={navigateToProfile}
