@@ -1,11 +1,11 @@
 
 export default function Button(props) {
-  const { children, color, disabled, onClick, className, label, ...rest } = props;
+  const { children, color, style, disabled, onClick, className, label, ...rest } = props;
   
   return (
     <button 
     {...rest}
-    className={("button", color)}
+    className={("button", color, style)}
     label={label}
     onClick={onClick} 
     disabled={disabled}
