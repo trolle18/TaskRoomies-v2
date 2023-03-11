@@ -176,19 +176,25 @@ export default function UpdateUserForm() {
       label="Save Changes"
       >
         Save
-      </button>     
+      </button>    
+
+
 
       <Button
-      children="Discard Changes"
-      // color="primary"
+      children="Discard changes"
+      styleType="btn-outline"
+      label="Discard changes"
+      onClick={navigateToProfile}
       disabled={false}
       />
-      <button className="btn-outline"
+
+      {/* <button className="btn-outline"
       label="Discard changes"
       onClick={navigateToProfile}
       >
         Discard changes
-      </button>    
+      </button>     */}
+
     </div>
       
     </form>
