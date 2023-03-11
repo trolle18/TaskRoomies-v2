@@ -179,6 +179,16 @@ export default function UpdateUserForm() {
       </button>    
 
 
+      <Button
+      children="Save changes"
+      styleType="btn"
+      type="submit"
+      label="Save Changes"
+      onClick={navigateToProfile}
+      disabled={false}
+      /> 
+
+
 
       <Button
       children="Discard changes"
