@@ -5,6 +5,7 @@ import { doc, getDoc, setDoc } from "@firebase/firestore";
 import { usersRef } from "../firebase-config";
 import 'firebase/database';
 import placerholder from "../assets/profile-placeholder.jpg";
+import Button from "./Button";
 
 
 export default function UpdateUserForm() {
@@ -169,20 +170,38 @@ export default function UpdateUserForm() {
 
 
     <div className="flex-cols profile-btn-cntr">
-      <button 
+      {/* <button 
       type="submit"
       className="btn" 
       label="Save Changes"
       >
         Save
-      </button>     
+      </button>     */}
 
-      <button className="btn-outline"
+      <Button
+      children="Save changes"
+      styleType="btn"
+      type="submit"
+      label="Save Changes"
+      onClick={navigateToProfile}
+      disabled={false}
+      /> 
+
+      <Button
+      children="Discard changes"
+      styleType="btn-outline"
+      label="Discard changes"
+      onClick={navigateToProfile}
+      disabled={false}
+      />
+
+      {/* <button className="btn-outline"
       label="Discard changes"
       onClick={navigateToProfile}
       >
         Discard changes
-      </button>    
+      </button>     */}
+
     </div>
       
     </form>
