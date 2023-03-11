@@ -9,9 +9,7 @@ export default function Button(props) {
     onClick={onClick} 
     disabled={disabled}
     >
-      {/* <span className="button__text"> */}
       {children}
-      {/* </span> */}
     </button>
   )
 };
