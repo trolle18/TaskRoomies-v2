@@ -75,9 +75,9 @@ export default function UpdateUserForm() {
         <div className="profile-avatar">
           <div className="user-img">
             <img
-            src={ user.image} 
+            src={ user.image}
             alt={user.name}
-            onError={(event) => (event.target.src = placerholder)} 
+            onError={(event) => (event.target.src = placerholder)}
             />
           </div>
         </div>
