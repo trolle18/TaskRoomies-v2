@@ -65,17 +65,20 @@ export default function UpdateUserForm() {
   function navigateToProfile() {
     navigate("/profile")
   };
-  
+
 
   return (
     <form onSubmit={submitEvent}>
 
       <div className="flex-cols">
+
         <div className="profile-avatar">
           <div className="user-img">
-            <img src={ user.image} alt={user.name}
-            // onChange={(event) => (event.target.src)}
-            onError={(event) => (event.target.src = placerholder)} />
+            <img
+            src={ user.image} 
+            alt={user.name}
+            onError={(event) => (event.target.src = placerholder)} 
+            />
           </div>
         </div>
 
