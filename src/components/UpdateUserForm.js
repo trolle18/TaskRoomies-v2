@@ -18,14 +18,14 @@ export default function UpdateUserForm() {
   const auth = getAuth();
   const navigate = useNavigate();
 
-  
-  // // Get current user data 
+
+  // // Get current user data
   // useEffect(() => {
   //   async function getUser() {
   //   if (auth.currentUser) {
   //     setEmail(auth.currentUser.email)
   //     const docRef = doc(usersRef, auth.currentUser.uid)
-  //     const userData = (await getDoc(docRef)).data()      
+  //     const userData = (await getDoc(docRef)).data()
   //     const docSnap = await getDoc(docRef)
   //     if (userData) {
   //       setUser((prevUser) => ({ ...prevUser, ...docSnap.data() }))
@@ -51,7 +51,7 @@ export default function UpdateUserForm() {
   //   } else { // if image >0.5MB, display an error message using the errorMessage state
   //     setErrorMessage("The image file is too big! The image file size must be below 0,5MB")
   //   }
-  // } 
+  // }
 
 
   // // Submit updated user details
@@ -68,7 +68,7 @@ export default function UpdateUserForm() {
     if (auth.currentUser) {
       setEmail(auth.currentUser.email)
       const docRef = doc(usersRef, auth.currentUser.uid)
-      const userData = (await getDoc(docRef)).data()      
+      const userData = (await getDoc(docRef)).data()
       const docSnap = await getDoc(docRef)
       if (userData) {
         setUser((prevUser) => ({ ...prevUser, ...docSnap.data() }))
@@ -109,8 +109,8 @@ export default function UpdateUserForm() {
     navigate("/profile")
   }
 
-  
-  
+
+
 
   return (
     <form onSubmit={submitEvent}>
@@ -118,7 +118,7 @@ export default function UpdateUserForm() {
       <div className="flex-cols">
         <div className="profile-avatar">
           <div className="user-img">
-            <img src={ user.image} alt={user.name}  
+            <img src={ user.image} alt={user.name}
             // onChange={(event) => (event.target.src)}
             onError={(event) => (event.target.src = placerholder)} />
           </div>
@@ -128,12 +128,12 @@ export default function UpdateUserForm() {
           <span className="bold">Profile picture</span>
           <span className="text-error">{errorMessage}</span>
           <div className="img-input-cntr">
-            <input 
-            type="file" 
-            accept="image/*" 
-            value="" 
+            <input
+            type="file"
+            accept="image/*"
+            value=""
             // defaultValue={image}
-            label="profile picture input" 
+            label="profile picture input"
             onChange={handleImageChange}
             // className="img-input"
             />
@@ -148,31 +148,31 @@ export default function UpdateUserForm() {
             <div className="flex-cols user-details">
               <span className="bold">Name</span>
               <span className="bold">Email</span>
-            
+
             </div>
 
-            <div className="flex-cols user-details">                
+            <div className="flex-cols user-details">
               <input  type="text" value={name} onChange={e => setName(e.target.value)} name="name" placeholder="name"  />
               <input type="email" value={email} onChange={e => setEmail(e.target.value)}  name="email" placeholder="user@mail.com"  />
-              <input type="date" 
-              value={user?.createdAt} 
-              readOnly 
+              <input type="date"
+              value={user?.createdAt}
+              readOnly
               // defaultValue={createdAt}
               //  onChange={e => setCreatedAt(e.target.value)}
               />
-            
+
             </div>
           </div>
-        </div> 
-      </div>  
+        </div>
+      </div>
 
       <span>User created {user?.createdAt}</span>
 
 
       <div className="flex-cols profile-btn-cntr">
-        {/* <button 
+        {/* <button
         type="submit"
-        className="btn" 
+        className="btn"
         label="Save Changes"
         >
           Save
@@ -185,7 +185,7 @@ export default function UpdateUserForm() {
         label="Save Changes"
         onClick={navigateToProfile}
         disabled={false}
-        /> 
+        />
 
         <Button
         children="Discard changes"
@@ -197,7 +197,7 @@ export default function UpdateUserForm() {
 
 
       </div>
-      
+
     </form>
 
   )
