@@ -195,12 +195,6 @@ export default function UpdateUserForm() {
       disabled={false}
       />
 
-      {/* <button className="btn-outline"
-      label="Discard changes"
-      onClick={navigateToProfile}
-      >
-        Discard changes
-      </button>     */}
 
     </div>
       
