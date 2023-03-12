@@ -89,7 +89,11 @@ export default function ProfilePage() {
 
         <div className="profile-avatar">
           <div className="user-img">
-            <img src={user.image} alt={user.name} onError={(event) => (event.target.src = placerholder)} />
+            <img
+            src={user.image}
+            alt={user.name} 
+            onError={(event) => (event.target.src = placerholder)} 
+            />
           </div>
         </div>
 
