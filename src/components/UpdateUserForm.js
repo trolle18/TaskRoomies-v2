@@ -65,9 +65,7 @@ export default function UpdateUserForm() {
   function navigateToProfile() {
     navigate("/profile")
   };
-
-
-
+  
 
   return (
     <form onSubmit={submitEvent}>
