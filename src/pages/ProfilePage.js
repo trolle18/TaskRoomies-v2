@@ -83,7 +83,7 @@ export default function ProfilePage() {
 
       <div className="page__header-cntr">
         <h3>Profile</h3>
-      </div>     
+      </div>
 
       <div className="flex-outer-wrapper card-wrapper flex-center-items">
 
@@ -91,8 +91,8 @@ export default function ProfilePage() {
           <div className="user-img">
             <img
             src={user.image}
-            alt={user.name} 
-            onError={(event) => (event.target.src = placerholder)} 
+            alt={user.name}
+            onError={(event) => (event.target.src = placerholder)}
             />
           </div>
         </div>
@@ -107,7 +107,7 @@ export default function ProfilePage() {
                 {ifCreatedDate(user)}
               </div>
 
-              <div className="flex-cols user-details">                
+              <div className="flex-cols user-details">
                 <span>{user.name}</span>
                 <span>{user.email}</span>
                 {getCreatedAtDate(user)}
@@ -121,21 +121,21 @@ export default function ProfilePage() {
                 </span>
               </div>
               <button
-              
+
               className="edit-btn circle-icon-btn button btn-grey"
               label="Edit user"
-              onClick={handleClick} 
+              onClick={handleClick}
               >
                 <BiPencil />
               </button>
             </div>
           </div>
 
-        </div> 
-      </div>  
+        </div>
+      </div>
 
       <div className="flex-cols profile-btn-cntr">
-        <button className="btn" 
+        <button className="btn"
         label="Sign out"
         onClick={handleSignOut}
         >
