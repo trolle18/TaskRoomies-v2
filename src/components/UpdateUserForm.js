@@ -115,88 +115,88 @@ export default function UpdateUserForm() {
   return (
     <form onSubmit={submitEvent}>
 
-    <div className="flex-cols">
-      <div className="profile-avatar">
-        <div className="user-img">
-          <img src={ user.image} alt={user.name}  
-          // onChange={(event) => (event.target.src)}
-          onError={(event) => (event.target.src = placerholder)} />
+      <div className="flex-cols">
+        <div className="profile-avatar">
+          <div className="user-img">
+            <img src={ user.image} alt={user.name}  
+            // onChange={(event) => (event.target.src)}
+            onError={(event) => (event.target.src = placerholder)} />
+          </div>
         </div>
-      </div>
-
-      <div className="flex-rows">
-        <span className="bold">Profile picture</span>
-        <span className="text-error">{errorMessage}</span>
-        <div className="img-input-cntr">
-          <input 
-          type="file" 
-          accept="image/*" 
-          value="" 
-          // defaultValue={image}
-          label="profile picture input" 
-          onChange={handleImageChange}
-          // className="img-input"
-          />
-        </div>
-        </div>
-    </div>
-
-    <div className="flex-inner-wrapper max-w">
-      <div className="flex-rows space-between">
 
         <div className="flex-rows">
-          <div className="flex-cols user-details">
-            <span className="bold">Name</span>
-            <span className="bold">Email</span>
-          
-          </div>
-
-          <div className="flex-cols user-details">                
-            <input  type="text" value={name} onChange={e => setName(e.target.value)} name="name" placeholder="name"  />
-            <input type="email" value={email} onChange={e => setEmail(e.target.value)}  name="email" placeholder="user@mail.com"  />
-            <input type="date" 
-            value={user?.createdAt} 
-            readOnly 
-            // defaultValue={createdAt}
-            //  onChange={e => setCreatedAt(e.target.value)}
+          <span className="bold">Profile picture</span>
+          <span className="text-error">{errorMessage}</span>
+          <div className="img-input-cntr">
+            <input 
+            type="file" 
+            accept="image/*" 
+            value="" 
+            // defaultValue={image}
+            label="profile picture input" 
+            onChange={handleImageChange}
+            // className="img-input"
             />
-          
           </div>
-        </div>
-      </div> 
-    </div>  
+          </div>
+      </div>
 
-    <span>User created {user?.createdAt}</span>
+      <div className="flex-inner-wrapper max-w">
+        <div className="flex-rows space-between">
 
+          <div className="flex-rows">
+            <div className="flex-cols user-details">
+              <span className="bold">Name</span>
+              <span className="bold">Email</span>
+            
+            </div>
 
-    <div className="flex-cols profile-btn-cntr">
-      {/* <button 
-      type="submit"
-      className="btn" 
-      label="Save Changes"
-      >
-        Save
-      </button>     */}
+            <div className="flex-cols user-details">                
+              <input  type="text" value={name} onChange={e => setName(e.target.value)} name="name" placeholder="name"  />
+              <input type="email" value={email} onChange={e => setEmail(e.target.value)}  name="email" placeholder="user@mail.com"  />
+              <input type="date" 
+              value={user?.createdAt} 
+              readOnly 
+              // defaultValue={createdAt}
+              //  onChange={e => setCreatedAt(e.target.value)}
+              />
+            
+            </div>
+          </div>
+        </div> 
+      </div>  
 
-      <Button
-      children="Save changes"
-      styleType="btn"
-      type="submit"
-      label="Save Changes"
-      onClick={navigateToProfile}
-      disabled={false}
-      /> 
-
-      <Button
-      children="Discard changes"
-      styleType="btn-outline"
-      label="Discard changes"
-      onClick={navigateToProfile}
-      disabled={false}
-      />
+      <span>User created {user?.createdAt}</span>
 
 
-    </div>
+      <div className="flex-cols profile-btn-cntr">
+        {/* <button 
+        type="submit"
+        className="btn" 
+        label="Save Changes"
+        >
+          Save
+        </button>     */}
+
+        <Button
+        children="Save changes"
+        styleType="btn"
+        type="submit"
+        label="Save Changes"
+        onClick={navigateToProfile}
+        disabled={false}
+        /> 
+
+        <Button
+        children="Discard changes"
+        styleType="btn-outline"
+        label="Discard changes"
+        onClick={navigateToProfile}
+        disabled={false}
+        />
+
+
+      </div>
       
     </form>
 
