@@ -12,6 +12,7 @@ export default function UpdateUserForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [image, setImage] = useState("");
+  // const [createdAt, setCreatedAt] = useState("");
   const [user, setUser] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const auth = getAuth();
@@ -110,18 +111,18 @@ export default function UpdateUserForm() {
             <div className="flex-cols user-details">
               <input  type="text" value={name} onChange={e => setName(e.target.value)} name="name" placeholder="name"  />
               <input type="email" value={email} onChange={e => setEmail(e.target.value)}  name="email" placeholder="user@mail.com"  />
-              <input type="date"
+              {/* <input type="date"
               value={user?.createdAt}
-              readOnly
-              //  onChange={e => setCreatedAt(e.target.value)}
-              />
+              // readOnly
+               onChange={e => setCreatedAt(e.target.value)}
+              /> */}
 
             </div>
           </div>
         </div>
       </div>
 
-      <span>User created {user?.createdAt}</span>
+      {/* <span>User created {user?.createdAt}</span> */}
 
       <div className="flex-cols profile-btn-cntr">
         <Button
