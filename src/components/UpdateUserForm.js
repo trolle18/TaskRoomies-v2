@@ -69,7 +69,6 @@ export default function UpdateUserForm() {
 
   return (
     <form onSubmit={submitEvent}>
-
       <div className="flex-cols">
 
         <div className="profile-avatar">
@@ -89,8 +88,7 @@ export default function UpdateUserForm() {
             <input
             type="file"
             accept="image/*"
-            value=""
-            // defaultValue={image}
+            // value=""
             label="profile picture input"
             onChange={handleImageChange}
             // className="img-input"
@@ -115,7 +113,6 @@ export default function UpdateUserForm() {
               <input type="date"
               value={user?.createdAt}
               readOnly
-              // defaultValue={createdAt}
               //  onChange={e => setCreatedAt(e.target.value)}
               />
 
@@ -125,7 +122,6 @@ export default function UpdateUserForm() {
       </div>
 
       <span>User created {user?.createdAt}</span>
-
 
       <div className="flex-cols profile-btn-cntr">
         <Button
@@ -143,8 +139,6 @@ export default function UpdateUserForm() {
         disabled={false}
         />
       </div>
-
     </form>
-
   )
 };
