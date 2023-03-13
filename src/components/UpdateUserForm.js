@@ -128,16 +128,17 @@ export default function UpdateUserForm() {
 
 
       <div className="flex-cols profile-btn-cntr">
-        {/* <button
+        <button
         type="submit"
         className="btn"
         label="Save Changes"
         >
           Save
-        </button>     */}
+        </button>    
 
         <Button
         children="Save changes"
+        classNames="btn"
         styleType="btn"
         type="submit"
         label="Save Changes"
