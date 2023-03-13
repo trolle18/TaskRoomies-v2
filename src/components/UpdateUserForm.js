@@ -128,24 +128,13 @@ export default function UpdateUserForm() {
 
 
       <div className="flex-cols profile-btn-cntr">
-        <button
-        type="submit"
-        className="btn"
-        label="Save Changes"
-        >
-          Save
-        </button>    
-
         <Button
         children="Save changes"
-        classNames="btn"
         styleType="btn"
         type="submit"
         label="Save Changes"
-        onClick={navigateToProfile}
         disabled={false}
         />
-
         <Button
         children="Discard changes"
         styleType="btn-outline"
@@ -153,8 +142,6 @@ export default function UpdateUserForm() {
         onClick={navigateToProfile}
         disabled={false}
         />
-
-
       </div>
 
     </form>
