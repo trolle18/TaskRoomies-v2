@@ -5,7 +5,7 @@ export default function Button(props) {
   return (
     <button
     {...rest}
-    className={("button", classNames, color, styleType)}
+    className={(classNames, styleType)}
     type={type}
     label={label}
     onClick={onClick}
