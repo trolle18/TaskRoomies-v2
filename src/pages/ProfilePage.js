@@ -157,6 +157,14 @@ export default function ProfilePage() {
         >
           Delete user
         </button>
+          <Button
+        children="Sign out"
+        styleType="btn-outline"
+        label="Delete user"
+        onClick={handleUserDelete}
+        data-id={uid}
+        disabled={false}
+        />
       </div>
 
     </section>
