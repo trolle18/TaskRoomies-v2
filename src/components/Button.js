@@ -1,6 +1,6 @@
 
 export default function Button(props) {
-  const { children, classNames, color, styleType, type, disabled, onClick, className, label, ...rest } = props;
+  const { children, classNames, styleType, type, label, onClick, disabled, ...rest } = props;
 
   return (
     <button
