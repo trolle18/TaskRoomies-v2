@@ -150,15 +150,15 @@ export default function ProfilePage() {
         disabled={false}
         />
 
-        <button className="btn-outline"
+        {/* <button className="btn-outline"
         label="Delete user"
         onClick={handleUserDelete}
         data-id={uid}
         >
           Delete user
-        </button>
+        </button> */}
           <Button
-        children="Sign out"
+        children="Delete user"
         styleType="btn-outline"
         label="Delete user"
         onClick={handleUserDelete}
