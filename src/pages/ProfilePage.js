@@ -6,6 +6,7 @@ import 'firebase/database';
 import { BiPencil } from "react-icons/bi"
 import placerholder from "../assets/profile-placeholder.jpg";
 import { usersRef } from "../firebase-config";
+import Button from "../components/Button";
 
 
 export default function ProfilePage() {
@@ -135,12 +136,20 @@ export default function ProfilePage() {
       </div>
 
       <div className="flex-cols profile-btn-cntr">
-        <button className="btn"
+        {/* <button className="btn"
         label="Sign out"
         onClick={handleSignOut}
         >
           Sign out
-        </button>
+        </button> */}
+        <Button
+        children="Sign out"
+        styleType="btn"
+        label="Sign out"
+        onClick={handleSignOut}
+        disabled={false}
+        />
+
         <button className="btn-outline"
         label="Delete user"
         onClick={handleUserDelete}
