@@ -136,12 +136,6 @@ export default function ProfilePage() {
       </div>
 
       <div className="flex-cols profile-btn-cntr">
-        {/* <button className="btn"
-        label="Sign out"
-        onClick={handleSignOut}
-        >
-          Sign out
-        </button> */}
         <Button
         children="Sign out"
         styleType="btn"
