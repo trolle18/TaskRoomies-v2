@@ -144,14 +144,7 @@ export default function ProfilePage() {
         disabled={false}
         />
 
-        {/* <button className="btn-outline"
-        label="Delete user"
-        onClick={handleUserDelete}
-        data-id={uid}
-        >
-          Delete user
-        </button> */}
-          <Button
+        <Button
         children="Delete user"
         styleType="btn-outline"
         label="Delete user"
@@ -159,6 +152,7 @@ export default function ProfilePage() {
         data-id={uid}
         disabled={false}
         />
+        
       </div>
 
     </section>
