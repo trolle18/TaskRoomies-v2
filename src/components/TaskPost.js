@@ -5,6 +5,7 @@ import { getTaskDate, getTaskYear, isOverdue } from "../utils/GetDates";
 import { doc, updateDoc } from "firebase/firestore";
 import { tasksRef } from "../firebase-config";
 import Checkbox from "./Checkbox";
+import Button from "./Button";
 
 
 export default function TaskPost({ task, updateUrl }) {
@@ -76,9 +77,18 @@ export default function TaskPost({ task, updateUrl }) {
                 </div>
 
                 <div className="edit-btn">
-                    <button onClick={handleClick}>
+                    {/* <button onClick={handleClick}>
                         <BiPencil />
-                    </button>
+                    </button> */}
+
+                    <Button
+                    children={ <BiPencil/> }
+                    //   classNames="edit-btn circle-icon-btn button btn-grey"
+                    //   styleType="button"              
+                    label="Edit"
+                    onClick={handleClick}
+                    disabled={false}
+                    />
                 </div>
 
             </div>
