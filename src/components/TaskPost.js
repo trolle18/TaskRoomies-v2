@@ -85,7 +85,7 @@ export default function TaskPost({ task, updateUrl }) {
                     children={ <BiPencil/> }
                     //   classNames="edit-btn circle-icon-btn button btn-grey"
                     //   styleType="button"              
-                    label="Edit user"
+                    label="Edit"
                     onClick={handleClick}
                     disabled={false}
                     />
