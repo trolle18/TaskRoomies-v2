@@ -121,14 +121,24 @@ export default function ProfilePage() {
                   Edit user
                 </span>
               </div>
-              <button
 
+              <button
               className="edit-btn circle-icon-btn button btn-grey"
               label="Edit user"
               onClick={handleClick}
               >
                 <BiPencil />
               </button>
+
+              <Button
+              children={ <BiPencil/> }
+              classNames="edit-btn circle-icon-btn button btn-grey"
+              styleType="button"              
+              label="Edit user"
+              onClick={handleClick}
+              disabled={false}
+              />
+
             </div>
           </div>
 
@@ -138,6 +148,7 @@ export default function ProfilePage() {
       <div className="flex-cols profile-btn-cntr">
         <Button
         children="Sign out"
+        classNames=""
         styleType="btn"
         label="Sign out"
         onClick={handleSignOut}
