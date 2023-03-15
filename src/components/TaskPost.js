@@ -77,10 +77,10 @@ export default function TaskPost({ task, updateUrl }) {
                 </div>
 
                 <div className="edit-btn">
-                    <button onClick={handleClick}>
+                    {/* <button onClick={handleClick}>
                         <BiPencil />
-                    </button>
-                    
+                    </button> */}
+
                     <Button
                     children={ <BiPencil/> }
                     //   classNames="edit-btn circle-icon-btn button btn-grey"
