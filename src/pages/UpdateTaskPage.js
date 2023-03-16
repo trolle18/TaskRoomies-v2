@@ -61,9 +61,9 @@ export default function UpdateTaskPage() {
       </section>
 
       <div className="checkbox_delete_container">
-          <button onClick={handleDelete}>
+          {/* <button onClick={handleDelete}>
               <FaRegTrashAlt size={20} />
-          </button>
+          </button> */}
 
           <Button
           children={ <FaRegTrashAlt/> }
