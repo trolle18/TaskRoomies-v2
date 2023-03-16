@@ -103,6 +103,7 @@ export default function TaskPost({ task, taskType, updateUrl }) {
         <div className="checkbox-elem">
           <Checkbox 
           task={task} 
+          taskType={taskType}
           handleCheckmark={handleCheckmark}
           />
         </div>

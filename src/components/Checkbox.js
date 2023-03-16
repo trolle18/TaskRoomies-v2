@@ -2,10 +2,10 @@ import { getAuth } from "firebase/auth";
 import { collection, doc, updateDoc } from "firebase/firestore";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { db } from "../firebase-config";
+import { db, grouptaskRef } from "../firebase-config";
 
 
-export default function Checkbox({ task }) {
+export default function Checkbox({ task, taskType }) {
   const [checkBool, setCheckBool] = useState(Boolean);
   const taskId = task.id; 
   const navigate = useNavigate();
@@ -13,11 +13,16 @@ export default function Checkbox({ task }) {
   
 
   async function saveTask(taskToUpdate) {
-    const uid = await(auth?.currentUser?.uid)
-    const tasksInUserRef = collection(db, `users/${uid}/userTasks/`) 
-    const docRef = doc(tasksInUserRef, taskId) 
-    await updateDoc(docRef, taskToUpdate)
-    navigate("/")
+    if(taskType === "user") {
+      const uid = await(auth?.currentUser?.uid)
+      const tasksInUserRef = collection(db, `users/${uid}/userTasks/`) 
+      const docRef = doc(tasksInUserRef, taskId) 
+      await updateDoc(docRef, taskToUpdate)
+    }
+    if(taskType === "group") {
+      const docRef = doc(grouptaskRef, taskId)
+      await updateDoc(docRef, taskToUpdate)
+    }
   };
 
 
@@ -26,9 +31,9 @@ export default function Checkbox({ task }) {
   };
 
 
-  function handleSubmit( e) {
-    setCheckBool(e.target.value)
+  function handleSubmit(e) {
     e.preventDefault()
+    setCheckBool(e.target.value)
     saveTask(taskData)
   };
 
