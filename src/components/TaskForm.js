@@ -61,19 +61,13 @@ export default function TaskForm({ saveTask, task }) {
                 />
             </div>
 
-            {/* <button 
-            type="submit" 
-            className="submit-btn"
-            >
-                Save
-            </button> */}
             <Button
-        children="Save"
-        type="submit"
-        styleType="btn"
-        label="Save"
-        disabled={false}
-        />
+            children="Save"
+            type="submit"
+            styleType="btn"
+            label="Save"
+            disabled={false}
+            />
         </form>
     )
 };
