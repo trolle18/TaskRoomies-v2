@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaRegTrashAlt } from "react-icons/fa";
 import Button from "./Button";
 
 
-export default function TaskForm({ saveTask, task }) {
+export default function TaskForm({ task, saveTask, handleDelete }) {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [checkBool, setCheckBool] = useState(Boolean);
@@ -74,6 +75,14 @@ export default function TaskForm({ saveTask, task }) {
         type="submit"
         styleType="btn"
         label="Save"
+        disabled={false}
+        />
+
+        <Button
+        children={ <FaRegTrashAlt/> }
+        styleType="circle-icon-btn"             
+        label="Delete"
+        onClick={handleDelete}
         disabled={false}
         />
 
