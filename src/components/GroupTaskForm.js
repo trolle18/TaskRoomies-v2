@@ -33,7 +33,7 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
     };
     saveGroupTask(grouptaskData); 
     navigate("/"); 
-  }
+  };
 
 
   useEffect(() => {
@@ -44,7 +44,6 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
         return { ...doc.data(), id: doc.id }; // changing the data structure so it's all gathered in one object
       });
       setGroup(groupData);
-      // console.log(groupData);
     }
 
     getGroup();
@@ -80,6 +79,6 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
         <button type="submit">Save</button>
       </form>
     </>
-  );
-}
+  )
+};
 
