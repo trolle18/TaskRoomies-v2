@@ -121,19 +121,19 @@ export default function ProfilePage() {
                   Edit user
                 </span>
               </div>
-{/* 
+
               <button
               className="edit-btn circle-icon-btn button btn-grey"
               label="Edit user"
               onClick={handleClick}
               >
                 <BiPencil />
-              </button> */}
+              </button>
 
               <Button
               children={ <BiPencil/> }
-              classNames="edit-btn circle-icon-btn button btn-grey"
-              styleType="button"              
+              // classNames="edit-btn circle-icon-btn button btn-grey"
+              styleType="edit-btn circle-icon-btn button btn-grey"             
               label="Edit user"
               onClick={handleClick}
               disabled={false}
