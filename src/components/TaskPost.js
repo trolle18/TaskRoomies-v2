@@ -77,14 +77,9 @@ export default function TaskPost({ task, updateUrl }) {
                 </div>
 
                 <div className="edit-btn">
-                    {/* <button onClick={handleClick}>
-                        <BiPencil />
-                    </button> */}
-
                     <Button
                     children={ <BiPencil/> }
-                    //   classNames="edit-btn circle-icon-btn button btn-grey"
-                    //   styleType="button"              
+                    styleType="btn"              
                     label="Edit"
                     onClick={handleClick}
                     disabled={false}
