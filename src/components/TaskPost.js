@@ -16,11 +16,13 @@ export default function TaskPost({ task, taskType, updateUrl }) {
   const navigate = useNavigate();
 
 
+  // Link to update page
   function handleClick() {
     navigate(`${updateUrl}${task.id}`);
   };
 
 
+  // Check if person is set to the task
   function checkPers(task) {
     const pers = task.person
     if(pers) return ( <span className="xs-caps">{task.person}</span> );
@@ -39,12 +41,12 @@ export default function TaskPost({ task, taskType, updateUrl }) {
     }
     getGroup()
   }, []);
+  
 
-
+  // If The task is a grouptask, add user imgs 
   function checkTaskType(task, taskType) {
     const taskUid = task.uid
     const pers = task.person
-
     if(taskType === "group") {
       return ( 
         <div>
@@ -62,9 +64,7 @@ export default function TaskPost({ task, taskType, updateUrl }) {
         </div>
       )
     }
-    
   };
-
 
   
   useEffect(() => {
@@ -72,7 +72,6 @@ export default function TaskPost({ task, taskType, updateUrl }) {
       setCheck(task.check)           
     }
   }, [task]);
-
   
 
   async function handleCheckmark(taskToUpdate) {
