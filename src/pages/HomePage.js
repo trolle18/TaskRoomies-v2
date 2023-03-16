@@ -49,7 +49,7 @@ export default function HomePage({ user }) {
           <WelcomeCard user={user} />
         </section>
 
-        <section className="grid-cntr">
+        <section className="flex-outer-wrapper">
           {/* USER-TASKS */}
           <TasksCntr
           tasks={tasks}
