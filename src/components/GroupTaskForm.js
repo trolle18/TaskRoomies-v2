@@ -14,39 +14,39 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
 
   useEffect(() => {
     if (grouptask) {   
-      setTitle(grouptask.title);
-      setPerson(grouptask.person);
-      setDate(grouptask.date);
-      setCompleted(grouptask.completed);
+      setTitle(grouptask.title)
+      setPerson(grouptask.person)
+      setDate(grouptask.date)
+      setCompleted(grouptask.completed)
     }
   }, [grouptask]);
 
 
-  function handleSubmit(event) {
-    event.preventDefault(); 
+  const grouptaskData = { 
+    title: title,
+    person: person,
+    date: date,
+    completed: completed,
+  };
 
-    const grouptaskData = { 
-      title: title,
-      person: person,
-      date: date,
-      completed: completed,
-    };
-    saveGroupTask(grouptaskData); 
-    navigate("/"); 
+
+  function handleSubmit(event) {
+    event.preventDefault()
+    saveGroupTask(grouptaskData)
+    navigate("/")
   };
 
 
   useEffect(() => {
     async function getGroup() {
-      const q = query(usersRef, orderBy("name"));
-      const data = await getDocs(q);
+      const q = query(usersRef, orderBy("name"))
+      const data = await getDocs(q)
       const groupData = data.docs.map(doc => {
-        return { ...doc.data(), id: doc.id }; // changing the data structure so it's all gathered in one object
-      });
-      setGroup(groupData);
+        return { ...doc.data(), id: doc.id } // changing the data structure so it's all gathered in one object
+      })
+      setGroup(groupData)
     }
-
-    getGroup();
+    getGroup()
   }, []);
 
 
