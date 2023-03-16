@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { getAuth, signOut, deleteUser, EmailAuthProvider } from "firebase/auth";
 import { doc, getDoc } from "@firebase/firestore";
 import 'firebase/database';
+import { usersRef } from "../firebase-config";
 import { BiPencil } from "react-icons/bi"
 import placerholder from "../assets/profile-placeholder.jpg";
-import { usersRef } from "../firebase-config";
 import Button from "../components/Button";
 
 
