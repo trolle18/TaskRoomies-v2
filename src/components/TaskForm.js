@@ -43,7 +43,7 @@ export default function TaskForm({ task, saveTask, handleDelete }) {
       <div className="flex-inner-wrapper flex-gap-2">
 
         <div className="flex-cols flex-gap-1">
-          <div className="flex-cols user-details">
+          <div className="flex-cols">
             <span className="bold">Task title</span>
             <input
             placeholder="Task..."
@@ -53,7 +53,7 @@ export default function TaskForm({ task, saveTask, handleDelete }) {
             />
           </div>
 
-          <div className="flex-cols user-details">
+          <div className="flex-cols">
             <span className="bold">Due date</span>
             <input
             type="date"
