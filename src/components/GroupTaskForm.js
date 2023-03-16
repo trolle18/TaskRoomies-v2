@@ -63,21 +63,15 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
         <div className="flex-inner-wrapper flex-gap-2">
 
           <div className="flex-cols flex-gap-1">
-
-          <div className="flex-cols">
-            <span className="bold">Task title</span>
-            <input
-            placeholder="Task..."
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            />
-          </div>
-{/*           
-            <label>
-              <span>Task title</span>
-              <input placeholder="New task ..." type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
-            </label> */}
+            <div className="flex-cols">
+              <span className="bold">Task title</span>
+              <input
+              placeholder="Task..."
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              />
+            </div>
 
             <div className="flex-cols flex-gap-0">
               <span className="bold">Who's doing the task?</span>
@@ -89,18 +83,6 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
                 ))}
               </select>
             </div>
-{/* 
-            <label>
-              <span>Who is doing the task?</span>
-              <select value={person} onChange={(e) => setPerson(e.target.value)} >
-                <option>Choose</option>
-                <option value="fælles">Fælles</option>
-                {group.map(person => (
-                  <option value={person.uid} key={person.uid}>{person.name}</option>
-                ))}
-                  
-              </select>
-            </label> */}
 
             <div className="flex-cols">
               <span className="bold">Due date</span>
@@ -111,33 +93,17 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
               onChange={(e) => setDate(e.target.value)}
               />
             </div>  
-
-            {/* <label>
-              <span>When?</span>
-              <input type="date" pattern="\d{4}-\d{2}-\d{2}" value={date} onChange={(e) => setDate(e.target.value)} />
-            </label> */}
-
           </div>
 
-          {/* <button type="submit">Save</button> */}
-
           <div className="flex-rows space-between">
-          <Button
-          children={ <FaRegTrashAlt/> }
-          styleType="btn btn-outline"             
-          label="Delete"
-          // onClick={handleDelete}
-          disabled={false}
-          />
-
-          <Button
-          children="Save"
-          type="submit"
-          styleType="btn"
-          label="Save"
-          disabled={false}
-          />
-        </div>
+            <Button
+            children="Save"
+            type="submit"
+            styleType="btn"
+            label="Save"
+            disabled={false}
+            />
+          </div>
 
         </div>
       </form>
