@@ -9,7 +9,8 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
   const [title, setTitle] = useState("");
   const [person, setPerson] = useState("");
   const [date, setDate] = useState("");
-  const [completed, setCompleted] = useState(false);
+  const [checkBool, setCheckBool] = useState(Boolean);
+  // const [completed, setCompleted] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,7 +18,9 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
       setTitle(grouptask.title)
       setPerson(grouptask.person)
       setDate(grouptask.date)
-      setCompleted(grouptask.completed)
+      setCheckBool(grouptask.checkBool)
+      // setCompleted(grouptask.completed)
+      
     }
   }, [grouptask]);
 
@@ -26,7 +29,8 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
     title: title,
     person: person,
     date: date,
-    completed: completed,
+    checkBool: checkBool,
+    // completed: completed,
   };
 
 
@@ -37,6 +41,7 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
   };
 
 
+  // Get groupmembers
   useEffect(() => {
     async function getGroup() {
       const q = query(usersRef, orderBy("name"))
@@ -52,30 +57,70 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <span>Task title</span>
-          <input placeholder="New task ..." type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
-        </label>
+      <form className="flex-cols" onSubmit={handleSubmit}>
+        <div className="flex-inner-wrapper flex-gap-2">
 
-        <label>
-          <span>Who is doing the task?</span>
-          <select value={person} onChange={(e) => setPerson(e.target.value)} >
-            <option>Choose</option>
-            <option value="fælles">Fælles</option>
-            {group.map(person => (
-              <option value={person.uid} key={person.uid}>{person.name}</option>
-            ))}
-              
-          </select>
-        </label>
-          
-        <label>
-          <span>When?</span>
-          <input type="date" pattern="\d{4}-\d{2}-\d{2}" value={date} onChange={(e) => setDate(e.target.value)} />
-        </label>
+          <div className="flex-cols flex-gap-1">
 
-        <button type="submit">Save</button>
+          <div className="flex-cols">
+            <span className="bold">Task title</span>
+            <input
+            placeholder="Task..."
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
+{/*           
+            <label>
+              <span>Task title</span>
+              <input placeholder="New task ..." type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+            </label> */}
+
+            <div className="flex-cols flex-gap-0">
+              <span className="bold">Who's doing the task?</span>
+              <select value={person} onChange={(e) => setPerson(e.target.value)} >
+                <option>Choose</option>
+                <option value="fælles">Fælles</option>
+                {group.map(person => (
+                  <option value={person.uid} key={person.uid}>{person.name}</option>
+                ))}
+              </select>
+            </div>
+{/* 
+            <label>
+              <span>Who is doing the task?</span>
+              <select value={person} onChange={(e) => setPerson(e.target.value)} >
+                <option>Choose</option>
+                <option value="fælles">Fælles</option>
+                {group.map(person => (
+                  <option value={person.uid} key={person.uid}>{person.name}</option>
+                ))}
+                  
+              </select>
+            </label> */}
+
+            <div className="flex-cols">
+              <span className="bold">Due date</span>
+              <input
+              type="date"
+              pattern="\d{4}-\d{2}-\d{2}"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              />
+            </div>  
+
+            {/* <label>
+              <span>When?</span>
+              <input type="date" pattern="\d{4}-\d{2}-\d{2}" value={date} onChange={(e) => setDate(e.target.value)} />
+            </label> */}
+
+          </div>
+
+          <button type="submit">Save</button>
+
+
+        </div>
       </form>
     </>
   )
