@@ -53,6 +53,7 @@ export default function HomePage({ user }) {
           {/* USER-TASKS */}
           <TasksCntr
           tasks={tasks}
+          taskType="user"
           headline={"My tasks"}
           createUrl={"/create-task"}
           updateUrl={"/update-task/"}
@@ -61,6 +62,7 @@ export default function HomePage({ user }) {
           {/* GROUP-TASKS */}
           <TasksCntr
           tasks={grouptasks}
+          taskType="group"
           headline={"Group Tasks"}
           createUrl={"/create-grouptask"}
           updateUrl={"/update-grouptask/"}
