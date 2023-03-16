@@ -57,22 +57,26 @@ export default function UpdateTaskPage() {
       </Link>
       
       <section className="form-cntr">
-          <TaskForm saveTask={saveTask} task={task} />
+          <TaskForm 
+          task={task}
+          saveTask={saveTask}
+          handleDelete={handleDelete}
+          />
       </section>
 
-      <div className="checkbox_delete_container">
+      {/* <div className="checkbox_delete_container"> */}
           {/* <button onClick={handleDelete}>
               <FaRegTrashAlt size={20} />
           </button> */}
 
-          <Button
+          {/* <Button
           children={ <FaRegTrashAlt/> }
           styleType="edit-btn circle-icon-btn"             
           label="Delete"
           onClick={handleDelete}
           disabled={false}
-          />
-      </div>
+          /> */}
+      {/* </div> */}
     </section>
   )
 };
