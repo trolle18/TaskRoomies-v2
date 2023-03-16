@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Button from "./Button";
 
 
 export default function TaskForm({ saveTask, task }) {
@@ -60,12 +61,19 @@ export default function TaskForm({ saveTask, task }) {
                 />
             </div>
 
-            <button 
+            {/* <button 
             type="submit" 
             className="submit-btn"
             >
                 Save
-            </button>
+            </button> */}
+            <Button
+        children="Save"
+        type="submit"
+        styleType="btn"
+        label="Save"
+        disabled={false}
+        />
         </form>
     )
 };
