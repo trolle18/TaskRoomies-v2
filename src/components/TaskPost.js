@@ -22,11 +22,11 @@ export default function TaskPost({ task, taskType, updateUrl }) {
   };
 
 
-  // Check if person is set to the task
-  function checkPers(task) {
-    const pers = task.person
-    if(pers) return ( <span className="xs-caps">{task.person}</span> );
-  };
+  // // Check if person is set to the task
+  // function checkPers(task) {
+  //   const pers = task.person
+  //   if(pers) return ( <span className="xs-caps">{task.person}</span> );
+  // };
 
 
   // Get groupmembers
@@ -46,7 +46,7 @@ export default function TaskPost({ task, taskType, updateUrl }) {
   // If The task is a grouptask, add user imgs 
   function checkTaskType(task, taskType) {
     const taskUid = task.uid
-    const pers = task.person
+    // const pers = task.person
     if(taskType === "group") {
       return ( 
         <div>
@@ -54,7 +54,7 @@ export default function TaskPost({ task, taskType, updateUrl }) {
           .filter((user) => user.uid === taskUid || user.name === task.person) 
           .map((user) => { 
             return (
-              <div className="btn-cntr  circle-btn-cntr">
+              <div className="btn-cntr  circle-btn-cntr" key={task.uid}>
                 <div className="btn-label">
                   <span className="btn-label__text xs-caps">
                     {user.name}
@@ -100,7 +100,6 @@ export default function TaskPost({ task, taskType, updateUrl }) {
   return (
     <>
       <div className="task-post">
-
         <div className="checkbox-elem">
           <Checkbox 
           task={task} 
@@ -115,7 +114,7 @@ export default function TaskPost({ task, taskType, updateUrl }) {
             </div>
 
             <div className="todo-text__details">
-              {checkPers(task)}
+              {/* {checkPers(task)} */}
               {checkTaskType(task, taskType)}
               <span className="xs-caps">
                 {getDueDate(task)} 

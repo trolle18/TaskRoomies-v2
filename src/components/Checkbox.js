@@ -27,9 +27,7 @@ export default function Checkbox({ task }) {
         saveTask(taskData);
     }
 
-    // const inputCheck = document.getElementById("checkbox")
-    // console.log("checkBool:", task.checkBool, "", "task:", task.title, "value:", inputCheck.value)
-   
+
     return (
         <>
             <div className="checkbox-box">
@@ -38,10 +36,8 @@ export default function Checkbox({ task }) {
                 name="checkbox"
                 id="checkbox"
                 className={`check${task.id}`}
-                // value={task.checkBool}
                 checked={task.checkBool}
                 onChange={(e) => handleSubmit(e)}
-                // onChange={(e) => setCheckBool(e.target.value)}
                 />          
             </div>
         </>
