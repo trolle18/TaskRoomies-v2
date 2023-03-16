@@ -53,7 +53,7 @@ export default function HomePage({ user }) {
           {/* USER-TASKS */}
           <TasksCntr
           tasks={tasks}
-          headline={"Tasks"}
+          headline={"My tasks"}
           createUrl={"/create-task"}
           updateUrl={"/update-task/"}
           />
