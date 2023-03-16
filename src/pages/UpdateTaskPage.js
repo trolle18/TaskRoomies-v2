@@ -62,7 +62,9 @@ export default function UpdateTaskPage() {
           saveTask={saveTask}
           handleDelete={handleDelete}
           />
-     
+
+          <div className="flex-rows space-between">
+
           <Button
           children={ <FaRegTrashAlt/> }
           styleType="btn btn-outline"             
@@ -70,6 +72,22 @@ export default function UpdateTaskPage() {
           onClick={handleDelete}
           disabled={false}
           />
+           {/* <Button
+          children="Save"
+          type="submit"
+          styleType="btn"
+          label="Save"
+          disabled={false}
+          /> */}
+        </div>
+{/*      
+          <Button
+          children={ <FaRegTrashAlt/> }
+          styleType="btn btn-outline"             
+          label="Delete"
+          onClick={handleDelete}
+          disabled={false}
+          /> */}
 
         </section>
       
