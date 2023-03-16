@@ -41,10 +41,9 @@ export default function TaskForm({ task, saveTask, handleDelete }) {
   return (
     <form  className="flex-cols" onSubmit={handleSubmit}>
 
-        <div className="flex-inner-wrapper">
+        <div className="flex-inner-wrapper flex-gap-2">
 
-          <div className="flex-cols">
-
+          <div className="flex-cols flex-gap-1">
             <div className="flex-cols user-details">
               <span className="bold">Task title</span>
               <input
@@ -64,10 +63,9 @@ export default function TaskForm({ task, saveTask, handleDelete }) {
               onChange={(e) => setDate(e.target.value)}
               />
             </div>
+          </div>
 
-
-        </div>
-      </div>
+     
 
 
       <div className="flex-rows space-between">
@@ -86,6 +84,8 @@ export default function TaskForm({ task, saveTask, handleDelete }) {
         label="Save"
         disabled={false}
         />
+      </div>
+      
       </div>
 
     </form>
