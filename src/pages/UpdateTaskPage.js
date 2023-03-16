@@ -58,10 +58,10 @@ export default function UpdateTaskPage() {
       
       <section className="form-cntr">
           <TaskForm 
-          task={task}
-          saveTask={saveTask}
-          handleDelete={handleDelete}
-          />
+        task={task}
+        saveTask={saveTask}
+        handleDelete={handleDelete}
+        />
 
         <div className="flex-inner-wrapper">
           <Button
@@ -81,7 +81,6 @@ export default function UpdateTaskPage() {
         </div>
 
       </section>
-      
     </section>
   )
 };
