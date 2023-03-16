@@ -62,7 +62,6 @@ export default function TaskPost({ task, taskType, updateUrl }) {
         </div>
       )
     }
-    // else return ( <span className="xs-caps">{task.person}</span> );
     
   };
 
