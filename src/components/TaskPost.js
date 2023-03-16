@@ -41,7 +41,7 @@ export default function TaskPost({ task, taskType, updateUrl }) {
     }
     getGroup()
   }, []);
-  
+
 
   // If The task is a grouptask, add user imgs 
   function checkTaskType(task, taskType) {
@@ -54,10 +54,17 @@ export default function TaskPost({ task, taskType, updateUrl }) {
           .filter((user) => user.uid === taskUid || user.name === task.person) 
           .map((user) => { 
             return (
-              <div className="img-circ-cntr">
-                <div className="img-inner-cntr">
-                  <img src={user.image} alt={user.name} />
+              <div className="btn-cntr  circle-btn-cntr">
+                <div className="btn-label">
+                  <span className="btn-label__text xs-caps">
+                    {user.name}
+                  </span>
                 </div>
+                <div className="img-circ-cntr">
+                  <div className="img-inner-cntr">
+                    <img src={user.image} alt={user.name} />
+                  </div>
+                </div> 
               </div>
             )
           })}
