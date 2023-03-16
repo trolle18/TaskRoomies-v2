@@ -133,7 +133,7 @@ export default function ProfilePage() {
               <Button
               children={ <BiPencil/> }
               // classNames="edit-btn circle-icon-btn button btn-grey"
-              styleType="edit-btn circle-icon-btn button btn-grey"             
+              styleType="edit-btn circle-icon-btn btn-grey"             
               label="Edit user"
               onClick={handleClick}
               disabled={false}
