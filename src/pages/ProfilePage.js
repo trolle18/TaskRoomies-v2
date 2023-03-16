@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { getAuth, signOut, deleteUser, EmailAuthProvider } from "firebase/auth";
 import { doc, getDoc } from "@firebase/firestore";
 import 'firebase/database';
+import { usersRef } from "../firebase-config";
 import { BiPencil } from "react-icons/bi"
 import placerholder from "../assets/profile-placeholder.jpg";
-import { usersRef } from "../firebase-config";
 import Button from "../components/Button";
 
 
@@ -121,19 +121,10 @@ export default function ProfilePage() {
                   Edit user
                 </span>
               </div>
-{/* 
-              <button
-              className="edit-btn circle-icon-btn button btn-grey"
-              label="Edit user"
-              onClick={handleClick}
-              >
-                <BiPencil />
-              </button> */}
 
               <Button
               children={ <BiPencil/> }
-              classNames="edit-btn circle-icon-btn button btn-grey"
-              styleType="button"              
+              styleType="edit-btn circle-icon-btn btn-grey"             
               label="Edit user"
               onClick={handleClick}
               disabled={false}

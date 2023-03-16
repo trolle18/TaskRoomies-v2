@@ -6,6 +6,7 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import TaskForm from "../components/TaskForm";
 import { getAuth } from "firebase/auth";
+import Button from "../components/Button";
 
 
 export default function UpdateTaskPage() {
@@ -56,14 +57,25 @@ export default function UpdateTaskPage() {
       </Link>
       
       <section className="form-cntr">
-          <TaskForm saveTask={saveTask} task={task} />
-      </section>
+          <TaskForm 
+        task={task}
+        saveTask={saveTask}
+        handleDelete={handleDelete}
+        />
 
-      <div className="checkbox_delete_container">
-          <button onClick={handleDelete}>
-              <FaRegTrashAlt size={20} />
-          </button>
-      </div>
+        <div className="flex-outer-wrapper flex-padding">
+          <div className="flex-cols">
+            <Button
+            children={ <FaRegTrashAlt/> }
+            styleType="btn btn-outline delete-icon-btn"             
+            label="Delete"
+            onClick={handleDelete}
+            disabled={false}
+            />
+          </div>
+        </div>
+
+      </section>
     </section>
   )
 };

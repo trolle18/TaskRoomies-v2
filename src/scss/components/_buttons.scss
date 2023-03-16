@@ -16,6 +16,7 @@ button {
         width: 100%;
         background-color: $clr_white;
         color: $clr_black;
+        border: solid $clr_grey_md 0.15em;
     }
     &.btn-sign-out {
         font-size: $fs_sm;
@@ -34,6 +35,14 @@ button {
 .circle-btn-cntr  {
     border-radius: 10em;
 }
+
+
+.delete-icon-btn {
+    width: 40%;
+    // max-width: 200px;
+    padding: .5em 2em;
+}
+
 
 .circle-icon-btn {
     display: flex;

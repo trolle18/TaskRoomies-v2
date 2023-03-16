@@ -14,16 +14,29 @@
     justify-content: space-between;
 }
 
-// .flex-wrap {
-//     display: flex;
-//     flex-wrap: wrap;
-// }
+.flex-padding {
+    padding: 1em 1em 0em 1em;
+}
+
 
 .flex-center-items {
     justify-content: center;
     align-items: center;
 }
 
+.flex-gap-1 {
+    gap: 1em;
+}
+.flex-gap-2 {
+    gap: 2em;
+}
+.flex-gap-025 {
+    gap: .25em;
+}
+
+.flex-gap-0 {
+    gap: 0;
+}
 
 .flex-outer-wrapper {
     display: flex;
