@@ -71,13 +71,6 @@ export default function UpdateTaskPage() {
           onClick={handleDelete}
           disabled={false}
           />
-           {/* <Button
-          children="Save"
-          type="submit"
-          styleType="btn"
-          label="Save"
-          disabled={false}
-          /> */}
         </div>
 
       </section>
