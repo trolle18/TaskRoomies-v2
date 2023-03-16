@@ -6,6 +6,7 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import TaskForm from "../components/TaskForm";
 import { getAuth } from "firebase/auth";
+import Button from "../components/Button";
 
 
 export default function UpdateTaskPage() {
@@ -63,6 +64,14 @@ export default function UpdateTaskPage() {
           <button onClick={handleDelete}>
               <FaRegTrashAlt size={20} />
           </button>
+
+          <Button
+          children={ <FaRegTrashAlt/> }
+          styleType="edit-btn circle-icon-btn"             
+          label="Delete"
+          onClick={handleDelete}
+          disabled={false}
+          />
       </div>
     </section>
   )
