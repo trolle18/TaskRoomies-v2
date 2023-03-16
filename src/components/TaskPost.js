@@ -70,7 +70,6 @@ export default function TaskPost({ task, updateUrl }) {
                             {checkPers(task)}
                             <span className="xs-caps">
                                 {getDueDate(task)} 
-                                 {/* {isOverdue(task)} */}
                             </span>
                         </div>
                     </div>
