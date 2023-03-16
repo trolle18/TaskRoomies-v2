@@ -63,14 +63,16 @@ export default function UpdateTaskPage() {
         handleDelete={handleDelete}
         />
 
-        <div className="flex-inner-wrapper">
-          <Button
-          children={ <FaRegTrashAlt/> }
-          styleType="btn btn-outline"             
-          label="Delete"
-          onClick={handleDelete}
-          disabled={false}
-          />
+        <div className="flex-outer-wrapper flex-padding">
+          <div className="flex-cols">
+            <Button
+            children={ <FaRegTrashAlt/> }
+            styleType="btn btn-outline delete-icon-btn"             
+            label="Delete"
+            onClick={handleDelete}
+            disabled={false}
+            />
+          </div>
         </div>
 
       </section>
