@@ -30,6 +30,10 @@
     gap: .25em;
 }
 
+.flex-gap-0 {
+    gap: 0;
+}
+
 .flex-outer-wrapper {
     display: flex;
     flex-direction: column;
