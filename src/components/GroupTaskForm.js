@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getDocs, query, orderBy } from "@firebase/firestore";
 import { usersRef } from "../firebase-config";
+import { FaRegTrashAlt } from "react-icons/fa";
+import Button from "./Button";
 
 
 export default function GroupTaskForm({ saveGroupTask, grouptask }) {
@@ -117,8 +119,25 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
 
           </div>
 
-          <button type="submit">Save</button>
+          {/* <button type="submit">Save</button> */}
 
+          <div className="flex-rows space-between">
+          <Button
+          children={ <FaRegTrashAlt/> }
+          styleType="btn btn-outline"             
+          label="Delete"
+          // onClick={handleDelete}
+          disabled={false}
+          />
+
+          <Button
+          children="Save"
+          type="submit"
+          styleType="btn"
+          label="Save"
+          disabled={false}
+          />
+        </div>
 
         </div>
       </form>
