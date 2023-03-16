@@ -30,7 +30,7 @@ export default function Checkbox({ task }) {
     setCheckBool(e.target.value)
     e.preventDefault()
     saveTask(taskData)
-};
+  };
 
 
   return (
