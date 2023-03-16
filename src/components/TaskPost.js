@@ -17,13 +17,13 @@ export default function TaskPost({ task, updateUrl }) {
 
     function handleClick() {
         navigate(`${updateUrl}${task.id}`);
-    }
+    };
 
 
     function checkPers(task) {
         const pers = task.person
         if(pers) return ( <span className="xs-caps">{task.person}</span> );
-    }
+    };
 
     
     useEffect(() => {
