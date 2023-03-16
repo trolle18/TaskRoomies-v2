@@ -8,49 +8,52 @@ import GroupTaskForm from "../components/GroupTaskForm";
 
 
 export default function UpdateGroupTaskPage() {
-    const navigate = useNavigate();
-    const params = useParams();
-    const [grouptask, setGroupTask] = useState({});
-    const grouptaskId = params.id;
+  const navigate = useNavigate();
+  const params = useParams();
+  const [grouptask, setGroupTask] = useState({});
+  const grouptaskId = params.id;
 
-    useEffect(() => {
-        async function getGroupTask() {
-            const docRef = doc(grouptaskRef, grouptaskId);
-            const docData = await getDoc(docRef);
-            setGroupTask(docData.data());
-        }
-        getGroupTask();
-    }, [grouptaskId]);
 
-    async function handleSubmit(taskToUpdate) {
-        const docRef = doc(grouptaskRef, grouptaskId);
-        await updateDoc(docRef, taskToUpdate);
-        navigate("/");
-    } 
-
-    async function handleDelete() {
-        const confirmDelete = window.confirm(`Delete, ${grouptask.title}?`);
-        if (confirmDelete) {
-            const docRef = doc(grouptaskRef, grouptaskId);
-            navigate("/");
-            await deleteDoc(docRef);
-        }
+  useEffect(() => {
+      async function getGroupTask() {
+      const docRef = doc(grouptaskRef, grouptaskId)
+      const docData = await getDoc(docRef)
+      setGroupTask(docData.data())
     }
+    getGroupTask()
+  }, [grouptaskId]);
 
 
-    return (
-        <section className="page">
-            <h1>Edit task</h1>
-            <Link to="/"> <AiOutlineArrowLeft size={30} /> </Link> 
+  async function handleSubmit(taskToUpdate) {
+    const docRef = doc(grouptaskRef, grouptaskId)
+    await updateDoc(docRef, taskToUpdate)
+    navigate("/")
+  };
 
-            <section className="form-cntr">
-                <GroupTaskForm saveGroupTask={handleSubmit} grouptask={grouptask} />
-                
-                <button className="trash-btn" onClick={handleDelete}>
-                    <FaRegTrashAlt/>
-                </button>
-            </section>
-        </section>
-    )
+
+  async function handleDelete() {
+    const confirmDelete = window.confirm(`Delete, ${grouptask.title}?`)
+    if (confirmDelete) {
+      const docRef = doc(grouptaskRef, grouptaskId)
+      navigate("/")
+      await deleteDoc(docRef)
+    }
+  };
+
+
+  return (
+    <section className="page">
+      <h1>Edit task</h1>
+      <Link to="/"> <AiOutlineArrowLeft size={30} /> </Link> 
+
+      <section className="form-cntr">
+        <GroupTaskForm saveGroupTask={handleSubmit} grouptask={grouptask} />
+        
+        <button className="trash-btn" onClick={handleDelete}>
+          <FaRegTrashAlt/>
+        </button>
+      </section>
+    </section>
+  )
 };
 

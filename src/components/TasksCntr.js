@@ -3,7 +3,7 @@ import { MdAddCircle } from "react-icons/md"
 import TaskPost from "../components/TaskPost";
 
 
-export default function TasksCntr({ tasks, headline, createUrl, updateUrl }) {
+export default function TasksCntr({ tasks, taskType, headline, createUrl, updateUrl }) {
   return (
     <>
       <section className="tasks-cntr">
@@ -18,7 +18,7 @@ export default function TasksCntr({ tasks, headline, createUrl, updateUrl }) {
 
           <div className="task-posts-cntr">
             {tasks?.map( (task) => (
-              <TaskPost task={task} key={task.id} updateUrl={updateUrl} /> 
+              <TaskPost task={task} key={task.id} taskType={taskType} updateUrl={updateUrl} /> 
             ))}
           </div>
 
