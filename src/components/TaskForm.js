@@ -70,6 +70,15 @@ export default function TaskForm({ task, saveTask, handleDelete }) {
       </div>
 
 
+      <div className="flex-rows space-between">
+        <Button
+        children={ <FaRegTrashAlt/> }
+        styleType="btn btn-outline"             
+        label="Delete"
+        onClick={handleDelete}
+        disabled={false}
+        />
+
         <Button
         children="Save"
         type="submit"
@@ -77,14 +86,7 @@ export default function TaskForm({ task, saveTask, handleDelete }) {
         label="Save"
         disabled={false}
         />
-
-        <Button
-        children={ <FaRegTrashAlt/> }
-        styleType="circle-icon-btn"             
-        label="Delete"
-        onClick={handleDelete}
-        disabled={false}
-        />
+      </div>
 
     </form>
   )
