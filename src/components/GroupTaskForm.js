@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getDocs, query, orderBy } from "@firebase/firestore";
 import { usersRef } from "../firebase-config";
-import { FaRegTrashAlt } from "react-icons/fa";
 import Button from "./Button";
 
 
@@ -12,7 +11,6 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
   const [person, setPerson] = useState("");
   const [date, setDate] = useState("");
   const [checkBool, setCheckBool] = useState(Boolean);
-  // const [completed, setCompleted] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,7 +19,6 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
       setPerson(grouptask.person)
       setDate(grouptask.date)
       setCheckBool(grouptask.checkBool)
-      // setCompleted(grouptask.completed)
       
     }
   }, [grouptask]);
@@ -32,7 +29,6 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
     person: person,
     date: date,
     checkBool: checkBool,
-    // completed: completed,
   };
 
 
