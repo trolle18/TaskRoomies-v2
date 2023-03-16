@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BiPencil } from "react-icons/bi"
-import { getTaskDate, getTaskYear, isOverdue } from "../utils/GetDates";
+import { getTaskDate, getTaskYear } from "../utils/GetDates";
 import { doc, updateDoc } from "firebase/firestore";
 import { tasksRef } from "../firebase-config";
 import Checkbox from "./Checkbox";
