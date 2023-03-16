@@ -41,37 +41,29 @@ export default function TaskPost({ task, taskType, updateUrl }) {
   }, []);
 
 
-  function checkTaskType(task) {
+  function checkTaskType(task, taskType) {
     const taskUid = task.uid
-    // const userUid = group.map((user) => { return (user.uid) })
-    const user = group
-    .filter((user) => user.uid === taskUid || user.name === task.person) 
-    .map((user) => { 
-      return user 
-    })
+    const pers = task.person
 
-    return ( 
-      <div>
-        {group
-        .filter((user) => user.uid === taskUid || user.name === task.person) 
-        .map((user) => { 
-          return (
-            <div className="img-circ-cntr">
-              <div className="img-inner-cntr">
-                <img src={user.image} alt={user.name} />
+    if(taskType === "group") {
+      return ( 
+        <div>
+          {group
+          .filter((user) => user.uid === taskUid || user.name === task.person) 
+          .map((user) => { 
+            return (
+              <div className="img-circ-cntr">
+                <div className="img-inner-cntr">
+                  <img src={user.image} alt={user.name} />
+                </div>
               </div>
-            </div>
-          )
-        })}
-      </div>
-
-      // <div className="userimg-cntr">
-      //   <div className="user-img">
-      //     <span>{user.name}</span>
-      //     <img src={user.image} alt={user.name} />
-      //   </div>
-      // </div>
-    )
+            )
+          })}
+        </div>
+      )
+    }
+    // else return ( <span className="xs-caps">{task.person}</span> );
+    
   };
 
 
