@@ -2,20 +2,19 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BiPencil } from "react-icons/bi"
 import { getDueDate, getTaskDate, getTaskYear } from "../utils/GetDates";
-import { collection, doc, getDocs, query, updateDoc } from "firebase/firestore";
-import { db, grouptaskRef, tasksRef, usersRef } from "../firebase-config";
+import {getDocs, query } from "firebase/firestore";
+import {  usersRef } from "../firebase-config";
 import Checkbox from "./Checkbox";
 import Button from "./Button";
-import { getAuth } from "firebase/auth";
 import SmallAvatar from "./SmallAvatar";
 
 
 export default function TaskPost({ task, taskType, updateUrl }) {
   const [group, setGroup] = useState([]);
-  const [checkBool, setCheckBool] = useState(false);
-  const [isChecked, setIsChecked] = useState(false);
-  const taskId = task.id;
-  const auth = getAuth();
+  // const [checkBool, setCheckBool] = useState(false);
+  // const [isChecked, setIsChecked] = useState(false);
+  // const taskId = task.id;
+  // const auth = getAuth();
   const navigate = useNavigate();
 
 
@@ -37,11 +36,12 @@ export default function TaskPost({ task, taskType, updateUrl }) {
     getGroup()
   }, []);
   
-  useEffect(() => {
-    if (task) {
-      setCheckBool(task.checkBool)           
-    }
-  }, [task]);
+  // useEffect(() => {
+  //   if (task) {
+  //     setCheckBool(task.checkBool)           
+  //   }
+  // }, [task]);
+
 
 
   // If The task is a grouptask, add user imgs 
@@ -65,33 +65,38 @@ export default function TaskPost({ task, taskType, updateUrl }) {
     }
   };
 
+
+// useEffect(() => {
+//   function ifChecked(task) {
+//     const taskCheck = task?.checkBool
+//     const todoTask = document.getElementsByClassName("setCheck")
+//     if(taskCheck) {
+//       if(taskCheck === true) {
+//         todoTask.classList.add("checked")
+//       }
+//       else if (taskCheck === false) { 
+//         todoTask.classList.remove("checked")
+//       }
+//     }
   
+//   }
+//   ifChecked()
+// }, [])
+
+// ifChecked(task)
+
 
   
+// useEffect(() => {
+  function ifChecked() {
+    const checked = task?.checkBool
+    if(checked) { return "checked" }
+    if (!checked) { return "unchecked" }
+    else return ("")
+  }
 
-  async function handleCheckmark(taskToUpdate) {
-    if(taskType === "user") {
-      const uid = await(auth?.currentUser?.uid)
-      const tasksInUserRef = collection(db, `users/${uid}/userTasks/`) 
-      const docRef = doc(tasksInUserRef, taskId) 
-      await updateDoc(docRef, taskToUpdate)
-      
-    }
-    if(taskType === "group") {
-      const docRef = doc(grouptaskRef, taskId)
-      await updateDoc(docRef, taskToUpdate)
-    }
-  };
- 
 
-  function handleSubmit(e) {
-    const taskData = { 
-      checkBool: checkBool 
-    };
 
-    setCheckBool(e.target.value)
-    handleCheckmark(taskData)
-  };
 
   return (
     <>
@@ -100,18 +105,16 @@ export default function TaskPost({ task, taskType, updateUrl }) {
           <Checkbox 
           task={task} 
           taskType={taskType}
-          onChange={handleSubmit}
           />
         </div>
 
         <div className="todo-text-cntr">
-          <div className="todo-text unchecked" id={`todotext${task.id}`}>
-            <div className="todo-text__title unchecked" id="title" >
+          <div className={`todo-text setCheck ${ifChecked()}`} id={`todotext${task.id}`}>
+            <div className="todo-text__title" id="title" >
               <span>{task.title}</span>
             </div>
 
             <div className="todo-text__details">
-              {/* {checkPers(task)} */}
               {checkTaskType(task, taskType)}
               <span className="xs-caps">
                 {getDueDate(task)} 
