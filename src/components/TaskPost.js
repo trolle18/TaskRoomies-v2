@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BiPencil } from "react-icons/bi"
 import { getTaskDate, getTaskYear } from "../utils/GetDates";
-import { doc, getDocs, orderBy, query, updateDoc } from "firebase/firestore";
+import { doc, getDocs, query, updateDoc } from "firebase/firestore";
 import { tasksRef, usersRef } from "../firebase-config";
 import Checkbox from "./Checkbox";
 import Button from "./Button";
@@ -38,7 +38,6 @@ export default function TaskPost({ task, taskType, updateUrl }) {
   // If The task is a grouptask, add user imgs 
   function checkTaskType(task, taskType) {
     const taskUid = task.uid
-    // const pers = task.person
     if(taskType === "group") {
       return ( 
         <div>
