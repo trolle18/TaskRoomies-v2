@@ -14,11 +14,6 @@ export default function TaskPost({ task, taskType, updateUrl }) {
   const navigate = useNavigate();
 
 
-  // Link to update page
-  function handleClick() {
-    navigate(`${updateUrl}${task.id}`);
-  };
-
   // Get groupmembers
   useEffect(() => {
     async function getGroup() {
@@ -31,22 +26,25 @@ export default function TaskPost({ task, taskType, updateUrl }) {
     }
     getGroup()
   }, []);
+
+  
+  // Link to update page
+  function handleClick() {
+    navigate(`${updateUrl}${task.id}`);
+  };
   
 
   // If The task is a grouptask, add user imgs 
   function checkTaskType(task, taskType) {
     const taskUid = task.uid
     if(taskType === "group") {
-      return ( 
+      return( 
         <>
           {group
           .filter((user) => user.uid === taskUid || user.name === task.person) 
           .map((user) => { 
             return (
-              <SmallAvatar 
-              key={task.uid}
-              user={user}
-              />
+              <SmallAvatar key={task.uid} user={user} />
             )
           })}
         </>
