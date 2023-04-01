@@ -5,28 +5,25 @@ import { useNavigate } from "react-router-dom";
 import { db, grouptaskRef } from "../firebase-config";
 
 
-export default function Checkbox({ task, taskType }) {
+export default function Checkbox({ task, taskType, onChange }) {
   const [checkBool, setCheckBool] = useState(Boolean);
   const taskId = task.id; 
   const navigate = useNavigate();
   const auth = getAuth();
     
-  // useEffect(() => {
-    async function saveTask(taskToUpdate) {
-      if(taskType === "user") {
-        const uid = await(auth?.currentUser?.uid)
-        const tasksInUserRef = collection(db, `users/${uid}/userTasks/`) 
-        const docRef = doc(tasksInUserRef, taskId) 
-        await updateDoc(docRef, taskToUpdate)
-      }
-      if(taskType === "group") {
-        const docRef = doc(grouptaskRef, taskId)
-        await updateDoc(docRef, taskToUpdate)
-      }
+
+  async function saveTask(taskToUpdate) {
+    if(taskType === "user") {
+      const uid = await(auth?.currentUser?.uid)
+      const tasksInUserRef = collection(db, `users/${uid}/userTasks/`) 
+      const docRef = doc(tasksInUserRef, taskId) 
+      await updateDoc(docRef, taskToUpdate)
     }
-    // saveTask(taskData)
-  // })
- 
+    if(taskType === "group") {
+      const docRef = doc(grouptaskRef, taskId)
+      await updateDoc(docRef, taskToUpdate)
+    }
+  }
 
 
   const taskData = { 
@@ -50,7 +47,8 @@ export default function Checkbox({ task, taskType }) {
           id="checkbox"
           className={`check${task.id}`}
           checked={task.checkBool}
-          onChange={(e) => handleSubmit(e)}
+          // onChange={(e) => handleSubmit(e)}
+          onChange={onChange}
           />          
         </div>
       </>
