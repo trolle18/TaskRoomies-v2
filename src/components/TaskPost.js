@@ -55,7 +55,8 @@ export default function TaskPost({ task, taskType, updateUrl }) {
   
   function ifChecked() {
     const checked = task?.checkBool
-    if(checked) { return "checked" }
+    if(!checked) { return "unchecked" }
+    else if (checked) { return "checked"}
   };
 
 
