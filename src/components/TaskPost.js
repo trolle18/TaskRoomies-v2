@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BiPencil } from "react-icons/bi"
-import { getDueDate, getTaskDate, getTaskYear, isOverdue } from "../utils/GetDates";
+import { getDueDate, isOverdue } from "../utils/GetDates";
 import {getDocs, query } from "firebase/firestore";
 import {  usersRef } from "../firebase-config";
 import Checkbox from "./Checkbox";
@@ -11,10 +11,6 @@ import SmallAvatar from "./SmallAvatar";
 
 export default function TaskPost({ task, taskType, updateUrl }) {
   const [group, setGroup] = useState([]);
-  // const [checkBool, setCheckBool] = useState(false);
-  // const [isChecked, setIsChecked] = useState(false);
-  // const taskId = task.id;
-  // const auth = getAuth();
   const navigate = useNavigate();
 
 
