@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BiPencil } from "react-icons/bi"
-import { getDueDate, getTaskDate, getTaskYear } from "../utils/GetDates";
+import { getDueDate, getTaskDate, getTaskYear, isOverdue } from "../utils/GetDates";
 import {getDocs, query } from "firebase/firestore";
 import {  usersRef } from "../firebase-config";
 import Checkbox from "./Checkbox";
@@ -95,6 +95,7 @@ export default function TaskPost({ task, taskType, updateUrl }) {
     else return ("")
   }
 
+  const ifOverdure = isOverdue(task) ? ("overdue") : ""
 
 
 
@@ -116,7 +117,7 @@ export default function TaskPost({ task, taskType, updateUrl }) {
 
             <div className="todo-text__details">
               {checkTaskType(task, taskType)}
-              <span className="xs-caps">
+              <span className={`xs-caps ${ifChecked()} ${isOverdue(task)}`}>
                 {getDueDate(task)} 
               </span>
             </div>

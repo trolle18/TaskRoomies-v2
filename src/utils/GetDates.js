@@ -16,7 +16,7 @@ export function getTaskYear(task) {
 export function isOverdue(task) {
     const today = new Date().toLocaleDateString('en-GB', { year: 'numeric', month: '2-digit', day: '2-digit' } );
     const taskDate = task.date;
-    if(taskDate < today) return ("Overdue")
+    if(taskDate > today) return "overdue"
 };
 
 
@@ -26,6 +26,6 @@ export const getTodaysDate = new Date().toLocaleDateString('en-GB', { weekday: '
 export function getDueDate(task) {
     const date = getTaskDate(task)
     const year = getTaskYear(task)
-    if(task.date) return ( <> {date} {year} </> )
+    if(task.date) return ( <>{date} {year}</> )
     else return ("-")
   };
