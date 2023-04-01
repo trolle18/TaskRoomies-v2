@@ -29,10 +29,9 @@ export default function Checkbox({ task, taskType }) {
   };
 
 
-  function handleSubmit(e) {
-    e.preventDefault()
-    setCheckBool(e.target.value)
+  function handleSubmit(e) {   
     saveTask(taskData)
+    setCheckBool(e.target.value)
   };
 
 
