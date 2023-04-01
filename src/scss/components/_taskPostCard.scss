@@ -12,14 +12,10 @@
         width: 1.2em;
         margin: 0;
 
-        .checkbox-form {
-            margin: auto 0;
-            padding: 0;
-
         .checkbox-box {
             position: relative;
 
-            .checkbox-input {
+            .checkbox {
                 width: 1.2em;
                 height: 1.2em;
                 padding: 0;
@@ -64,7 +60,6 @@
                 }
             }
         }
-    }
     }
 
 
