@@ -21,14 +21,6 @@ export default function TaskPost({ task, taskType, updateUrl }) {
     navigate(`${updateUrl}${task.id}`);
   };
 
-
-  // // Check if person is set to the task
-  // function checkPers(task) {
-  //   const pers = task.person
-  //   if(pers) return ( <span className="xs-caps">{task.person}</span> );
-  // };
-
-
   // Get groupmembers
   useEffect(() => {
     async function getGroup() {
