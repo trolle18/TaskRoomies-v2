@@ -1,15 +1,16 @@
 import { getAuth } from "firebase/auth";
 import { collection, doc, updateDoc } from "firebase/firestore";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+// import { useNavigate } from "react-router-dom";
 import { db, grouptaskRef } from "../firebase-config";
 
 
-export default function Checkbox({ task, taskType, onChange }) {
+export default function Checkbox({ task, taskType }) {
   const [checkBool, setCheckBool] = useState(Boolean);
   const taskId = task.id; 
   // const navigate = useNavigate();
   const auth = getAuth();
-    
+  
 
   async function saveTask(taskToUpdate) {
     if(taskType === "user") {
@@ -22,7 +23,28 @@ export default function Checkbox({ task, taskType, onChange }) {
       const docRef = doc(grouptaskRef, taskId)
       await updateDoc(docRef, taskToUpdate)
     }
-  }
+  };
+
+  
+// useEffect(() => {
+//   function ifChecked(task) {
+//     // const checked = task?.checkBool
+//     const checked = document.getElementsByClassName("checkbox")
+//     const todoTask = document.getElementsByClassName("setCheck")
+//     if(checked) {
+//       if(checked === true) {
+//         // todoTask.classList.remove("unchecked")
+//         todoTask.classList.add("checked")
+//       }
+//       else if (checked === false) { 
+//         todoTask.classList.remove("checked")
+//         // todoTask.classList.add("unchecked")
+//       }
+//     }
+//   }
+//   console.log(task.checkBool)
+//   ifChecked()
+// }, [])
 
 
   const taskData = { 
@@ -31,7 +53,7 @@ export default function Checkbox({ task, taskType, onChange }) {
 
 
   function handleSubmit(e) {
-    // e.preventDefault()
+    e.preventDefault()
     setCheckBool(e.target.value)
     saveTask(taskData)
   };
@@ -43,11 +65,10 @@ export default function Checkbox({ task, taskType, onChange }) {
           <input
           type="checkbox"
           name="checkbox"
-          id="checkbox"
-          className={`check${task.id}`}
+          className="checkbox"
+          id={`check${task.id}`}
           checked={task.checkBool}
-          // onChange={(e) => handleSubmit(e)}
-          onChange={onChange}
+          onChange={(e) => handleSubmit(e)}
           />          
         </div>
       </>
