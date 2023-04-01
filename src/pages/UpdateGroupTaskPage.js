@@ -15,7 +15,7 @@ export default function UpdateGroupTaskPage() {
 
 
   useEffect(() => {
-      async function getGroupTask() {
+    async function getGroupTask() {
       const docRef = doc(grouptaskRef, grouptaskId)
       const docData = await getDoc(docRef)
       setGroupTask(docData.data())

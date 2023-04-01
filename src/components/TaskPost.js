@@ -1,31 +1,27 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BiPencil } from "react-icons/bi"
-import { getTaskDate, getTaskYear } from "../utils/GetDates";
-import { doc, getDocs, orderBy, query, updateDoc } from "firebase/firestore";
-import { tasksRef, usersRef } from "../firebase-config";
+import { getDueDate, getTaskDate, getTaskYear } from "../utils/GetDates";
+import {getDocs, query } from "firebase/firestore";
+import {  usersRef } from "../firebase-config";
 import Checkbox from "./Checkbox";
 import Button from "./Button";
+import SmallAvatar from "./SmallAvatar";
 
 
 export default function TaskPost({ task, taskType, updateUrl }) {
   const [group, setGroup] = useState([]);
-  const [check, setCheck] = useState(false);
-  const [isChecked, setIsChecked] = useState(false);
-  const taskId = task.id;
+  // const [checkBool, setCheckBool] = useState(false);
+  // const [isChecked, setIsChecked] = useState(false);
+  // const taskId = task.id;
+  // const auth = getAuth();
   const navigate = useNavigate();
 
 
+  // Link to update page
   function handleClick() {
     navigate(`${updateUrl}${task.id}`);
   };
-
-
-  function checkPers(task) {
-    const pers = task.person
-    if(pers) return ( <span className="xs-caps">{task.person}</span> );
-  };
-
 
   // Get groupmembers
   useEffect(() => {
@@ -39,77 +35,86 @@ export default function TaskPost({ task, taskType, updateUrl }) {
     }
     getGroup()
   }, []);
+  
+  // useEffect(() => {
+  //   if (task) {
+  //     setCheckBool(task.checkBool)           
+  //   }
+  // }, [task]);
 
 
+
+  // If The task is a grouptask, add user imgs 
   function checkTaskType(task, taskType) {
     const taskUid = task.uid
-    const pers = task.person
-
     if(taskType === "group") {
       return ( 
-        <div>
+        <>
           {group
           .filter((user) => user.uid === taskUid || user.name === task.person) 
           .map((user) => { 
             return (
-              <div className="img-circ-cntr">
-                <div className="img-inner-cntr">
-                  <img src={user.image} alt={user.name} />
-                </div>
-              </div>
+              <SmallAvatar 
+              key={task.uid}
+              user={user}
+              />
             )
           })}
-        </div>
+        </>
       )
     }
-    
   };
+
+
+// useEffect(() => {
+//   function ifChecked(task) {
+//     const taskCheck = task?.checkBool
+//     const todoTask = document.getElementsByClassName("setCheck")
+//     if(taskCheck) {
+//       if(taskCheck === true) {
+//         todoTask.classList.add("checked")
+//       }
+//       else if (taskCheck === false) { 
+//         todoTask.classList.remove("checked")
+//       }
+//     }
+  
+//   }
+//   ifChecked()
+// }, [])
+
+// ifChecked(task)
 
 
   
-  useEffect(() => {
-    if (task) {
-      setCheck(task.check)           
-    }
-  }, [task]);
-
-  
-
-  async function handleCheckmark(taskToUpdate) {
-    setIsChecked(!isChecked)
-    const docRef = doc(tasksRef, taskId);
-    await updateDoc(docRef, taskToUpdate); 
-    setCheck(check)
-  };
+// useEffect(() => {
+  function ifChecked() {
+    const checked = task?.checkBool
+    if(checked) { return "checked" }
+    if (!checked) { return "unchecked" }
+    else return ("")
+  }
 
 
-  function getDueDate(task) {
-    const date = getTaskDate(task)
-    const year = getTaskYear(task)
-    if(task.date) return ( <> {date} {year} </> )
-    else return ("-")
-  };
 
 
   return (
     <>
       <div className="task-post">
-
         <div className="checkbox-elem">
           <Checkbox 
           task={task} 
-          handleCheckmark={handleCheckmark}
+          taskType={taskType}
           />
         </div>
 
         <div className="todo-text-cntr">
-          <div className="todo-text unchecked" id={`todotext${task.id}`}>
-            <div className="todo-text__title unchecked" id="title" >
+          <div className={`todo-text setCheck ${ifChecked()}`} id={`todotext${task.id}`}>
+            <div className="todo-text__title" id="title" >
               <span>{task.title}</span>
             </div>
 
             <div className="todo-text__details">
-              {checkPers(task)}
               {checkTaskType(task, taskType)}
               <span className="xs-caps">
                 {getDueDate(task)} 

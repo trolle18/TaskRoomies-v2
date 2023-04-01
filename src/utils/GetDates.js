@@ -23,3 +23,9 @@ export function isOverdue(task) {
 export const getTodaysDate = new Date().toLocaleDateString('en-GB', { weekday: 'long',  month: 'short', day: '2-digit' } );
 
 
+export function getDueDate(task) {
+    const date = getTaskDate(task)
+    const year = getTaskYear(task)
+    if(task.date) return ( <> {date} {year} </> )
+    else return ("-")
+  };
