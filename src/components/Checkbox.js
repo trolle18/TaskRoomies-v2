@@ -1,6 +1,6 @@
 import { getAuth } from "firebase/auth";
 import { collection, doc, updateDoc } from "firebase/firestore";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { db, grouptaskRef } from "../firebase-config";
 
@@ -10,20 +10,23 @@ export default function Checkbox({ task, taskType }) {
   const taskId = task.id; 
   const navigate = useNavigate();
   const auth = getAuth();
-  
-
-  async function saveTask(taskToUpdate) {
-    if(taskType === "user") {
-      const uid = await(auth?.currentUser?.uid)
-      const tasksInUserRef = collection(db, `users/${uid}/userTasks/`) 
-      const docRef = doc(tasksInUserRef, taskId) 
-      await updateDoc(docRef, taskToUpdate)
+    
+  // useEffect(() => {
+    async function saveTask(taskToUpdate) {
+      if(taskType === "user") {
+        const uid = await(auth?.currentUser?.uid)
+        const tasksInUserRef = collection(db, `users/${uid}/userTasks/`) 
+        const docRef = doc(tasksInUserRef, taskId) 
+        await updateDoc(docRef, taskToUpdate)
+      }
+      if(taskType === "group") {
+        const docRef = doc(grouptaskRef, taskId)
+        await updateDoc(docRef, taskToUpdate)
+      }
     }
-    if(taskType === "group") {
-      const docRef = doc(grouptaskRef, taskId)
-      await updateDoc(docRef, taskToUpdate)
-    }
-  };
+    // saveTask(taskData)
+  // })
+ 
 
 
   const taskData = { 
@@ -32,7 +35,7 @@ export default function Checkbox({ task, taskType }) {
 
 
   function handleSubmit(e) {
-    e.preventDefault()
+    // e.preventDefault()
     setCheckBool(e.target.value)
     saveTask(taskData)
   };
