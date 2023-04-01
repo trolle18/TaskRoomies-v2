@@ -36,13 +36,6 @@ export default function TaskPost({ task, taskType, updateUrl }) {
     getGroup()
   }, []);
   
-  // useEffect(() => {
-  //   if (task) {
-  //     setCheckBool(task.checkBool)           
-  //   }
-  // }, [task]);
-
-
 
   // If The task is a grouptask, add user imgs 
   function checkTaskType(task, taskType) {
@@ -65,38 +58,13 @@ export default function TaskPost({ task, taskType, updateUrl }) {
     }
   };
 
-
-// useEffect(() => {
-//   function ifChecked(task) {
-//     const taskCheck = task?.checkBool
-//     const todoTask = document.getElementsByClassName("setCheck")
-//     if(taskCheck) {
-//       if(taskCheck === true) {
-//         todoTask.classList.add("checked")
-//       }
-//       else if (taskCheck === false) { 
-//         todoTask.classList.remove("checked")
-//       }
-//     }
   
-//   }
-//   ifChecked()
-// }, [])
-
-// ifChecked(task)
-
-
-  
-// useEffect(() => {
   function ifChecked() {
     const checked = task?.checkBool
     if(checked) { return "checked" }
     if (!checked) { return "unchecked" }
     else return ("")
-  }
-
-  const ifOverdure = isOverdue(task) ? ("overdue") : ""
-
+  };
 
 
   return (
