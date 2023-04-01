@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BiPencil } from "react-icons/bi"
-import { getTaskDate, getTaskYear } from "../utils/GetDates";
+import { getDueDate, getTaskDate, getTaskYear } from "../utils/GetDates";
 import { collection, doc, getDocs, query, updateDoc } from "firebase/firestore";
 import { db, grouptaskRef, tasksRef, usersRef } from "../firebase-config";
 import Checkbox from "./Checkbox";
 import Button from "./Button";
 import { getAuth } from "firebase/auth";
+import SmallAvatar from "./SmallAvatar";
 
 
 export default function TaskPost({ task, taskType, updateUrl }) {
@@ -35,6 +36,12 @@ export default function TaskPost({ task, taskType, updateUrl }) {
     }
     getGroup()
   }, []);
+  
+  useEffect(() => {
+    if (task) {
+      setCheckBool(task.checkBool)           
+    }
+  }, [task]);
 
 
   // If The task is a grouptask, add user imgs 
@@ -42,36 +49,24 @@ export default function TaskPost({ task, taskType, updateUrl }) {
     const taskUid = task.uid
     if(taskType === "group") {
       return ( 
-        <div>
+        <>
           {group
           .filter((user) => user.uid === taskUid || user.name === task.person) 
           .map((user) => { 
             return (
-              <div className="btn-cntr  circle-btn-cntr" key={task.uid}>
-                <div className="btn-label">
-                  <span className="btn-label__text xs-caps">
-                    {user.name}
-                  </span>
-                </div>
-                <div className="img-circ-cntr">
-                  <div className="img-inner-cntr">
-                    <img src={user.image} alt={user.name} />
-                  </div>
-                </div> 
-              </div>
+              <SmallAvatar 
+              key={task.uid}
+              user={user}
+              />
             )
           })}
-        </div>
+        </>
       )
     }
   };
 
   
-  useEffect(() => {
-    if (task) {
-      setCheckBool(task.checkBool)           
-    }
-  }, [task]);
+
   
 
   async function handleCheckmark(taskToUpdate) {
@@ -86,14 +81,6 @@ export default function TaskPost({ task, taskType, updateUrl }) {
       const docRef = doc(grouptaskRef, taskId)
       await updateDoc(docRef, taskToUpdate)
     }
-  };
-
-
-  function getDueDate(task) {
-    const date = getTaskDate(task)
-    const year = getTaskYear(task)
-    if(task.date) return ( <> {date} {year} </> )
-    else return ("-")
   };
  
 

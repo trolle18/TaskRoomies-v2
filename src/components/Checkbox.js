@@ -1,14 +1,13 @@
 import { getAuth } from "firebase/auth";
 import { collection, doc, updateDoc } from "firebase/firestore";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { db, grouptaskRef } from "../firebase-config";
 
 
 export default function Checkbox({ task, taskType, onChange }) {
   const [checkBool, setCheckBool] = useState(Boolean);
   const taskId = task.id; 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const auth = getAuth();
     
 
