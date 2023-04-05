@@ -1,35 +1,15 @@
-import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { getAuth } from "firebase/auth";
-import { onSnapshot, query, orderBy, addDoc, serverTimestamp, collection } from "@firebase/firestore";
+import { addDoc, serverTimestamp, collection } from "@firebase/firestore";
 import { db } from "../firebase-config";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import TaskForm from "../components/TaskForm";
 import TaskPost from "../components/TaskPost";
+import TaskForm from "../components/TaskForm/TaskForm";
 
 
-export default function CreateTaskPage() {
-    const [tasks, setTasks] = useState([]);
+export default function CreateTaskPage({tasks}) {
     const navigate = useNavigate();
     const auth = getAuth();
-
-
-    useEffect(() => {
-        async function getUserTasks() {
-          const uid = await(auth?.currentUser?.uid)
-          const tasksInUserRef = collection(db, `users/${uid}/userTasks`) // ref to nested collection in the user:
-          const q = query(tasksInUserRef, orderBy("createdAt")) // order / limit etc them
-          const unsubscribe = onSnapshot(q, (data) => {    // Refers to query instead of db-Ref, which returns filtered results - Unsub enables ability to watch components from a different page
-            const taskData = data.docs.map((doc) => {
-              return { ...doc.data(), id: doc.id, uid: doc.uid }  // Gets data from firebase (...doc.data) and with id: doc.id Z
-            })
-            setTasks(taskData)
-          })
-          return () => unsubscribe()
-        }
-        getUserTasks()
-      }, [auth?.currentUser?.uid]);
-    
 
     async function saveTask(newTask) {
         newTask.createdAt = serverTimestamp(); // timestamp (now)
