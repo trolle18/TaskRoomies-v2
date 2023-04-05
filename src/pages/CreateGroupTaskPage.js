@@ -63,6 +63,7 @@ export default function CreateGroupTaskPage() {
                     </article>
                 </div>
             </section>
+            
         </section>
     )
 };

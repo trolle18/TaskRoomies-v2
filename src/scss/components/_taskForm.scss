@@ -1,36 +1,21 @@
 
-// .card {
-//     margin: 0em 0em 2em 0em;
-// }
-
-
 .form-cntr {
-    max-width: 380px;
     margin: 0 auto;
-    padding: 0em 0em 1.5em 0em;
     border-radius: $border_r;
     background-color: $clr_white;
 
     form {
-        max-width: 380px;
-        margin: auto;
-        padding: 1em 1em 0em 1em;
-        text-align: center;
-        line-height: 30px;
+        padding: 1.5em 1em;
         background-color: $clr_white;
         animation: fadeIn 0.5s;
         border-radius: $border_r;
         
         button {
             width: 40%;
-            max-width: 200px;
             padding: .5em 2em;
             font-size: $fs_md;
 
             &.submit-btn {
-                // background-color: transparent;
-                // border: solid $clr_orange .2em;
-                // color: $clr_orange;
                 font-size: $fs_md;
             }
             
@@ -38,11 +23,9 @@
         
         input {
             width: 100%;
-            max-width: 350px;
-            margin: 0 auto;
-            padding: 1em;
+            padding: .75em;
             box-sizing: border-box;
-            border: solid 2px grey;
+            border: solid 1px grey;
             border-radius: 5px;
             display: block;
             background: $clr_white;
@@ -56,50 +39,16 @@
 
 select {
     width: 100%;
-    max-width: 350px;
     margin: 1em auto;
     padding: 1em;
     box-sizing: border-box;
     display: block;
     background: #f1f1f1;
-    border: solid 2px ;
+    border: solid 1px;
     border-radius: 5px;
     -webkit-appearance: none;
     appearance: none;
 }
-
-
-
-// button {
-//     // margin: 1em auto 0;
-//     // padding: 0.4em 0.8em;
-//     display: block;
-//     cursor: pointer;
-//     border: none;
-//     border-radius: $border_r;
-//     background-color: $clr_orange;
-//     color: $txt_clr_l;
-//     letter-spacing: 0.05em;
-//     text-transform: uppercase;
-//     font-size: $fs_md;
-//     font-weight: 300;
-//     text-align: center;
-    
-//     &.btn-outline {
-//         width: 100%;
-//         background-color: $clr_white;
-//         color: $clr_black;
-//     }
-
-//     &.btn-sign-out {
-//         padding: 2.032em 1em;
-//         right: 0;
-//         top: 0;
-//         position: absolute;
-//         // cursor: pointer;
-//         font-size: $fs_sm;
-//     }
-// }
 
 
 

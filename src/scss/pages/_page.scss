@@ -1,12 +1,10 @@
-.page {
-    color: $text_primary;
-    background-color: $clr_bg;
-}
 
 .page {
-    min-height: calc(100vh - 58px - 2em);
+    // min-height: calc(100vh - 58px - 2em);
     padding: 1em;
-    padding-bottom: 100px;
+    padding-bottom: 6em;
+    color: $text_primary;
+    background-color: $clr_bg;
     transition: all 0.5s;    
 
     &__header-cntr {
@@ -16,28 +14,23 @@
         justify-content: space-between;
         align-items: baseline;
         text-transform: uppercase;
-        // text-align: center;
     }
-    /* color: var(--blue-d); */
+    
+    // .card {
+    //     margin: 0em 0em 2em 0em;
+    // }
+
+
+    .page-title {
+        // max-width: 400px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+
+        svg {
+            height: 26px;
+            width: 26px;
+        }
+    }
 }
 
-.card {
-    margin: 0em 0em 2em 0em;
-}
-
-.page-title {
-    border: solid blue 0px;
-    max-width: 400px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-}
-
-.page-title > h2 {
-    margin-top: 0px;
-}
-
-.page-title > svg {
-    height: 26px;
-    width: 26px;
-}

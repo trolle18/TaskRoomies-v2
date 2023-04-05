@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BiPencil } from "react-icons/bi"
-import { getDueDate, getTaskDate, getTaskYear, isOverdue } from "../utils/GetDates";
+import { getDueDate, isOverdue } from "../utils/GetDates";
 import {getDocs, query } from "firebase/firestore";
 import {  usersRef } from "../firebase-config";
 import Checkbox from "./Checkbox";
@@ -11,17 +11,8 @@ import SmallAvatar from "./SmallAvatar";
 
 export default function TaskPost({ task, taskType, updateUrl }) {
   const [group, setGroup] = useState([]);
-  // const [checkBool, setCheckBool] = useState(false);
-  // const [isChecked, setIsChecked] = useState(false);
-  // const taskId = task.id;
-  // const auth = getAuth();
   const navigate = useNavigate();
 
-
-  // Link to update page
-  function handleClick() {
-    navigate(`${updateUrl}${task.id}`);
-  };
 
   // Get groupmembers
   useEffect(() => {
@@ -35,29 +26,25 @@ export default function TaskPost({ task, taskType, updateUrl }) {
     }
     getGroup()
   }, []);
+
   
-  // useEffect(() => {
-  //   if (task) {
-  //     setCheckBool(task.checkBool)           
-  //   }
-  // }, [task]);
-
-
+  // Link to update page
+  function handleClick() {
+    navigate(`${updateUrl}${task.id}`);
+  };
+  
 
   // If The task is a grouptask, add user imgs 
   function checkTaskType(task, taskType) {
     const taskUid = task.uid
     if(taskType === "group") {
-      return ( 
+      return( 
         <>
           {group
           .filter((user) => user.uid === taskUid || user.name === task.person) 
           .map((user) => { 
             return (
-              <SmallAvatar 
-              key={task.uid}
-              user={user}
-              />
+              <SmallAvatar key={task.uid} user={user} />
             )
           })}
         </>
@@ -65,38 +52,12 @@ export default function TaskPost({ task, taskType, updateUrl }) {
     }
   };
 
-
-// useEffect(() => {
-//   function ifChecked(task) {
-//     const taskCheck = task?.checkBool
-//     const todoTask = document.getElementsByClassName("setCheck")
-//     if(taskCheck) {
-//       if(taskCheck === true) {
-//         todoTask.classList.add("checked")
-//       }
-//       else if (taskCheck === false) { 
-//         todoTask.classList.remove("checked")
-//       }
-//     }
   
-//   }
-//   ifChecked()
-// }, [])
-
-// ifChecked(task)
-
-
-  
-// useEffect(() => {
   function ifChecked() {
     const checked = task?.checkBool
-    if(checked) { return "checked" }
-    if (!checked) { return "unchecked" }
-    else return ("")
-  }
-
-  const ifOverdure = isOverdue(task) ? ("overdue") : ""
-
+    if(!checked) { return "unchecked" }
+    else if (checked) { return "checked"}
+  };
 
 
   return (
