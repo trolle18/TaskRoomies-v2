@@ -13,7 +13,7 @@ import Nav from "./components/Nav";
 import Header from "./components/Header";
 import { WiSolarEclipse } from "react-icons/wi";
 import { collection, doc, getDoc, onSnapshot, orderBy, query } from "firebase/firestore";
-import { db, usersRef } from "./firebase-config";
+import { db, grouptaskRef, usersRef } from "./firebase-config";
 import UpdateProfilePage from "./pages/UpdateProfilePage";
 
 
@@ -22,6 +22,8 @@ function App() {
     const [isAuth, setIsAuth] = React.useState(localStorage.getItem("isAuth"));
     const [user, setUser] = useState("");
     const [tasks, setTasks] = useState([]);
+    const [grouptasks, setGroupTasks] = useState([]); 
+
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [image, setImage] = useState("");
@@ -48,6 +50,7 @@ function App() {
         localStorage.setItem('theme', theme)
     }
 
+    // Get user tasks
     useEffect(() => {
         async function getUserTasks() {
           const uid = await(auth?.currentUser?.uid)
@@ -64,6 +67,17 @@ function App() {
         getUserTasks()
       }, [auth?.currentUser?.uid]);
 
+      // Get group tasks
+      useEffect(() => {
+        const q = query(grouptaskRef, orderBy("createdAt", "desc"))
+        const unsubscribe = onSnapshot(q, (data) => {
+            const grouptaskData = data.docs.map((doc) => {
+                return { ...doc.data(), id: doc.id }; 
+            })
+            setGroupTasks(grouptaskData);
+        })
+        return () => unsubscribe()
+    }, [])
 
 
     useEffect(() => {
@@ -109,7 +123,13 @@ function App() {
                         />
 
                         <Route path="/"
-                            element={ <HomePage user={user} tasks={tasks} /> }
+                            element={ 
+                                <HomePage 
+                                    user={user} 
+                                    tasks={tasks} 
+                                    grouptasks={grouptasks}
+                                /> 
+                            }
                         />
 
                         <Route path="/profile/" 
@@ -117,23 +137,47 @@ function App() {
                         />
 
                         <Route path="/profile-update" 
-                            element={ <UpdateProfilePage user={user} /> }
+                            element={
+                                <UpdateProfilePage
+                                    user={user}
+                                /> 
+                            }
                         />
 
                         <Route path="/create-grouptask" 
-                            element={ <CreateGroupTaskPage user={user} /> } 
+                            element={
+                                <CreateGroupTaskPage 
+                                user={user} 
+                                grouptasks={grouptasks}
+                                /> 
+                            } 
                         />
 
                         <Route path="/update-grouptask/:id" 
-                            element={ <UpdateGroupTaskPage user={user} /> }
+                            element={ 
+                                <UpdateGroupTaskPage 
+                                    user={user} 
+                                    grouptasks={grouptasks}
+                                /> 
+                            }
                         />
 
                         <Route path="/create-task" 
-                            element={ <CreateTaskPage user={user} tasks={tasks} /> } 
+                            element={ 
+                                <CreateTaskPage 
+                                    user={user} 
+                                    tasks={tasks} 
+                                /> 
+                            } 
                         />
                         
                         <Route path="/update-task/:id" 
-                            element={ <UpdateTaskPage user={user} tasks={tasks}  /> }
+                            element={ 
+                                <UpdateTaskPage 
+                                user={user} 
+                                tasks={tasks}  
+                                /> 
+                            }
                         />
 
                     </Routes>

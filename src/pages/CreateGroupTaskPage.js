@@ -8,23 +8,9 @@ import GroupTaskForm from "../components/GroupTaskForm";
 import TaskPost from "../components/TaskPost";
 
 
-export default function CreateGroupTaskPage() {
-    const [grouptask, setGroupTask] = useState([]); 
+export default function CreateGroupTaskPage({grouptasks}) {
     const navigate = useNavigate();
     const auth = getAuth();
-
-
-    useEffect(() => {
-        const q = query(grouptaskRef, orderBy("createdAt", "desc"))
-        const unsubscribe = onSnapshot(q, (data) => {
-            const grouptaskData = data.docs.map((doc) => {
-                return { ...doc.data(), id: doc.id }; 
-            })
-            setGroupTask(grouptaskData);
-        })
-        return () => unsubscribe()
-    }, [])
-
 
     async function handleSubmit(newGroupTask) {
         newGroupTask.createdAt = serverTimestamp() // Timestamp (now)
@@ -55,7 +41,7 @@ export default function CreateGroupTaskPage() {
                         <h2 className="cntr-title">Group Tasks</h2>  
                     </div>              
                     <article>
-                        {grouptask.map(( task ) => (
+                        {grouptasks.map(( task ) => (
                             <div className="task-post" key={task.id}>
                                 <TaskPost task={task} key={task.id} /> 
                             </div>
@@ -63,7 +49,7 @@ export default function CreateGroupTaskPage() {
                     </article>
                 </div>
             </section>
-            
+
         </section>
     )
 };
