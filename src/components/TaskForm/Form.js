@@ -1,10 +1,12 @@
 import { useState } from "react";
 import Button from "../Button";
 import InputBlock from "./InputBlock";
+import SelectBlock from "./SelectBlock";
 
 
-export default function Form({ task, saveTask, handleSubmit, handleDelete }) {  
+export default function Form({ handleSubmit, group }) {  
   const [title, setTitle] = useState("");
+  const [person, setPerson] = useState("");
   const [date, setDate] = useState("");
   
   return (
@@ -19,6 +21,16 @@ export default function Form({ task, saveTask, handleSubmit, handleDelete }) {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           />
+
+        {group && (
+          <SelectBlock
+          inputTitle={"Who's doing the task?"}
+          value={person}
+          group={group}
+          onChange={(e) => setPerson(e.target.value)}
+          />
+        )}
+
           <InputBlock
           inputTitle={"Due date"}
           inputType={"date"}

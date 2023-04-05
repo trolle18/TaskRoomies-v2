@@ -32,7 +32,6 @@ export default function CreateTaskPage({tasks}) {
                     <h2>Create new task</h2>
                 </div>
                 <section className="form-cntr">
-
                     <TaskForm saveTask={saveTask} />
                 </section>
             </section>
