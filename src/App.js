@@ -12,8 +12,8 @@ import ProfilePage from "./pages/ProfilePage";
 import Nav from "./components/Nav";
 import Header from "./components/Header";
 import { WiSolarEclipse } from "react-icons/wi";
-import { doc, getDoc } from "firebase/firestore";
-import { usersRef } from "./firebase-config";
+import { collection, doc, getDoc, onSnapshot, orderBy, query } from "firebase/firestore";
+import { db, usersRef } from "./firebase-config";
 import UpdateProfilePage from "./pages/UpdateProfilePage";
 
 
@@ -21,6 +21,7 @@ function App() {
     const auth = getAuth();
     const [isAuth, setIsAuth] = React.useState(localStorage.getItem("isAuth"));
     const [user, setUser] = useState("");
+    const [tasks, setTasks] = useState([]);
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [image, setImage] = useState("");
@@ -46,6 +47,22 @@ function App() {
         button.classList.add(theme)
         localStorage.setItem('theme', theme)
     }
+
+    useEffect(() => {
+        async function getUserTasks() {
+          const uid = await(auth?.currentUser?.uid)
+          const tasksInUserRef = collection(db, `users/${uid}/userTasks`) // ref to nested collection in the user:
+          const q = query(tasksInUserRef, orderBy("createdAt")) // order / limit etc them
+          const unsubscribe = onSnapshot(q, (data) => {    // Refers to query instead of db-Ref, which returns filtered results - Unsub enables ability to watch components from a different page
+            const taskData = data.docs.map((doc) => {
+              return { ...doc.data(), id: doc.id, uid: doc.uid }  // Gets data from firebase (...doc.data) and with id: doc.id Z
+            })
+            setTasks(taskData)
+          })
+          return () => unsubscribe()
+        }
+        getUserTasks()
+      }, [auth?.currentUser?.uid]);
 
 
 
@@ -87,24 +104,57 @@ function App() {
                 <>
                     <Nav user={user} />
                     <Routes>
-                        <Route path="/" element={<HomePage user={user} />} />
-                        <Route path="*" element={<Navigate to="/"/>} />
-                        {/* <Route path="/signin" element={<SignInPage/>} />
-                        <Route path="/signup" element={<SignUpPage/>} /> */}
-                        <Route path="/profile/" element={<ProfilePage />} />
-                        <Route path="/profile-update" element={<UpdateProfilePage user={user} />} />
-                        <Route path="/create-grouptask" element={<CreateGroupTaskPage user={user} />} />
-                        <Route path="/update-grouptask/:id" element={<UpdateGroupTaskPage user={user} />} />
-                        <Route path="/create-task" element={<CreateTaskPage user={user} />} />
-                        <Route path="/update-task/:id" element={<UpdateTaskPage user={user} />} />
+                        <Route path="*" 
+                            element={ <Navigate to="/"/> }
+                        />
+
+                        <Route path="/"
+                            element={ <HomePage user={user} tasks={tasks} /> }
+                        />
+
+                        <Route path="/profile/" 
+                            element={ <ProfilePage /> }
+                        />
+
+                        <Route path="/profile-update" 
+                            element={ <UpdateProfilePage user={user} /> }
+                        />
+
+                        <Route path="/create-grouptask" 
+                            element={ <CreateGroupTaskPage user={user} /> } 
+                        />
+
+                        <Route path="/update-grouptask/:id" 
+                            element={ <UpdateGroupTaskPage user={user} /> }
+                        />
+
+                        <Route path="/create-task" 
+                            element={ <CreateTaskPage user={user} tasks={tasks} /> } 
+                        />
+                        
+                        <Route path="/update-task/:id" 
+                            element={ <UpdateTaskPage user={user} tasks={tasks}  /> }
+                        />
+
                     </Routes>
                 </>
             ) : (
                 <Routes>
-                    <Route path="/" element={<Navigate to="signin"/>} />
-                    <Route path="*" element={<Navigate to="/"/>} />
-                    <Route path="signin" element={<SignInPage/>} />
-                    <Route path="signup" element={<SignUpPage/>} />
+                    <Route path="/" 
+                        element={ <Navigate to="signin"/> } 
+                    />
+
+                    <Route path="*" 
+                        element={ <Navigate to="/"/> } 
+                    />
+
+                    <Route path="signin" 
+                        element={ <SignInPage/> } 
+                    />
+
+                    <Route path="signup" 
+                        element={ <SignUpPage/> } 
+                    />
                 </Routes>
             )}
          </div>
