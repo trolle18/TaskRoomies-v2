@@ -18,24 +18,26 @@
         align-items: baseline;
         text-transform: uppercase;
     }
-}
+    
+    .card {
+        margin: 0em 0em 2em 0em;
+    }
 
-.card {
-    margin: 0em 0em 2em 0em;
-}
+    .page-title {
+        // border: solid blue 0px;
+        max-width: 400px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
 
-.page-title {
-    // border: solid blue 0px;
-    max-width: 400px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-
-    svg {
-        height: 26px;
-        width: 26px;
+        svg {
+            height: 26px;
+            width: 26px;
+        }
     }
 }
+
+
 
 // .page-title > h2 {
 //     margin-top: 0px;
