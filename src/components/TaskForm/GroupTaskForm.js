@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { getDocs, query, orderBy } from "@firebase/firestore";
 import { usersRef } from "../firebase-config";
 import Button from "./Button";
+import InputBlock from "./InputBlock";
+import SelectBlock from "./SelectBlock";
 
 
 export default function GroupTaskForm({ saveGroupTask, grouptask }) {
@@ -59,36 +61,30 @@ export default function GroupTaskForm({ saveGroupTask, grouptask }) {
         <div className="flex-inner-wrapper flex-gap-2">
 
           <div className="flex-cols flex-gap-1">
-            <div className="flex-cols">
-              <span className="bold">Task title</span>
-              <input
-              placeholder="Task..."
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              />
-            </div>
 
-            <div className="flex-cols flex-gap-0">
-              <span className="bold">Who's doing the task?</span>
-              <select value={person} onChange={(e) => setPerson(e.target.value)} >
-                <option>Choose</option>
-                <option value="fælles">Fælles</option>
-                {group.map(person => (
-                  <option value={person.uid} key={person.uid}>{person.name}</option>
-                ))}
-              </select>
-            </div>
+            <InputBlock
+            inputTitle={"Task title"}
+            inputType={"text"}
+            placeholder={"Create a task title"}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            />
+            
+            <SelectBlock
+            inputTitle={"Who's doing the task?"}
+            value={person}
+            group={group}
+            onChange={(e) => setPerson(e.target.value)}
+            />
 
-            <div className="flex-cols">
-              <span className="bold">Due date</span>
-              <input
-              type="date"
-              pattern="\d{4}-\d{2}-\d{2}"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-              />
-            </div>  
+            <InputBlock
+            inputTitle={"Due date"}
+            inputType={"date"}
+            pattern={"d{4}-d{2}-d{2}"}
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            />
+            
           </div>
 
           <div className="flex-rows space-between">

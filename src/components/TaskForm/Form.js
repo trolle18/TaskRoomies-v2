@@ -1,50 +1,17 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { FaRegTrashAlt } from "react-icons/fa";
+import { useState } from "react";
 import Button from "../Button";
 import InputBlock from "./InputBlock";
 
 
-export default function TaskForm({ task, saveTask, handleDelete }) {
+export default function Form({ task, saveTask, handleSubmit, handleDelete }) {  
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
-  const [checkBool, setCheckBool] = useState(Boolean);
-  const [type, setType] = useState("");
-  const navigate = useNavigate();
-
-
-  useEffect(() => {
-    if (task) {
-      setTitle(task.title)
-      setDate(task.date)
-      setCheckBool(task.checkBool)
-      setType(task.type)
-    }
-  }, [task]);
-
-
-  const taskData = {
-    title: title,
-    date: date,
-    checkBool: checkBool,
-    type: "usertask",
-  };
-
-
-  function handleSubmit(event) {
-    event.preventDefault()
-    setType(type)
-    saveTask(taskData)
-    navigate("/")
-  };
   
-
   return (
     <form  className="flex-cols" onSubmit={handleSubmit}>
       <div className="flex-inner-wrapper flex-gap-2">
 
         <div className="flex-cols flex-gap-1">
-
           <InputBlock
           inputTitle={"Task title"}
           inputType={"text"}
@@ -52,7 +19,6 @@ export default function TaskForm({ task, saveTask, handleDelete }) {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           />
-
           <InputBlock
           inputTitle={"Due date"}
           inputType={"date"}
@@ -63,14 +29,6 @@ export default function TaskForm({ task, saveTask, handleDelete }) {
         </div>
 
         <div className="flex-rows space-between">
-          {/* <Button
-          children={ <FaRegTrashAlt/> }
-          styleType="btn btn-outline"             
-          label="Delete"
-          onClick={handleDelete}
-          disabled={false}
-          /> */}
-
           <Button
           children="Save"
           type="submit"
