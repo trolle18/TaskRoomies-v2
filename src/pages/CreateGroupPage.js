@@ -32,19 +32,22 @@ export default function CreateGroupPage() {
     }
 
     return (
-        <section className="page">
+        <section className="page page-cntr">
+            <section className="page__inner-cntr card">
 
-            <section className="card">
                 <Link to="/">
                     <AiOutlineArrowLeft size={30}/>
                 </Link>
+
                 <div className="page-title">
                     <AiOutlineUsergroupAdd/>
                     <h2>Create group</h2>
                 </div>
+
                 <section className="form-cntr">
                     <GroupForm saveGroup={handleSubmit} group={group} />
                 </section>
+
             </section>
         </section>
     )
