@@ -37,25 +37,35 @@ export default function CreateGroupTaskPage({ grouptasks }) {
   return (
     <section className="page">
       <section className="card">
+
         <Link to="/">
-          <AiOutlineArrowLeft size={30} /> <br></br>
+          <AiOutlineArrowLeft size={30} />
         </Link>
+
         <div className="page-title">
           {/* <AiOutlineCarryOut/> */}
           <h2>Create new group-task</h2>
         </div>
+
         <section className="form-cntr">
-          <Form saveTask={saveTask}  group={group} taskType="grouptask" />
+          <Form 
+          saveTask={saveTask}  
+          group={group} 
+          taskType="grouptask" 
+          />
         </section>
+
     </section>
 
       <section className="grid-cntr">
         <div className="task-cntr">
+
           <div className="title-box">
             <h4 className="cntr-title">
               Group tasks
             </h4>  
           </div> 
+
           <div className="task-posts-cntr">
             {grouptasks?.map( (task) => (
               <TaskPost task={task} key={task.id}
@@ -63,6 +73,7 @@ export default function CreateGroupTaskPage({ grouptasks }) {
               /> 
             ))}
           </div>
+          
         </div>
       </section>
 
