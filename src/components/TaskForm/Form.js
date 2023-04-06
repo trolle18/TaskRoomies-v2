@@ -9,6 +9,7 @@ export default function Form({ handleSubmit, group }) {
   const [person, setPerson] = useState("");
   const [date, setDate] = useState("");
   
+  
   return (
     <form  className="flex-cols" onSubmit={handleSubmit}>
       <div className="flex-inner-wrapper flex-gap-2">
