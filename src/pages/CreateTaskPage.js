@@ -7,7 +7,7 @@ import TaskPost from "../components/TaskPost";
 import TaskForm from "../components/TaskForm/TaskForm";
 
 
-export default function CreateTaskPage({tasks}) {
+export default function CreateTaskPage({ tasks }) {
   const navigate = useNavigate();
   const auth = getAuth();
 
@@ -29,7 +29,7 @@ export default function CreateTaskPage({tasks}) {
         <Link to="/">
           <AiOutlineArrowLeft size={30} /> 
         </Link>
-        
+
         <div className="page-title">
           <h2>Create new task</h2>
         </div>
