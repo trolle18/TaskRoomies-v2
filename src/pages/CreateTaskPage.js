@@ -25,24 +25,32 @@ export default function CreateTaskPage({tasks}) {
   return (
     <section className="page">
       <section className="card">
+
         <Link to="/">
           <AiOutlineArrowLeft size={30} /> 
         </Link>
+        
         <div className="page-title">
           <h2>Create new task</h2>
         </div>
+
         <section className="form-cntr">
-          <TaskForm saveTask={saveTask} />
+          <TaskForm 
+          saveTask={saveTask} 
+          />
+
         </section>
       </section>
 
       <section className="grid-cntr">
           <div className="task-cntr">
+
             <div className="title-box">
               <h4 className="cntr-title">
                 Tasks
               </h4>  
             </div> 
+
             <div className="task-posts-cntr">
               {tasks?.map( (task) => (
                 <TaskPost task={task} key={task.id} 
@@ -50,6 +58,7 @@ export default function CreateTaskPage({tasks}) {
                 /> 
               ))}
             </div>
+
           </div>
         </section>
     </section>
