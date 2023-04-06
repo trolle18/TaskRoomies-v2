@@ -20,13 +20,7 @@
 
     .page-title {
         margin: 1em auto 0.25em auto;
-        display: flex;
-        flex-direction: column;
-
-        svg {
-            height: 26px;
-            width: 26px;
-        }
+        text-transform: uppercase;
     }
 }
 
