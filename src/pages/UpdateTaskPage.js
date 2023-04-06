@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { doc, getDoc, updateDoc, deleteDoc, collection} from "@firebase/firestore";
 import { db } from "../firebase-config";
 import { FaRegTrashAlt } from "react-icons/fa";
-import { AiOutlineArrowLeft } from "react-icons/ai";
 import TaskForm from "../components/TaskForm";
 import { getAuth } from "firebase/auth";
 import Button from "../components/Button";
+import BackButton from "../components/BackButton";
 
 
 export default function UpdateTaskPage() {
@@ -52,12 +52,11 @@ export default function UpdateTaskPage() {
   return (
     <section className="page">
       <h1>Edit task</h1>
-      <Link to="/">
-          <AiOutlineArrowLeft size={30} /> 
-      </Link>
-      
+
+      <BackButton/>
+
       <section className="form-cntr">
-          <TaskForm 
+        <TaskForm 
         task={task}
         saveTask={saveTask}
         handleDelete={handleDelete}
