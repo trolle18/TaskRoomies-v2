@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
-export default function BackButton({link}) {
+export default function BackButton({ link }) {
   return (
     <>
       <div className="back-button">
