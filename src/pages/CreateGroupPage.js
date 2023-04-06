@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 import { onSnapshot, query, orderBy, addDoc, serverTimestamp } from "@firebase/firestore"; 
 import { groupRef } from "../firebase-config";
-import { AiOutlineArrowLeft, AiOutlineUsergroupAdd } from "react-icons/ai";
+import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import GroupForm from "../components/GroupForm";
+import BackButton from "../components/BackButton";
 
 
 export default function CreateGroupPage() {
@@ -35,9 +36,7 @@ export default function CreateGroupPage() {
         <section className="page page-cntr">
             <section className="page__inner-cntr card">
 
-                <Link to="/">
-                    <AiOutlineArrowLeft size={30}/>
-                </Link>
+                <BackButton/>
 
                 <div className="page-title">
                     <AiOutlineUsergroupAdd/>

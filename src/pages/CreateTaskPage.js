@@ -1,8 +1,7 @@
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 import { addDoc, serverTimestamp, collection } from "@firebase/firestore";
 import { db } from "../firebase-config";
-import { AiOutlineArrowLeft } from "react-icons/ai";
 import TaskPost from "../components/TaskPost";
 import TaskForm from "../components/TaskForm/TaskForm";
 import BackButton from "../components/BackButton";
@@ -26,7 +25,7 @@ export default function CreateTaskPage({ tasks }) {
   return (
     <section className="page spaced">
       <section className="card">
-        
+
         <BackButton/>
 
         <div className="page-title">
@@ -34,6 +33,7 @@ export default function CreateTaskPage({ tasks }) {
         </div>
 
         <section className="form-cntr">
+       
           <TaskForm 
           saveTask={saveTask} 
           />

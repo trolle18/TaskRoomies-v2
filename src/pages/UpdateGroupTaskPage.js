@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { doc, getDoc, updateDoc, deleteDoc } from "@firebase/firestore";
 import { grouptaskRef } from "../firebase-config";
 import { FaRegTrashAlt } from "react-icons/fa";
-import { AiOutlineArrowLeft } from "react-icons/ai";
 import GroupTaskForm from "../components/GroupTaskForm";
+import BackButton from "../components/BackButton";
 
 
 export default function UpdateGroupTaskPage() {
@@ -44,7 +44,7 @@ export default function UpdateGroupTaskPage() {
   return (
     <section className="page">
       <h1>Edit task</h1>
-      <Link to="/"> <AiOutlineArrowLeft size={30} /> </Link> 
+      <BackButton/>
 
       <section className="form-cntr">
         <GroupTaskForm saveGroupTask={handleSubmit} grouptask={grouptask} />

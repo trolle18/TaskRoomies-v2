@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 import { addDoc, serverTimestamp, getDocs, query, orderBy  } from "@firebase/firestore"; 
 import { grouptaskRef, usersRef } from "../firebase-config";
-import { AiOutlineArrowLeft } from "react-icons/ai";
 import TaskPost from "../components/TaskPost";
 import Form from "../components/TaskForm/Form";
+import BackButton from "../components/BackButton";
 
 
 export default function CreateGroupTaskPage({ grouptasks }) {
@@ -38,12 +38,9 @@ export default function CreateGroupTaskPage({ grouptasks }) {
     <section className="page spaced">
       <section className="card">
 
-        <Link to="/">
-          <AiOutlineArrowLeft size={30} />
-        </Link>
+        <BackButton/>
 
         <div className="page-title">
-          {/* <AiOutlineCarryOut/> */}
           <h2>Create new group-task</h2>
         </div>
 
