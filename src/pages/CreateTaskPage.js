@@ -26,10 +26,7 @@ export default function CreateTaskPage({ tasks }) {
   return (
     <section className="page spaced">
       <section className="card">
-
-        {/* <Link to="/">
-          <AiOutlineArrowLeft size={30} /> 
-        </Link> */}
+        
         <BackButton/>
 
         <div className="page-title">
