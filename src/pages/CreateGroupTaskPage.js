@@ -35,7 +35,7 @@ export default function CreateGroupTaskPage({ grouptasks }) {
 
 
   return (
-    <section className="page">
+    <section className="page spaced">
       <section className="card">
 
         <Link to="/">
@@ -73,7 +73,7 @@ export default function CreateGroupTaskPage({ grouptasks }) {
               /> 
             ))}
           </div>
-          
+
         </div>
       </section>
 

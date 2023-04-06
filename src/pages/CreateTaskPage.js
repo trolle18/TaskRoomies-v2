@@ -5,6 +5,7 @@ import { db } from "../firebase-config";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import TaskPost from "../components/TaskPost";
 import TaskForm from "../components/TaskForm/TaskForm";
+import BackButton from "../components/BackButton";
 
 
 export default function CreateTaskPage({ tasks }) {
@@ -23,12 +24,13 @@ export default function CreateTaskPage({ tasks }) {
 
 
   return (
-    <section className="page">
+    <section className="page spaced">
       <section className="card">
 
-        <Link to="/">
+        {/* <Link to="/">
           <AiOutlineArrowLeft size={30} /> 
-        </Link>
+        </Link> */}
+        <BackButton/>
 
         <div className="page-title">
           <h2>Create new task</h2>

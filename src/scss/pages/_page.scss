@@ -1,11 +1,12 @@
 
 .page {
-    // min-height: calc(100vh - 58px - 2em);
     padding: 1em;
     padding-bottom: 6em;
     color: $text_primary;
     background-color: $clr_bg;
     transition: all 0.5s;    
+    display: flex;
+    flex-direction: column;
 
     &__header-cntr {
         width: 100%;
@@ -16,13 +17,8 @@
         text-transform: uppercase;
     }
     
-    // .card {
-    //     margin: 0em 0em 2em 0em;
-    // }
-
 
     .page-title {
-        // max-width: 400px;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
@@ -34,3 +30,7 @@
     }
 }
 
+
+.spaced {
+    gap: 2em;
+}
