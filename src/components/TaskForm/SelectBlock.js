@@ -11,8 +11,13 @@ const SelectBlock = ({ inputTitle, value, group, onChange }) => {
         <select value={value} onChange={onChange} >
           <option>Choose</option>
           <option value="fælles">Fælles</option>
-          {group.map(person => (
-            <option value={person.uid} key={person.uid}>{person.name}</option>
+          {group.map((person, i) => (
+            <option 
+            key={i}
+            value={person.uid}
+            >
+              {person.name}
+            </option>
           ))}
         </select>
 
